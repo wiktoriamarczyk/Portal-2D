@@ -58,3 +58,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+/Portal-2D/obj
+/Portal-2D/Assembly-CSharp.csproj
+/Portal-2D/Portal-2D.sln
+/Portal-2D/.vs
+/Portal-2D/Library
+/Portal-2D/Logs
