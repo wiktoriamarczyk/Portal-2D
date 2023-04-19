@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     private eMovementState         movementState;
     private Animator               animator;
+    private float                  dirX = 0f;
+    private bool                   isJumping = false;
+    private bool                   isFacingRight = true;
 
     private enum eMovementState
     {
@@ -17,37 +20,59 @@ public class PlayerMovement : MonoBehaviour
         FALL
     }
 
-    void Start()
+    private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
-        float dirX = Input.GetAxisRaw("Horizontal");
-        rigidbody.velocity = new Vector2(dirX * speed, rigidbody.velocity.y);
+        dirX = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && Math.Abs(rigidbody.velocity.y) < 0.01)
         {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
+            isJumping = true;
         }
+    }
 
+    private void FixedUpdate()
+    {
+        rigidbody.velocity = new Vector2(dirX * speed, rigidbody.velocity.y);
+        if (isJumping)
+        {
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
+            isJumping = false;
+        }
         AnimationUpdate(dirX);
     }
 
-    void AnimationUpdate(float dirX)
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    private void AnimationUpdate(float dirX)
     {
         if (dirX > 0)
         {
             // flip sprite
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (isFacingRight)
+            {
+                Flip();
+            }
             movementState = eMovementState.WALK;
         }
         else if (dirX < 0)
         {
             // flip sprite
-            transform.localScale = new Vector3(1, 1, 1);
+            if (!isFacingRight)
+            {
+                Flip();
+            }
             movementState = eMovementState.WALK;
         }
         else
