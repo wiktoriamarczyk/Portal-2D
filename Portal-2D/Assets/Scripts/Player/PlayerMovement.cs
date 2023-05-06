@@ -3,16 +3,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D            rigidbody;
-    [SerializeField] private float speed = 8f;
-    [SerializeField] private float jumpForce = 14f;
-    private eMovementState         movementState;
-    private Animator               animator;
-    private float                  dirX = 0f;
-    private bool                   isJumping = false;
-    private bool                   isFacingRight = true;
+    [SerializeField] float speed = 8f;
+    [SerializeField] float jumpForce = 14f;
 
-    private enum eMovementState
+    Rigidbody2D    rigidbody;
+    eMovementState movementState;
+    Animator       animator;
+    float          dirX = 0f;
+    bool           isJumping = false;
+    bool           isFacingRight = true;
+
+    public bool IsFacingRight
+    {
+        get => isFacingRight;
+        set => isFacingRight = value;
+    }
+
+    enum eMovementState
     {
         IDLE,
         WALK,
@@ -20,13 +27,13 @@ public class PlayerMovement : MonoBehaviour
         FALL
     }
 
-    private void Start()
+    void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal");
 
@@ -36,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         rigidbody.velocity = new Vector2(dirX * speed, rigidbody.velocity.y);
         if (isJumping)
@@ -47,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         AnimationUpdate(dirX);
     }
 
-    private void Flip()
+    void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 scale = transform.localScale;
@@ -55,12 +62,12 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
     }
 
-    private void AnimationUpdate(float dirX)
+    void AnimationUpdate(float dirX)
     {
         if (dirX > 0)
         {
             // flip sprite
-            if (isFacingRight)
+            if (!isFacingRight)
             {
                 Flip();
             }
@@ -69,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         else if (dirX < 0)
         {
             // flip sprite
-            if (!isFacingRight)
+            if (isFacingRight)
             {
                 Flip();
             }
