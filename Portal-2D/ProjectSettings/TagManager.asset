@@ -11,14 +11,14 @@ TagManager:
   - 
   - Water
   - UI
+  - 
+  - 
+  - Terrain
+  - Player
+  - 
+  - 
   - Background
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 3565803251
     locked: 0

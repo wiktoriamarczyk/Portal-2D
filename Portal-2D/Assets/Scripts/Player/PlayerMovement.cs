@@ -27,6 +27,14 @@ public class PlayerMovement : MonoBehaviour
         FALL
     }
 
+    public void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -52,14 +60,6 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
         AnimationUpdate(dirX);
-    }
-
-    void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 
     void AnimationUpdate(float dirX)

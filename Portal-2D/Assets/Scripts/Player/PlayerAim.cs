@@ -9,11 +9,12 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] Texture2D[] cursorTextures;
     [SerializeField] Transform arm;
 
-    CursorMode cursorMode = CursorMode.ForceSoftware;
-    Vector2 hotSpot = Vector2.zero;
-    eCursorType cursor = eCursorType.ORANGE;
-    float offset = -90;
-    PlayerMovement player;
+    PlayerMovement  player;
+    CursorMode      cursorMode = CursorMode.ForceSoftware;
+    Vector2         hotSpot = Vector2.zero;
+    eCursorType     cursor = eCursorType.ORANGE;
+    float           minAngleRange = -60f;
+    float           maxAngleRange = 60f;
 
 
     enum eCursorType
@@ -62,20 +63,19 @@ public class PlayerAim : MonoBehaviour
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 perpendicular = arm.position + mousePos;
-        Quaternion val = Quaternion.LookRotation(Vector3.forward, perpendicular);
-        val *= Quaternion.Euler(0, 0, inverse * offset);
-        arm.rotation = val;
-
+        Quaternion value = Quaternion.LookRotation(Vector3.forward, perpendicular);
+        value *= Quaternion.Euler(0, 0, inverse * (-90));
+        arm.rotation = value;
 
         // Limits the viewing angle
-        var angle = ModularClamp(arm.rotation.eulerAngles.z, -60f, 60f);
+        var angle = ModularClamp(arm.rotation.eulerAngles.z, minAngleRange, maxAngleRange);
         arm.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    float ModularClamp(float val, float min, float max, float rangemin = -180f, float rangemax = 180f)
+    float ModularClamp(float value, float min, float max, float rangemin = -180f, float rangemax = 180f)
     {
         var modulus = Mathf.Abs(rangemax - rangemin);
-        if ((val %= modulus) < 0f) val += modulus;
-        return Mathf.Clamp(val + Mathf.Min(rangemin, rangemax), min, max);
+        if ((value %= modulus) < 0f) value += modulus;
+        return Mathf.Clamp(value + Mathf.Min(rangemin, rangemax), min, max);
     }
 }
