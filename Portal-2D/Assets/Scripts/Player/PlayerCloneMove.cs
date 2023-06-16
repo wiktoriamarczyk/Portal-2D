@@ -13,11 +13,11 @@ public class PlayerCloneMove : MonoBehaviour
 
     void Update()
     {
-        transform.position = PortalManager.Instance.objectToClone.transform.position + offsetToPlayer;
+        transform.position = PortalManager.Instance.ObjectToCloneProperty.transform.position + offsetToPlayer;
     }
 
     public void Reset()
     {
-        offsetToPlayer = transform.position - PortalManager.Instance.objectToClone.transform.position;
+        offsetToPlayer = transform.position - PortalManager.Instance.ObjectToCloneProperty.transform.position;
     }
 }

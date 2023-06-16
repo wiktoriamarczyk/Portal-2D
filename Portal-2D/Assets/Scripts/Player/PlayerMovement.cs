@@ -98,5 +98,4 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetInteger("state", (int)movementState);
     }
-
 }
