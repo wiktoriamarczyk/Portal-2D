@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Terrain
   - ImpostorTerrain
+  - Blue Portal
+  - Orange Portal
   layers:
   - Default
   - TransparentFX
@@ -42,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 3947359155
+    locked: 0
+  - name: BehindPlayer
+    uniqueID: 2905955911
     locked: 0
   - name: Default
     uniqueID: 0

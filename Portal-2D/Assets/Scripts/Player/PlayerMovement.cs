@@ -64,24 +64,24 @@ public class PlayerMovement : MonoBehaviour
 
     void AnimationUpdate(float dirX)
     {
-        if (dirX > 0)
+        if (dirX > 0 || dirX < 0)
         {
             // flip sprite
-            if (!isFacingRight)
-            {
-                Flip();
-            }
+            //if (!isFacingRight)
+            //{
+            //    Flip();
+            //}
             movementState = eMovementState.WALK;
         }
-        else if (dirX < 0)
-        {
-            // flip sprite
-            if (isFacingRight)
-            {
-                Flip();
-            }
-            movementState = eMovementState.WALK;
-        }
+        //else if (dirX < 0)
+        //{
+        //    // flip sprite
+        //    if (isFacingRight)
+        //    {
+        //        Flip();
+        //    }
+        //    movementState = eMovementState.WALK;
+        //}
         else
         {
             movementState = eMovementState.IDLE;

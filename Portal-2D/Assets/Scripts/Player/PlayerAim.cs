@@ -9,17 +9,18 @@ using UnityEngine.Tilemaps;
 public class PlayerAim : MonoBehaviour
 {
     [SerializeField] Texture2D[] cursorTextures;
-    [SerializeField] Transform arm;
+    [SerializeField] Transform   arm;
+    [SerializeField] Transform   projectileSpawner;
+    [SerializeField] GameObject  blueProjectile;
+    [SerializeField] GameObject orangeProjectile;
 
     PlayerMovement  player;
     CursorMode      cursorMode = CursorMode.ForceSoftware;
     Vector2         hotSpot = Vector2.zero;
+    Tilemap         tilemap;
     eCursorType     cursor = eCursorType.ORANGE;
     float           minAngleRange = -60f;
     float           maxAngleRange = 60f;
-
-    [SerializeField] Tilemap tilemap;
-
 
     enum eCursorType
     {
@@ -35,6 +36,8 @@ public class PlayerAim : MonoBehaviour
 
     void Update()
     {
+        tilemap = PortalManager.Instance.TilemapProperty;
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             ChangeCursor(eCursorType.BLUE);
@@ -51,7 +54,7 @@ public class PlayerAim : MonoBehaviour
 
     void Fire()
     {
-        // ostatnim parametrem s¹ warstwy brane pod uwagê przez raycast za wyj¹tkiem warstwy, na której jest gracz
+        // ostatnim parametrem sÄ… warstwy brane pod uwagÄ™ przez raycast za wyjÄ…tkiem warstwy, na ktÃ³rej jest gracz
         RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 100f, ~(1 << 9));
         if (hit.collider != null)
         {
@@ -63,10 +66,24 @@ public class PlayerAim : MonoBehaviour
             Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(hit.point + hit.normal * -0.1f);
             Debug.Log("hit on grid pos: " + cellPosition);
 
+            Quaternion projectileRot;
+            if (GetComponent<PlayerMovement>().IsFacingRight)
+                projectileRot = arm.rotation;
+            else
+                projectileRot = new Quaternion(-arm.rotation.x, -arm.rotation.y, -arm.rotation.z, 0);
+
             if (cursor == eCursorType.BLUE)
-                PortalManager.Instance.TrySpawnBluePortal(tilemap, hit.normal, cellPosition);
+            {
+                var projectile = Instantiate(blueProjectile, projectileSpawner.position, projectileRot);
+                projectile.GetComponent<Projectile>().InitializeProjectile(hit.point, Projectile.eProjectileType.BLUE);
+                projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
+            }
             else if (cursor == eCursorType.ORANGE)
-                PortalManager.Instance.TrySpawnOrangePortal(tilemap, hit.normal, cellPosition);
+            {
+                var projectile = Instantiate(orangeProjectile, projectileSpawner.position, projectileRot);
+                projectile.GetComponent<Projectile>().InitializeProjectile(hit.point, Projectile.eProjectileType.ORANGE);
+                projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
+            }
         }
     }
 
@@ -93,6 +110,11 @@ public class PlayerAim : MonoBehaviour
         // ogranicz zakres obrotu ramienia
         var angle = ModularClamp(arm.rotation.eulerAngles.z, minAngleRange, maxAngleRange);
         arm.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (!player.IsFacingRight && mousePos.x > player.transform.position.x)
+            player.Flip();
+        else if (player.IsFacingRight && mousePos.x < player.transform.position.x)
+            player.Flip();
     }
 
     float ModularClamp(float value, float min, float max, float rangemin = -180f, float rangemax = 180f)

@@ -11,16 +11,19 @@ public class PortalManager : MonoBehaviour
     [SerializeField] GameObject objectToClone;
     [SerializeField] GameObject bluePortalPrefab;
     [SerializeField] GameObject orangePortalPrefab;
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] Tilemap impostorTilemap;
 
     GameObject chellClone;
     GameObject instantiatedObjectsParent;
-    GameObject bluePortal;
-    GameObject orangePortal;
+    PortalBehaviour bluePortal;
+    PortalBehaviour orangePortal;
     Transform spawnPosition;
 
     int colliderEnterCount = 0;
     string cloneName = "PortalClone";
     const int portalGridHeight = 6;
+
 
     /* public properties */
     public string CloneNameProperty
@@ -31,6 +34,15 @@ public class PortalManager : MonoBehaviour
     public GameObject ObjectToCloneProperty
     {
         get => objectToClone;
+    }
+
+    public Tilemap TilemapProperty
+    {
+        get => tilemap;
+    }
+    public Tilemap ImpostorTilemapProperty
+    {
+        get => impostorTilemap;
     }
 
     void Start()
@@ -46,6 +58,7 @@ public class PortalManager : MonoBehaviour
 
         // ----to mo¿na zrobiæ eleganCIEJ----
         instantiatedObjectsParent = GameObject.Find("---Environment---/Units");
+        tilemap = PortalManager.Instance.TilemapProperty;
     }
 
     public void CreateClone(GameObject portal, GameObject source)
@@ -54,17 +67,18 @@ public class PortalManager : MonoBehaviour
         if (chellClone)
             return;
 
-        // jeœli sygna³ przyszed³ z niebieskiego portalu, to stwórz instancjê klona na pozycji spawnu pomarañczowego portalu
-        if (portal == bluePortalPrefab)
-            spawnPosition = orangePortalPrefab.transform;
+        // stwórz instancjê klona w miejscu portalu, przez który przeszliœmy
+        if (portal.CompareTag("Orange Portal"))
+            spawnPosition = bluePortal.transform;
         else
-            spawnPosition = bluePortalPrefab.transform;
+            spawnPosition = orangePortal.transform;
 
         // stwórz klona w miejscu portala, przez który przechodzimy i wy³¹cz mu fizykê
         Vector3 yOffset = new Vector3(0, portal.transform.position.y - objectToClone.transform.position.y, 0);
         chellClone = Instantiate(objectToClone, spawnPosition.position - yOffset, Quaternion.identity);
         chellClone.transform.SetParent(instantiatedObjectsParent.transform);
         // objectToClone.GetComponent<PlayerMovement>().Flip();
+        chellClone.GetComponent<PlayerMovement>().IsFacingRight = objectToClone.GetComponent<PlayerMovement>().IsFacingRight;
         chellClone.gameObject.name = cloneName;
         chellClone.AddComponent<PlayerCloneMove>();
         chellClone.GetComponent<Rigidbody2D>().simulated = false;
@@ -87,23 +101,31 @@ public class PortalManager : MonoBehaviour
             Destroy(chellClone);
     }
 
-    public void TrySpawnBluePortal(Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)
+    public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
     {
-        if (!IsValidPortalPosition(tilemap, normal, gridPosition))
-            return;
+        if (bluePortal != null)
+            bluePortal.InitDestroyment();
 
-        SpawnPortal(bluePortalPrefab, tilemap, normal, gridPosition);
+        if (!IsValidPortalPosition(tilemap, normal, gridPosition))
+            return false;
+
+        SpawnPortal(bluePortalPrefab, normal, gridPosition);
+        return true;
     }
 
-    public void TrySpawnOrangePortal(Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)
+    public bool TrySpawnOrangePortal(Vector2 normal, Vector3Int gridPosition)
     {
-        if (!IsValidPortalPosition(tilemap, normal, gridPosition))
-            return;
+        if (orangePortal != null)
+            orangePortal.InitDestroyment();
 
-        SpawnPortal(orangePortalPrefab, tilemap, normal, gridPosition);
+        if (!IsValidPortalPosition(tilemap, normal, gridPosition))
+            return false;
+
+        SpawnPortal(orangePortalPrefab, normal, gridPosition);
+        return true;
     }
 
-    void SpawnPortal(GameObject portalPrefab, Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)
+    void SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
         var right = new Vector3(normal.x, normal.y, 0.0f);
 
@@ -112,15 +134,23 @@ public class PortalManager : MonoBehaviour
         Debug.Log("angle " + angle);
         Quaternion rotationQuaternion = Quaternion.Euler(0, 0, angle);
 
-        GameObject portalObject;
+
+        // ------- TO FIX ------------
+        // ------ B£ÊDNIE DLA PORTALI UMIESZCZANYCH NA LEWEJ ŒCIANIE -----------
+        if (angle != 0)
+        {
+            //gridPosition.x += 1; //dla wygl¹u
+            gridPosition.y -= 1; //dla kafelek
+        }
+
+
+        GameObject portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition), rotationQuaternion);
+        portalObject.transform.SetParent(instantiatedObjectsParent.transform);
 
         if (portalPrefab == orangePortalPrefab)
-            portalObject = orangePortal;
-        else if (portalPrefab == bluePortal)
-            portalObject = bluePortal;
-
-        portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition), rotationQuaternion);
-        portalObject.transform.SetParent(instantiatedObjectsParent.transform);
+            orangePortal = portalObject.GetComponent<PortalBehaviour>();
+        else if (portalPrefab == bluePortalPrefab)
+            bluePortal = portalObject.GetComponent<PortalBehaviour>();
     }
 
     bool IsValidPortalPosition(Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)

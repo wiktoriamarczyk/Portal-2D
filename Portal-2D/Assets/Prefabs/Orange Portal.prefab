@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4720870754335053372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8091278
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.814705
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.053932786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062611161290561305, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479548783181158625, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479548783181158625, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1483382014, guid: dc05371fdaf3cec429a93d5700b2e1e2, type: 3}
+    - target: {fileID: 3915586431661376651, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_Name
+      value: Orange Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915586431661376651, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_TagString
+      value: Orange Portal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+--- !u!1 &8634829771264479927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3915586431661376651, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+  m_PrefabInstance: {fileID: 4720870754335053372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4864808106428101908
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634829771264479927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 305c60120143f9b45aa0236b3a034e33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
