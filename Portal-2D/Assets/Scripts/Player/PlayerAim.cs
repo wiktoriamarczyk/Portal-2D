@@ -97,24 +97,27 @@ public class PlayerAim : MonoBehaviour
 
     void RotateArm()
     {
-        var inverse = 1f;
-        if (!player.IsFacingRight)
-            inverse = -1f;
-
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         Vector3 perpendicular = arm.position + mousePos;
         Quaternion value = Quaternion.LookRotation(Vector3.forward, perpendicular);
-        value *= Quaternion.Euler(0, 0, inverse * (-90));
+        value *= Quaternion.Euler(0, 0, 90);
         arm.rotation = value;
 
         // ogranicz zakres obrotu ramienia
         var angle = ModularClamp(arm.rotation.eulerAngles.z, minAngleRange, maxAngleRange);
-        arm.rotation = Quaternion.Euler(0, 0, angle);
+
+        var inverse = 1f;
+        if (player.IsFacingRight)
+            inverse = -1f;
+
+        arm.rotation = Quaternion.Euler(0, 0, inverse * angle);
 
         if (!player.IsFacingRight && mousePos.x > player.transform.position.x)
             player.Flip();
         else if (player.IsFacingRight && mousePos.x < player.transform.position.x)
             player.Flip();
+
     }
 
     float ModularClamp(float value, float min, float max, float rangemin = -180f, float rangemax = 180f)
