@@ -56,6 +56,10 @@ PrefabInstance:
       value: Blue Portal
       objectReference: {fileID: 0}
     - target: {fileID: 3915586431661376651, guid: ea23703dc52079141b0709b5478609b1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915586431661376651, guid: ea23703dc52079141b0709b5478609b1, type: 3}
       propertyPath: m_TagString
       value: Blue Portal
       objectReference: {fileID: 0}

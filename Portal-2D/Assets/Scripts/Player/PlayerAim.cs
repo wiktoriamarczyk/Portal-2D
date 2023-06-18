@@ -28,6 +28,16 @@ public class PlayerAim : MonoBehaviour
         ORANGE
     }
 
+    enum eLayerType
+    {
+        DEFAULT = 0,
+        FOREGROUND = 7,
+        TERRAIN = 8,
+        NON_PORTAL = 9,
+        UNITS = 10,
+        BACKGROUND = 12,
+    }
+
     void Awake()
     {
         ChangeCursor(eCursorType.BLUE);
@@ -55,7 +65,12 @@ public class PlayerAim : MonoBehaviour
     void Fire()
     {
         // ostatnim parametrem są warstwy brane pod uwagę przez raycast za wyjątkiem warstwy, na której jest gracz
-        RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 100f, ~(1 << 9));
+        RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 100f, ~(1 << (int)eLayerType.UNITS));
+        int hitLayer = -1;
+        if (hit == true)
+            hitLayer = hit.transform.gameObject.layer;
+        Debug.Log("!!!!!!!!!" + hitLayer);
+
         if (hit.collider != null)
         {
             // ----DEBUG----
@@ -66,24 +81,21 @@ public class PlayerAim : MonoBehaviour
             Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(hit.point + hit.normal * -0.1f);
             Debug.Log("hit on grid pos: " + cellPosition);
 
-            Quaternion projectileRot;
-            if (GetComponent<PlayerMovement>().IsFacingRight)
-                projectileRot = arm.rotation;
-            else
-                projectileRot = new Quaternion(-arm.rotation.x, -arm.rotation.y, -arm.rotation.z, 0);
-
+            GameObject projectile;
             if (cursor == eCursorType.BLUE)
             {
-                var projectile = Instantiate(blueProjectile, projectileSpawner.position, projectileRot);
+                projectile = Instantiate(blueProjectile, projectileSpawner.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().InitializeProjectile(hit.point, Projectile.eProjectileType.BLUE);
-                projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
             }
-            else if (cursor == eCursorType.ORANGE)
+            else
             {
-                var projectile = Instantiate(orangeProjectile, projectileSpawner.position, projectileRot);
+                projectile = Instantiate(orangeProjectile, projectileSpawner.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().InitializeProjectile(hit.point, Projectile.eProjectileType.ORANGE);
-                projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
+
             }
+
+            if (hit == true && hitLayer != (int)eLayerType.NON_PORTAL)
+                projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
         }
     }
 
@@ -95,6 +107,7 @@ public class PlayerAim : MonoBehaviour
         Cursor.SetCursor(cursorTextures[(int)cursorType], hotSpot, cursorMode);
     }
 
+    /* TO FIX */
     void RotateArm()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -117,7 +130,6 @@ public class PlayerAim : MonoBehaviour
             player.Flip();
         else if (player.IsFacingRight && mousePos.x < player.transform.position.x)
             player.Flip();
-
     }
 
     float ModularClamp(float value, float min, float max, float rangemin = -180f, float rangemax = 180f)

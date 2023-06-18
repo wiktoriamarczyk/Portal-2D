@@ -3,6 +3,8 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static UnityEditor.PlayerSettings;
+using System.Collections.Generic;
+using System.Threading;
 
 public class PortalManager : MonoBehaviour
 {
@@ -118,11 +120,22 @@ public class PortalManager : MonoBehaviour
         if (orangePortal != null)
             orangePortal.InitDestroyment();
 
-        if (!IsValidPortalPosition(tilemap, normal, gridPosition))
-            return false;
 
-        SpawnPortal(orangePortalPrefab, normal, gridPosition);
-        return true;
+        Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
+        var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
+
+        List<Vector3Int> cells = new List<Vector3Int> { gridPosition, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
+
+        foreach (var cell in cells)
+        {
+            if (IsValidPortalPosition(tilemap, normal, cell))
+            {
+                SpawnPortal(orangePortalPrefab, normal, cell);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     void SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
@@ -130,19 +143,15 @@ public class PortalManager : MonoBehaviour
         var right = new Vector3(normal.x, normal.y, 0.0f);
 
         Debug.Log("Valid placement for blue portal");
-        float angle = Vector3.Angle(normal, Vector3.left);
-        Debug.Log("angle " + angle);
-        Quaternion rotationQuaternion = Quaternion.Euler(0, 0, angle);
+        float angle = Vector3.SignedAngle(normal, Vector3.left, Vector3.forward);
 
+        Debug.Log("angle " + angle);
 
         // ------- TO FIX ------------
-        // ------ B£ÊDNIE DLA PORTALI UMIESZCZANYCH NA LEWEJ ŒCIANIE -----------
-        if (angle != 0)
-        {
-            //gridPosition.x += 1; //dla wygl¹u
-            gridPosition.y -= 1; //dla kafelek
-        }
+        if (Mathf.Abs(angle) - 90 < 0.01f)
+            angle = -angle;
 
+        Quaternion rotationQuaternion = Quaternion.Euler(0, 0, angle);
 
         GameObject portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition), rotationQuaternion);
         portalObject.transform.SetParent(instantiatedObjectsParent.transform);

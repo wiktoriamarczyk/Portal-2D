@@ -9,7 +9,7 @@ public class PortalBehaviour : MonoBehaviour
     Tilemap tilemap;
     Tilemap impostorTilemap;
     const int portalGridHeight = 6;
-    const int portalGridWidtht = 2;
+    const int portalGridWidth = 2;
 
     void Start()
     {
@@ -47,7 +47,7 @@ public class PortalBehaviour : MonoBehaviour
         Vector3Int tilePos = Vector3Int.zero;
 
         // przesuñ punkt startowy ³¹cznie o 2 jednostki w bok
-        for (int x = 0; x < portalGridWidtht; ++x)
+        for (int x = 0; x < portalGridWidth; ++x)
         {
             Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * x);
             // przesuñ punkt startowy ³¹cznie o 6 jednostek w górê
@@ -62,24 +62,35 @@ public class PortalBehaviour : MonoBehaviour
             }
         }
         // ------- TO FIX ------------
-        if (transform.rotation.z != 0)
+        if (Mathf.Abs(transform.eulerAngles.z - 270) < 0.01)
         {
-            transform.position = new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
+        else if (transform.eulerAngles.z != 0)
+        {
+            transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+        }
+
     }
 
     void RestoreTiles()
     {
         // ------- TO FIX ------------
-        if (transform.rotation.z != 0)
+        if (Mathf.Abs(transform.eulerAngles.z - 270) < 0.01)
         {
-            transform.position = new Vector3(transform.position.x - 1, transform.position.y - 1, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
         }
+        else if (transform.eulerAngles.z != 0)
+        {
+            transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+        }
+
+
         Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(transform.position);
         cellPosition += Vector3Int.RoundToInt(gameObject.transform.up * -(portalGridHeight / 2));
         Vector3Int tilePos = Vector3Int.zero;
 
-        for (int x = 0; x < portalGridWidtht; ++x)
+        for (int x = 0; x < portalGridWidth; ++x)
         {
             Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * x);
             for (int y = 0; y < portalGridHeight; ++y)
@@ -88,8 +99,8 @@ public class PortalBehaviour : MonoBehaviour
 
                 tilePos = cellPosition + shiftX + shiftY;// + new Vector3Int(x, y, 0);
                 var tile = impostorTilemap.GetTile(tilePos);
-                impostorTilemap.SetTile(tilePos, null);
                 tilemap.SetTile(tilePos, tile);
+                impostorTilemap.SetTile(tilePos, null);
             }
         }
     }
