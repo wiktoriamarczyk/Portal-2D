@@ -10,14 +10,16 @@ public class PortalManager : MonoBehaviour
 {
     public static PortalManager Instance { get; private set; }
 
-    [SerializeField] GameObject objectToClone;
+    [SerializeField] GameObject chellPrefab;
+    [SerializeField] GameObject cubePrefab;
     [SerializeField] GameObject bluePortalPrefab;
     [SerializeField] GameObject orangePortalPrefab;
     [SerializeField] Tilemap tilemap;
     [SerializeField] Tilemap impostorTilemap;
 
-    GameObject chellClone;
-    GameObject instantiatedObjectsParent;
+    GameObject objectToClone;
+    GameObject clone;
+
     PortalBehaviour bluePortal;
     PortalBehaviour orangePortal;
     Transform spawnPosition;
@@ -36,6 +38,7 @@ public class PortalManager : MonoBehaviour
     public GameObject ObjectToCloneProperty
     {
         get => objectToClone;
+        set => objectToClone = value;
     }
 
     public Tilemap TilemapProperty
@@ -58,15 +61,13 @@ public class PortalManager : MonoBehaviour
         else
             Instance = this;
 
-        // ----to mo¿na zrobiæ eleganCIEJ----
-        instantiatedObjectsParent = GameObject.Find("---Environment---/Units");
         tilemap = PortalManager.Instance.TilemapProperty;
     }
 
     public void CreateClone(GameObject portal, GameObject source)
     {
         colliderEnterCount++;
-        if (chellClone)
+        if (clone)
             return;
 
         // stwórz instancjê klona w miejscu portalu, przez który przeszliœmy
@@ -77,30 +78,29 @@ public class PortalManager : MonoBehaviour
 
         // stwórz klona w miejscu portala, przez który przechodzimy i wy³¹cz mu fizykê
         Vector3 yOffset = new Vector3(0, portal.transform.position.y - objectToClone.transform.position.y, 0);
-        chellClone = Instantiate(objectToClone, spawnPosition.position - yOffset, Quaternion.identity);
-        chellClone.transform.SetParent(instantiatedObjectsParent.transform);
+        clone = Instantiate(objectToClone, spawnPosition.position - yOffset, Quaternion.identity);
         // objectToClone.GetComponent<PlayerMovement>().Flip();
-        chellClone.GetComponent<PlayerMovement>().IsFacingRight = objectToClone.GetComponent<PlayerMovement>().IsFacingRight;
-        chellClone.gameObject.name = cloneName;
-        chellClone.AddComponent<PlayerCloneMove>();
-        chellClone.GetComponent<Rigidbody2D>().simulated = false;
-        chellClone.GetComponent<BoxCollider2D>().enabled = false;
+        if (clone.CompareTag("Player"))
+            clone.GetComponent<PlayerMovement>().IsFacingRight = objectToClone.GetComponent<PlayerMovement>().IsFacingRight;
+        clone.gameObject.name = cloneName;
+        clone.AddComponent<PlayerCloneMove>();
+        clone.GetComponent<Rigidbody2D>().simulated = false;
+        clone.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void Teleport()
     {
-        var clonePos = chellClone.transform.position;
-        chellClone.transform.position = objectToClone.transform.position;
+        var clonePos = clone.transform.position;
+        clone.transform.position = objectToClone.transform.position;
         objectToClone.transform.position = clonePos;
-
-        chellClone.GetComponent<PlayerCloneMove>().Reset();
+        clone.GetComponent<PlayerCloneMove>().Reset();
     }
 
     public void DestroyClone(GameObject source)
     {
         colliderEnterCount--;
         if (colliderEnterCount == 0)
-            Destroy(chellClone);
+            Destroy(clone);
     }
 
     public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
@@ -108,11 +108,21 @@ public class PortalManager : MonoBehaviour
         if (bluePortal != null)
             bluePortal.InitDestroyment();
 
-        if (!IsValidPortalPosition(tilemap, normal, gridPosition))
-            return false;
+        Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
+        var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
 
-        SpawnPortal(bluePortalPrefab, normal, gridPosition);
-        return true;
+        List<Vector3Int> cells = new List<Vector3Int> { gridPosition, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
+
+        foreach (var cell in cells)
+        {
+            if (IsValidPortalPosition(tilemap, normal, cell))
+            {
+                bluePortal = SpawnPortal(bluePortalPrefab, normal, cell);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public bool TrySpawnOrangePortal(Vector2 normal, Vector3Int gridPosition)
@@ -130,7 +140,7 @@ public class PortalManager : MonoBehaviour
         {
             if (IsValidPortalPosition(tilemap, normal, cell))
             {
-                SpawnPortal(orangePortalPrefab, normal, cell);
+                orangePortal = SpawnPortal(orangePortalPrefab, normal, cell);
                 return true;
             }
         }
@@ -138,7 +148,7 @@ public class PortalManager : MonoBehaviour
         return false;
     }
 
-    void SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
+    PortalBehaviour SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
         var right = new Vector3(normal.x, normal.y, 0.0f);
 
@@ -154,12 +164,12 @@ public class PortalManager : MonoBehaviour
         Quaternion rotationQuaternion = Quaternion.Euler(0, 0, angle);
 
         GameObject portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition), rotationQuaternion);
-        portalObject.transform.SetParent(instantiatedObjectsParent.transform);
 
-        if (portalPrefab == orangePortalPrefab)
-            orangePortal = portalObject.GetComponent<PortalBehaviour>();
-        else if (portalPrefab == bluePortalPrefab)
-            bluePortal = portalObject.GetComponent<PortalBehaviour>();
+        //if (portalPrefab == orangePortalPrefab)
+        //    orangePortal = portalObject.GetComponent<PortalBehaviour>();
+        //else if (portalPrefab == bluePortalPrefab)
+        //    bluePortal = portalObject.GetComponent<PortalBehaviour>();
+        return portalObject.GetComponent<PortalBehaviour>();
     }
 
     bool IsValidPortalPosition(Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)

@@ -107,17 +107,18 @@ public class PortalBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        PortalManager.Instance.ObjectToCloneProperty = collision.gameObject;
         PortalManager.Instance.CreateClone(gameObject, collision.gameObject);
-        Debug.Log(this.gameObject.name);
+        Debug.Log(gameObject.name);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collider)
     {
         PortalManager.Instance.Teleport();
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collider)
     {
-        PortalManager.Instance.DestroyClone(collision.gameObject);
+        PortalManager.Instance.DestroyClone(collider.gameObject);
     }
 }

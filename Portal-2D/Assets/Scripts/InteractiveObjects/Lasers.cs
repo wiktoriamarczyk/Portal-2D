@@ -23,19 +23,19 @@ public class Lasers : MonoBehaviour
         stopLaser();    // Wy³¹czenie lasera
         if (Math.Round(transform.rotation.z, 1) == -0.7)
         {
-            end = new Vector3(transform.position.x, transform.position.y - 100, transform.position.z);
+            end = new Vector3(transform.position.x, transform.position.y - 7, transform.position.z);
         }
         else if (Math.Round(transform.rotation.z, 1) == 0.7)
         {
-            end = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            end = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z);
         }
         else if (transform.rotation.z == 0.0)
         {
-            end = new Vector3(transform.position.x + 100, transform.position.y, transform.position.z);
+            end = new Vector3(transform.position.x + 7, transform.position.y, transform.position.z);
         }
         else if (Math.Round(transform.rotation.z, 1) == 3.1)
         {
-            end = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z);
+            end = new Vector3(transform.position.x - 7, transform.position.y, transform.position.z);
         }
     }
 
