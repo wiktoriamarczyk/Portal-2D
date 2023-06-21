@@ -8,6 +8,8 @@ TagManager:
   - ImpostorTerrain
   - Blue Portal
   - Orange Portal
+  - Cube
+  - PromptText
   layers:
   - Default
   - TransparentFX

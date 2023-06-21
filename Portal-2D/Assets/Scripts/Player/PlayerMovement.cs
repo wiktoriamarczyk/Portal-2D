@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 8f;
     [SerializeField] float jumpForce = 14f;
+    [SerializeField] float interactDistance = 2f;
+    [SerializeField] Transform holdPoint;
 
     Rigidbody2D    rigidbody;
     eMovementState movementState;
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     float          dirX = 0f;
     bool           isJumping = false;
     bool           isFacingRight = true;
+    GameObject     currentCube;
 
     public bool IsFacingRight
     {
@@ -48,6 +51,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Math.Abs(rigidbody.velocity.y) < 0.01)
         {
             isJumping = true;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (currentCube == null)
+            {
+                TryPickUpCube();
+            }
+            else
+            {
+                DropCube();
+            }
         }
     }
 
@@ -98,4 +113,38 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetInteger("state", (int)movementState);
     }
+    
+    #region CUBE
+    void TryPickUpCube()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, interactDistance);
+
+        if (colliders == null)
+        {
+            return;
+        }
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Cube") && currentCube == null)
+            {
+                currentCube = collider.gameObject;
+                currentCube.GetComponent<Rigidbody2D>().isKinematic = true;
+                currentCube.transform.position = holdPoint.position;
+                currentCube.transform.SetParent(transform);
+                Cube.taken = true;
+                break;
+            }
+        }
+    }
+
+    void DropCube()
+    {
+        if (currentCube == null) return;
+        currentCube.GetComponent<Rigidbody2D>().isKinematic = false;
+        currentCube.transform.SetParent(null);
+        currentCube = null;
+        Cube.taken = false;
+    }
+    #endregion CUBE
 }
