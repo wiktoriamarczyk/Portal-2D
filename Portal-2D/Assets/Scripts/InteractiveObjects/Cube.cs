@@ -1,14 +1,13 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
+using TMPro;
 
 public class Cube : MonoBehaviour
 {
     [SerializeField] float detectionRadius = 4f;
-    UnityEngine.UI.Text promptText;
+    TMP_Text promptText;
     public static bool taken = false;
     static bool promptWasDisplayed = false;
 
@@ -17,7 +16,7 @@ public class Cube : MonoBehaviour
         GameObject textObject = GameObject.FindGameObjectWithTag("PromptText");
         if (textObject != null)
         {
-            promptText = textObject.GetComponent<UnityEngine.UI.Text>();
+            promptText = textObject.GetComponent<TMP_Text>();
         }
     }
 
