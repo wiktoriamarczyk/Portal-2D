@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float interactDistance = 2f;
     [SerializeField] Transform holdPoint;
 
-    Rigidbody2D    rigidbody;
+    Rigidbody2D rigidbody;
     eMovementState movementState;
     Animator       animator;
     float          dirX = 0f;
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = true;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (currentCube == null)
@@ -81,22 +82,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (dirX > 0 || dirX < 0)
         {
-            // flip sprite
-            //if (!isFacingRight)
-            //{
-            //    Flip();
-            //}
             movementState = eMovementState.WALK;
         }
-        //else if (dirX < 0)
-        //{
-        //    // flip sprite
-        //    if (isFacingRight)
-        //    {
-        //        Flip();
-        //    }
-        //    movementState = eMovementState.WALK;
-        //}
         else
         {
             movementState = eMovementState.IDLE;
@@ -113,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetInteger("state", (int)movementState);
     }
-    
+
     #region CUBE
     void TryPickUpCube()
     {

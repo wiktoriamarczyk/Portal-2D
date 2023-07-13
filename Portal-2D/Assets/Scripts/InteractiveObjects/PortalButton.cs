@@ -8,6 +8,8 @@ public class PortalButton : MonoBehaviour
     Animator animator;
     [SerializeField] UnityEvent onButtonPressed;
     [SerializeField] UnityEvent onButtonReleased;
+    [SerializeField] AudioSource buttonPressed;
+    [SerializeField] AudioSource buttonReleased;
 
     void Awake()
     {
@@ -18,11 +20,13 @@ public class PortalButton : MonoBehaviour
     {
         animator.SetTrigger("ButtonPressed");
         onButtonPressed.Invoke();
+        buttonPressed.Play();
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         animator.SetTrigger("ButtonReleased");
         onButtonReleased.Invoke();
+        buttonReleased.Play();
     }
 }

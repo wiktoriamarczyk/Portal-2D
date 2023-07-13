@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6792526779599924598, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792526779599924598, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 91b51ade1aaa0d541a0b5eab8f10bf00, type: 3}
     - target: {fileID: 7608870036743768789, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0
@@ -21,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7608870036829247808, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_Name
-      value: OrangeProjectile Variant
+      value: OrangeProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 7608870036829247809, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_RootOrder

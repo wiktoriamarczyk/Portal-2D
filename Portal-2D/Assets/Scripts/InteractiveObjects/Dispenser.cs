@@ -6,11 +6,13 @@ using UnityEngine;
 public class Dispenser : MonoBehaviour
 {
     [SerializeField] GameObject cubePrefab;
-    float offset = 5f;
+    [SerializeField] AudioSource dispenserSound;
+    const float offset = 12f;
     GameObject spawnedCube;
 
     public void SpawnCube()
     {
+        dispenserSound.PlayDelayed(1f);
         if (spawnedCube != null)
         {
             Destroy(spawnedCube);

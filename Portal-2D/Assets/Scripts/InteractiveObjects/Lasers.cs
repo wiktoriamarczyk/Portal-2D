@@ -5,6 +5,10 @@ using System;
 
 public class Lasers : MonoBehaviour
 {
+    [SerializeField] AudioSource laserSound;
+    [SerializeField] AudioSource laserOn;
+    [SerializeField] AudioSource laserOff;
+
     public Sprite defaultSprite;       // Domyœlny sprite
     public Sprite activatedSprite;     // Aktywowany sprite
     public Vector3 start;         // Punkty na linii lasera
@@ -44,6 +48,9 @@ public class Lasers : MonoBehaviour
         // Zmiana sprite'a na aktywowany
         spriteRenderer.sprite = activatedSprite;
         lineRenderer.enabled = true;    // W³¹czenie linii
+        laserOn.Play();
+        laserSound.PlayDelayed(laserOn.clip.length);
+        laserSound.loop = true;
     }
 
     public void stopLaser()
@@ -51,6 +58,8 @@ public class Lasers : MonoBehaviour
         // Zmiana sprite'a na domyœlny
         spriteRenderer.sprite = defaultSprite;
         lineRenderer.enabled = false;   // Wy³¹czenie linii
+        laserSound.loop = false;
+        laserOff.Play();
     }
 
     // Update is called once per frame

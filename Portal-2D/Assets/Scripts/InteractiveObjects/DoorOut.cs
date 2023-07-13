@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DoorOut : MonoBehaviour
 {
+    [SerializeField] AudioSource doorOpen;
+    [SerializeField] AudioSource doorClose;
+
     bool isActive = false;
     Animator animator;
 
@@ -16,11 +19,13 @@ public class DoorOut : MonoBehaviour
     {
         isActive = true;
         animator.SetTrigger("OpenDoor");
+        doorOpen.Play();
     }
 
     public void CloseDoor()
     {
         isActive = false;
         animator.SetTrigger("CloseDoor");
+        doorClose.Play();
     }
 }

@@ -6,6 +6,7 @@ using TMPro;
 
 public class Cube : MonoBehaviour
 {
+    [SerializeField] AudioSource cubeSound;
     [SerializeField] float detectionRadius = 4f;
     TMP_Text promptText;
     public static bool taken = false;
@@ -23,7 +24,7 @@ public class Cube : MonoBehaviour
     void Update()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-        
+
         if (taken)
         {
             promptWasDisplayed= true;
@@ -38,14 +39,17 @@ public class Cube : MonoBehaviour
                 break;
             }
             else if (promptText.enabled)
-            { 
+            {
                 promptText.enabled = false;
                 promptText.text = "";
             }
         }
-
-       
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        cubeSound.Play();
+    }
+
+
 }

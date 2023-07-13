@@ -12,7 +12,9 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] Transform   arm;
     [SerializeField] Transform   projectileSpawner;
     [SerializeField] GameObject  blueProjectile;
-    [SerializeField] GameObject orangeProjectile;
+    [SerializeField] GameObject  orangeProjectile;
+    [SerializeField] AudioSource lpmFireSound;
+    [SerializeField] AudioSource ppmFireSound;
 
     PlayerMovement  player;
     CursorMode      cursorMode = CursorMode.ForceSoftware;
@@ -52,11 +54,13 @@ public class PlayerAim : MonoBehaviour
         {
             ChangeCursor(eCursorType.BLUE);
             Fire();
+            lpmFireSound.Play();
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             ChangeCursor(eCursorType.ORANGE);
             Fire();
+            ppmFireSound.Play();
         }
 
         RotateArm();

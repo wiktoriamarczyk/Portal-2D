@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PanelManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> panels;
     [SerializeField] GameObject startingPanel;
     [SerializeField] GameObject pausePanel;
-   // [SerializeField] GameObject game;
+    // [SerializeField] GameObject game;
     GameObject currentPanel;
 
     void Awake()
@@ -17,7 +18,7 @@ public class PanelManager : MonoBehaviour
         {
             panel.SetActive(false);
         }
-        ShowPanel(startingPanel);
+        //ShowPanel(startingPanel);
     }
 
     void Update()
@@ -25,6 +26,7 @@ public class PanelManager : MonoBehaviour
         if (currentPanel == null && Input.GetKeyDown(KeyCode.Escape))
         {
             ShowPanel(pausePanel);
+            Camera.main.GetComponent<PostProcessLayer>().enabled = true;
             //game.SetActive(false);
         }
     }

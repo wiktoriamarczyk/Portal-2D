@@ -9815,3 +9815,4 @@ MonoBehaviour:
   lifeTime: 5
   hitEffectPrefab: {fileID: 7498424290551882038, guid: c9209742c3090b6418573618607cdffe, type: 3}
   shotEffectPrefab: {fileID: 7439921811096180976, guid: 6fa3bca6d5fde844895c5137c518d45d, type: 3}
+  shotSound: {fileID: 0}
