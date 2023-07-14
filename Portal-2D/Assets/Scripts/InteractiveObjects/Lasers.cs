@@ -49,6 +49,7 @@ public class Lasers : MonoBehaviour
         spriteRenderer.sprite = activatedSprite;
         lineRenderer.enabled = true;    // W³¹czenie linii
         laserOn.Play();
+        laserSound.mute = false;
         laserSound.PlayDelayed(laserOn.clip.length);
         laserSound.loop = true;
     }
@@ -58,6 +59,7 @@ public class Lasers : MonoBehaviour
         // Zmiana sprite'a na domyœlny
         spriteRenderer.sprite = defaultSprite;
         lineRenderer.enabled = false;   // Wy³¹czenie linii
+        laserSound.mute = true;
         laserSound.loop = false;
         laserOff.Play();
     }
