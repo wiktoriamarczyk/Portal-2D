@@ -9,8 +9,31 @@ public class Cube : MonoBehaviour
     [SerializeField] AudioSource cubeSound;
     [SerializeField] float detectionRadius = 4f;
     TMP_Text promptText;
-    public static bool taken = false;
+    bool taken = false;
+    Rigidbody2D rigidbody2D;
     static bool promptWasDisplayed = false;
+
+    float backupMass = 0;
+
+    public void Take()
+    {
+        if (taken)
+            return;
+
+        backupMass = rigidbody2D.mass;
+        rigidbody2D.mass = 0.008f;
+        rigidbody2D.gravityScale = 0;
+        taken = true;
+    }
+
+    public void Drop()
+    {
+        if (!taken)
+            return;
+        rigidbody2D.mass = backupMass;
+        rigidbody2D.gravityScale = 1;
+        taken = false;
+    }
 
     void Start()
     {
@@ -19,6 +42,7 @@ public class Cube : MonoBehaviour
         {
             promptText = textObject.GetComponent<TMP_Text>();
         }
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()

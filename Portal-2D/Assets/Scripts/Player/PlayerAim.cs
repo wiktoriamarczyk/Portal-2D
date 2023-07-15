@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,13 +17,15 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] AudioSource lpmFireSound;
     [SerializeField] AudioSource ppmFireSound;
 
+    [SerializeField] float debugangle;
+
     PlayerMovement  player;
     CursorMode      cursorMode = CursorMode.ForceSoftware;
     Vector2         hotSpot = Vector2.zero;
     Tilemap         tilemap;
     eCursorType     cursor = eCursorType.ORANGE;
     float           minAngleRange = -60f;
-    float           maxAngleRange = 60f;
+    float           maxAngleRange = 70f;
 
     enum eCursorType
     {
@@ -30,7 +33,7 @@ public class PlayerAim : MonoBehaviour
         ORANGE
     }
 
-    const int NON_RAYCAST_LAYERS = (int)Common.eLayerType.UNITS |  (int)Common.eLayerType.PLAYER |  (int)Common.eLayerType.NON_COLLIDABLE_UNITS;
+    const int NON_RAYCAST_LAYERS = (int)Common.eLayerType.PLAYER |  (int)Common.eLayerType.NON_COLLIDABLE_UNITS;
 
     void Awake()
     {
@@ -65,16 +68,13 @@ public class PlayerAim : MonoBehaviour
         int hitLayer = -1;
         if (hit == true)
             hitLayer = hit.transform.gameObject.layer;
-        Debug.Log("!!!!!!!!!" + hitLayer);
 
         if (hit.collider != null)
         {
-            Debug.Log( hit.collider.gameObject.layer );
-
             // ----DEBUG----
             Debug.Log(hit.collider.gameObject.name);
-            Debug.DrawLine(arm.position, hit.point, Color.red, 5f);
-            Debug.DrawLine(hit.point, hit.point + hit.normal*5, Color.green , 5f);
+            Debug.DrawLine(arm.position, hit.point, UnityEngine.Color.red, 5f);
+            Debug.DrawLine(hit.point, hit.point + hit.normal*5, UnityEngine.Color.green , 5f);
 
             Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(hit.point + hit.normal * -0.1f);
             Debug.Log("hit on grid pos: " + cellPosition);
@@ -93,7 +93,7 @@ public class PlayerAim : MonoBehaviour
 
             }
 
-            if (hit == true && hitLayer != (int)Common.eLayerType.NON_PORTAL)
+            if (hit == true && hitLayer != (int)Common.eLayerType.NON_PORTAL && hitLayer != (int)Common.eLayerType.UNITS)
                 projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
         }
     }
@@ -106,35 +106,46 @@ public class PlayerAim : MonoBehaviour
         Cursor.SetCursor(cursorTextures[(int)cursorType], hotSpot, cursorMode);
     }
 
+    static float GetAngleFromVec(Vector3 dir)
+    {
+        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    }
+
     /* TO FIX */
     void RotateArm()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 ArmToMouse = mousePos - arm.position;
 
-        Vector3 perpendicular = arm.position + mousePos;
-        Quaternion value = Quaternion.LookRotation(Vector3.forward, perpendicular);
-        value *= Quaternion.Euler(0, 0, 90);
+
+        //Vector3 perpendicular = arm.position + mousePos;
+        //Quaternion value = Quaternion.LookRotation(Vector3.forward, perpendicular);
+        //value *= Quaternion.Euler(0, 0, 90);
+
+        float angle = GetAngleFromVec( new Vector3(Mathf.Abs(ArmToMouse.x), ArmToMouse.y , ArmToMouse.z) );
+        Quaternion value = Quaternion.Euler(0f, 0f, angle );
         arm.rotation = value;
 
+        debugangle = angle;
         // ogranicz zakres obrotu ramienia
-        var angle = ModularClamp(arm.rotation.eulerAngles.z, minAngleRange, maxAngleRange);
+        angle = ModularClamp( debugangle , minAngleRange , maxAngleRange );
 
         var inverse = 1f;
-        if (player.IsFacingRight)
+        if( !player.IsFacingRight )
             inverse = -1f;
 
-        arm.rotation = Quaternion.Euler(0, 0, inverse * angle);
+        arm.rotation = Quaternion.Euler( 0 , 0 , inverse * angle );
 
-        if (!player.IsFacingRight && mousePos.x > player.transform.position.x)
+        if( !player.IsFacingRight && mousePos.x > player.transform.position.x )
             player.Flip();
-        else if (player.IsFacingRight && mousePos.x < player.transform.position.x)
+        else if( player.IsFacingRight && mousePos.x < player.transform.position.x )
             player.Flip();
     }
 
-    float ModularClamp(float value, float min, float max, float rangemin = -180f, float rangemax = 180f)
+    float ModularClamp(float value, float min, float max)
     {
-        var modulus = Mathf.Abs(rangemax - rangemin);
-        if ((value %= modulus) < 0f) value += modulus;
-        return Mathf.Clamp(value + Mathf.Min(rangemin, rangemax), min, max);
+        var modulus = 360f;
+        value %= modulus;
+        return Mathf.Clamp(value, min, max);
     }
 }

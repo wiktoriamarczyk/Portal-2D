@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     eMovementState movementState;
     Animator       animator;
     float          dirX = 0f;
+    float          cubeSavedMass = 0;
     bool           isJumping = false;
     bool           isFacingRight = true;
     GameObject     currentCube;
@@ -67,6 +69,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 DropCube();
             }
+        }
+
+        if (currentCube != null)
+        {
+            var cubePosition = currentCube.transform.position;
+            var targetPos    = holdPoint.transform.position;
+            var diff         = (targetPos - cubePosition)*10;
+            currentCube.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
         }
     }
 
@@ -133,10 +143,7 @@ public class PlayerMovement : MonoBehaviour
             if (collider.CompareTag("Cube") && currentCube == null)
             {
                 currentCube = collider.gameObject;
-                currentCube.GetComponent<Rigidbody2D>().isKinematic = true;
-                currentCube.transform.position = holdPoint.position;
-                currentCube.transform.SetParent(transform);
-                Cube.taken = true;
+                currentCube.GetComponent<Cube>().Take();
                 break;
             }
         }
@@ -145,10 +152,8 @@ public class PlayerMovement : MonoBehaviour
     void DropCube()
     {
         if (currentCube == null) return;
-        currentCube.GetComponent<Rigidbody2D>().isKinematic = false;
-        currentCube.transform.SetParent(null);
+        currentCube.GetComponent<Cube>().Drop();
         currentCube = null;
-        Cube.taken = false;
     }
     #endregion CUBE
 }

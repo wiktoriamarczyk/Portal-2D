@@ -47,9 +47,6 @@ TagManager:
   - name: Background
     uniqueID: 3947359155
     locked: 0
-  - name: BehindPlayer
-    uniqueID: 2905955911
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -58,6 +55,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4200506629
+    locked: 0
+  - name: BehindPlayer
+    uniqueID: 2905955911
     locked: 0
   - name: Terrain
     uniqueID: 3565803251
