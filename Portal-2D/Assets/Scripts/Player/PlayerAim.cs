@@ -30,15 +30,7 @@ public class PlayerAim : MonoBehaviour
         ORANGE
     }
 
-    enum eLayerType
-    {
-        DEFAULT = 0,
-        FOREGROUND = 7,
-        TERRAIN = 8,
-        NON_PORTAL = 9,
-        UNITS = 10,
-        BACKGROUND = 12,
-    }
+    const int NON_RAYCAST_LAYERS = (int)Common.eLayerType.UNITS |  (int)Common.eLayerType.PLAYER |  (int)Common.eLayerType.NON_COLLIDABLE_UNITS;
 
     void Awake()
     {
@@ -69,7 +61,7 @@ public class PlayerAim : MonoBehaviour
     void Fire()
     {
         // ostatnim parametrem są warstwy brane pod uwagę przez raycast za wyjątkiem warstwy, na której jest gracz
-        RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 100f, ~(1 << (int)eLayerType.UNITS));
+        RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 100f, ~((int)(NON_RAYCAST_LAYERS)));
         int hitLayer = -1;
         if (hit == true)
             hitLayer = hit.transform.gameObject.layer;
@@ -77,6 +69,8 @@ public class PlayerAim : MonoBehaviour
 
         if (hit.collider != null)
         {
+            Debug.Log( hit.collider.gameObject.layer );
+
             // ----DEBUG----
             Debug.Log(hit.collider.gameObject.name);
             Debug.DrawLine(arm.position, hit.point, Color.red, 5f);
@@ -90,6 +84,7 @@ public class PlayerAim : MonoBehaviour
             {
                 projectile = Instantiate(blueProjectile, projectileSpawner.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().InitializeProjectile(hit.point, Projectile.eProjectileType.BLUE);
+                //projectile.GetComponent<Projectile>(). = 14;
             }
             else
             {
@@ -98,7 +93,7 @@ public class PlayerAim : MonoBehaviour
 
             }
 
-            if (hit == true && hitLayer != (int)eLayerType.NON_PORTAL)
+            if (hit == true && hitLayer != (int)Common.eLayerType.NON_PORTAL)
                 projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
         }
     }

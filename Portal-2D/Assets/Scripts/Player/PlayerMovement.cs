@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     bool           isJumping = false;
     bool           isFacingRight = true;
     GameObject     currentCube;
+    BoxCollider2D  boxCollider2D;
 
     public bool IsFacingRight
     {
@@ -43,13 +45,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && Math.Abs(rigidbody.velocity.y) < 0.01)
+        if ( IsTouchingGround() && Input.GetButtonDown("Jump") )
         {
             isJumping = true;
         }
@@ -65,6 +68,20 @@ public class PlayerMovement : MonoBehaviour
                 DropCube();
             }
         }
+    }
+
+    public bool IsTouchingGround()
+    {
+        var layerMask1 = LayerMask.GetMask("Units");
+        var layerMask2 = LayerMask.GetMask("Terrain");
+        RaycastHit2D hit = Physics2D.Raycast( transform.position - Vector3.down * 0.1f, Vector2.down, 0.3f , layerMask1 | layerMask2 );
+        if (hit.collider != null)
+        {
+            //Debug.DrawLine(transform.position, hit.point, Color.green);
+            return true;
+        }
+        //Debug.DrawLine(transform.position - Vector3.down * 0.3f, transform.position + Vector3.down );
+        return false;
     }
 
     void FixedUpdate()

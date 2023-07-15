@@ -15,6 +15,18 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 91b51ade1aaa0d541a0b5eab8f10bf00, type: 3}
+    - target: {fileID: 7608870036743768788, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870036743768788, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870036743768788, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2003915937
+      objectReference: {fileID: 0}
     - target: {fileID: 7608870036743768789, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0
@@ -37,11 +49,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7608870036829247809, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -41.6287
       objectReference: {fileID: 0}
     - target: {fileID: 7608870036829247809, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.9130082
       objectReference: {fileID: 0}
     - target: {fileID: 7608870036829247809, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_LocalPosition.z
@@ -76,6 +88,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608870037189708223, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870037189708223, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870037189708223, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2003915937
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870037189708223, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
       value: 0
       objectReference: {fileID: 0}
@@ -98,6 +122,18 @@ PrefabInstance:
     - target: {fileID: 7608870037189708223, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870038118250153, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870038118250153, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608870038118250153, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2003915937
       objectReference: {fileID: 0}
     - target: {fileID: 7608870038118250154, guid: 81497c6d9c0d3f34aa4570074b89f405, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
