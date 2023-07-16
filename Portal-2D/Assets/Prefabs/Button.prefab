@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1119599109}
   - component: {fileID: 5716156518227268857}
   - component: {fileID: 8536923269145737055}
+  - component: {fileID: 4912202901891230584}
   m_Layer: 10
   m_Name: Button
   m_TagString: Untagged
@@ -102,7 +103,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.074195385, y: 0.02167654}
+  m_Offset: {x: -0.0049915314, y: -0.049911737}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113,7 +114,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3454943, y: 1.1433439}
+  m_Size: {x: 3.435443, y: 1.0001674}
   m_EdgeRadius: 0
 --- !u!114 &2408188196359776292
 MonoBehaviour:
@@ -396,3 +397,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &4912202901891230584
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578911213674471105}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.052740335, y: 0.3648089}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.571429, y: 2.2857144}
+    newSize: {x: 4.571429, y: 2.2857144}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.1905742, y: 0.6796836}
+  m_EdgeRadius: 0

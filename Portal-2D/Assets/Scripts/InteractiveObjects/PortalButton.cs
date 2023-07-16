@@ -16,14 +16,14 @@ public class PortalButton : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void OnCollisionEnter2D(Collision2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         animator.SetTrigger("ButtonPressed");
         onButtonPressed.Invoke();
         buttonPressed.Play();
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collider)
     {
         animator.SetTrigger("ButtonReleased");
         onButtonReleased.Invoke();
