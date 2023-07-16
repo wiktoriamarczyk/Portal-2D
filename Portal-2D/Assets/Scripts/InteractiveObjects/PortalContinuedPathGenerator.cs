@@ -4,56 +4,49 @@ using Unity.Burst.Intrinsics;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
-public class FunnelGenerator : MonoBehaviour
+public class PortalContinuedPathGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject funnelPrefab;
-    [SerializeField] Material funnelMaterial;
-    [SerializeField] bool dupa = false;
-    [SerializeField] bool isEnabled = false;
-
-    public float Health { get => this._health ; set => this._health = value * 2; }
-    [SerializeField]
-    private float _health = 0;
-
+    [SerializeField] GameObject pathPrefab;
+    [SerializeField] Material pathMaterial;
+    [SerializeField] bool enable = false;
+    [SerializeField] bool isEnabledOnStart = false;
 
     static float raycastDistance = 500f;
-
     List<GameObject> funnelsList = new List<GameObject>();
 
-
-    public void Awake()
+    void Awake()
     {
         PortalManager.OnPortalChange += Refresh;
 
-        if(isEnabled)
+        if(isEnabledOnStart)
             Generate();
     }
 
-    private void Refresh()
+    void Refresh()
     {
-        if(!isEnabled)
+        if(!isEnabledOnStart)
             return;
         Generate();
     }
 
     public void EnableGenerator()
     {
-        if(isEnabled)
+        if(isEnabledOnStart)
             return;
 
-        isEnabled = true;
+        isEnabledOnStart = true;
         Generate();
     }
 
     public void DisableGenerator()
     {
-        if(!isEnabled)
+        if(!isEnabledOnStart)
             return;
-        isEnabled = false;
+        isEnabledOnStart = false;
         DestroyFunnels();
     }
 
-    private void DestroyFunnels()
+    void DestroyFunnels()
     {
         foreach(var funnel in funnelsList)
             Destroy(funnel);
@@ -64,7 +57,7 @@ public class FunnelGenerator : MonoBehaviour
     public void Generate()
     {
         DestroyFunnels();
-        DoGenerate(gameObject,funnelPrefab, funnelsList,true);
+        DoGenerate(gameObject,pathPrefab, funnelsList,true);
     }
 
     static void DoGenerate(GameObject originObject,GameObject funnelPrefab, List<GameObject> funnelsList, bool recursionAllowed)
@@ -74,7 +67,7 @@ public class FunnelGenerator : MonoBehaviour
         Vector3 raycastStart = new Vector3(startPoint.position.x, startPoint.position.y, 1f);
         Vector3 raycastEnd = raycastStart + startPoint.right * 500;
 
-        RaycastHit2D hit = Physics2D.Raycast(raycastStart + startPoint.right*5, raycastEnd, raycastDistance, (int)(Common.eLayerType.TERRAIN | Common.eLayerType.PORTAL));
+        RaycastHit2D hit = Physics2D.Raycast(raycastStart + startPoint.right*5, raycastEnd, raycastDistance, (int)(Common.eLayerType.TERRAIN | Common.eLayerType.PORTAL | (Common.eLayerType.NON_PORTAL)));
         Debug.DrawLine(raycastStart, hit.point, Color.cyan, 200f);
         //Debug.DrawLine(transform.position, hit.point, Color.magenta, 200f);
 
@@ -109,23 +102,14 @@ public class FunnelGenerator : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if( dupa != isEnabled )
+        if (enable != isEnabledOnStart)
         {
-            if( dupa )
+            if (enable)
                 EnableGenerator();
             else
                 DisableGenerator();
         }
-    //    Vector3 raycastStart = new Vector3(transform.position.x, transform.position.y, 1f);
-    //    Vector3 raycastEnd = raycastStart + transform.right * 500;
-    //    RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastEnd, raycastDistance, (int)(Common.eLayerType.TERRAIN));
-    //    Debug.DrawLine(raycastStart, hit.point, Color.cyan, 200f);
-
-    //    if (hit.collider != null && hit.collider.gameObject.GetComponent<PortalBehaviour>() != null)
-    //    {
-    //        Generate(otherPotal);
-    //    }
     }
 }

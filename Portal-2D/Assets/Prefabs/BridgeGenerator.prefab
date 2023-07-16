@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2917727887340535782}
   - component: {fileID: 7252461909541901298}
   m_Layer: 10
-  m_Name: FunnelGenerator
+  m_Name: BridgeGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -2003915937
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 03defd65d1524fd46bd5ac2d2dbbff6d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b700f7ddcef18ed46be52a27ce30058f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf5e5cc55da1d8478269a96325c469a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathPrefab: {fileID: 6718603664634013384, guid: 7d2f7e1a18f650741be3fd329ec97329, type: 3}
-  pathMaterial: {fileID: 2100000, guid: cccabf015df07114eafe6a077e352ac8, type: 2}
+  pathPrefab: {fileID: 3766049559122749188, guid: d114d6089df478d448d3695d7ac8103b, type: 3}
+  pathMaterial: {fileID: 2100000, guid: c834ef36b364d8c4ea066c49801b1a4a, type: 2}
   enable: 0
   isEnabledOnStart: 0
 --- !u!61 &7252461909541901298
@@ -115,16 +115,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018705368, y: 0.02805829}
+  m_Offset: {x: 0.015979528, y: 0.00808835}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4, y: 6.8}
+    oldSize: {x: 1.9, y: 3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3841934, y: 6.892175}
+  m_Size: {x: 1.8944077, y: 2.8582687}
   m_EdgeRadius: 0
