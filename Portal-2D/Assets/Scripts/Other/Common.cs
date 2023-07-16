@@ -16,5 +16,4 @@ namespace Common {
         NON_COLLIDABLE_UNITS    = 1 << 14,
         PORTAL                  = 1 << 15
     }
-
 }

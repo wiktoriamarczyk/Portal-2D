@@ -43,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
     }
 
+    public bool IsMoving()
+    {
+        return Mathf.Abs( dirX ) >= 0.1f;
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();

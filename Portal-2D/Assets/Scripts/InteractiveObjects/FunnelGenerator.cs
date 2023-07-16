@@ -23,8 +23,17 @@ public class FunnelGenerator : MonoBehaviour
 
     public void Awake()
     {
+        PortalManager.OnPortalChange += Refresh;
+
         if(isEnabled)
             Generate();
+    }
+
+    private void Refresh()
+    {
+        if(!isEnabled)
+            return;
+        Generate();
     }
 
     public void EnableGenerator()

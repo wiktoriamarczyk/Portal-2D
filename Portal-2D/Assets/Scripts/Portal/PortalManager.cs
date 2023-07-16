@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 using static UnityEditor.PlayerSettings;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEngine.Events;
+using System;
 
 public class PortalManager : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class PortalManager : MonoBehaviour
     int colliderEnterCount = 0;
     string cloneName = "PortalClone";
     const int portalGridHeight = 6;
+
+    public static event Action OnPortalChange;
 
 
     /* public properties */
@@ -120,6 +124,7 @@ public class PortalManager : MonoBehaviour
                 bluePortal = SpawnPortal(bluePortalPrefab, normal, cell);
                 bluePortal.otherEnd = orangePortal;
                 orangePortal.otherEnd = bluePortal;
+                OnPortalChange?.Invoke();
                 return true;
             }
         }
@@ -145,6 +150,7 @@ public class PortalManager : MonoBehaviour
                 orangePortal = SpawnPortal(orangePortalPrefab, normal, cell);
                 bluePortal.otherEnd = orangePortal;
                 orangePortal.otherEnd = bluePortal;
+                OnPortalChange?.Invoke();
                 return true;
             }
         }
