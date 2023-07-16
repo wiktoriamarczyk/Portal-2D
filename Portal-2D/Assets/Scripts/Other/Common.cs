@@ -13,7 +13,8 @@ namespace Common {
         UNITS                   = 1 << 10,
         BACKGROUND              = 1 << 12,
         PLAYER                  = 1 << 11,
-        NON_COLLIDABLE_UNITS    = 1 << 14
+        NON_COLLIDABLE_UNITS    = 1 << 14,
+        PORTAL                  = 1 << 15
     }
 
 }

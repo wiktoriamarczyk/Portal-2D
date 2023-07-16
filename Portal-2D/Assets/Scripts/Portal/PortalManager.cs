@@ -111,13 +111,15 @@ public class PortalManager : MonoBehaviour
         Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
         var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
 
-        List<Vector3Int> cells = new List<Vector3Int> { gridPosition, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
+        List<Vector3Int> cells = new List<Vector3Int> { gridPosition };//, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
 
         foreach (var cell in cells)
         {
             if (IsValidPortalPosition(tilemap, normal, cell))
             {
                 bluePortal = SpawnPortal(bluePortalPrefab, normal, cell);
+                bluePortal.otherEnd = orangePortal;
+                orangePortal.otherEnd = bluePortal;
                 return true;
             }
         }
@@ -134,13 +136,15 @@ public class PortalManager : MonoBehaviour
         Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
         var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
 
-        List<Vector3Int> cells = new List<Vector3Int> { gridPosition, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
+        List<Vector3Int> cells = new List<Vector3Int> { gridPosition };//, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
 
         foreach (var cell in cells)
         {
             if (IsValidPortalPosition(tilemap, normal, cell))
             {
                 orangePortal = SpawnPortal(orangePortalPrefab, normal, cell);
+                bluePortal.otherEnd = orangePortal;
+                orangePortal.otherEnd = bluePortal;
                 return true;
             }
         }
@@ -153,7 +157,7 @@ public class PortalManager : MonoBehaviour
         var right = new Vector3(normal.x, normal.y, 0.0f);
 
         Debug.Log("Valid placement for blue portal");
-        float angle = Vector3.SignedAngle(normal, Vector3.left, Vector3.forward);
+        float angle = Vector3.SignedAngle(normal, Vector3.right, Vector3.forward);
 
         Debug.Log("angle " + angle);
 
@@ -175,7 +179,7 @@ public class PortalManager : MonoBehaviour
     bool IsValidPortalPosition(Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)
     {
         var right = new Vector3(normal.x, normal.y, 0.0f);
-        var up = Quaternion.Euler(0, 0, 90) * right;
+        var up = Quaternion.Euler(0, 0, -90) * right;
 
         gridPosition += Vector3Int.RoundToInt(up * -(portalGridHeight / 2));
 

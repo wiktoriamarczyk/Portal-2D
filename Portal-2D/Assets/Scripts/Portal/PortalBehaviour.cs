@@ -10,6 +10,7 @@ public class PortalBehaviour : MonoBehaviour
     Tilemap impostorTilemap;
     const int portalGridHeight = 6;
     const int portalGridWidth = 2;
+    public PortalBehaviour otherEnd;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class PortalBehaviour : MonoBehaviour
         // przesuñ punkt startowy ³¹cznie o 2 jednostki w bok
         for (int x = 0; x < portalGridWidth; ++x)
         {
-            Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * x);
+            Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * (-x));
             // przesuñ punkt startowy ³¹cznie o 6 jednostek w górê
             for (int y = 0; y < portalGridHeight; ++y)
             {
@@ -66,7 +67,7 @@ public class PortalBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
-        else if (transform.eulerAngles.z != 0)
+        else if (transform.eulerAngles.z == 0)
         {
             transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
         }
@@ -80,7 +81,7 @@ public class PortalBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
         }
-        else if (transform.eulerAngles.z != 0)
+        else if (transform.eulerAngles.z == 0)
         {
             transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         }
@@ -92,7 +93,7 @@ public class PortalBehaviour : MonoBehaviour
 
         for (int x = 0; x < portalGridWidth; ++x)
         {
-            Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * x);
+            Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * (-x));
             for (int y = 0; y < portalGridHeight; ++y)
             {
                 Vector3Int shiftY = Vector3Int.RoundToInt(gameObject.transform.up * y);

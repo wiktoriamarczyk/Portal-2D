@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class ExcursionFunnel : MonoBehaviour
 {
-    [SerializeField] float force = 0.02f;
+    [SerializeField] float force = 20f;
     [SerializeField] GameObject end;
 
     void OnTriggerStay2D(Collider2D collider)
@@ -20,8 +21,26 @@ public class ExcursionFunnel : MonoBehaviour
 
             if (Mathf.Abs( objectInsideRb.velocity.x ) < 0.01f)
             {
-                // Obiekt jest nieruchomy - przyci¹gaj do end.transform.position
-                objectInside.transform.position = Vector3.Lerp(objectInside.transform.position, end.transform.position, force * Time.deltaTime);
+               // // Obiekt jest nieruchomy - przyci¹gaj do end.transform.position
+               objectInside.transform.position = Vector3.Lerp(objectInside.transform.position, end.transform.position, force * Time.deltaTime * GetComponent<BoxCollider2D>().bounds.size.x);
+
+               // Vector3 right = transform.right;
+               // Vector3 up    = transform.up;
+
+               // Vector3 direction = right;
+               // Vector3 startingPoint = transform.position;
+
+               // Ray ray = new Ray(startingPoint, direction);
+               // var ToCenter = Vector3.Cross(ray.direction, objectInside.transform.position - ray.origin);
+
+               //   objectInside.transform.position += (right + ToCenter)*Time.deltaTime;
+
+               // //var direction = (end.transform.position - objectInside.transform.position).normalized;
+               // //objectInsideRb.AddForce(direction * force);
+
+               // var Direction = (end.transform.position - objectInside.transform.position).normalized;
+               // objectInside.transform.position += Direction*Time.deltaTime*force;
+
                 objectInside.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
             else

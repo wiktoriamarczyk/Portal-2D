@@ -10,6 +10,7 @@ TagManager:
   - Orange Portal
   - Cube
   - PromptText
+  - bla
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Background
   - PostProcessing
   - NonCollidableUnits
-  - 
+  - Portal
   - 
   - 
   - 

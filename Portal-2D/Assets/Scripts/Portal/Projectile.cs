@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
@@ -20,6 +21,7 @@ public class Projectile : MonoBehaviour
     GameObject hitEffect;
     GameObject shotEffect;
 
+    bool isAlive = true;
     bool instantiatePortal = false;
     bool spawnHitWallParticles = false;
 
@@ -43,34 +45,27 @@ public class Projectile : MonoBehaviour
         ORANGE
     }
 
-
     void Update()
     {
+        if( !isAlive )
+            return;
         // jeœli minê³o odpowiednio du¿o czasu, wy³¹cz pocisk
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
+        {
+            isAlive = false;
             Destroy(gameObject);
+        }
 
         // jeœli pocisk dotar³ do celu, zespawnuj tam portal i wy³¹cz pocisk
-        if (transform.position == endPosition)
+        if ( Vector3.Distance(transform.position,endPosition)<0.01f )
         {
+            isAlive = false;
             if (instantiatePortal)
             {
+                Destroy(gameObject);
                 InstantiatePortal();
             }
-            //if (spawnHitWallParticles && hitEffect == null)
-            //{
-            //    hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
-            //    ParticleSystem hitParticles = hitEffect.GetComponent<ParticleSystem>();
-            //    hitParticles.startColor = projectileType == eProjectileType.BLUE ? blueColor : orangeColor;
-            //    var myParticles = GetComponent<ParticleSystem>();
-            //    Destroy(myParticles);
-            //    StartCoroutine(DyingCoroutine());
-            //}
-           // else
-            //{
-                Destroy(gameObject);
-            //}
         }
 
         // niech pocisk przemieszcza siê w kierunku celu
