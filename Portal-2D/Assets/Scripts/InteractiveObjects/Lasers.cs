@@ -8,12 +8,14 @@ public class Lasers : MonoBehaviour
     [SerializeField] AudioSource laserSound;
     [SerializeField] AudioSource laserOn;
     [SerializeField] AudioSource laserOff;
+    [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
 
-    public Sprite defaultSprite;       // Domyœlny sprite
-    public Sprite activatedSprite;     // Aktywowany sprite
-    public Vector3 start;         // Punkty na linii lasera
-    public Vector3 end;           // Punkty na linii lasera
-    private LineRenderer lineRenderer; // Komponent LineRenderer
+    public Sprite defaultSprite;            // Domyœlny sprite
+    public Sprite activatedSprite;          // Aktywowany sprite
+    public Vector3 start;                   // Pocz¹tek linii lasera (pozycja emitera)
+    public Vector3 maxEnd;                  // Odleg³y punkt na prostej lasera
+    public Vector3 realEnd;                 // Faktyczny koniec lasera (po kolizji)
+    private LineRenderer lineRenderer;      // Komponent LineRenderer
     private SpriteRenderer spriteRenderer;  // Komponent SpriteRenderer
 
 
@@ -27,19 +29,19 @@ public class Lasers : MonoBehaviour
         stopLaser();    // Wy³¹czenie lasera
         if (Math.Round(transform.rotation.z, 1) == -0.7)
         {
-            end = new Vector3(transform.position.x, transform.position.y - 7, transform.position.z);
+            maxEnd = new Vector3(transform.position.x, transform.position.y - 100, transform.position.z);
         }
         else if (Math.Round(transform.rotation.z, 1) == 0.7)
         {
-            end = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z);
+            maxEnd = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
         }
         else if (transform.rotation.z == 0.0)
         {
-            end = new Vector3(transform.position.x + 7, transform.position.y, transform.position.z);
+            maxEnd = new Vector3(transform.position.x + 100, transform.position.y, transform.position.z);
         }
         else if (Math.Round(transform.rotation.z, 1) == 3.1)
         {
-            end = new Vector3(transform.position.x - 7, transform.position.y, transform.position.z);
+            maxEnd = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z);
         }
     }
 
@@ -70,8 +72,13 @@ public class Lasers : MonoBehaviour
         if (lineRenderer.enabled)
         {
             Debug.Log("Rysujê linie");
+            RaycastHit2D hit = Physics2D.Raycast(start, (maxEnd - start).normalized, Vector3.Distance(start, maxEnd), layerMask);
+            if (hit.collider != null)
+            {
+                realEnd = hit.point;
+            }
             lineRenderer.SetPosition(0, start); // Ustawienie pierwszego punktu linii
-            lineRenderer.SetPosition(1, end);   // Ustawienie drugiego punktu linii
+            lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
         }
     }
 }

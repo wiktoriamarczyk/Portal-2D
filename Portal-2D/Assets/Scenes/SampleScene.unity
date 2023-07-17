@@ -6894,6 +6894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 2774388012803932840, guid: 65f89005537a86f46887a836a8c5fa73, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65f89005537a86f46887a836a8c5fa73, type: 3}
 --- !u!1 &157085886
@@ -70685,6 +70689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 801679684}
     m_Modifications:
+    - target: {fileID: 1719797216, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 3840
+      objectReference: {fileID: 0}
     - target: {fileID: 1719797219, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.3
@@ -70692,6 +70700,14 @@ PrefabInstance:
     - target: {fileID: 8317671070724651560, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
       propertyPath: m_Name
       value: LaserTransmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317671070724651560, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317671070724651562, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8317671070724651563, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
       propertyPath: m_RootOrder
