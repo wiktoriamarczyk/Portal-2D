@@ -79,6 +79,11 @@ public class Lasers : MonoBehaviour
             }
             lineRenderer.SetPosition(0, start); // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
+            // Je¿eli laser trafi w odbiornik, to wywo³aj metodê odbiornika
+            if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
+            {
+                hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
+            }
         }
     }
 }

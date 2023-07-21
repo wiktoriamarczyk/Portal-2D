@@ -11,6 +11,7 @@ TagManager:
   - Cube
   - PromptText
   - bla
+  - Receiver
   layers:
   - Default
   - TransparentFX

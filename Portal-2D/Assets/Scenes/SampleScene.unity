@@ -35284,7 +35284,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 53175
+    m_Bits: 118711
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -70703,7 +70703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8317671070724651560, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8317671070724651562, guid: 33cdb54a25da0bf47aa881abeb194971, type: 3}
       propertyPath: m_SortingOrder
@@ -70765,6 +70765,10 @@ PrefabInstance:
     - target: {fileID: 5074515730328018635, guid: 33945841c69224248996e4bbbb501fba, type: 3}
       propertyPath: m_Name
       value: LaserReceiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074515730328018635, guid: 33945841c69224248996e4bbbb501fba, type: 3}
+      propertyPath: m_TagString
+      value: Receiver
       objectReference: {fileID: 0}
     - target: {fileID: 7843692370481962051, guid: 33945841c69224248996e4bbbb501fba, type: 3}
       propertyPath: m_RootOrder
