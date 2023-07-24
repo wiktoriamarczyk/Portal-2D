@@ -12,6 +12,7 @@ TagManager:
   - PromptText
   - bla
   - Receiver
+  - Enemy
   layers:
   - Default
   - TransparentFX

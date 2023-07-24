@@ -24,6 +24,8 @@ public class Cube : MonoBehaviour
         rigidbody2D.mass = 0.008f;
         rigidbody2D.gravityScale = 0;
         taken = true;
+        UnityEngine.Debug.Log("Podnosze kostke (kostka)");
+
     }
 
     public void Drop()
