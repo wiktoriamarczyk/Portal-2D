@@ -13,6 +13,7 @@ TagManager:
   - bla
   - Receiver
   - Enemy
+  - Mirror
   layers:
   - Default
   - TransparentFX

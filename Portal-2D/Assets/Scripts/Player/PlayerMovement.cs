@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject currentCube = null;
     GameObject currentEnemy = null;
+    GameObject currentMirror = null;
     GameObject holdingGameObj = null;
 
     float dirX = 0f;
@@ -160,12 +161,19 @@ public class PlayerMovement : MonoBehaviour
                 holdingGameObj = currentEnemy;
                 break;
             }
+            else if (collider.CompareTag("Mirror") && !IsHoldingItem())
+            {
+                currentMirror = collider.gameObject;
+                currentMirror.GetComponent<MirrorCube>().Take();
+                holdingGameObj = currentMirror;
+                break;
+            }
         }
     }
 
     bool IsHoldingItem()
     {
-        return holdingGameObj || currentCube != null || currentEnemy != null;
+        return holdingGameObj || currentCube != null || currentEnemy != null || currentMirror != null;
     }
 
     void DropItem()
@@ -182,6 +190,12 @@ public class PlayerMovement : MonoBehaviour
         {
             currentEnemy.GetComponent<Enemy>().Drop();
             currentEnemy = null;
+            holdingGameObj = null;
+        }
+        else if (holdingGameObj.GetComponent<MirrorCube>() != null)
+        {
+            currentMirror.GetComponent<MirrorCube>().Drop();
+            currentMirror = null;
             holdingGameObj = null;
         }
 
@@ -203,6 +217,14 @@ public class PlayerMovement : MonoBehaviour
             var targetPos = holdPoint.transform.position;
             var diff = (targetPos - enemyPosition) * 10;
             currentEnemy.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
+        }
+
+        else if (currentMirror != null)
+        {
+            var mirrorPosition = currentMirror.transform.position;
+            var targetPos = holdPoint.transform.position;
+            var diff = (targetPos - mirrorPosition) * 10;
+            currentMirror.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
         }
     }
     #endregion ITEM
