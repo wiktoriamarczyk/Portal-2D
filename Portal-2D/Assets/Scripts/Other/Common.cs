@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
+using Vector2 = UnityEngine.Vector2;
+
 
 namespace Common {
 
@@ -15,5 +19,65 @@ namespace Common {
         PLAYER                  = 1 << 11,
         NON_COLLIDABLE_UNITS    = 1 << 14,
         PORTAL                  = 1 << 15
+    }
+}
+
+public class CommonFunctions
+{
+    static public Vector3 TransformPosBetweenPortals(Vector3 absPos, GameObject srcPortal, GameObject dstPortal)
+    {
+        if (srcPortal==null || dstPortal==null)
+            return absPos;
+
+        Vector3 objectSrcPortalLocPos = srcPortal.transform.worldToLocalMatrix.MultiplyPoint(absPos);
+        Vector3 objectDstPortalLocPos = objectSrcPortalLocPos;
+        objectDstPortalLocPos.x *= -1;
+
+        return dstPortal.transform.localToWorldMatrix.MultiplyPoint( objectDstPortalLocPos );
+    }
+
+    static public Vector3 PointLocalToWorld(Transform parent, Vector3 pos)
+    {
+        return parent.localToWorldMatrix.MultiplyPoint(pos);
+    }
+    static public Vector2 PointLocalToWorld(Transform parent, Vector2 pos)
+    {
+        var p = PointLocalToWorld(parent, new Vector3(pos.x, pos.y, 0));
+        return new Vector2(p.x, p.y);
+    }
+    static public Vector3 PointWorldToLocal(Transform parent, Vector3 pos)
+    {
+        var result = parent.worldToLocalMatrix.MultiplyPoint(pos);
+        return result;
+    }
+    static public Vector2 PointWorldToLocal(Transform parent, Vector2 pos)
+    {
+        var p = PointWorldToLocal(parent, new Vector3(pos.x, pos.y, 0));
+        return new Vector2(p.x, p.y);
+    }
+
+    static public Vector3 VectorLocalToWorld(Transform parent, Vector3 vec)
+    {
+        var A = PointLocalToWorld(parent,vec);
+        var B = PointLocalToWorld(parent,Vector3.zero);
+        return A-B;
+    }
+    static public Vector2 VectorLocalToWorld(Transform parent, Vector2 vec)
+    {
+        var A = PointLocalToWorld(parent,vec);
+        var B = PointLocalToWorld(parent,Vector2.zero);
+        return A-B;
+    }
+    static public Vector3 VectorWorldToLocal(Transform parent, Vector3 vec)
+    {
+        var A = PointWorldToLocal(parent,vec);
+        var B = PointWorldToLocal(parent,Vector3.zero);
+        return A-B;
+    }
+    static public Vector2 VectorWorldToLocal(Transform parent, Vector2 vec)
+    {
+        var A = PointWorldToLocal(parent,vec);
+        var B = PointWorldToLocal(parent,Vector2.zero);
+        return A-B;
     }
 }

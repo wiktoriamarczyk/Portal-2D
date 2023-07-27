@@ -5,7 +5,7 @@ using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 {
     [SerializeField] float speed = 8f;
     [SerializeField] float jumpForce = 14f;
@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             if (collider.CompareTag("Cube") && !IsHoldingItem())
             {
                 currentCube = collider.gameObject;
-                currentCube.GetComponent<Cube>().Take();
+                currentCube.GetComponent<Cube>().Take(holdPoint);
                 holdingGameObj = currentCube;
                 break;
             }
@@ -182,6 +182,18 @@ public class PlayerMovement : MonoBehaviour
     bool IsHoldingItem()
     {
         return holdingGameObj || currentCube != null || currentEnemy != null || currentMirror != null;
+    }
+
+    public void OnTeleported( GameObject srcPortal , GameObject dstPortal , Vector3 srcPortalRight , Vector3 dstPortalRight )
+    {
+        if (Mathf.Abs(Vector3.Angle(srcPortalRight, dstPortalRight)) > 90)
+            InverseXMovementAxis();
+
+        DropCube();
+    }
+
+    public void OnExitedPortalArea( GameObject portal )
+    {
     }
 
     void DropItem()

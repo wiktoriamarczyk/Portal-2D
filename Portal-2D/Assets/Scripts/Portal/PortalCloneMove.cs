@@ -12,11 +12,11 @@ public class PortalCloneMove : MonoBehaviour
         if (sourceObject == null || sourcePortal == null || destinationPortalOutput == null)
             return;
 
-        transform.localPosition = PortalCloner.PointWorldToLocal(sourcePortal.transform, sourceObject.transform.position);
+        transform.localPosition = CommonFunctions.PointWorldToLocal(sourcePortal.transform, sourceObject.transform.position);
 
-        var loaclScaleA = PortalCloner.VectorWorldToLocal(sourcePortal.transform, sourceObject.transform.localScale);
+        var loaclScaleA = CommonFunctions.VectorWorldToLocal(sourcePortal.transform, sourceObject.transform.localScale);
 
-        transform.localScale = PortalCloner.VectorLocalToWorld(destinationPortalOutput.transform, loaclScaleA);
+        transform.localScale = CommonFunctions.VectorLocalToWorld(destinationPortalOutput.transform, loaclScaleA);
     }
 
     public void ResetSource(GameObject source, GameObject srcPortal, GameObject dstPortalOutput)

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
-public class Cube : MonoBehaviour
+public class Cube : MonoBehaviour , IPortalEventsListener
 {
     [SerializeField] AudioSource cubeSound;
     [SerializeField] float detectionRadius = 4f;
@@ -14,16 +15,18 @@ public class Cube : MonoBehaviour
     static bool promptWasDisplayed = false;
 
     float backupMass = 0;
+    Transform attachpoint;
 
-    public void Take()
+    public void Take(Transform attach)
     {
-        if (taken)
+        if (taken || !attach)
             return;
 
         backupMass = rigidbody2D.mass;
         rigidbody2D.mass = 0.008f;
         rigidbody2D.gravityScale = 0;
         taken = true;
+        attachpoint = attach;
         UnityEngine.Debug.Log("Podnosze kostke (kostka)");
 
     }
@@ -35,6 +38,7 @@ public class Cube : MonoBehaviour
         rigidbody2D.mass = backupMass;
         rigidbody2D.gravityScale = 1;
         taken = false;
+        attachpoint = null;
     }
 
     void Start()
@@ -49,6 +53,14 @@ public class Cube : MonoBehaviour
 
     void Update()
     {
+        if (attachpoint != null)
+        {
+            var cubePosition = transform.position;
+            var targetPos    = attachpoint.transform.position;
+            var diff         = (targetPos - cubePosition)*10;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
+        }
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
         if (taken)
@@ -77,5 +89,12 @@ public class Cube : MonoBehaviour
         cubeSound.Play();
     }
 
+    void IPortalEventsListener.OnTeleported( GameObject srcPortal , GameObject dstPortal , Vector3 srcPortalRight , Vector3 dstPortalRight )
+    {
+        Drop();
+    }
 
+    void IPortalEventsListener.OnExitedPortalArea( GameObject portal )
+    {
+    }
 }

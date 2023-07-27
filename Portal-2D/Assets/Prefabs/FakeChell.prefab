@@ -103,7 +103,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: -674104060436546312, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &7187775367779630392
 MonoBehaviour:
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 1215563669332572423, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -361,7 +361,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &4330477671577243610
 MonoBehaviour:
@@ -487,7 +487,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 8
   m_Sprite: {fileID: -1933631754011542738, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -499,7 +499,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &7419459981418919438
 MonoBehaviour:
@@ -630,7 +630,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: -3226804073964133971, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -642,7 +642,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &8852286878943166470
 MonoBehaviour:
@@ -769,7 +769,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 7
   m_Sprite: {fileID: -603298679306584665, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -781,7 +781,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &1375293711158755104
 MonoBehaviour:
@@ -876,7 +876,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: -2235128490407332358, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -888,7 +888,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &5495719729637364394
 MonoBehaviour:
@@ -982,7 +982,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 4
   m_Sprite: {fileID: -2512092824972649520, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -994,7 +994,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &710414813297545550
 MonoBehaviour:
@@ -1121,7 +1121,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: -9168603094708719903, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -1133,7 +1133,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &2889214834216642004
 MonoBehaviour:
@@ -1355,7 +1355,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 95011e996984d574aa61fe98fd7a3617, type: 3}
@@ -1367,7 +1367,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &8539095737869361614
 GameObject:
@@ -1599,7 +1599,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 5523726473240808415, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -1611,7 +1611,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &3378659931760856054
 MonoBehaviour:
@@ -1707,7 +1707,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -94460667
+  m_SortingLayerID: 91033973
   m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: -3473837086380446010, guid: 9a34d1bbe959a134597998f6d2c9512d, type: 3}
@@ -1719,7 +1719,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &6173059617390106017
 MonoBehaviour:

@@ -57,6 +57,9 @@ TagManager:
   - name: Objects
     uniqueID: 2291051359
     locked: 0
+  - name: Clones
+    uniqueID: 91033973
+    locked: 0
   - name: Player
     uniqueID: 4200506629
     locked: 0
