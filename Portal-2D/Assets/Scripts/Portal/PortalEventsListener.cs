@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IPortalEventsListener
 {
-    public void OnTeleported(GameObject srcPortal, GameObject dstPortal, Vector3 srcPortalRight, Vector3 dstPortalRight);
-    public void OnExitedPortalArea(GameObject portal);
+    public void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal);
+    public void OnExitedPortalArea(PortalCloner portal);
 }

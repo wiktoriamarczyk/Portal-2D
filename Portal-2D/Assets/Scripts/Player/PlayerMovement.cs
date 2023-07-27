@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     {
         var layerMask1 = LayerMask.GetMask("Units");
         var layerMask2 = LayerMask.GetMask("Terrain");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position - Vector3.down * 0.1f, Vector2.down, 0.3f, layerMask1 | layerMask2);
+        RaycastHit2D hit = Physics2D.Raycast( boxCollider2D.bounds.center - new Vector3(0,boxCollider2D.bounds.extents.y) - Vector3.down * 0.1f, Vector2.down, 0.3f , layerMask1 | layerMask2 );
         if (hit.collider != null)
         {
             //Debug.DrawLine(transform.position, hit.point, Color.green);
@@ -184,15 +184,15 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         return holdingGameObj || currentCube != null || currentEnemy != null || currentMirror != null;
     }
 
-    public void OnTeleported( GameObject srcPortal , GameObject dstPortal , Vector3 srcPortalRight , Vector3 dstPortalRight )
+    public void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
     {
-        if (Mathf.Abs(Vector3.Angle(srcPortalRight, dstPortalRight)) > 90)
+        if (Mathf.Abs(Vector3.Angle(srcPortal.GetWorldVectorToPortal(), dstPortal.GetWorldVectorToPortal())) < 90)
             InverseXMovementAxis();
 
         DropCube();
     }
 
-    public void OnExitedPortalArea( GameObject portal )
+    public void OnExitedPortalArea(PortalCloner portal)
     {
     }
 

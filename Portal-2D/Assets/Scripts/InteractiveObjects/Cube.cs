@@ -89,12 +89,11 @@ public class Cube : MonoBehaviour , IPortalEventsListener
         cubeSound.Play();
     }
 
-    void IPortalEventsListener.OnTeleported( GameObject srcPortal , GameObject dstPortal , Vector3 srcPortalRight , Vector3 dstPortalRight )
+    public void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
     {
         Drop();
     }
-
-    void IPortalEventsListener.OnExitedPortalArea( GameObject portal )
+    public void OnExitedPortalArea(PortalCloner portal)
     {
     }
 }

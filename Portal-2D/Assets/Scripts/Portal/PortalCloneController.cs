@@ -6,8 +6,8 @@ using UnityEngine;
 public class PortalCloneController : MonoBehaviour , IPortalEventsListener
 {
     [SerializeField] GameObject clone;
-    GameObject ourPortal;
-    GameObject clonePortalOutput;
+    PortalCloner ourPortal;
+    PortalCloner dstPortal;
 
     public GameObject GetClone()
     {
@@ -24,27 +24,36 @@ public class PortalCloneController : MonoBehaviour , IPortalEventsListener
 
     void Update()
     {
-        if (clone == null || ourPortal == null || clonePortalOutput == null)
+        if (clone == null || ourPortal == null || this.dstPortal == null)
             return;
 
-        clone.transform.localPosition = CommonFunctions.PointWorldToLocal(ourPortal.transform, transform.position);
+        var portalAdapter = GetComponent<PortalAdapter>();
+        if (portalAdapter == null)
+            return;
+
+        var srcPortal = ourPortal.GetOwnPortal();
+        var dstPortal = this.dstPortal.GetOwnPortal();
+
+        clone.transform.localPosition = CommonFunctions.PointWorldToLocal(ourPortal.transform, portalAdapter.GetObjectCenter());
 
 
-        var localScaleA = CommonFunctions.VectorWorldToLocal(ourPortal.transform, transform.localScale);
+        //var localScaleA = CommonFunctions.VectorWorldToLocal(srcPortal.transform, transform.localScale);
 
-        clone.transform.localScale = CommonFunctions.VectorLocalToWorld(clonePortalOutput.transform.parent, localScaleA);
+        //clone.transform.localScale = CommonFunctions.VectorLocalToWorld(dstPortal.transform, localScaleA);
+
+        clone.transform.localScale = transform.localScale;
 
         clone.transform.rotation = Quaternion.Euler( 0 , 0 , transform.rotation.eulerAngles.z );
     }
 
-    public void ResetClone(GameObject newClone, GameObject srcPortal, GameObject dstPortalOutput)
+    public void ResetClone(GameObject newClone, PortalCloner srcInPortal, PortalCloner dstInPortal)
     {
         if (clone!=null && clone!=newClone)
             DestroyClone();
 
         clone = newClone;
-        ourPortal = srcPortal;
-        clonePortalOutput = dstPortalOutput;
+        ourPortal = srcInPortal;
+        dstPortal = dstInPortal;
 
         if (clone==null)
             return;
@@ -63,13 +72,13 @@ public class PortalCloneController : MonoBehaviour , IPortalEventsListener
         }
     }
 
-    void IPortalEventsListener.OnTeleported( GameObject srcPortal , GameObject dstPortal , Vector3 srcPortalRight , Vector3 dstPortalRight )
+    void IPortalEventsListener.OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
     {
         //if (portal==ourPortal)
         //    DestroyClone();
     }
 
-    void IPortalEventsListener.OnExitedPortalArea( GameObject portal )
+    void IPortalEventsListener.OnExitedPortalArea(PortalCloner portal)
     {
         if (portal==ourPortal)
             DestroyClone();
