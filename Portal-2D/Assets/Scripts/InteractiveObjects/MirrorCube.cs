@@ -54,6 +54,7 @@ public class MirrorCube : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
         start = transform.position;  // Pierwszy punkt to pozycja transmitera
         maxEnd = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z); // Odleg³y punkt na lewo od kostki
+        realEnd = maxEnd;   // Pocz¹tkowo ustawiamy punkt koñcowy na maksymalny zasiêg
         if (lineRenderer.enabled)
         {
             RaycastHit2D hit = Physics2D.Raycast(start, (maxEnd - start).normalized, Vector3.Distance(start, maxEnd), layerMask);
@@ -61,8 +62,9 @@ public class MirrorCube : MonoBehaviour
             {
                 realEnd = hit.point;
             }
-            lineRenderer.SetPosition(0, start); // Ustawienie pierwszego punktu linii
+            lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
+            
         }
     }
 

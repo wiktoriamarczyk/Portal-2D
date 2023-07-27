@@ -32,7 +32,7 @@ TagManager:
   - NonCollidableUnits
   - Portal
   - NonLaserInteractionUnits
-  - 
+  - MirrorCube
   - 
   - 
   - 
