@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Tilemaps;
 using static UnityEngine.GraphicsBuffer;
 
 public class PortalCloner : MonoBehaviour
 {
     [SerializeField] GameObject clonePrefab;
     [SerializeField] GameObject ownPortal;
+    [SerializeField] GameObject ownInterior;
     [SerializeField] GameObject ownOutput;
+    [SerializeField] Animator animator;
     [SerializeField] PortalCloner destination;
+
+    public void SetDestination(PortalCloner dest)
+    {
+        destination = dest;
+    }
 
     public GameObject GetOwnPortal()
     {
@@ -101,6 +109,70 @@ public class PortalCloner : MonoBehaviour
         {
             listener.OnExitedPortalArea(this);
         }
+    }
+
+    List<Vector3Int> cells = new List<Vector3Int>();
+
+    private void Start()
+    {
+        MakeTilesBehindPortalNonCollidable();
+
+        if (animator!=null)
+            animator.SetTrigger("OpenPortal");
+    }
+
+    void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
+
+    public void MakeTilesBehindPortalNonCollidable()
+    {
+        var tilemap = PortalManager.Instance.TilemapProperty;
+        var impostorTilemap = PortalManager.Instance.ImpostorTilemapProperty;
+
+        MakeTilesBehindPortalCollidable();
+
+        int portalGridWidth = 3;
+        int portalGridHalfHeight = 3;
+
+        var StartPos = Vector3.zero;
+
+
+        for (int x = 0; x < portalGridWidth; ++x)
+        {
+            for (int y = -portalGridHalfHeight; y <= portalGridHalfHeight; ++y)
+            {
+                var localGridPos = StartPos + new Vector3(x*tilemap.cellSize.x, y*tilemap.cellSize.y, 0);
+                var worldGridPos = CommonFunctions.PointLocalToWorld(ownInterior.transform, localGridPos);
+                var tilemapPos   = tilemap.WorldToCell(worldGridPos);
+
+                var tile = tilemap.GetTile(tilemapPos);
+                if (tile!=null)
+                {
+                    impostorTilemap.SetTile(tilemapPos, tile);
+                    tilemap.SetTile(tilemapPos, null);
+                    cells.Add(tilemapPos);
+                }
+            }
+        }
+    }
+
+    public void MakeTilesBehindPortalCollidable()
+    {
+        var tilemap = PortalManager.Instance.TilemapProperty;
+        var impostorTilemap = PortalManager.Instance.ImpostorTilemapProperty;
+
+        foreach (var cell in cells)
+        {
+            var tile = impostorTilemap.GetTile(cell);
+            if (tile!=null)
+            {
+                tilemap.SetTile(cell, tile);
+                impostorTilemap.SetTile(cell, null);
+            }
+        }
+        cells.Clear();
     }
 
 }

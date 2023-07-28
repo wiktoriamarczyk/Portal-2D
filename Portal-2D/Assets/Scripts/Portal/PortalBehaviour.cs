@@ -17,109 +17,129 @@ public class PortalBehaviour : MonoBehaviour
         tilemap = PortalManager.Instance.TilemapProperty;
         impostorTilemap = PortalManager.Instance.ImpostorTilemapProperty;
 
-        MakeTilesBehindPortalNonCollidable();
+        //MakeTilesBehindPortalNonCollidable();
 
-        Animator animator = GetComponent<Animator>();
+        GetComponentInChildren<PortalCloner>().MakeTilesBehindPortalNonCollidable();
+
+        Animator animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("OpenPortal");
     }
 
     public void InitDestroyment()
     {
-        RestoreTiles();
-        Animator animator = GetComponent<Animator>();
+        //RestoreTiles();
+        GetComponentInChildren<PortalCloner>().MakeTilesBehindPortalCollidable();
+
+
+        Animator animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("ClosePortal");
     }
 
     // wywo³ane na koniec animacji zamykania portalu
-    void Destroy()
+    public void Destroy()
     {
         Destroy(this.gameObject);
     }
 
-    void MakeTilesBehindPortalNonCollidable()
+    public static void Link(PortalBehaviour a, PortalBehaviour b)
     {
-        Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(transform.position);
+        if (a==null || b==null)
+            return;
 
-        Debug.Log("grid pos: " + cellPosition);
+        a.otherEnd = b;
+        b.otherEnd = a;
 
-        // przesuñ punkt startowy o 3 w dó³ w przestrzeni lokalnej
-        cellPosition += Vector3Int.RoundToInt(gameObject.transform.up * -(portalGridHeight / 2));
+        var ac = a.GetComponentInChildren<PortalCloner>();
+        var bc = b.GetComponentInChildren<PortalCloner>();
 
-        Vector3Int tilePos = Vector3Int.zero;
-
-        // przesuñ punkt startowy ³¹cznie o 2 jednostki w bok
-        for (int x = 0; x < portalGridWidth; ++x)
-        {
-            Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * (-x));
-            // przesuñ punkt startowy ³¹cznie o 6 jednostek w górê
-            for (int y = 0; y < portalGridHeight; ++y)
-            {
-                Vector3Int shiftY = Vector3Int.RoundToInt(gameObject.transform.up * y);
-
-                tilePos = cellPosition + shiftX + shiftY;// + new Vector3Int(x, y, 0);
-                var tile = tilemap.GetTile(tilePos);
-                impostorTilemap.SetTile(tilePos, tile);
-                tilemap.SetTile(tilePos, null);
-            }
-        }
-        // ------- TO FIX ------------
-        if (Mathf.Abs(transform.eulerAngles.z - 270) < 0.01)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-        }
-        else if (transform.eulerAngles.z == 0)
-        {
-            transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
-        }
-
+        ac.SetDestination(bc);
+        bc.SetDestination(ac);
     }
 
-    void RestoreTiles()
-    {
-        // ------- TO FIX ------------
-        if (Mathf.Abs(transform.eulerAngles.z - 270) < 0.01)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-        }
-        else if (transform.eulerAngles.z == 0)
-        {
-            transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
-        }
+    //void MakeTilesBehindPortalNonCollidable()
+    //{
+    //    Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(transform.position);
+
+    //    Debug.Log("grid pos: " + cellPosition);
+
+    //    // przesuñ punkt startowy o 3 w dó³ w przestrzeni lokalnej
+    //    cellPosition += Vector3Int.RoundToInt(gameObject.transform.up * -(portalGridHeight / 2));
+
+    //    Vector3Int tilePos = Vector3Int.zero;
+
+    //    // przesuñ punkt startowy ³¹cznie o 2 jednostki w bok
+    //    for (int x = 0; x < portalGridWidth; ++x)
+    //    {
+    //        Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * (-x));
+    //        // przesuñ punkt startowy ³¹cznie o 6 jednostek w górê
+    //        for (int y = 0; y < portalGridHeight; ++y)
+    //        {
+    //            Vector3Int shiftY = Vector3Int.RoundToInt(gameObject.transform.up * y);
+
+    //            tilePos = cellPosition + shiftX + shiftY;// + new Vector3Int(x, y, 0);
+    //            var tile = tilemap.GetTile(tilePos);
+    //            impostorTilemap.SetTile(tilePos, tile);
+    //            tilemap.SetTile(tilePos, null);
+    //        }
+    //    }
+    //    // ------- TO FIX ------------
+    //    if (Mathf.Abs(transform.eulerAngles.z - 270) < 0.01)
+    //    {
+    //        transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+    //    }
+    //    else if (transform.eulerAngles.z == 0)
+    //    {
+    //        transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+    //    }
+
+    //}
+
+    //void RestoreTiles()
+    //{
+    //    // ------- TO FIX ------------
+    //    if (Mathf.Abs(transform.eulerAngles.z - 270) < 0.01)
+    //    {
+    //        transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+    //    }
+    //    else if (transform.eulerAngles.z == 0)
+    //    {
+    //        transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+    //    }
 
 
-        Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(transform.position);
-        cellPosition += Vector3Int.RoundToInt(gameObject.transform.up * -(portalGridHeight / 2));
-        Vector3Int tilePos = Vector3Int.zero;
+    //    Vector3Int cellPosition = tilemap.layoutGrid.WorldToCell(transform.position);
+    //    cellPosition += Vector3Int.RoundToInt(gameObject.transform.up * -(portalGridHeight / 2));
+    //    Vector3Int tilePos = Vector3Int.zero;
 
-        for (int x = 0; x < portalGridWidth; ++x)
-        {
-            Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * (-x));
-            for (int y = 0; y < portalGridHeight; ++y)
-            {
-                Vector3Int shiftY = Vector3Int.RoundToInt(gameObject.transform.up * y);
+    //    for (int x = 0; x < portalGridWidth; ++x)
+    //    {
+    //        Vector3Int shiftX = Vector3Int.RoundToInt(gameObject.transform.right * (-x));
+    //        for (int y = 0; y < portalGridHeight; ++y)
+    //        {
+    //            Vector3Int shiftY = Vector3Int.RoundToInt(gameObject.transform.up * y);
 
-                tilePos = cellPosition + shiftX + shiftY;// + new Vector3Int(x, y, 0);
-                var tile = impostorTilemap.GetTile(tilePos);
-                tilemap.SetTile(tilePos, tile);
-                impostorTilemap.SetTile(tilePos, null);
-            }
-        }
-    }
+    //            tilePos = cellPosition + shiftX + shiftY;// + new Vector3Int(x, y, 0);
+    //            var tile = impostorTilemap.GetTile(tilePos);
+    //            tilemap.SetTile(tilePos, tile);
+    //            impostorTilemap.SetTile(tilePos, null);
+    //        }
+    //    }
+    //}
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        PortalManager.Instance.ObjectToCloneProperty = collision.gameObject;
-        PortalManager.Instance.CreateClone(gameObject, collision.gameObject);
+        //PortalManager.Instance.ObjectToCloneProperty = collision.gameObject;
+        //PortalManager.Instance.CreateClone(gameObject, collision.gameObject);
         Debug.Log(gameObject.name);
     }
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        PortalManager.Instance.Teleport();
+        //PortalManager.Instance.Teleport();
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        PortalManager.Instance.DestroyClone(collider.gameObject);
+        //PortalManager.Instance.DestroyClone(collider.gameObject);
     }
 }
