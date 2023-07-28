@@ -33,17 +33,34 @@ public class PortalAdapter : MonoBehaviour
     public Vector3 GetObjectCenter()
     {
         var collider = GetComponent<BoxCollider2D>();
-        if( collider == null )
+        if (collider == null)
             return transform.position;
 
         return collider.bounds.center;
+    }
+
+    private void Update()
+    {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
+        if (rigidbody2D != null)
+        {
+            var velocity = rigidbody2D.velocity;
+            var mag = velocity.magnitude;
+            // clamp velocity to 50
+            if (mag > 50)
+            {
+                float ratio = 50 / mag;
+                velocity *= ratio;
+                rigidbody2D.velocity = velocity;
+            }
+        }
     }
 
     public void SetPositionByCenter(Vector3 pos)
     {
         Vector3 Offset = Vector3.zero;
         var collider = GetComponent<BoxCollider2D>();
-        if( collider != null )
+        if (collider != null)
         {
             Offset = collider.bounds.center - transform.position;
         }
