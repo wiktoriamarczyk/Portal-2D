@@ -4,41 +4,16 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MirrorCube : Cube
+public class MirrorCube : PickableObject
 {
-    //[SerializeField] AudioSource cubeSound;
-    //[SerializeField] float detectionRadius = 4f;
     [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
-    TMP_Text promptText;
-    //bool taken = false;
-    //Rigidbody2D rigidbody2D;
-    static bool promptWasDisplayed = false;
     private LineRenderer lineRenderer;
     public SpriteRenderer spriteRenderer;
-    float backupMass = 0;
     public Sprite mirrorOnSprite;
     public Sprite mirrorOffSprite;
     Vector3 start;      // Punkt pocz¹tkowy lasera
     Vector3 maxEnd;     // Punkt koñcowy lasera (maksymalny zasiêg)
     Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
-
-    //public void Take()
-    //{
-    //    if (taken) return;
-    //    backupMass = rigidbody2D.mass;
-    //    rigidbody2D.mass = 0.008f;
-    //    rigidbody2D.gravityScale = 0;
-    //    taken = true;
-    //    UnityEngine.Debug.Log("Podnosze lustro (lustro)");
-    //}
-
-    //public void Drop()
-    //{
-    //    if (!taken) return;
-    //    rigidbody2D.mass = backupMass;
-    //    rigidbody2D.gravityScale = 1;
-    //    taken = false;
-    //}
 
     override protected void Start()
     {
@@ -71,11 +46,6 @@ public class MirrorCube : Cube
 
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    cubeSound.Play();
-    //}
 
     public void startLaser()
     {

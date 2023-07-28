@@ -418,10 +418,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5954220582719915238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83ee315062651b74c856160a34c53dc6, type: 3}
+  m_Script: {fileID: 11500000, guid: 792857be2a465f2499a8761b600f42f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clonePrefab: {fileID: 2655554128803243638, guid: 761b32fbe95d74e4e97bcd1d7b8c3cf5, type: 3}
+  clonePrefab: {fileID: 0}
   ownPortal: {fileID: 5954220582932503433}
   ownInterior: {fileID: 6833155129637302877}
   ownOutput: {fileID: 659855794993869702}

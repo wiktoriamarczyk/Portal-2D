@@ -5,17 +5,16 @@ using UnityEngine.AI;
 using UnityEngine.Tilemaps;
 using static UnityEngine.GraphicsBuffer;
 
-public class PortalCloner : MonoBehaviour
+public class PortalLogic : MonoBehaviour
 {
-    [SerializeField] GameObject clonePrefab;
     [SerializeField] GameObject ownPortal;
     [SerializeField] GameObject ownInterior;
     [SerializeField] GameObject ownOutput;
     [SerializeField] Animator animator;
-    [SerializeField] PortalCloner destination;
+    [SerializeField] PortalLogic destination;
     [SerializeField] PortalBehaviour portalBehaviour;
 
-    public void SetDestination(PortalCloner dest)
+    public void SetDestination(PortalLogic dest)
     {
         destination = dest;
     }

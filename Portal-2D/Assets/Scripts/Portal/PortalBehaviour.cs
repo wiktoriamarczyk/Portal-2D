@@ -13,12 +13,12 @@ public class PortalBehaviour : MonoBehaviour
         int angle = ((int)(transform.rotation.eulerAngles.z+0.5f))%360;
         if ( angle >= 180  )
         {
-            var interior = GetComponentInChildren<PortalCloner>().GetOwnInterior();
+            var interior = GetComponentInChildren<PortalLogic>().GetOwnInterior();
             interior.transform.Rotate(0, 0, 180);
             interior.transform.localScale = new Vector3(interior.transform.localScale.x * -1, interior.transform.localScale.y, interior.transform.localScale.z);
         }
 
-        GetComponentInChildren<PortalCloner>().MakeTilesBehindPortalNonCollidable();
+        GetComponentInChildren<PortalLogic>().MakeTilesBehindPortalNonCollidable();
 
         Animator animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("OpenPortal");
@@ -26,7 +26,7 @@ public class PortalBehaviour : MonoBehaviour
 
     public void InitDestroyment()
     {
-        GetComponentInChildren<PortalCloner>().MakeTilesBehindPortalCollidable();
+        GetComponentInChildren<PortalLogic>().MakeTilesBehindPortalCollidable();
 
 
         Animator animator = GetComponentInChildren<Animator>();
@@ -47,8 +47,8 @@ public class PortalBehaviour : MonoBehaviour
         a.otherEnd = b;
         b.otherEnd = a;
 
-        var ac = a.GetComponentInChildren<PortalCloner>();
-        var bc = b.GetComponentInChildren<PortalCloner>();
+        var ac = a.GetComponentInChildren<PortalLogic>();
+        var bc = b.GetComponentInChildren<PortalLogic>();
 
         ac.SetDestination(bc);
         bc.SetDestination(ac);

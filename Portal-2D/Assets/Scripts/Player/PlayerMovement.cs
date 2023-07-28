@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     Animator       animator;
     float          dirX = 0f;
     float          dirXMultiplier = 1.0f;
-    float          cubeSavedMass = 0;
     bool           isJumping = false;
     bool           isFacingRight = true;
     BoxCollider2D  boxCollider2D;
@@ -85,12 +84,6 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
                 DropItem();
             }
         }
-
-        if (IsHoldingItem())
-        {
-            UpdateItemsPosition();
-        }
-
     }
 
     public bool IsTouchingGround()
@@ -152,10 +145,10 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<Cube>()!=null && !IsHoldingItem())
+            if (collider.GetComponent<PickableObject>()!=null && !IsHoldingItem())
             {
                 holdingGameObj = collider.gameObject;
-                holdingGameObj.GetComponent<Cube>().Take(holdPoint);
+                holdingGameObj.GetComponent<PickableObject>().Take(holdPoint);
                 break;
             }
         }
@@ -166,7 +159,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         return holdingGameObj != null;
     }
 
-    public void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
+    public void OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
     {
         if (Mathf.Abs(Vector3.Angle(srcPortal.GetWorldVectorToPortal(), dstPortal.GetWorldVectorToPortal())) < 90)
             InverseXMovementAxis();
@@ -174,7 +167,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         DropItem();
     }
 
-    public void OnExitedPortalArea(PortalCloner portal)
+    public void OnExitedPortalArea(PortalLogic portal)
     {
     }
 
@@ -182,25 +175,11 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     {
         if (!holdingGameObj) return;
 
-        if (holdingGameObj.GetComponent<Cube>() != null)
+        if (holdingGameObj.GetComponent<PickableObject>() != null)
         {
-            holdingGameObj.GetComponent<Cube>().Drop();
+            holdingGameObj.GetComponent<PickableObject>().Drop();
             holdingGameObj = null;
         }
-    }
-
-    void UpdateItemsPosition()
-    {
-        if (holdingGameObj.GetComponent<Cube>() != null)
-            return;
-
-        //if (holdingGameObj != null)
-        //{
-        //    var enemyPosition = holdingGameObj.transform.position;
-        //    var targetPos = holdPoint.transform.position;
-        //    var diff = (targetPos - enemyPosition) * 10;
-        //    holdingGameObj.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
-        //}
     }
     #endregion ITEM
 }

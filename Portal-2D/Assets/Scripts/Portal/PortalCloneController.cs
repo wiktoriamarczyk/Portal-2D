@@ -6,8 +6,8 @@ using UnityEngine;
 public class PortalCloneController : MonoBehaviour , IPortalEventsListener
 {
     [SerializeField] GameObject clone;
-    PortalCloner ourPortal;
-    PortalCloner dstPortal;
+    PortalLogic ourPortal;
+    PortalLogic dstPortal;
 
     public GameObject GetClone()
     {
@@ -46,7 +46,7 @@ public class PortalCloneController : MonoBehaviour , IPortalEventsListener
         clone.transform.rotation = Quaternion.Euler( 0 , 0 , transform.rotation.eulerAngles.z );
     }
 
-    public void ResetClone(GameObject newClone, PortalCloner srcInPortal, PortalCloner dstInPortal)
+    public void ResetClone(GameObject newClone, PortalLogic srcInPortal, PortalLogic dstInPortal)
     {
         if (clone!=null && clone!=newClone)
             DestroyClone();
@@ -72,13 +72,13 @@ public class PortalCloneController : MonoBehaviour , IPortalEventsListener
         }
     }
 
-    void IPortalEventsListener.OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
+    void IPortalEventsListener.OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
     {
         //if (portal==ourPortal)
         //    DestroyClone();
     }
 
-    void IPortalEventsListener.OnExitedPortalArea(PortalCloner portal)
+    void IPortalEventsListener.OnExitedPortalArea(PortalLogic portal)
     {
         if (portal==ourPortal)
             DestroyClone();

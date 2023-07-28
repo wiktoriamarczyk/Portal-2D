@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 
-public class Cube : MonoBehaviour , IPortalEventsListener
+public class PickableObject : MonoBehaviour , IPortalEventsListener
 {
     [SerializeField] protected AudioSource cubeSound;
     [SerializeField] protected float detectionRadius = 4f;
@@ -90,11 +90,11 @@ public class Cube : MonoBehaviour , IPortalEventsListener
             cubeSound.Play();
     }
 
-    public virtual void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
+    public virtual void OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
     {
         Drop();
     }
-    public virtual void OnExitedPortalArea(PortalCloner portal)
+    public virtual void OnExitedPortalArea(PortalLogic portal)
     {
     }
 }
