@@ -12,6 +12,8 @@ public class Enemy : PickableObject
     public float userMass = 80f;
     public float agonyTime = 1.5f;
     public AudioSource audioSource;
+    public AudioClip detected;
+    public AudioClip disabled;
     private LineRenderer lineRenderer;
     private SpriteRenderer spriteRenderer;
     Vector3 laserend;
@@ -43,6 +45,10 @@ public class Enemy : PickableObject
             lineRenderer.enabled = false;
             return;
         }
+        if (Mathf.Abs(transform.localRotation.eulerAngles.z) > maxTiltAngle && alive)
+        {
+            StartCoroutine(DieWithDelay());
+        }
         // Narysuj laser (celownik)
         laserend = transform.position;
         laserend.x += 10f;
@@ -57,24 +63,17 @@ public class Enemy : PickableObject
         if (hit.collider != null && hit.collider.gameObject.tag == "Player")
         {
             // odtwórz dŸwiêk
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            if (!audioSource.isPlaying) audioSource.PlayOneShot(detected);
         }
 
 
-        if (Mathf.Abs(transform.localRotation.eulerAngles.z) > maxTiltAngle && alive)
-        {
-            StartCoroutine(DieWithDelay());
-        }
     }
 
     private IEnumerator DieWithDelay()
     {
+        if (!audioSource.isPlaying) audioSource.PlayOneShot(disabled);
         // wait x sec before callin
         yield return new WaitForSeconds(agonyTime);
-
         Die(); // no hurt feelings
     }
 

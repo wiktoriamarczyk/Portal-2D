@@ -68,6 +68,7 @@ public class Lasers : MonoBehaviour
         GameObject.Find("Mirror").GetComponent<MirrorCube>().stopLaser();
         laserSound.mute = true;
         laserSound.loop = false;
+        if (DoorOut.isActive) GameObject.Find("DoorOut").GetComponent<DoorOut>().CloseDoor();
         laserOff.Play();
     }
 
@@ -93,15 +94,26 @@ public class Lasers : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
                 {
                     hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
-                    onReceiverHit.Invoke();
+                    if (!DoorOut.isActive) onReceiverHit.Invoke();
                 }
                 else 
                 {
-                    onReceiverReleased.Invoke();
+                    if (DoorOut.isActive) onReceiverReleased.Invoke();
                     GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
                     if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
                     {
-                        // TODO: Implement!
+                        Debug.Log("The blue portal was hit by laser");
+                        PortalLaser.isBluePortalHit = true;
+                    }
+                    else if (hit.collider != null && hit.collider.gameObject.tag == "Orange Portal")
+                    {
+                        Debug.Log("The orange portal was hit by laser");
+                        PortalLaser.isOrangePortalHit = true;
+                    }
+                    else
+                    {
+                        PortalLaser.isBluePortalHit = false;
+                        PortalLaser.isOrangePortalHit = false;
                     }
                 }
             }

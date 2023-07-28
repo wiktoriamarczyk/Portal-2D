@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal2 - blue
       objectReference: {fileID: 0}
+    - target: {fileID: 5954220582932503433, guid: d66f160f6fb23424d82b34647f68c533, type: 3}
+      propertyPath: m_TagString
+      value: Blue Portal
+      objectReference: {fileID: 0}
     - target: {fileID: 5954220582932503434, guid: d66f160f6fb23424d82b34647f68c533, type: 3}
       propertyPath: m_RootOrder
       value: 0

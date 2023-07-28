@@ -7,7 +7,7 @@ public class DoorOut : MonoBehaviour
     [SerializeField] AudioSource doorOpen;
     [SerializeField] AudioSource doorClose;
 
-    bool isActive = false;
+    public static bool isActive = false;
     Animator animator;
 
     void Awake()
@@ -25,6 +25,7 @@ public class DoorOut : MonoBehaviour
 
     public void CloseDoor()
     {
+        Debug.Log("Zamykam drzwi");
         isActive = false;
         animator.SetTrigger("CloseDoor");
         doorClose.Play();

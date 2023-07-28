@@ -17,7 +17,6 @@ public class MirrorCube : PickableObject
     Vector3 start;          // Punkt pocz¹tkowy lasera
     Vector3 maxEnd;         // Punkt koñcowy lasera (maksymalny zasiêg)
     Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
-    public bool wasReceiverHit = false;
 
     override protected void Start()
     {
@@ -49,21 +48,13 @@ public class MirrorCube : PickableObject
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
             if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
             {
-                if (!wasReceiverHit)
-                {
-                    Debug.Log("Hit receiver!");
-                    onReceiverHit.Invoke();
-                }
-                wasReceiverHit = true;
+                Debug.Log("Hit receiver!");
+                if (!DoorOut.isActive) onReceiverHit.Invoke();
             }
             else
             {
-                if (wasReceiverHit)
-                {
-                    Debug.Log("Released receiver!");
-                    onReceiverReleased.Invoke();
-                }
-                wasReceiverHit = false;
+                Debug.Log("Released receiver!");
+                if (DoorOut.isActive) onReceiverReleased.Invoke();
                 if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
                 {
                     // TODO: Implement!
