@@ -54,6 +54,14 @@ public class PortalLogic : MonoBehaviour
         return destination?.GetOwnOutput();
     }
 
+    public Vector3 GetObjectXFlipFactor()
+    {
+        if (ownInterior == null || ownOutput == null)
+            return Vector3.one;
+
+        return new Vector3(ownInterior.transform.localScale.x * ownOutput.transform.localScale.x * -1, 1, 1);
+    }
+
     void OnTriggerEnter2D( Collider2D collision )
     {
         var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();

@@ -31,19 +31,9 @@ public class PortalCloneController : MonoBehaviour , IPortalEventsListener
         if (portalAdapter == null)
             return;
 
-        var srcPortal = ourPortal.GetOwnPortal();
-        var dstPortal = this.dstPortal.GetOwnPortal();
-
-        clone.transform.localPosition = CommonFunctions.PointWorldToLocal(ourPortal.transform, portalAdapter.GetObjectCenter());
-
-
-        //var localScaleA = CommonFunctions.VectorWorldToLocal(srcPortal.transform, transform.localScale);
-
-        //clone.transform.localScale = CommonFunctions.VectorLocalToWorld(dstPortal.transform, localScaleA);
-
-        clone.transform.localScale = transform.localScale;
-
-        clone.transform.rotation = Quaternion.Euler( 0 , 0 , transform.rotation.eulerAngles.z );
+        clone.transform.localPosition   = CommonFunctions.PointWorldToLocal(ourPortal.transform, portalAdapter.GetObjectCenter());
+        clone.transform.localScale      = Vector3.Scale(transform.localScale, ourPortal.GetObjectXFlipFactor());
+        clone.transform.rotation        = Quaternion.Euler( 0 , 0 , transform.rotation.eulerAngles.z );
     }
 
     public void ResetClone(GameObject newClone, PortalLogic srcInPortal, PortalLogic dstInPortal)
