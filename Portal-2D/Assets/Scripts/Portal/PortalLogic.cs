@@ -17,6 +17,7 @@ public class PortalLogic : MonoBehaviour
     public void SetDestination(PortalLogic dest)
     {
         destination = dest;
+        MakeTilesBehindPortalNonCollidable();
     }
     public PortalBehaviour GetPortalBehaviour()
     {
@@ -56,7 +57,7 @@ public class PortalLogic : MonoBehaviour
     void OnTriggerEnter2D( Collider2D collision )
     {
         var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();
-        if (portalAdapter == null)
+        if (portalAdapter == null || destination==null)
             return;
 
         Vector3 worldClonePos = CommonFunctions.TransformPosBetweenPortals(collision.gameObject.transform.position, gameObject, GetDestinationPortal());
@@ -140,6 +141,8 @@ public class PortalLogic : MonoBehaviour
         var impostorTilemap = PortalManager.Instance.ImpostorTilemapProperty;
 
         MakeTilesBehindPortalCollidable();
+        if (!destination)
+            return;
 
         int portalGridWidth = 3;
         int portalGridHalfHeight = 3;
