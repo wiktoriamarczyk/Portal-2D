@@ -22,9 +22,6 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     bool           isFacingRight = true;
     BoxCollider2D  boxCollider2D;
 
-    GameObject currentCube = null;
-    GameObject currentEnemy = null;
-    GameObject currentMirror = null;
     GameObject holdingGameObj = null;
 
 
@@ -155,25 +152,10 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Cube") && !IsHoldingItem())
+            if (collider.GetComponent<Cube>()!=null && !IsHoldingItem())
             {
-                currentCube = collider.gameObject;
-                currentCube.GetComponent<Cube>().Take(holdPoint);
-                holdingGameObj = currentCube;
-                break;
-            }
-            else if (collider.CompareTag("Enemy") && !IsHoldingItem())
-            {
-                currentEnemy = collider.gameObject;
-                currentEnemy.GetComponent<Enemy>().Take();
-                holdingGameObj = currentEnemy;
-                break;
-            }
-            else if (collider.CompareTag("Mirror") && !IsHoldingItem())
-            {
-                currentMirror = collider.gameObject;
-                currentMirror.GetComponent<MirrorCube>().Take();
-                holdingGameObj = currentMirror;
+                holdingGameObj = collider.gameObject;
+                holdingGameObj.GetComponent<Cube>().Take(holdPoint);
                 break;
             }
         }
@@ -181,7 +163,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 
     bool IsHoldingItem()
     {
-        return holdingGameObj || currentCube != null || currentEnemy != null || currentMirror != null;
+        return holdingGameObj != null;
     }
 
     public void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
@@ -189,7 +171,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         if (Mathf.Abs(Vector3.Angle(srcPortal.GetWorldVectorToPortal(), dstPortal.GetWorldVectorToPortal())) < 90)
             InverseXMovementAxis();
 
-        DropCube();
+        DropItem();
     }
 
     public void OnExitedPortalArea(PortalCloner portal)
@@ -202,50 +184,23 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 
         if (holdingGameObj.GetComponent<Cube>() != null)
         {
-            currentCube.GetComponent<Cube>().Drop();
-            currentCube = null;
+            holdingGameObj.GetComponent<Cube>().Drop();
             holdingGameObj = null;
         }
-        else if (holdingGameObj.GetComponent<Enemy>() != null)
-        {
-            currentEnemy.GetComponent<Enemy>().Drop();
-            currentEnemy = null;
-            holdingGameObj = null;
-        }
-        else if (holdingGameObj.GetComponent<MirrorCube>() != null)
-        {
-            currentMirror.GetComponent<MirrorCube>().Drop();
-            currentMirror = null;
-            holdingGameObj = null;
-        }
-
     }
 
     void UpdateItemsPosition()
     {
-        if (currentCube != null)
-        {
-            var cubePosition = currentCube.transform.position;
-            var targetPos = holdPoint.transform.position;
-            var diff = (targetPos - cubePosition) * 10;
-            currentCube.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
-        }
+        if (holdingGameObj.GetComponent<Cube>() != null)
+            return;
 
-        else if (currentEnemy != null)
-        {
-            var enemyPosition = currentEnemy.transform.position;
-            var targetPos = holdPoint.transform.position;
-            var diff = (targetPos - enemyPosition) * 10;
-            currentEnemy.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
-        }
-
-        else if (currentMirror != null)
-        {
-            var mirrorPosition = currentMirror.transform.position;
-            var targetPos = holdPoint.transform.position;
-            var diff = (targetPos - mirrorPosition) * 10;
-            currentMirror.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
-        }
+        //if (holdingGameObj != null)
+        //{
+        //    var enemyPosition = holdingGameObj.transform.position;
+        //    var targetPos = holdPoint.transform.position;
+        //    var diff = (targetPos - enemyPosition) * 10;
+        //    holdingGameObj.GetComponent<Rigidbody2D>().velocity = new Vector2(diff.x, diff.y);
+        //}
     }
     #endregion ITEM
 }

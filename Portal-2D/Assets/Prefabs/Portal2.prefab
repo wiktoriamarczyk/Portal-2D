@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8030594627611442884}
   - component: {fileID: 8378094740146633398}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BottomLimitBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6912816848092591598}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Output
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5952103348587011333}
   - component: {fileID: 3332198468144095488}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MaskObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8342311179587140607}
   - component: {fileID: 2426326288190176393}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: UpperLimitBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 5954220581747624338}
   - component: {fileID: 6260451490317996827}
   - component: {fileID: 6299608658001060655}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 5954220582719915239}
   - component: {fileID: 5954220582719915161}
   - component: {fileID: 5954220582719915160}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CloneBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,6 +427,7 @@ MonoBehaviour:
   ownOutput: {fileID: 659855794993869702}
   animator: {fileID: 6260451490317996827}
   destination: {fileID: 0}
+  portalBehaviour: {fileID: 1238554079040473849}
 --- !u!1 &5954220582932503433
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5954220582932503434}
   - component: {fileID: 1238554079040473849}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Portal2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5954220583734088901}
   - component: {fileID: 5954220583734088902}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MaskPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5769839225177725234}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4607339281269863676}
   - component: {fileID: 3640108165704014736}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MaskClones
   m_TagString: Untagged
   m_Icon: {fileID: 0}

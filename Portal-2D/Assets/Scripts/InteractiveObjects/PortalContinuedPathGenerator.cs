@@ -95,10 +95,14 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         if(hit.collider == null || !recursionAllowed)
             return;
 
-        var portal = hit.collider.GetComponent<PortalBehaviour>();
-        if (portal != null && portal.otherEnd != null)
+        var portalCloner = hit.collider.GetComponent<PortalCloner>();
+        if ( portalCloner == null )
+            return;
+
+        //var portal = portalCloner.GetPortalBehaviour();
+        if (portalCloner != null && portalCloner.GetDestinationOutput() != null)
         {
-            DoGenerate( portal.otherEnd.gameObject , funnelPrefab, funnelsList , false);
+            DoGenerate( portalCloner.GetDestinationOutput().gameObject , funnelPrefab, funnelsList , false);
         }
     }
 

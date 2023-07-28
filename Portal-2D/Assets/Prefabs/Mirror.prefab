@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2003915937
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ae8bbc417a9994945a8374cf3277450b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,8 +147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4094c0ec8c8d67c43bb5117af4dfc0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeSound: {fileID: 0}
+  cubeSound: {fileID: 6835884082856691669}
   detectionRadius: 4
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  spriteRenderer: {fileID: 0}
+  mirrorOnSprite: {fileID: 0}
+  mirrorOffSprite: {fileID: 0}
 --- !u!82 &6835884082856691669
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,11 +7,11 @@ using UnityEditor.Experimental.GraphView;
 
 public class Cube : MonoBehaviour , IPortalEventsListener
 {
-    [SerializeField] AudioSource cubeSound;
-    [SerializeField] float detectionRadius = 4f;
+    [SerializeField] protected AudioSource cubeSound;
+    [SerializeField] protected float detectionRadius = 4f;
     TMP_Text promptText;
-    bool taken = false;
-    Rigidbody2D rigidbody2D;
+    protected bool taken = false;
+    protected Rigidbody2D rigidbody2D;
     static bool promptWasDisplayed = false;
 
     float backupMass = 0;
@@ -41,7 +41,7 @@ public class Cube : MonoBehaviour , IPortalEventsListener
         attachpoint = null;
     }
 
-    void Start()
+    protected virtual void Start()
     {
         GameObject textObject = GameObject.FindGameObjectWithTag("PromptText");
         if (textObject != null)
@@ -51,7 +51,7 @@ public class Cube : MonoBehaviour , IPortalEventsListener
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (attachpoint != null)
         {
@@ -84,16 +84,17 @@ public class Cube : MonoBehaviour , IPortalEventsListener
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        cubeSound.Play();
+        if (cubeSound!=null)
+            cubeSound.Play();
     }
 
-    public void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
+    public virtual void OnTeleported(PortalCloner srcPortal, PortalCloner dstPortal)
     {
         Drop();
     }
-    public void OnExitedPortalArea(PortalCloner portal)
+    public virtual void OnExitedPortalArea(PortalCloner portal)
     {
     }
 }

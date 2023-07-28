@@ -13,10 +13,15 @@ public class PortalCloner : MonoBehaviour
     [SerializeField] GameObject ownOutput;
     [SerializeField] Animator animator;
     [SerializeField] PortalCloner destination;
+    [SerializeField] PortalBehaviour portalBehaviour;
 
     public void SetDestination(PortalCloner dest)
     {
         destination = dest;
+    }
+    public PortalBehaviour GetPortalBehaviour()
+    {
+        return portalBehaviour;
     }
 
     public GameObject GetOwnPortal()

@@ -4,14 +4,14 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MirrorCube : MonoBehaviour
+public class MirrorCube : Cube
 {
-    [SerializeField] AudioSource cubeSound;
-    [SerializeField] float detectionRadius = 4f;
+    //[SerializeField] AudioSource cubeSound;
+    //[SerializeField] float detectionRadius = 4f;
     [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
     TMP_Text promptText;
-    bool taken = false;
-    Rigidbody2D rigidbody2D;
+    //bool taken = false;
+    //Rigidbody2D rigidbody2D;
     static bool promptWasDisplayed = false;
     private LineRenderer lineRenderer;
     public SpriteRenderer spriteRenderer;
@@ -22,35 +22,39 @@ public class MirrorCube : MonoBehaviour
     Vector3 maxEnd;     // Punkt koñcowy lasera (maksymalny zasiêg)
     Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
 
-    public void Take()
-    {
-        if (taken) return;
-        backupMass = rigidbody2D.mass;
-        rigidbody2D.mass = 0.008f;
-        rigidbody2D.gravityScale = 0;
-        taken = true;
-        UnityEngine.Debug.Log("Podnosze lustro (lustro)");
-    }
+    //public void Take()
+    //{
+    //    if (taken) return;
+    //    backupMass = rigidbody2D.mass;
+    //    rigidbody2D.mass = 0.008f;
+    //    rigidbody2D.gravityScale = 0;
+    //    taken = true;
+    //    UnityEngine.Debug.Log("Podnosze lustro (lustro)");
+    //}
 
-    public void Drop()
-    {
-        if (!taken) return;
-        rigidbody2D.mass = backupMass;
-        rigidbody2D.gravityScale = 1;
-        taken = false;
-    }
+    //public void Drop()
+    //{
+    //    if (!taken) return;
+    //    rigidbody2D.mass = backupMass;
+    //    rigidbody2D.gravityScale = 1;
+    //    taken = false;
+    //}
 
-    void Start()
+    override protected void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        base.Start();
+
+        //rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Pobranie komponentu SpriteRenderer
         lineRenderer = GetComponent<LineRenderer>();     // Pobranie komponentu LineRenderer
         lineRenderer.positionCount = 2;
         stopLaser();    // Wy³¹czenie lasera
     }
 
-    void Update()
+    override protected void Update()
     {
+        base.Update();
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
         start = transform.position;  // Pierwszy punkt to pozycja transmitera
         maxEnd = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z); // Odleg³y punkt na lewo od kostki
@@ -64,14 +68,14 @@ public class MirrorCube : MonoBehaviour
             }
             lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
-            
+
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        cubeSound.Play();
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    cubeSound.Play();
+    //}
 
     public void startLaser()
     {
