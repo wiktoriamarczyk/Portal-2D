@@ -96,7 +96,7 @@ public class Lasers : MonoBehaviour
                     hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
                     if (!DoorOut.isActive) onReceiverHit.Invoke();
                 }
-                else 
+                else
                 {
                     if (DoorOut.isActive) onReceiverReleased.Invoke();
                     GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
@@ -117,6 +117,11 @@ public class Lasers : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            PortalLaser.isBluePortalHit = false;
+            PortalLaser.isOrangePortalHit = false;
         }
     }
     public void ReceiverHit()
