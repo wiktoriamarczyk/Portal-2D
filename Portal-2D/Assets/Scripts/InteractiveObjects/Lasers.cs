@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class Lasers : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Lasers : MonoBehaviour
     [SerializeField] AudioSource laserOn;
     [SerializeField] AudioSource laserOff;
     [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
+    [SerializeField] UnityEvent onReceiverHit;
+    [SerializeField] UnityEvent onReceiverReleased;
 
     public Sprite defaultSprite;            // Domyœlny sprite
     public Sprite activatedSprite;          // Aktywowany sprite
@@ -73,7 +76,6 @@ public class Lasers : MonoBehaviour
     {
         if (lineRenderer.enabled)
         {
-            Debug.Log("Rysujê linie");
             RaycastHit2D hit = Physics2D.Raycast(start, (maxEnd - start).normalized, Vector3.Distance(start, maxEnd), layerMask);
             if (hit.collider != null)
             {
@@ -81,7 +83,6 @@ public class Lasers : MonoBehaviour
             }
             lineRenderer.SetPosition(0, start); // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
-            // Je¿eli laser trafi w odbiornik, to zmieñ jego sprite na aktywowany
             if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
             {
                 hit.collider.gameObject.GetComponent<MirrorCube>().startLaser();
@@ -92,8 +93,27 @@ public class Lasers : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
                 {
                     hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
+                    onReceiverHit.Invoke();
+                }
+                else 
+                {
+                    onReceiverReleased.Invoke();
+                    GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
+                    if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
+                    {
+                        // TODO: Implement!
+                    }
                 }
             }
         }
+    }
+    public void ReceiverHit()
+    {
+        GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = activatedSprite;
+    }
+
+    public void ReceiverReleased()
+    {
+        GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 }

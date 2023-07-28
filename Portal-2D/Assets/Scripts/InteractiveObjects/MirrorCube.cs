@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MirrorCube : PickableObject
 {
     [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
+    [SerializeField] UnityEvent onReceiverHit;
+    [SerializeField] UnityEvent onReceiverReleased;
     private LineRenderer lineRenderer;
     public SpriteRenderer spriteRenderer;
     public Sprite mirrorOnSprite;
@@ -14,6 +17,7 @@ public class MirrorCube : PickableObject
     Vector3 start;          // Punkt pocz¹tkowy lasera
     Vector3 maxEnd;         // Punkt koñcowy lasera (maksymalny zasiêg)
     Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
+    public bool wasReceiverHit = false;
 
     override protected void Start()
     {
@@ -43,7 +47,28 @@ public class MirrorCube : PickableObject
             }
             lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
-
+            if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
+            {
+                if (!wasReceiverHit)
+                {
+                    Debug.Log("Hit receiver!");
+                    onReceiverHit.Invoke();
+                }
+                wasReceiverHit = true;
+            }
+            else
+            {
+                if (wasReceiverHit)
+                {
+                    Debug.Log("Released receiver!");
+                    onReceiverReleased.Invoke();
+                }
+                wasReceiverHit = false;
+                if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
+                {
+                    // TODO: Implement!
+                }
+            }
         }
     }
 

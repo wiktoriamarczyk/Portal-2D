@@ -17,6 +17,7 @@ public class DoorOut : MonoBehaviour
 
     public void OpenDoor()
     {
+        Debug.Log("Otwieram drzwi");
         isActive = true;
         animator.SetTrigger("OpenDoor");
         doorOpen.Play();
