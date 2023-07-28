@@ -57,7 +57,18 @@ public class MirrorCube : PickableObject
                 if (DoorOut.isActive) onReceiverReleased.Invoke();
                 if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
                 {
-                    // TODO: Implement!
+                    Debug.Log("The blue portal was hit by laser");
+                    PortalLaser.isBluePortalHit = true;
+                }
+                else if (hit.collider != null && hit.collider.gameObject.tag == "Orange Portal")
+                {
+                    Debug.Log("The orange portal was hit by laser");
+                    PortalLaser.isOrangePortalHit = true;
+                }
+                else
+                {
+                    PortalLaser.isBluePortalHit = false;
+                    PortalLaser.isOrangePortalHit = false;
                 }
             }
         }
