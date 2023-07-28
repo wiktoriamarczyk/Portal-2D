@@ -17,6 +17,7 @@ public class PortalLogic : MonoBehaviour
     public void SetDestination(PortalLogic dest)
     {
         destination = dest;
+        MakeTilesBehindPortalNonCollidable();
     }
     public PortalBehaviour GetPortalBehaviour()
     {
@@ -56,19 +57,12 @@ public class PortalLogic : MonoBehaviour
     void OnTriggerEnter2D( Collider2D collision )
     {
         var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();
-        if (portalAdapter == null)
+        if (portalAdapter == null || destination==null)
             return;
 
         Vector3 worldClonePos = CommonFunctions.TransformPosBetweenPortals(collision.gameObject.transform.position, gameObject, GetDestinationPortal());
 
-        GameObject clone = portalAdapter.CreateClone(worldClonePos, Quaternion.identity, GetDestinationOutput());
-        clone.transform.localRotation = collision.gameObject.transform.localRotation;
-
-        var clonerController = collision.gameObject.GetComponent<PortalCloneController>();
-        if (clonerController == null)
-            clonerController = collision.gameObject.AddComponent<PortalCloneController>();
-
-        clonerController.ResetClone(clone, this, destination);
+        portalAdapter.CreateClone(worldClonePos, collision.gameObject.transform.localRotation, this, destination);
     }
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -86,19 +80,16 @@ public class PortalLogic : MonoBehaviour
         var testpoint = transform.position + ownWorldvecToPortal*10;
         var objpos = portalAdapter.GetObjectCenter();
         float dist = Vector3.Distance(testpoint, objpos);
-        if( dist < 9.8 )
+        if (dist < 9.8)
         {
             var newpos = clone.transform.position + destination.GetWorldVectorOutsidePortal() * 0.2f;
 
-            portalAdapter.SetPositionByCenter( newpos );
-
-            //collision.gameObject.transform.position = ;
+            portalAdapter.SetPositionByCenter(newpos);
 
             if (Mathf.Abs(Vector3.Angle(ownWorldvecToPortal, dstWorldvecToPortal)) < 90)
             {
                 var physics2D = collision.gameObject.GetComponent<Rigidbody2D>();
                 var LocalVelocityVector = CommonFunctions.VectorWorldToLocal( transform , physics2D.velocity );
-                var old = physics2D.velocity;
                 physics2D.velocity = CommonFunctions.VectorLocalToWorld( destination.GetOwnOutput().transform , LocalVelocityVector );
             }
 
@@ -140,6 +131,8 @@ public class PortalLogic : MonoBehaviour
         var impostorTilemap = PortalManager.Instance.ImpostorTilemapProperty;
 
         MakeTilesBehindPortalCollidable();
+        if (!destination)
+            return;
 
         int portalGridWidth = 3;
         int portalGridHalfHeight = 3;

@@ -19,31 +19,12 @@ public class PortalManager : MonoBehaviour
     [SerializeField] Tilemap tilemap;
     [SerializeField] Tilemap impostorTilemap;
 
-    GameObject objectToClone;
-    GameObject clone;
-
     PortalBehaviour bluePortal;
     PortalBehaviour orangePortal;
-    Transform spawnPosition;
 
-    int colliderEnterCount = 0;
-    string cloneName = "PortalClone";
-    const int portalGridHeight = 6;
+    const int portalGridHalfHeight = 3;
 
     public static event Action OnPortalChange;
-
-
-    /* public properties */
-    public string CloneNameProperty
-    {
-        get => cloneName;
-        set => cloneName = value;
-    }
-    public GameObject ObjectToCloneProperty
-    {
-        get => objectToClone;
-        set => objectToClone = value;
-    }
 
     public Tilemap TilemapProperty
     {
@@ -54,7 +35,7 @@ public class PortalManager : MonoBehaviour
         get => impostorTilemap;
     }
 
-    void Start()
+    void Awake()
     {
         // singleton
         if (Instance != null && Instance != this)
@@ -68,21 +49,24 @@ public class PortalManager : MonoBehaviour
         tilemap = PortalManager.Instance.TilemapProperty;
     }
 
-    public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
+    bool TrySpawnPortalCommon(ref PortalBehaviour portal, GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
-        if (bluePortal != null)
-            bluePortal.InitDestroyment();
+        if (portal != null)
+            portal.InitDestroyment();
 
         Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
         var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
 
-        List<Vector3Int> cells = new List<Vector3Int> { gridPosition };//, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
+        Vector3Int[] cells = { gridPosition
+                             , gridPosition + up    , gridPosition - up
+                             , gridPosition + up * 2, gridPosition - up * 2
+                             , gridPosition + up * 3, gridPosition - up * 3 };
 
         foreach (var cell in cells)
         {
             if (IsValidPortalPosition(tilemap, normal, cell))
             {
-                bluePortal = SpawnPortal(bluePortalPrefab, normal, cell);
+                portal = SpawnPortal(portalPrefab, normal, cell);
                 PortalBehaviour.Link(bluePortal, orangePortal);
                 OnPortalChange?.Invoke();
                 return true;
@@ -92,31 +76,14 @@ public class PortalManager : MonoBehaviour
         return false;
     }
 
+    public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
+    {
+        return TrySpawnPortalCommon(ref bluePortal, bluePortalPrefab, normal, gridPosition);
+    }
+
     public bool TrySpawnOrangePortal(Vector2 normal, Vector3Int gridPosition)
     {
-        if (orangePortal != null)
-            orangePortal.InitDestroyment();
-
-
-        Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
-        var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
-
-        List<Vector3Int> cells = new List<Vector3Int> { gridPosition };//, gridPosition + up, gridPosition - up, gridPosition + up * 2, gridPosition - up * 2 };
-
-        foreach (var cell in cells)
-        {
-            if (IsValidPortalPosition(tilemap, normal, cell))
-            {
-                orangePortal = SpawnPortal(orangePortalPrefab, normal, cell);
-
-                PortalBehaviour.Link(bluePortal, orangePortal);
-
-                OnPortalChange?.Invoke();
-                return true;
-            }
-        }
-
-        return false;
+        return TrySpawnPortalCommon(ref orangePortal, orangePortalPrefab, normal, gridPosition);
     }
 
     PortalBehaviour SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
@@ -139,9 +106,7 @@ public class PortalManager : MonoBehaviour
         var right = new Vector3(normal.x, normal.y, 0.0f);
         var up = Quaternion.Euler(0, 0, -90) * right;
 
-        gridPosition += Vector3Int.RoundToInt(up * -(portalGridHeight / 2));
-
-        for (int i = 0; i < portalGridHeight; ++i)
+        for (int i = 1-portalGridHalfHeight; i < portalGridHalfHeight; ++i)
         {
             Vector3Int shiftY = Vector3Int.RoundToInt(up * i);
             DrawRectangle(tilemap, gridPosition + shiftY);
@@ -152,7 +117,7 @@ public class PortalManager : MonoBehaviour
 
         gridPosition += Vector3Int.RoundToInt(right * 1);
 
-        for (int i = 0; i < portalGridHeight; ++i)
+        for (int i = 1-portalGridHalfHeight; i < portalGridHalfHeight; ++i)
         {
             Vector3Int shiftY = Vector3Int.RoundToInt(up * i);
             var tile = tilemap.GetTile(gridPosition + shiftY);
