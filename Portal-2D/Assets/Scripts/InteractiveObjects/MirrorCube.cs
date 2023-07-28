@@ -11,8 +11,8 @@ public class MirrorCube : PickableObject
     public SpriteRenderer spriteRenderer;
     public Sprite mirrorOnSprite;
     public Sprite mirrorOffSprite;
-    Vector3 start;      // Punkt pocz¹tkowy lasera
-    Vector3 maxEnd;     // Punkt koñcowy lasera (maksymalny zasiêg)
+    Vector3 start;          // Punkt pocz¹tkowy lasera
+    Vector3 maxEnd;         // Punkt koñcowy lasera (maksymalny zasiêg)
     Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
 
     override protected void Start()

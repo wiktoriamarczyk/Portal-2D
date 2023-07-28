@@ -82,13 +82,17 @@ public class Lasers : MonoBehaviour
             lineRenderer.SetPosition(0, start); // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
             // Je¿eli laser trafi w odbiornik, to zmieñ jego sprite na aktywowany
-            if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
-            {
-                hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
-            }
-            else if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
+            if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
             {
                 hit.collider.gameObject.GetComponent<MirrorCube>().startLaser();
+            }
+            else
+            {
+                GameObject.Find("Mirror").GetComponent<MirrorCube>().stopLaser();
+                if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
+                {
+                    hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
+                }
             }
         }
     }
