@@ -8,14 +8,16 @@ public class Enemy : PickableObject
     public Sprite activeSprite;          // alive
     public Sprite inactiveSprite;        // dead
     public Sprite attackSprite;
+    public LayerMask layerMask;
     public float userMass = 80f;
     public float agonyTime = 1.5f;
-
+    public AudioSource audioSource;
+    private LineRenderer lineRenderer;
     private SpriteRenderer spriteRenderer;
-
+    Vector3 laserend;
     bool alive = true;
     float maxTiltAngle = 45f;
-
+    float timeSine = 0f;
     void Die()
     {
         alive = false;
@@ -25,17 +27,42 @@ public class Enemy : PickableObject
     protected override void Start()
     {
         base.Start();
-
+        lineRenderer = GetComponent<LineRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.mass = userMass;
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override  void Update()
     {
         base.Update();
 
-        if (!alive) return;
+        if (!alive)
+        {
+            lineRenderer.enabled = false;
+            return;
+        }
+        // Narysuj laser (celownik)
+        laserend = transform.position;
+        laserend.x += 10f;
+        laserend.y += 2*Mathf.Sin(timeSine);
+        timeSine += 0.02f;
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, laserend);
+        lineRenderer.enabled = true;
+        // SprawdŸ, czy gracz jest w zasiêgu lasera
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (laserend - transform.position).normalized, Vector3.Distance(transform.position, laserend), layerMask);
+        if (hit.collider != null && hit.collider.gameObject.tag == "Player")
+        {
+            // odtwórz dŸwiêk
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+
 
         if (Mathf.Abs(transform.localRotation.eulerAngles.z) > maxTiltAngle && alive)
         {
