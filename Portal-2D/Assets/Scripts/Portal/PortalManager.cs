@@ -106,7 +106,7 @@ public class PortalManager : MonoBehaviour
         var right = new Vector3(normal.x, normal.y, 0.0f);
         var up = Quaternion.Euler(0, 0, -90) * right;
 
-        for (int i = -portalGridHalfHeight; i <= portalGridHalfHeight; ++i)
+        for (int i = 1-portalGridHalfHeight; i < portalGridHalfHeight; ++i)
         {
             Vector3Int shiftY = Vector3Int.RoundToInt(up * i);
             DrawRectangle(tilemap, gridPosition + shiftY);
@@ -117,7 +117,7 @@ public class PortalManager : MonoBehaviour
 
         gridPosition += Vector3Int.RoundToInt(right * 1);
 
-        for (int i = -portalGridHalfHeight; i <= portalGridHalfHeight; ++i)
+        for (int i = 1-portalGridHalfHeight; i < portalGridHalfHeight; ++i)
         {
             Vector3Int shiftY = Vector3Int.RoundToInt(up * i);
             var tile = tilemap.GetTile(gridPosition + shiftY);
