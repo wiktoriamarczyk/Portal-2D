@@ -3,27 +3,36 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class PanelManager : MonoBehaviour
 {
+    public static PanelManager Instance { get; private set; }
     [SerializeField] List<GameObject> panels;
     [SerializeField] GameObject startingPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] TextMeshProUGUI musicVolumeValue;
     [SerializeField] TextMeshProUGUI musicSound;
-    // [SerializeField] GameObject game;
+    [SerializeField] GameObject player;
     GameObject currentPanel;
     float musicVolume = 0.2f;
 
     void Awake()
     {
+        // singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        else
+            Instance = this;
+
         SetMusicVolume(musicVolume);
-        //game.SetActive(false);
-        ; foreach (var panel in panels)
+        foreach (var panel in panels)
         {
             panel.SetActive(false);
         }
-        //ShowPanel(startingPanel);
     }
 
     void Update()
@@ -32,7 +41,15 @@ public class PanelManager : MonoBehaviour
         {
             ShowPanel(pausePanel);
             Camera.main.GetComponent<PostProcessLayer>().enabled = true;
-            //game.SetActive(false);
+            player.SetActive(false);
+        }
+        else if (currentPanel != null)
+        {
+            player.SetActive(false);
+        }
+        else
+        {
+            player.SetActive(true);
         }
     }
 
@@ -51,9 +68,14 @@ public class PanelManager : MonoBehaviour
         currentPanel = null;
     }
 
-    public void RestartGame()
+    public void LoadLevel(string sceneName)
     {
-        //game = new GameObject();
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
