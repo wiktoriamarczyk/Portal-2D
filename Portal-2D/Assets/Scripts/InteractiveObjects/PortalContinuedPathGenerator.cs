@@ -56,8 +56,12 @@ public class PortalContinuedPathGenerator : MonoBehaviour
 
     public void Generate()
     {
+        Invoke("DoGenerate", 0.1f);
+    }
+    public void DoGenerate()
+    {
         DestroyFunnels();
-        DoGenerate(gameObject,pathPrefab, funnelsList,true);
+        DoGenerate(gameObject, pathPrefab, funnelsList, true);
     }
 
     static void DoGenerate(GameObject originObject,GameObject funnelPrefab, List<GameObject> funnelsList, bool recursionAllowed)
