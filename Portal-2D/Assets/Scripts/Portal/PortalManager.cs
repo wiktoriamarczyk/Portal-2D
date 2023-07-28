@@ -54,13 +54,16 @@ public class PortalManager : MonoBehaviour
         if (portal != null)
             portal.InitDestroyment();
 
-        Vector3Int right = new Vector3Int((int)normal.x, (int)normal.y, 0);
+        Vector3Int right = Vector3Int.RoundToInt( new Vector3(normal.x,normal.y, 0) );
         var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
 
-        Vector3Int[] cells = { gridPosition
-                             , gridPosition + up    , gridPosition - up
-                             , gridPosition + up * 2, gridPosition - up * 2
-                             , gridPosition + up * 3, gridPosition - up * 3 };
+        List<Vector3Int> cells = new List<Vector3Int>{ gridPosition };
+
+        for (int i=1; i<=4; ++i)
+        {
+            cells.Add(gridPosition + up * i);
+            cells.Add(gridPosition - up * i);
+        }
 
         foreach (var cell in cells)
         {
@@ -106,7 +109,10 @@ public class PortalManager : MonoBehaviour
         var right = new Vector3(normal.x, normal.y, 0.0f);
         var up = Quaternion.Euler(0, 0, -90) * right;
 
-        for (int i = 1-portalGridHalfHeight; i < portalGridHalfHeight; ++i)
+        // how many additional tiles we need to not be empty above and below portal
+        const int ADDITIONAL_NON_EMPTY_COUNT_VERTICALY = 0;
+
+        for (int i = -(portalGridHalfHeight+ADDITIONAL_NON_EMPTY_COUNT_VERTICALY); i <= portalGridHalfHeight+ADDITIONAL_NON_EMPTY_COUNT_VERTICALY; ++i)
         {
             Vector3Int shiftY = Vector3Int.RoundToInt(up * i);
             DrawRectangle(tilemap, gridPosition + shiftY);
