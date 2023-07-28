@@ -68,45 +68,6 @@ public class PortalManager : MonoBehaviour
         tilemap = PortalManager.Instance.TilemapProperty;
     }
 
-    //public void CreateClone(GameObject portal, GameObject source)
-    //{
-    //    colliderEnterCount++;
-    //    if (clone)
-    //        return;
-
-    //    // stwórz instancjê klona w miejscu portalu, przez który przeszliœmy
-    //    if (portal.CompareTag("Orange Portal"))
-    //        spawnPosition = bluePortal.transform;
-    //    else
-    //        spawnPosition = orangePortal.transform;
-
-    //    // stwórz klona w miejscu portala, przez który przechodzimy i wy³¹cz mu fizykê
-    //    Vector3 yOffset = new Vector3(0, portal.transform.position.y - objectToClone.transform.position.y, 0);
-    //    clone = Instantiate(objectToClone, spawnPosition.position - yOffset, Quaternion.identity);
-    //    // objectToClone.GetComponent<PlayerMovement>().Flip();
-    //    if (clone.CompareTag("Player"))
-    //        clone.GetComponent<PlayerMovement>().IsFacingRight = objectToClone.GetComponent<PlayerMovement>().IsFacingRight;
-    //    clone.gameObject.name = cloneName;
-    //    clone.AddComponent<PlayerCloneMove>();
-    //    clone.GetComponent<Rigidbody2D>().simulated = false;
-    //    clone.GetComponent<BoxCollider2D>().enabled = false;
-    //}
-
-    //public void Teleport()
-    //{
-    //    var clonePos = clone.transform.position;
-    //    clone.transform.position = objectToClone.transform.position;
-    //    objectToClone.transform.position = clonePos;
-    //    clone.GetComponent<PlayerCloneMove>().Reset();
-    //}
-
-    //public void DestroyClone(GameObject source)
-    //{
-    //    colliderEnterCount--;
-    //    if (colliderEnterCount == 0)
-    //        Destroy(clone);
-    //}
-
     public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
     {
         if (bluePortal != null)
@@ -123,9 +84,6 @@ public class PortalManager : MonoBehaviour
             {
                 bluePortal = SpawnPortal(bluePortalPrefab, normal, cell);
                 PortalBehaviour.Link(bluePortal, orangePortal);
-                //bluePortal.otherEnd = orangePortal;
-                //if (orangePortal != null)
-                //    orangePortal.otherEnd = bluePortal;
                 OnPortalChange?.Invoke();
                 return true;
             }
@@ -153,9 +111,6 @@ public class PortalManager : MonoBehaviour
 
                 PortalBehaviour.Link(bluePortal, orangePortal);
 
-                //if (bluePortal != null)
-                //    bluePortal.otherEnd = orangePortal;
-                //orangePortal.otherEnd = bluePortal;
                 OnPortalChange?.Invoke();
                 return true;
             }
@@ -166,27 +121,16 @@ public class PortalManager : MonoBehaviour
 
     PortalBehaviour SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
-        //var right = new Vector3(normal.x, normal.y, 0.0f);
+        var right = new Vector3( normal.x , normal.y , 0.0f );
 
-        //Debug.Log("Valid placement for blue portal");
-        //float angle = Vector3.SignedAngle(normal, Vector3.right, Vector3.forward);
+        Debug.Log( "Valid placement for blue portal" );
+        float angle = Vector3.SignedAngle( normal , Vector3.right , Vector3.back ) + 180;
+        Debug.Log( "Angle: " + angle);
 
-        //Debug.Log("angle " + angle);
+        Quaternion rotationQuaternion = Quaternion.Euler(0, 0, angle);
 
-        //// ------- TO FIX ------------
-        //if (Mathf.Abs(angle) - 90 < 0.01f)
-        //    angle = -angle;
+        GameObject portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition)+tilemap.cellSize*0.5f, rotationQuaternion);
 
-        //Quaternion rotationQuaternion = Quaternion.Euler(0, 0, angle);
-
-        //GameObject portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition), rotationQuaternion);
-
-        GameObject portalObject = Instantiate(portalPrefab, tilemap.layoutGrid.CellToWorld(gridPosition), Quaternion.identity);
-
-        //if (portalPrefab == orangePortalPrefab)
-        //    orangePortal = portalObject.GetComponent<PortalBehaviour>();
-        //else if (portalPrefab == bluePortalPrefab)
-        //    bluePortal = portalObject.GetComponent<PortalBehaviour>();
         return portalObject.GetComponent<PortalBehaviour>();
     }
 

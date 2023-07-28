@@ -27,6 +27,10 @@ public class PortalCloner : MonoBehaviour
     {
         return ownOutput.transform;
     }
+    public GameObject GetOwnInterior()
+    {
+        return ownInterior;
+    }
     public Vector3 GetWorldVectorToPortal()
     {
         return CommonFunctions.VectorLocalToWorld(transform, Vector3.right);
@@ -38,11 +42,11 @@ public class PortalCloner : MonoBehaviour
 
     public GameObject GetDestinationPortal()
     {
-        return destination.GetOwnPortal();
+        return destination?.GetOwnPortal();
     }
     public Transform GetDestinationOutput()
     {
-        return destination.GetOwnOutput();
+        return destination?.GetOwnOutput();
     }
 
     void OnTriggerEnter2D( Collider2D collision )
@@ -65,7 +69,7 @@ public class PortalCloner : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         var clone = PortalCloneController.GetCloneFromObject(collision.gameObject);
-        if (clone == null)
+        if (clone == null || destination==null)
             return;
 
         var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();
