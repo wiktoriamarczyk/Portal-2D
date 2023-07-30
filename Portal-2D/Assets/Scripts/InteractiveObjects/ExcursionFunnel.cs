@@ -23,25 +23,25 @@ public class ExcursionFunnel : MonoBehaviour
         GameObject objectInside = collider.gameObject;
         if (collider.gameObject.GetComponent<Rigidbody2D>() != null && collider == objectInside.GetComponent<BoxCollider2D>())
         {
-            if (objectInside.transform.position.x >= end.transform.position.x)
-                return;
-
+            PortalAdapter adapter = objectInside.GetComponent<PortalAdapter>();
             Rigidbody2D objectInsideRb = objectInside.GetComponent<Rigidbody2D>();
             Vector3 objectInsidePos = objectInside.transform.position;
 
             var player = objectInside.GetComponent<PlayerMovement>();;
+
+            var right = CommonFunctions.VectorLocalToWorld(gameObject.transform, Vector3.right).normalized;
 
             if (player==null || !player.IsMoving())
             {
                 // calculate object position as center of its collider
                 var ObjectPos = objectInside.GetComponent<BoxCollider2D>().bounds.center;
                 // calculate closest point from object to line
-                var ClosestPoint = FindNearestPointOnLine( transform.position , transform.right , ObjectPos );
+                var ClosestPoint = FindNearestPointOnLine( transform.position , right , ObjectPos );
                 // calculate vector from object to closest point
                 var VectorToCenter = ClosestPoint - ObjectPos;
 
                 // attract object to center of line
-                objectInside.transform.position += (VectorToCenter*3 + transform.right)*force*Time.deltaTime;
+                objectInside.transform.position += (VectorToCenter*3 + right)*force*Time.deltaTime;
                 objectInside.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
             else

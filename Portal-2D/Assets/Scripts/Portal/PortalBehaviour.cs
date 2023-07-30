@@ -26,8 +26,7 @@ public class PortalBehaviour : MonoBehaviour
 
     public void InitDestroyment()
     {
-        GetComponentInChildren<PortalLogic>().MakeTilesBehindPortalCollidable();
-
+        GetComponentInChildren<PortalLogic>().OnDestroyBegin();
 
         Animator animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("ClosePortal");

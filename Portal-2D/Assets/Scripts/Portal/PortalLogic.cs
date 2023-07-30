@@ -13,6 +13,11 @@ public class PortalLogic : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] PortalLogic destination;
     [SerializeField] PortalBehaviour portalBehaviour;
+    bool isDying = false;
+    public bool IsDying()
+    {
+        return isDying;
+    }
 
     public void SetDestination(PortalLogic dest)
     {
@@ -90,11 +95,11 @@ public class PortalLogic : MonoBehaviour
         float dist = Vector3.Distance(testpoint, objpos);
         if (dist < 9.8)
         {
-            var newpos = clone.transform.position + destination.GetWorldVectorOutsidePortal() * 0.2f;
+            var newpos = clone.transform.position + destination.GetWorldVectorOutsidePortal() * 0.25f;
 
             portalAdapter.SetPositionByCenter(newpos);
 
-            if (Mathf.Abs(Vector3.Angle(ownWorldvecToPortal, dstWorldvecToPortal)) < 90)
+            if (Mathf.Abs(Vector3.Angle(ownWorldvecToPortal, dstWorldvecToPortal)) < 100)
             {
                 var physics2D = collision.gameObject.GetComponent<Rigidbody2D>();
                 var LocalVelocityVector = CommonFunctions.VectorWorldToLocal( transform , physics2D.velocity );
@@ -131,6 +136,12 @@ public class PortalLogic : MonoBehaviour
     void Destroy()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnDestroyBegin()
+    {
+        MakeTilesBehindPortalCollidable();
+        isDying = true;
     }
 
     public void MakeTilesBehindPortalNonCollidable()

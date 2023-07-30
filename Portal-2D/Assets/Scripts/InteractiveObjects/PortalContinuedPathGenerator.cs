@@ -66,16 +66,28 @@ public class PortalContinuedPathGenerator : MonoBehaviour
 
     static void DoGenerate(GameObject originObject,GameObject funnelPrefab, List<GameObject> funnelsList, bool recursionAllowed)
     {
-        var startPoint = originObject.transform;
-        BoxCollider2D boxCollider = originObject.GetComponent<BoxCollider2D>();
-        Vector3 raycastStart = new Vector3(startPoint.position.x, startPoint.position.y, 1f);
-        Vector3 raycastEnd = raycastStart + startPoint.right * 500;
+        var directionVectorMultiplier = Vector3.one;
 
-        RaycastHit2D hit = Physics2D.Raycast(raycastStart + startPoint.right*5, raycastEnd, raycastDistance, (int)(Common.eLayerType.TERRAIN | Common.eLayerType.PORTAL | (Common.eLayerType.NON_PORTAL)));
+        {
+            var portalLogic = originObject.GetComponent<PortalLogic>();
+            if (portalLogic!=null)
+            {
+                originObject = portalLogic.GetDestinationOutput().gameObject;
+                directionVectorMultiplier = portalLogic.GetObjectXFlipFactor();
+                directionVectorMultiplier.x *= -1;
+            }
+        }
+
+        Vector3 pathDirectionVector = CommonFunctions.VectorLocalToWorld(originObject.transform, Vector3.Scale(Vector3.right, directionVectorMultiplier)).normalized;
+        Vector3 startPoint   = originObject.transform.position;
+        Vector3 raycastStart = new Vector3(startPoint.x, startPoint.y, 0f);
+        Vector3 raycastEnd   = raycastStart + pathDirectionVector * 500;
+
+        RaycastHit2D hit = Physics2D.Raycast(raycastStart + pathDirectionVector*5, raycastEnd, raycastDistance, (int)(Common.eLayerType.TERRAIN | Common.eLayerType.PORTAL | (Common.eLayerType.NON_PORTAL)));
         Debug.DrawLine(raycastStart, hit.point, Color.cyan, 200f);
         //Debug.DrawLine(transform.position, hit.point, Color.magenta, 200f);
 
-        var funnel = Instantiate(funnelPrefab, startPoint.position, Quaternion.identity);
+        var funnel = Instantiate(funnelPrefab, startPoint, Quaternion.identity);
         funnel.transform.SetParent(originObject.transform);
         funnel.transform.localRotation = Quaternion.identity;
         funnelsList.Add(funnel);
@@ -92,22 +104,16 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         }
         funnel.GetComponent<SpriteRenderer>().material.SetVector("_Scale", funnelScale);
         funnel.transform.localScale = funnelScale;
-        Vector3 funnelPos = funnel.transform.position;
         funnel.transform.localPosition = new Vector3( funnel.GetComponent<BoxCollider2D>().bounds.size.x / 2 * funnelScale.x, 0, 0);
-
 
         if(hit.collider == null || !recursionAllowed)
             return;
 
         var portallogic = hit.collider.GetComponent<PortalLogic>();
-        if ( portallogic == null )
+        if (portallogic == null || portallogic.IsDying() || portallogic.GetDestinationOutput() == null)
             return;
 
-        //var portal = portalCloner.GetPortalBehaviour();
-        if (portallogic != null && portallogic.GetDestinationOutput() != null)
-        {
-            DoGenerate( portallogic.GetDestinationOutput().gameObject , funnelPrefab, funnelsList , false);
-        }
+        DoGenerate(portallogic.gameObject, funnelPrefab, funnelsList, false);
     }
 
     void Update()

@@ -52,7 +52,10 @@ public class PortalManager : MonoBehaviour
     bool TrySpawnPortalCommon(ref PortalBehaviour portal, GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
         if (portal != null)
+        {
+            OnPortalChange?.Invoke();
             portal.InitDestroyment();
+        }
 
         Vector3Int right = Vector3Int.RoundToInt( new Vector3(normal.x,normal.y, 0) );
         var up = Vector3Int.RoundToInt(Quaternion.Euler(0, 0, 90) * right);
