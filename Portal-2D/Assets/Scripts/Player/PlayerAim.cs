@@ -82,7 +82,7 @@ public class PlayerAim : MonoBehaviour
     /// <summary>
     /// Awake is called when the script instance is being loaded
     /// </summary>
-    void Awake()
+    void Start()
     {
         tilemap = PortalManager.Instance.TilemapProperty;
         ChangeCursor(eCursorType.BLUE);
