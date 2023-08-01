@@ -3,66 +3,66 @@ using System;
 using UnityEngine.Events;
 
 /// <summary>
-/// Klasa Lasers odpowiada za zachowanie laserów 
+/// Laser class - controls laser behaviour
 /// </summary>
 public class Lasers : MonoBehaviour
 {
     /// <summary>
-    /// DŸwiêk lasera
+    /// Laser sound
     /// </summary>
     [SerializeField] AudioSource laserSound;
     /// <summary>
-    /// DŸwiêk w³¹czenia lasera
+    /// Laser on sound
     /// </summary>
     [SerializeField] AudioSource laserOn;
     /// <summary>
-    /// DŸwiêk wy³¹czenia lasera
+    /// Laser off sound
     /// </summary>
     [SerializeField] AudioSource laserOff;
     /// <summary>
-    /// Zdarzenie wywo³ywane, gdy laser trafia w odbiornik
+    /// Event called when laser hits receiver
     /// </summary>
     [SerializeField] UnityEvent onReceiverHit;
     /// <summary>
-    /// Zdarzenie wywo³ywane, gdy laser znika z odbiornika
+    /// Event called when laser is released from receiver
     /// </summary>
     [SerializeField] UnityEvent onReceiverReleased;
     /// <summary>
-    /// Warstwa obiektów, które mog¹ zablokowaæ laser
+    /// Layer mask for objects that can stop the laser
     /// </summary>
     [SerializeField] LayerMask layerMask;
     /// <summary>
-    /// Domyœlny sprite
+    /// Default sprite
     /// </summary>
     public Sprite defaultSprite;
     /// <summary>
-    /// Aktywowany sprite (po w³¹czeniu lasera lub po trafieniu w odbiornik)
+    /// Activated sprite (after laser is turned on or the receiver is hit)
     /// </summary>
     public Sprite activatedSprite;
     /// <summary>
-    /// Wektor z pocz¹tkowym punktem lasera
+    /// Start point of the laser
     /// </summary>
     public Vector3 start;
     /// <summary>
-    /// Wektor z odleg³ym punktem na prostej lasera
+    /// End point of the laser (far away)
     /// </summary>
     public Vector3 maxEnd;
     /// <summary>
-    /// Wektor z rzeczywistym koñcem lasera (po wykryciu kolizji)
+    /// End point of the laser (real - determined by raycast)
     /// </summary>
     public Vector3 realEnd;
     /// <summary>
-    /// Komponent LineRenderer - do rysowania lasera
+    /// Line renderer component - for drawing the laser
     /// </summary>
     private LineRenderer lineRenderer;
     /// <summary>
-    /// Komponent SpriteRenderer - do zmiany sprite'ów
+    /// Sprite renderer component - for changing the sprites
     /// </summary>
     private SpriteRenderer spriteRenderer;
 
 
     /// <summary>
-    /// Metoda wywo³ywana przed pierwszym odœwie¿eniem klatki
+    /// Method called before the first frame
     /// </summary>
     void Start()
     {
@@ -91,7 +91,7 @@ public class Lasers : MonoBehaviour
     }
 
     /// <summary>
-    /// Metoda powoduj¹ca uruchomienie lasera
+    /// Method to start the laser
     /// </summary>
     public void startLaser()
     {
@@ -105,7 +105,7 @@ public class Lasers : MonoBehaviour
     }
 
     /// <summary>
-    /// Metoda powoduj¹ca zatrzymanie lasera
+    /// Method to stop the laser
     /// </summary>
     public void stopLaser()
     {
@@ -121,7 +121,7 @@ public class Lasers : MonoBehaviour
     }
 
     /// <summary>
-    /// Metoda wywo³ywana co klatkê
+    /// Method called every frame
     /// </summary>
     void Update()
     {
@@ -132,7 +132,7 @@ public class Lasers : MonoBehaviour
             {
                 realEnd = hit.point;
             }
-            lineRenderer.SetPosition(0, start); // Ustawienie pierwszego punktu linii
+            lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
             if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
             {
@@ -176,7 +176,7 @@ public class Lasers : MonoBehaviour
     }
 
     /// <summary>
-    /// Metoda wywo³ywana, gdy laser trafia w odbiornik - zmienia sprite odbiornika na aktywowany
+    /// Method called when the laser hits the receiver - changes the receiver's sprite to activated
     /// </summary>
     public void ReceiverHit()
     {
@@ -184,7 +184,7 @@ public class Lasers : MonoBehaviour
     }
 
     /// <summary>
-    /// Metoda wywo³ywana, gdy laser znika z odbiornika - zmienia sprite odbiornika na domyœlny
+    /// Method called when the laser stops hitting the receiver - changes the receiver's sprite to default
     /// </summary>
     public void ReceiverReleased()
     {
