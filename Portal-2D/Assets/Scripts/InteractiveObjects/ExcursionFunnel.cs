@@ -1,14 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
+/// <summary>
+/// Class responsible for the behavior of excursion funnels
+/// </summary>
 public class ExcursionFunnel : MonoBehaviour
 {
+    /// <summary>
+    /// Force of attraction
+    /// </summary>
     [SerializeField] float force = 20f;
+    /// <summary>
+    /// End of the funnel
+    /// </summary>
     [SerializeField] GameObject end;
 
-
+    /// <summary>
+    /// Finds the nearest point on the line
+    /// </summary>
+    /// <param name="origin"></param>
+    /// <param name="direction"></param>
+    /// <param name="point"></param>
+    /// <returns></returns>
     public static Vector3 FindNearestPointOnLine(Vector3 origin, Vector3 direction, Vector3 point)
     {
         direction.Normalize();
@@ -17,7 +29,10 @@ public class ExcursionFunnel : MonoBehaviour
         float dotP = Vector3.Dot(lhs, direction);
         return origin + direction * dotP;
     }
-
+    /// <summary>
+    /// Attracts objects to the center of the funnel
+    /// </summary>
+    /// <param name="collider">the object with which the collision occurred</param>
     void OnTriggerStay2D(Collider2D collider)
     {
         GameObject objectInside = collider.gameObject;
@@ -46,7 +61,7 @@ public class ExcursionFunnel : MonoBehaviour
             }
             else
             {
-                // Obiekt jest w ruchu - zatrzymaj przyci¹ganie
+                // object moved - stop the attraction force
                 objectInside.GetComponent<Rigidbody2D>().velocity = new Vector2(objectInsideRb.velocity.x, objectInsideRb.velocity.y);
             }
         }

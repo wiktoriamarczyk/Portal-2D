@@ -1,10 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
+/// <summary>
+/// Helper struct for connecting the source and clone of the animation
+/// </summary>
 public struct CloneAnimPair
 {
+    /// <summary>
+    /// Constructor of the struct
+    /// </summary>
+    /// <param name="s"></param>
+    /// <param name="c"></param>
     public CloneAnimPair(GameObject s, GameObject c)
     {
         source = s;
@@ -15,14 +21,29 @@ public struct CloneAnimPair
     public GameObject clone;
 }
 
+/// <summary>
+/// Class responsible for synchronizing the animation of the source object to the destination object
+/// </summary>
 public class CloneAnimSync : MonoBehaviour
 {
+    /// <summary>
+    /// Source object
+    /// </summary>
     [SerializeField] GameObject animSourceObject;
+    /// <summary>
+    /// Destination object
+    /// </summary>
     [SerializeField] GameObject animDestRoot;
+    /// <summary>
+    /// List of pairs of source and destination objects
+    /// </summary>
     List<CloneAnimPair> cloneAnimList;
 
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Method which starts the animation
+    /// </summary>
+    /// <param name="source">animation source</param>
     public void StartAnim(GameObject source)
     {
         animSourceObject = source;
@@ -45,7 +66,9 @@ public class CloneAnimSync : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled. Here responsible for synchronizing the animation
+    /// </summary>
     void Update()
     {
         foreach( CloneAnimPair pair in cloneAnimList )

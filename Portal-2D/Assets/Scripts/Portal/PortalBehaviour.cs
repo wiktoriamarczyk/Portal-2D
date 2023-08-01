@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Class responsible for managing portal behaviour
+/// </summary>
 public class PortalBehaviour : MonoBehaviour
 {
+    /// <summary>
+    /// Opposite portal
+    /// </summary>
     public PortalBehaviour otherEnd;
-
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         int angle = ((int)(transform.rotation.eulerAngles.z+0.5f))%360;
@@ -23,7 +27,9 @@ public class PortalBehaviour : MonoBehaviour
         Animator animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("OpenPortal");
     }
-
+    /// <summary>
+    /// Method responsible for initialize portal destroyment
+    /// </summary>
     public void InitDestroyment()
     {
         GetComponentInChildren<PortalLogic>().OnDestroyBegin();
@@ -31,13 +37,18 @@ public class PortalBehaviour : MonoBehaviour
         Animator animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("ClosePortal");
     }
-
-    // wywo³ane na koniec animacji zamykania portalu
+    /// <summary>
+    /// Method responsible for destroying portal
+    /// </summary>
     public void Destroy()
     {
         Destroy(this.gameObject);
     }
-
+    /// <summary>
+    /// Method responsible for linking two portals
+    /// </summary>
+    /// <param name="a">first portal</param>
+    /// <param name="b">second portal</param>
     public static void Link(PortalBehaviour a, PortalBehaviour b)
     {
         if (a==null || b==null)

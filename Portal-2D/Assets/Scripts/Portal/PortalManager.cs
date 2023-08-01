@@ -1,40 +1,74 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static UnityEditor.PlayerSettings;
 using System.Collections.Generic;
-using System.Threading;
-using UnityEngine.Events;
 using System;
 
+/// <summary>
+/// Class that manages portals and their spawning.
+/// </summary>
 public class PortalManager : MonoBehaviour
 {
+    /// <summary>
+    /// Singleton instance
+    /// </summary>
     public static PortalManager Instance { get; private set; }
-
+    /// <summary>
+    /// Chell prefab
+    /// </summary>
     [SerializeField] GameObject chellPrefab;
+    /// <summary>
+    /// Cube prefab
+    /// </summary>
     [SerializeField] GameObject cubePrefab;
+    /// <summary>
+    /// Blue portal prefab
+    /// </summary>
     [SerializeField] GameObject bluePortalPrefab;
+    /// <summary>
+    /// Orange portal prefab
+    /// </summary>
     [SerializeField] GameObject orangePortalPrefab;
+    /// <summary>
+    /// Tilemap object
+    /// </summary>
     [SerializeField] Tilemap tilemap;
+    /// <summary>
+    /// Impostor tilemap object
+    /// </summary>
     [SerializeField] Tilemap impostorTilemap;
-
+    /// <summary>
+    /// Blue portal behaviour
+    /// </summary>
     PortalBehaviour bluePortal;
+    /// <summary>
+    /// Orange portal behaviour
+    /// </summary>
     PortalBehaviour orangePortal;
-
+    /// <summary>
+    /// Half of portal grid height
+    /// </summary>
     const int portalGridHalfHeight = 3;
-
+    /// <summary>
+    /// Event invoked when portal changes
+    /// </summary>
     public static event Action OnPortalChange;
-
+    /// <summary>
+    /// Tilemap property
+    /// </summary>
     public Tilemap TilemapProperty
     {
         get => tilemap;
     }
+    /// <summary>
+    /// Impostor tilemap property
+    /// </summary>
     public Tilemap ImpostorTilemapProperty
     {
         get => impostorTilemap;
     }
-
+    /// <summary>
+    /// Awake is called when the script instance is being loaded
+    /// </summary>
     void Awake()
     {
         // singleton
@@ -45,10 +79,15 @@ public class PortalManager : MonoBehaviour
         }
         else
             Instance = this;
-
-        tilemap = PortalManager.Instance.TilemapProperty;
     }
-
+    /// <summary>
+    /// Tries to spawn portal
+    /// </summary>
+    /// <param name="portal">portal behaviour reference</param>
+    /// <param name="portalPrefab">portal prefab</param>
+    /// <param name="normal">normal vector</param>
+    /// <param name="gridPosition">portal spawn position</param>
+    /// <returns>true if portal was spawned</returns>
     bool TrySpawnPortalCommon(ref PortalBehaviour portal, GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
         if (portal != null)
@@ -81,17 +120,33 @@ public class PortalManager : MonoBehaviour
 
         return false;
     }
-
+    /// <summary>
+    /// Tries to spawn blue portal
+    /// </summary>
+    /// <param name="normal">normal vector</param>
+    /// <param name="gridPosition">portal spawn position</param>
+    /// <returns>true if portal was spawned</returns>
     public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
     {
         return TrySpawnPortalCommon(ref bluePortal, bluePortalPrefab, normal, gridPosition);
     }
-
+    /// <summary>
+    /// Tries to spawn orange portal
+    /// </summary>
+    /// <param name="normal">normal vector</param>
+    /// <param name="gridPosition">portal spawn position</param>
+    /// <returns>true if portal was spawned</returns>
     public bool TrySpawnOrangePortal(Vector2 normal, Vector3Int gridPosition)
     {
         return TrySpawnPortalCommon(ref orangePortal, orangePortalPrefab, normal, gridPosition);
     }
-
+    /// <summary>
+    /// Spawns portal
+    /// </summary>
+    /// <param name="portalPrefab">portal prefab</param>
+    /// <param name="normal">normal vector</param>
+    /// <param name="gridPosition">portal spawn position</param>
+    /// <returns>true if portal was spawned</returns>
     PortalBehaviour SpawnPortal(GameObject portalPrefab, Vector2 normal, Vector3Int gridPosition)
     {
         var right = new Vector3( normal.x , normal.y , 0.0f );
@@ -106,7 +161,13 @@ public class PortalManager : MonoBehaviour
 
         return portalObject.GetComponent<PortalBehaviour>();
     }
-
+    /// <summary>
+    /// Checks if portal can be spawned at given position
+    /// </summary>
+    /// <param name="tilemap">tilemap object</param>
+    /// <param name="normal">normal vector</param>
+    /// <param name="gridPosition">portal spawn position</param>
+    /// <returns>true if position is valid</returns>
     bool IsValidPortalPosition(Tilemap tilemap, Vector2 normal, Vector3Int gridPosition)
     {
         var right = new Vector3(normal.x, normal.y, 0.0f);

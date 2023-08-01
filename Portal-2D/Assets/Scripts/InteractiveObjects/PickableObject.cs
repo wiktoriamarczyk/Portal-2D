@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 
+/// <summary>
+/// Class responsible for behaviour of pickable objects
+/// </summary>
 public class PickableObject : MonoBehaviour , IPortalEventsListener
 {
-    [SerializeField] protected AudioSource cubeSound;
+    /// <summary>
+    /// Sound of object hitting the ground
+    /// </summary>
+    [SerializeField] protected AudioSource hittingTheGroundSound;
     [SerializeField] protected float detectionRadius = 4f;
     TMP_Text promptText;
     protected bool taken = false;
@@ -83,13 +85,20 @@ public class PickableObject : MonoBehaviour , IPortalEventsListener
             }
         }
     }
-
+    /// <summary>
+    /// Method called when the collision occured
+    /// </summary>
+    /// <param name="collision">the object with which the collision occurred</param>
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (cubeSound!=null)
-            cubeSound.Play();
+        if (hittingTheGroundSound != null)
+            hittingTheGroundSound.Play();
     }
-
+    /// <summary>
+    /// Method called when the object was teleported by portal
+    /// </summary>
+    /// <param name="srcPortal">source portal</param>
+    /// <param name="dstPortal">destination portal</param>
     public virtual void OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
     {
         Drop();

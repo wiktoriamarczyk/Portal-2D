@@ -1,19 +1,39 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
+/// <summary>
+/// Class responsible for generating the path which can be continued by the portal
+/// </summary>
 public class PortalContinuedPathGenerator : MonoBehaviour
 {
+    /// <summary>
+    /// Prefab of the path
+    /// </summary>
     [SerializeField] GameObject pathPrefab;
+    /// <summary>
+    /// Material of the path
+    /// </summary>
     [SerializeField] Material pathMaterial;
+    /// <summary>
+    /// Is the generator enabled?
+    /// </summary>
     [SerializeField] bool enable = false;
+    /// <summary>
+    /// Is the generator enabled on start?
+    /// </summary>
     [SerializeField] bool isEnabledOnStart = false;
-
+    /// <summary>
+    /// Distance of the raycast
+    /// </summary>
     static float raycastDistance = 500f;
-    List<GameObject> funnelsList = new List<GameObject>();
+    /// <summary>
+    /// List of funnels
+    /// </summary>
+    List<GameObject> pathList = new List<GameObject>();
 
+    /// <summary>
+    /// Awake is called when the script instance is being loaded. Here we subscribe to the portal change event
+    /// </summary>
     void Awake()
     {
         PortalManager.OnPortalChange += Refresh;
@@ -21,14 +41,18 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         if(isEnabledOnStart)
             Generate();
     }
-
+    /// <summary>
+    /// Method called when portal was spawned, regenerates the path
+    /// </summary>
     void Refresh()
     {
         if(!isEnabledOnStart)
             return;
         Generate();
     }
-
+    /// <summary>
+    /// Method which activates the generator
+    /// </summary>
     public void EnableGenerator()
     {
         if(isEnabledOnStart)
@@ -37,34 +61,49 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         isEnabledOnStart = true;
         Generate();
     }
-
+    /// <summary>
+    /// Method which deactivates the generator
+    /// </summary>
     public void DisableGenerator()
     {
         if(!isEnabledOnStart)
             return;
         isEnabledOnStart = false;
-        DestroyFunnels();
+        DestroyPaths();
     }
-
-    void DestroyFunnels()
+    /// <summary>
+    /// Method which destroys all generated paths
+    /// </summary>
+    void DestroyPaths()
     {
-        foreach(var funnel in funnelsList)
+        foreach(var funnel in pathList)
             Destroy(funnel);
 
-        funnelsList.Clear();
+        pathList.Clear();
     }
-
+    /// <summary>
+    /// Method which invokes generatation of the path
+    /// </summary>
     public void Generate()
     {
         Invoke("DoGenerate", 0.1f);
     }
+    /// <summary>
+    /// Method which regenerates the path
+    /// </summary>
     public void DoGenerate()
     {
-        DestroyFunnels();
-        DoGenerate(gameObject, pathPrefab, funnelsList, true);
+        DestroyPaths();
+        DoGenerate(gameObject, pathPrefab, pathList, true);
     }
-
-    static void DoGenerate(GameObject originObject,GameObject funnelPrefab, List<GameObject> funnelsList, bool recursionAllowed)
+    /// <summary>
+    ///  Method which generates the path
+    /// </summary>
+    /// <param name="originObject">generator</param>
+    /// <param name="pathPrefab">prefab of the path</param>
+    /// <param name="paths">list of paths</param>
+    /// <param name="recursionAllowed">is continued by the portal</param>
+    static void DoGenerate(GameObject originObject,GameObject pathPrefab, List<GameObject> paths, bool recursionAllowed)
     {
         var directionVectorMultiplier = Vector3.one;
 
@@ -87,10 +126,10 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         Debug.DrawLine(raycastStart, hit.point, Color.cyan, 200f);
         //Debug.DrawLine(transform.position, hit.point, Color.magenta, 200f);
 
-        var funnel = Instantiate(funnelPrefab, startPoint, Quaternion.identity);
+        var funnel = Instantiate(pathPrefab, startPoint, Quaternion.identity);
         funnel.transform.SetParent(originObject.transform);
         funnel.transform.localRotation = Quaternion.identity;
-        funnelsList.Add(funnel);
+        paths.Add(funnel);
 
         Vector4 funnelScale;
         if (hit.collider != null)
@@ -113,9 +152,11 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         if (portallogic == null || portallogic.IsDying() || portallogic.GetDestinationOutput() == null)
             return;
 
-        DoGenerate(portallogic.gameObject, funnelPrefab, funnelsList, false);
+        DoGenerate(portallogic.gameObject, pathPrefab, paths, false);
     }
-
+    /// <summary>
+    /// This function is called every frame, if the MonoBehaviour is enabled. Here we check if the generator should be enabled or disabled
+    /// </summary>
     void Update()
     {
         if (enable != isEnabledOnStart)

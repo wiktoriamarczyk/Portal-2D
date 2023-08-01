@@ -1,15 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Class responsible for managing player movement
+/// </summary>
 public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 {
+    /// <summary>
+    /// Speed of the player
+    /// </summary>
     [SerializeField] float speed = 8f;
+    /// <summary>
+    /// Jump force of the player
+    /// </summary>
     [SerializeField] float jumpForce = 14f;
+    /// <summary>
+    /// Distance to object which can be interacted with
+    /// </summary>
     [SerializeField] float interactDistance = 2f;
+    /// <summary>
+    /// Hold point of the player
+    /// </summary>
     [SerializeField] Transform holdPoint;
 
     Rigidbody2D    rigidbody;
@@ -23,13 +33,17 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
 
     GameObject holdingGameObj = null;
 
-
+    /// <summary>
+    /// Property which indicates whether the player is facing right
+    /// </summary>
     public bool IsFacingRight
     {
         get => isFacingRight;
         set => isFacingRight = value;
     }
-
+    /// <summary>
+    /// Types of movement
+    /// </summary>
     enum eMovementState
     {
         IDLE,
@@ -37,7 +51,9 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         JUMP,
         FALL
     }
-
+    /// <summary>
+    /// Method responsible for flipping the direction of the player
+    /// </summary>
     public void Flip()
     {
         isFacingRight = !isFacingRight;
@@ -45,23 +61,33 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         scale.x *= -1;
         transform.localScale = scale;
     }
-
+    /// <summary>
+    /// Returns the information about player movement state
+    /// </summary>
+    /// <returns>true if player is moving</returns>
     public bool IsMoving()
     {
         return Mathf.Abs(dirX) >= 0.1f;
     }
+    /// <summary>
+    /// Method responsible for inversing player movement
+    /// </summary>
     public void InverseXMovementAxis()
     {
         dirXMultiplier = -1f;
     }
-
+    /// <summary>
+    /// Start is called before the first frame update. Here mainly responsible for getting components
+    /// </summary>
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
-
+    /// <summary>
+    /// Update is called once per frame. Here mainly responsible for player input handling
+    /// </summary>
     void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal") * dirXMultiplier;
@@ -85,7 +111,10 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
             }
         }
     }
-
+    /// <summary>
+    /// Return the information about player touching the ground
+    /// </summary>
+    /// <returns>true if player is touching the ground</returns>
     public bool IsTouchingGround()
     {
         var layerMask1 = LayerMask.GetMask("Units");
@@ -99,7 +128,10 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         //Debug.DrawLine(transform.position - Vector3.down * 0.3f, transform.position + Vector3.down );
         return false;
     }
-
+    /// <summary>
+    /// Fixed Update is called every fixed framerate frame. Here mainly
+    /// responsible for managing player movement according to player input
+    /// </summary>
     void FixedUpdate()
     {
         rigidbody.velocity = new Vector2(dirX * speed, rigidbody.velocity.y);
@@ -110,7 +142,10 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         }
         AnimationUpdate(dirX);
     }
-
+    /// <summary>
+    /// Method responsible for managing player animation
+    /// </summary>
+    /// <param name="dirX">direction of the player</param>
     void AnimationUpdate(float dirX)
     {
         if (dirX > 0 || dirX < 0)

@@ -1,50 +1,99 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Class responsible for the behaviour of the player's aim
+/// </summary>
 public class PlayerAim : MonoBehaviour
 {
+    /// <summary>
+    /// Array of cursor textures
+    /// </summary>
     [SerializeField] Texture2D[] cursorTextures;
+    /// <summary>
+    /// Arm of the player
+    /// </summary>
     [SerializeField] Transform   arm;
+    /// <summary>
+    /// Spawner of the projectiles
+    /// </summary>
     [SerializeField] Transform   projectileSpawner;
+    /// <summary>
+    /// Prefab of the blue projectile spawned after left mouse button click
+    /// </summary>
     [SerializeField] GameObject  blueProjectile;
+    /// <summary>
+    /// Prefab of the orange projectile spawned after right mouse button click
+    /// </summary>
     [SerializeField] GameObject  orangeProjectile;
+    /// <summary>
+    /// Sound of firing left mouse button
+    /// </summary>
     [SerializeField] AudioSource lpmFireSound;
+    /// <summary>
+    /// Sound of firing right mouse button
+    /// </summary>
     [SerializeField] AudioSource ppmFireSound;
-
+    /// <summary>
+    /// Debug angle of the arm
+    /// </summary>
     [SerializeField] float debugangle;
-
-    PlayerMovement  player;
-    CursorMode      cursorMode = CursorMode.ForceSoftware;
-    Vector2         hotSpot = Vector2.zero;
-    Tilemap         tilemap;
-    eCursorType     cursor = eCursorType.ORANGE;
-    float           minAngleRange = -60f;
-    float           maxAngleRange = 70f;
-
+    /// <summary>
+    /// PlayerMovement component
+    /// </summary>
+    PlayerMovement player;
+    /// <summary>
+    /// CursorMode of the cursor
+    /// </summary>
+    CursorMode cursorMode = CursorMode.ForceSoftware;
+    /// <summary>
+    /// Hot spot of the cursor
+    /// </summary>
+    Vector2 hotSpot = Vector2.zero;
+    /// <summary>
+    /// Tilemap of the level
+    /// </summary>
+    Tilemap tilemap;
+    /// <summary>
+    /// Type of the cursor
+    /// </summary>
+    eCursorType cursor = eCursorType.ORANGE;
+    /// <summary>
+    /// Minimum angle of the arm
+    /// </summary>
+    float minAngleRange = -60f;
+    /// <summary>
+    /// Maximum angle of the arm
+    /// </summary>
+    float maxAngleRange = 70f;
+    /// <summary>
+    /// Types of cursors
+    /// </summary>
     enum eCursorType
     {
         BLUE,
         ORANGE
     }
-
+    /// <summary>
+    /// Layers that are not taken into account by raycast
+    /// </summary>
     const int NON_RAYCAST_LAYERS = (int)Common.eLayerType.PLAYER |  (int)Common.eLayerType.NON_COLLIDABLE_UNITS;
 
+    /// <summary>
+    /// Awake is called when the script instance is being loaded
+    /// </summary>
     void Awake()
     {
+        tilemap = PortalManager.Instance.TilemapProperty;
         ChangeCursor(eCursorType.BLUE);
         player = GetComponent<PlayerMovement>();
     }
-
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled. Responsible for managing the behaviour of the player input -
+    /// rotates the arm according to the mouse position and spawn projectiles on mouse button click
+    /// </summary>
     void Update()
     {
-        tilemap = PortalManager.Instance.TilemapProperty;
-
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             ChangeCursor(eCursorType.BLUE);
@@ -60,7 +109,9 @@ public class PlayerAim : MonoBehaviour
 
         RotateArm();
     }
-
+    /// <summary>
+    /// Method responsible for firing the projectile after mouse button click
+    /// </summary>
     void Fire()
     {
         // ostatnim parametrem są warstwy brane pod uwagę przez raycast za wyjątkiem warstwy, na której jest gracz
@@ -97,7 +148,10 @@ public class PlayerAim : MonoBehaviour
                 projectile.GetComponent<Projectile>().InitializePortalProperties(hit.normal, cellPosition);
         }
     }
-
+    /// <summary>
+    /// Changes cursor to the one specified in the parameter
+    /// </summary>
+    /// <param name="cursorType">cursor type</param>
     void ChangeCursor(eCursorType cursorType)
     {
         if (cursor == cursorType)
@@ -105,18 +159,13 @@ public class PlayerAim : MonoBehaviour
         cursor = cursorType;
         Cursor.SetCursor(cursorTextures[(int)cursorType], hotSpot, cursorMode);
     }
-
-    static float GetAngleFromVec(Vector3 dir)
-    {
-        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-    }
-
-    /* TO FIX */
+    /// <summary>
+    ///  Method responsible for rotating the arm according to the position of the cursor
+    /// </summary>
     void RotateArm()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 ArmToMouse = mousePos - arm.position;
-
 
         //Vector3 perpendicular = arm.position + mousePos;
         //Quaternion value = Quaternion.LookRotation(Vector3.forward, perpendicular);
@@ -141,11 +190,26 @@ public class PlayerAim : MonoBehaviour
         else if( player.IsFacingRight && mousePos.x < player.transform.position.x )
             player.Flip();
     }
-
+    /// <summary>
+    /// Returns the modular clamp of the value between min and max
+    /// </summary>
+    /// <param name="value">value to be clamped</param>
+    /// <param name="min">minimum value</param>
+    /// <param name="max">maximum value</param>
+    /// <returns></returns>
     float ModularClamp(float value, float min, float max)
     {
         var modulus = 360f;
         value %= modulus;
         return Mathf.Clamp(value, min, max);
+    }
+    /// <summary>
+    /// Returns angle of the vector
+    /// </summary>
+    /// <param name="dir">direction vector</param>
+    /// <returns></returns>
+    static float GetAngleFromVec(Vector3 dir)
+    {
+        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 }

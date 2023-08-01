@@ -1,16 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using static UnityEngine.GraphicsBuffer;
 
+/// <summary>
+/// Class representing a projectile
+/// </summary>
 public class Projectile : MonoBehaviour
 {
+    /// <summary>
+    /// Speed of the projectile
+    /// </summary>
     [SerializeField] float speed = 10f;
+    /// <summary>
+    /// Time after which the projectile will be destroyed
+    /// </summary>
     [SerializeField] float lifeTime = 5f;
+    /// <summary>
+    /// Prefab of the hit effect particle system
+    /// </summary>
     [SerializeField] GameObject hitEffectPrefab;
+    /// <summary>
+    /// Prefab of the shot effect particle system
+    /// </summary>
     [SerializeField] GameObject shotEffectPrefab;
 
     Vector3Int positionOnGrid;
@@ -29,6 +38,13 @@ public class Projectile : MonoBehaviour
     Color orangeColor;
     Color currentColor;
 
+    /// <summary>
+    /// Method responsible for changing the color of the projectile
+    /// </summary>
+    /// <param name="redValue">value of the rec color</param>
+    /// <param name="greenValue">value of the green color</param>
+    /// <param name="blueValue">value of the blue color</param>
+    /// <returns>projectile's new color</returns>
     Color ConvertColor(int redValue, int greenValue, int blueValue)
     {
         float red = redValue / 255f;
@@ -37,18 +53,22 @@ public class Projectile : MonoBehaviour
 
         return new Color(red, green, blue);
     }
-
-
+    /// <summary>
+    /// Projectile types
+    /// </summary>
     public enum eProjectileType
     {
         BLUE,
         ORANGE
     }
-
+    /// <summary>
+    /// Update is called every frame. Here mainly responsible for moving the projectile towards the target and managing its lifetime
+    /// </summary>
     void Update()
     {
-        if( !isAlive )
+        if(!isAlive)
             return;
+
         // jeœli minê³o odpowiednio du¿o czasu, wy³¹cz pocisk
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
@@ -68,16 +88,11 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        // niech pocisk przemieszcza siê w kierunku celu
         MoveTowards();
     }
-
-    IEnumerator DyingCoroutine()
-    {
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
-    }
-
+    /// <summary>
+    /// Instantiates portal
+    /// </summary>
     void InstantiatePortal()
     {
         bool wasPortalSpawned = false;
@@ -87,7 +102,11 @@ public class Projectile : MonoBehaviour
             wasPortalSpawned = PortalManager.Instance.TrySpawnOrangePortal(wallNormal, positionOnGrid);
         spawnHitWallParticles = !wasPortalSpawned;
     }
-
+    /// <summary>
+    /// Initializes projectile
+    /// </summary>
+    /// <param name="endPos">target position</param>
+    /// <param name="type">type of the projectile</param>
     public void InitializeProjectile(Vector3 endPos, eProjectileType type)
     {
         endPosition = endPos;
@@ -100,20 +119,28 @@ public class Projectile : MonoBehaviour
         ParticleSystem shotParticles = shotEffect.GetComponent<ParticleSystem>();
         shotParticles.startColor = projectileType == eProjectileType.BLUE ? blueColor : orangeColor;
     }
-
+    /// <summary>
+    /// Initializes portal properties
+    /// </summary>
+    /// <param name="normal">normal vector</param>
+    /// <param name="gridPosition">position on grid on which portal will be spawned</param>
     public void InitializePortalProperties(Vector2 normal, Vector3Int gridPosition)
     {
         instantiatePortal = true;
         wallNormal = normal;
         positionOnGrid = gridPosition;
     }
-
+    /// <summary>
+    /// Method responsible for moving the projectile towards the target
+    /// </summary>
     void MoveTowards()
     {
         var step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, endPosition, step);
     }
-
+    /// <summary>
+    /// Method called when projectile dies
+    /// </summary>
     void OnDestroy()
     {
         StopAllCoroutines();

@@ -21,7 +21,9 @@ namespace Common {
         PORTAL                  = 1 << 15
     }
 }
-
+/// <summary>
+/// Class containing common functions
+/// </summary>
 public class CommonFunctions
 {
     static public Vector3 TransformPosBetweenPortals(Vector3 absPos, GameObject srcPortal, GameObject dstPortal)
