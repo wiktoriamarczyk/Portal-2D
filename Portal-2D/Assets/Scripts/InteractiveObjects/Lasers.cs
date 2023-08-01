@@ -1,35 +1,77 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
 
+/// <summary>
+/// Klasa Lasers odpowiada za zachowanie laserów 
+/// </summary>
 public class Lasers : MonoBehaviour
 {
+    /// <summary>
+    /// DŸwiêk lasera
+    /// </summary>
     [SerializeField] AudioSource laserSound;
+    /// <summary>
+    /// DŸwiêk w³¹czenia lasera
+    /// </summary>
     [SerializeField] AudioSource laserOn;
+    /// <summary>
+    /// DŸwiêk wy³¹czenia lasera
+    /// </summary>
     [SerializeField] AudioSource laserOff;
-    [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
+    /// <summary>
+    /// Zdarzenie wywo³ywane, gdy laser trafia w odbiornik
+    /// </summary>
     [SerializeField] UnityEvent onReceiverHit;
+    /// <summary>
+    /// Zdarzenie wywo³ywane, gdy laser znika z odbiornika
+    /// </summary>
     [SerializeField] UnityEvent onReceiverReleased;
+    /// <summary>
+    /// Warstwa obiektów, które mog¹ zablokowaæ laser
+    /// </summary>
+    [SerializeField] LayerMask layerMask;
+    /// <summary>
+    /// Domyœlny sprite
+    /// </summary>
+    public Sprite defaultSprite;
+    /// <summary>
+    /// Aktywowany sprite (po w³¹czeniu lasera lub po trafieniu w odbiornik)
+    /// </summary>
+    public Sprite activatedSprite;
+    /// <summary>
+    /// Wektor z pocz¹tkowym punktem lasera
+    /// </summary>
+    public Vector3 start;
+    /// <summary>
+    /// Wektor z odleg³ym punktem na prostej lasera
+    /// </summary>
+    public Vector3 maxEnd;
+    /// <summary>
+    /// Wektor z rzeczywistym koñcem lasera (po wykryciu kolizji)
+    /// </summary>
+    public Vector3 realEnd;
+    /// <summary>
+    /// Komponent LineRenderer - do rysowania lasera
+    /// </summary>
+    private LineRenderer lineRenderer;
+    /// <summary>
+    /// Komponent SpriteRenderer - do zmiany sprite'ów
+    /// </summary>
+    private SpriteRenderer spriteRenderer;
 
-    public Sprite defaultSprite;            // Domyœlny sprite
-    public Sprite activatedSprite;          // Aktywowany sprite
-    public Vector3 start;                   // Pocz¹tek linii lasera (pozycja emitera)
-    public Vector3 maxEnd;                  // Odleg³y punkt na prostej lasera
-    public Vector3 realEnd;                 // Faktyczny koniec lasera (po kolizji)
-    private LineRenderer lineRenderer;      // Komponent LineRenderer
-    private SpriteRenderer spriteRenderer;  // Komponent SpriteRenderer
 
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// Metoda wywo³ywana przed pierwszym odœwie¿eniem klatki
+    /// </summary>
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>(); // Pobranie komponentu SpriteRenderer
-        lineRenderer = GetComponent<LineRenderer>();     // Pobranie komponentu LineRenderer
-        lineRenderer.positionCount = 2;
-        start = transform.position;  // Pierwszy punkt to pozycja transmitera
-        stopLaser();    // Wy³¹czenie lasera
+        spriteRenderer = GetComponent<SpriteRenderer>();    // Pobranie komponentu SpriteRenderer
+        lineRenderer = GetComponent<LineRenderer>();        // Pobranie komponentu LineRenderer
+        lineRenderer.positionCount = 2;                     // Ustawienie liczby punktów na 2
+        start = transform.position;                         // Pierwszy punkt to pozycja transmitera
+        stopLaser();                                        // Wy³¹czenie lasera na pocz¹tku gry
+        // Ustawienie w³aœciwego kierunku i zwrotu lasera w zale¿noœci od rotacji transmitera
         if (Math.Round(transform.rotation.z, 1) == -0.7)
         {
             maxEnd = new Vector3(transform.position.x, transform.position.y - 100, transform.position.z);
@@ -48,6 +90,9 @@ public class Lasers : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Metoda powoduj¹ca uruchomienie lasera
+    /// </summary>
     public void startLaser()
     {
         // Zmiana sprite'a na aktywowany
@@ -59,6 +104,9 @@ public class Lasers : MonoBehaviour
         laserSound.loop = true;
     }
 
+    /// <summary>
+    /// Metoda powoduj¹ca zatrzymanie lasera
+    /// </summary>
     public void stopLaser()
     {
         // Zmiana sprite'a na domyœlny
@@ -72,7 +120,9 @@ public class Lasers : MonoBehaviour
         laserOff.Play();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Metoda wywo³ywana co klatkê
+    /// </summary>
     void Update()
     {
         if (lineRenderer.enabled)
@@ -124,11 +174,18 @@ public class Lasers : MonoBehaviour
             PortalLaser.isOrangePortalHit = false;
         }
     }
+
+    /// <summary>
+    /// Metoda wywo³ywana, gdy laser trafia w odbiornik - zmienia sprite odbiornika na aktywowany
+    /// </summary>
     public void ReceiverHit()
     {
         GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = activatedSprite;
     }
 
+    /// <summary>
+    /// Metoda wywo³ywana, gdy laser znika z odbiornika - zmienia sprite odbiornika na domyœlny
+    /// </summary>
     public void ReceiverReleased()
     {
         GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
