@@ -91,7 +91,7 @@ public class PortalLaser : MonoBehaviour
             hit.collider.gameObject.GetComponent<Receiver>().isHitByMirror = true;
         else
         {
-            GameObject.Find("Receiver").GetComponent<Receiver>().isHitByMirror = false;
+            GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByMirror = false;
             if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
                 hit.collider.gameObject.GetComponent<MirrorCube>().isHitByPortal = true;
             else
