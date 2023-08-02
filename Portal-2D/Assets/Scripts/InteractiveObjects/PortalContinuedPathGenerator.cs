@@ -167,4 +167,24 @@ public class PortalContinuedPathGenerator : MonoBehaviour
                 DisableGenerator();
         }
     }
+
+    /// <summary>
+    /// Toggles funnel accordingly with user interactions
+    /// </summary>
+
+    public void ToggleEnable()
+    {
+        if (enable)
+        {
+            DisableGenerator();
+            enable = false;
+        }
+        else
+        {
+            EnableGenerator();
+            enable = true;
+        }
+
+
+    }
 }
