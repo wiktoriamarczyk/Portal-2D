@@ -3,23 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Class representing an enemy - turret. It handles updating its sprites based on its state (alive/dead),
+/// tracks the player to kill, and allows the user to eliminate it from the scene.
+/// </summary>
 public class Enemy : PickableObject
 {
-    public Sprite activeSprite;          // alive
-    public Sprite inactiveSprite;        // dead
+    /// <summary>
+    /// Sprite to display when the turret is alive.
+    /// </summary>
+    public Sprite activeSprite;
+
+    /// <summary>
+    /// Sprite to display when the turret is dead.
+    /// </summary>
+    public Sprite inactiveSprite;
+
+    /// <summary>
+    /// Sprite to display when the turret is attacking.
+    /// </summary>
     public Sprite attackSprite;
+
+    /// <summary>
+    /// Layer mask for collision detection.
+    /// </summary>
     public LayerMask layerMask;
+
+    /// <summary>
+    /// Mass of the turret for physics calculations.
+    /// </summary>
     public float userMass = 80f;
+
+    /// <summary>
+    /// Time in seconds before the turret is considered dead after being disabled.
+    /// </summary>
     public float agonyTime = 1.5f;
+
+    /// <summary>
+    /// AudioSource component for playing sounds.
+    /// </summary>
     public AudioSource audioSource;
+
+    /// <summary>
+    /// Sound clip to play when the turret is detected.
+    /// </summary>
     public AudioClip detected;
+
+    /// <summary>
+    /// Sound clip to play when the turret is disabled.
+    /// </summary>
     public AudioClip disabled;
+
     private LineRenderer lineRenderer;
     private SpriteRenderer spriteRenderer;
     Vector3 laserend;
     bool alive = true;
     float maxTiltAngle = 45f;
     float timeSine = 0f;
+    
     void Die()
     {
         alive = false;

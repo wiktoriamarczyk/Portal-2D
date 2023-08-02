@@ -6,26 +6,59 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Class representing a mirror cube
+/// Class representing a mirror cube that can interact with lasers and angle them accordingly
 /// </summary>
 public class MirrorCube : PickableObject
 {
     /// <summary>
-    /// 
+    /// Layer mask for objects that can block the laser.
     /// </summary>
-    [SerializeField] LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
+    [SerializeField] LayerMask layerMask;
+
+    /// <summary>
+    /// Event triggered when the mirror cube is hit by a laser.
+    /// </summary>
     [SerializeField] UnityEvent onReceiverHit;
+
+    /// <summary>
+    /// Event triggered when the laser is no longer hitting the cube.
+    /// </summary>
     [SerializeField] UnityEvent onReceiverReleased;
-    private LineRenderer lineRenderer;
+
+    /// <summary>
+    /// Reference to the SpriteRenderer component.
+    /// </summary>
     public SpriteRenderer spriteRenderer;
+
+    /// <summary>
+    /// Sprite displayed when the mirror cube is active (hit by a laser) - glow
+    /// </summary>
     public Sprite mirrorOnSprite;
+
+    /// <summary>
+    /// Sprite displayed when the mirror cube is inactive (not hit by a laser).
+    /// </summary>
     public Sprite mirrorOffSprite;
+
+    /// <summary>
+    /// Flag indicating if the mirror cube is currently hit by a laser
+    /// </summary>
     public bool isHitByLaser = false;
+
+    /// <summary>
+    /// Flag indicating if the mirror cube is currently hit by a laser from transmitter
+    /// </summary>
     public bool isHitByTransmitter = false;
+
+    /// <summary>
+    /// Flag indicating if the mirror cube is currently hit by a laser from portal
+    /// </summary>
     public bool isHitByPortal = false;
-    Vector3 start;          // Punkt pocz¹tkowy lasera
-    Vector3 maxEnd;         // Punkt koñcowy lasera (maksymalny zasiêg)
-    Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
+
+    private LineRenderer lineRenderer;
+    Vector3 start;                      // Starting point of the laser.
+    Vector3 maxEnd;                     // Maximum endpoint of the laser (maximum range).
+    Vector3 realEnd;                    // Ending point of the laser.
 
     override protected void Start()
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 /// <summary>
-/// Class responsible for behaviour of pickable objects
+/// Class responsible for behaviour of pickable objects. It implements the IPortalEventsListener interface.
 /// </summary>
 public class PickableObject : MonoBehaviour , IPortalEventsListener
 {
@@ -10,7 +10,12 @@ public class PickableObject : MonoBehaviour , IPortalEventsListener
     /// Sound of object hitting the ground
     /// </summary>
     [SerializeField] protected AudioSource hittingTheGroundSound;
+
+    /// <summary>
+    /// Detection radius for interaction with the player.
+    /// </summary>
     [SerializeField] protected float detectionRadius = 4f;
+
     TMP_Text promptText;
     protected bool taken = false;
     protected Rigidbody2D rigidbody2D;
@@ -19,6 +24,10 @@ public class PickableObject : MonoBehaviour , IPortalEventsListener
     float backupMass = 0;
     Transform attachpoint;
 
+    /// <summary>
+    /// Allows the object to be picked up and attached to a specific point.
+    /// </summary>
+    /// <param name="attach">The attachment 'point' (coordinates) to which the object will be sticked.</param>
     public void Take(Transform attach)
     {
         if (taken || !attach)
@@ -32,7 +41,10 @@ public class PickableObject : MonoBehaviour , IPortalEventsListener
         UnityEngine.Debug.Log("Podnosze kostke (kostka)");
 
     }
-
+    
+    /// <summary>
+    /// Drops the object, restoring its original properties, and detaches it from the attachment point.
+    /// </summary>
     public void Drop()
     {
         if (!taken)
