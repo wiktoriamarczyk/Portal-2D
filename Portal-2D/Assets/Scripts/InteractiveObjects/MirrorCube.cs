@@ -5,15 +5,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Class representing a mirror cube
+/// </summary>
 public class MirrorCube : PickableObject
 {
-    [SerializeField] private LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
+    /// <summary>
+    /// 
+    /// </summary>
+    [SerializeField] LayerMask layerMask;  // Warstwa obiektów, które mog¹ zablokowaæ laser
     [SerializeField] UnityEvent onReceiverHit;
     [SerializeField] UnityEvent onReceiverReleased;
     private LineRenderer lineRenderer;
     public SpriteRenderer spriteRenderer;
     public Sprite mirrorOnSprite;
     public Sprite mirrorOffSprite;
+    public bool isHitByLaser = false;
+    public bool isHitByTransmitter = false;
+    public bool isHitByPortal = false;
     Vector3 start;          // Punkt pocz¹tkowy lasera
     Vector3 maxEnd;         // Punkt koñcowy lasera (maksymalny zasiêg)
     Vector3 realEnd;        // Punkt koñcowy lasera (aktualny zasiêg)
@@ -21,70 +30,54 @@ public class MirrorCube : PickableObject
     override protected void Start()
     {
         base.Start();
-
-        //rigidbody2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); // Pobranie komponentu SpriteRenderer
-        lineRenderer = GetComponent<LineRenderer>();     // Pobranie komponentu LineRenderer
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = mirrorOffSprite;
+        lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
-        stopLaser();    // Wy³¹czenie lasera
     }
 
     override protected void Update()
     {
+        // Calling the base class method
         base.Update();
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-        start = transform.position;  // Pierwszy punkt to pozycja transmitera
-        maxEnd = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z); // Odleg³y punkt na lewo od kostki
-        realEnd = maxEnd;   // Pocz¹tkowo ustawiamy punkt koñcowy na maksymalny zasiêg
-        if (lineRenderer.enabled)
+        // Check if the cube is hit by the laser
+        if (Lasers.isActive && (isHitByPortal || isHitByTransmitter))
         {
+            spriteRenderer.sprite = mirrorOnSprite;
+            start = transform.position;  // Set the first point as the cube's position
+            maxEnd = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z); // Second point - far away
+            realEnd = maxEnd;   // Set the real end as the far away point (in case the laser doesn't hit anything)
             RaycastHit2D hit = Physics2D.Raycast(start, (maxEnd - start).normalized, Vector3.Distance(start, maxEnd), layerMask);
             if (hit.collider != null)
-            {
-                realEnd = hit.point;
-            }
-            lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
-            lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
+                realEnd = hit.point;                // If the laser hits something, set the real end as the hit point
+            lineRenderer.SetPosition(0, start);     // Setting the first point of the line
+            lineRenderer.SetPosition(1, realEnd);   // Setting the second point of the line
+            lineRenderer.enabled = true;            // Displaying the line
             if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
-            {
-                Debug.Log("Hit receiver!");
-                if (!DoorOut.isActive) onReceiverHit.Invoke();
-            }
+                hit.collider.gameObject.GetComponent<Receiver>().isHitByMirror = true;
             else
             {
-                Debug.Log("Released receiver!");
-                if (DoorOut.isActive) onReceiverReleased.Invoke();
+                GameObject.Find("Receiver").GetComponent<Receiver>().isHitByMirror = false;
                 if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
-                {
-                    Debug.Log("The blue portal was hit by laser");
-                    PortalLaser.isBluePortalHit = true;
-                }
-                else if (hit.collider != null && hit.collider.gameObject.tag == "Orange Portal")
-                {
-                    Debug.Log("The orange portal was hit by laser");
-                    PortalLaser.isOrangePortalHit = true;
-                }
+                    PortalLaser.isBlueHitByMirror = true;
                 else
                 {
-                    PortalLaser.isBluePortalHit = false;
-                    PortalLaser.isOrangePortalHit = false;
+                    PortalLaser.isBlueHitByMirror = false;
+                    if (hit.collider != null && hit.collider.gameObject.tag == "Orange Portal")
+                        PortalLaser.isOrangeHitByMirror = true;
+                    else
+                        PortalLaser.isOrangeHitByMirror = false;
                 }
             }
         }
-    }
-
-    public void startLaser()
-    {
-        // Zmiana sprite'a na aktywowany
-        spriteRenderer.sprite = mirrorOnSprite;
-        lineRenderer.enabled = true;    // W³¹czenie linii
-    }
-
-    public void stopLaser()
-    {
-        // Zmiana sprite'a na nieaktywowany
-        spriteRenderer.sprite = mirrorOffSprite;
-        lineRenderer.enabled = false;   // Wy³¹czenie linii
+        else
+        {
+            spriteRenderer.sprite = mirrorOffSprite;
+            lineRenderer.enabled = false;  // Hiding the line
+            // Turning off potentially turned on objects
+            GameObject.Find("Receiver").GetComponent<Receiver>().isHitByMirror = false;
+            PortalLaser.isBlueHitByMirror = false;
+            PortalLaser.isOrangeHitByMirror = false;
+        }
     }
 }

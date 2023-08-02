@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7843692370481962051}
   - component: {fileID: 1884136031894465844}
   - component: {fileID: 1008777701}
+  - component: {fileID: -6553537416619791022}
   m_Layer: 10
   m_Name: LaserReceiver
   m_TagString: Untagged
@@ -111,3 +112,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 3.3}
   m_EdgeRadius: 0
+--- !u!114 &-6553537416619791022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074515730328018635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c28614bb621084ba751002c105970c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 57455b2317002594aa4290b77bc38a2d, type: 3}
+  activatedSprite: {fileID: 21300000, guid: c52e28ab138a76047b12d9c5cec85c68, type: 3}
+  isHitByLaser: 0
+  isHitByTransmitter: 0
+  isHitByMirror: 0
+  isHitByPortal: 0

@@ -59,6 +59,10 @@ public class Lasers : MonoBehaviour
     /// Sprite renderer component - for changing the sprites
     /// </summary>
     private SpriteRenderer spriteRenderer;
+    /// <summary>
+    /// True if the laser is on
+    /// </summary>
+    public static bool isActive = false;
 
 
     /// <summary>
@@ -95,7 +99,7 @@ public class Lasers : MonoBehaviour
     /// </summary>
     public void startLaser()
     {
-        // Zmiana sprite'a na aktywowany
+        isActive = true;
         spriteRenderer.sprite = activatedSprite;
         lineRenderer.enabled = true;    // W³¹czenie linii
         laserOn.Play();
@@ -110,13 +114,11 @@ public class Lasers : MonoBehaviour
     public void stopLaser()
     {
         // Zmiana sprite'a na domyœlny
+        isActive = false;
         spriteRenderer.sprite = defaultSprite;
         lineRenderer.enabled = false;   // Wy³¹czenie linii
-        GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
-        GameObject.Find("Mirror").GetComponent<MirrorCube>().stopLaser();
         laserSound.mute = true;
         laserSound.loop = false;
-        if (DoorOut.isActive) GameObject.Find("DoorOut").GetComponent<DoorOut>().CloseDoor();
         laserOff.Play();
     }
 
@@ -125,7 +127,7 @@ public class Lasers : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (lineRenderer.enabled)
+        if (isActive)
         {
             RaycastHit2D hit = Physics2D.Raycast(start, (maxEnd - start).normalized, Vector3.Distance(start, maxEnd), layerMask);
             if (hit.collider != null)
@@ -136,58 +138,39 @@ public class Lasers : MonoBehaviour
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
             if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
             {
-                hit.collider.gameObject.GetComponent<MirrorCube>().startLaser();
+                hit.collider.gameObject.GetComponent<MirrorCube>().isHitByTransmitter = true;
             }
             else
             {
-                GameObject.Find("Mirror").GetComponent<MirrorCube>().stopLaser();
+                GameObject.Find("Mirror").GetComponent<MirrorCube>().isHitByTransmitter = false;
                 if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
                 {
-                    hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = activatedSprite;
-                    if (!DoorOut.isActive) onReceiverHit.Invoke();
+                    hit.collider.gameObject.GetComponent<Receiver>().isHitByTransmitter = true;
                 }
                 else
                 {
-                    if (DoorOut.isActive) onReceiverReleased.Invoke();
-                    GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
+                    GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByTransmitter = false;
                     if (hit.collider != null && hit.collider.gameObject.tag == "Blue Portal")
                     {
-                        Debug.Log("The blue portal was hit by laser");
-                        PortalLaser.isBluePortalHit = true;
-                    }
-                    else if (hit.collider != null && hit.collider.gameObject.tag == "Orange Portal")
-                    {
-                        Debug.Log("The orange portal was hit by laser");
-                        PortalLaser.isOrangePortalHit = true;
+                        PortalLaser.isBlueHitByTransmitter = true;
                     }
                     else
                     {
-                        PortalLaser.isBluePortalHit = false;
-                        PortalLaser.isOrangePortalHit = false;
+                        PortalLaser.isBlueHitByTransmitter = false;
+                        if (hit.collider != null && hit.collider.gameObject.tag == "Orange Portal")
+                            PortalLaser.isOrangeHitByTransmitter = true;
+                        else
+                            PortalLaser.isOrangeHitByTransmitter = false;
                     }
                 }
             }
         }
-        else
+        else 
         {
-            PortalLaser.isBluePortalHit = false;
-            PortalLaser.isOrangePortalHit = false;
+            GameObject.Find("Receiver").GetComponent<Receiver>().isHitByTransmitter = false;
+            GameObject.Find("Mirror").GetComponent<MirrorCube>().isHitByTransmitter = false;
+            PortalLaser.isBlueHitByTransmitter = false;
+            PortalLaser.isOrangeHitByTransmitter = false;
         }
-    }
-
-    /// <summary>
-    /// Method called when the laser hits the receiver - changes the receiver's sprite to activated
-    /// </summary>
-    public void ReceiverHit()
-    {
-        GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = activatedSprite;
-    }
-
-    /// <summary>
-    /// Method called when the laser stops hitting the receiver - changes the receiver's sprite to default
-    /// </summary>
-    public void ReceiverReleased()
-    {
-        GameObject.Find("LaserReceiver").GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 }
