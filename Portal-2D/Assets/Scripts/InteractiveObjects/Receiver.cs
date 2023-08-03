@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Class to control the laser receiver.
 /// </summary>
 public class Receiver : MonoBehaviour
 {
+    /// <summary>
+    /// Event called when laser hits receiver
+    /// </summary>
+    [SerializeField] UnityEvent onReceiverHit;
+    /// <summary>
+    /// Event called when laser is released from receiver
+    /// </summary>
+    [SerializeField] UnityEvent onReceiverReleased;
     /// <summary>
     /// Sprite renderer component - for changing the sprites
     /// </summary>
@@ -35,7 +44,7 @@ public class Receiver : MonoBehaviour
     /// True if the receiver was hit from a portal
     /// </summary>
     public bool isHitByPortal = false;
-    
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -53,13 +62,19 @@ public class Receiver : MonoBehaviour
         //  If the laser is on and the receiver is hit by a transmitter, mirror, or portal, then the receiver will turn on.
         if (Lasers.isActive && (isHitByTransmitter || isHitByMirror || isHitByPortal))
         {
+            if (isHitByLaser)
+                return;
             spriteRenderer.sprite = activatedSprite;
             isHitByLaser = true;
+            onReceiverHit?.Invoke();
         }
         else
         {
+            if (!isHitByLaser)
+                return;
             spriteRenderer.sprite = defaultSprite;
             isHitByLaser = false;
+            onReceiverReleased?.Invoke();
         }
     }
 }

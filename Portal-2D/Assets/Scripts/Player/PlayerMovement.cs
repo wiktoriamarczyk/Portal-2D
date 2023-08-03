@@ -119,7 +119,10 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     {
         var layerMask1 = LayerMask.GetMask("Units");
         var layerMask2 = LayerMask.GetMask("Terrain");
-        RaycastHit2D hit = Physics2D.Raycast( boxCollider2D.bounds.center - new Vector3(0,boxCollider2D.bounds.extents.y) - Vector3.down * 0.1f, Vector2.down, 0.3f , layerMask1 | layerMask2 );
+        var layerMask3 = LayerMask.GetMask("MirrorCube");
+        var layerMask4 = LayerMask.GetMask("Non-portal");
+
+        RaycastHit2D hit = Physics2D.Raycast( boxCollider2D.bounds.center - new Vector3(0,boxCollider2D.bounds.extents.y) - Vector3.down * 0.1f, Vector2.down, 0.3f , layerMask1 | layerMask2 | layerMask3 | layerMask4);
         if (hit.collider != null)
         {
             //Debug.DrawLine(transform.position, hit.point, Color.green);

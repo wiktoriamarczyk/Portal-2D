@@ -93,7 +93,7 @@ public class PortalLogic : MonoBehaviour
         var testpoint = transform.position + ownWorldvecToPortal*10;
         var objpos = portalAdapter.GetObjectCenter();
         float dist = Vector3.Distance(testpoint, objpos);
-        if (dist < 9.8)
+        if (dist < 9.9)
         {
             var newpos = clone.transform.position + destination.GetWorldVectorOutsidePortal() * 0.25f;
 

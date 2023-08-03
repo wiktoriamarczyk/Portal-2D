@@ -35,13 +35,13 @@ public class PortalLaser : MonoBehaviour
             isBluePortalHit = true;
         else
             isBluePortalHit = false;
-        
+
         // Check if orange portal is hit
         if (isOrangeHitByMirror || isOrangeHitByTransmitter)
             isOrangePortalHit = true;
         else
             isOrangePortalHit = false;
-        
+
         if (isBluePortalHit)
         {
             if (GameObject.FindGameObjectsWithTag("Orange Portal").Length > 0)
@@ -78,7 +78,10 @@ public class PortalLaser : MonoBehaviour
                 lineRenderer.SetPosition(1, laserFarEnd);
             }
         }
-        else  lineRenderer.enabled = false;
+        else {
+            lineRenderer.enabled = false;
+            return;
+        }
 
         RaycastHit2D hit = Physics2D.Raycast(outputPortalPosition, (laserFarEnd - outputPortalPosition).normalized, Vector3.Distance(outputPortalPosition, laserFarEnd), layerMask);
         if (hit.collider != null)

@@ -113,7 +113,7 @@ public class PortalContinuedPathGenerator : MonoBehaviour
             {
                 originObject = portalLogic.GetDestinationOutput().gameObject;
                 directionVectorMultiplier = portalLogic.GetObjectXFlipFactor();
-                directionVectorMultiplier.x *= -1;
+                //directionVectorMultiplier.x *= -1;
             }
         }
 

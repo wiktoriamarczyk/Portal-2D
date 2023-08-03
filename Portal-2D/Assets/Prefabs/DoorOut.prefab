@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 770267754018477157}
   - component: {fileID: 2560252041088074738}
   - component: {fileID: 4274599067941669981}
+  - component: {fileID: 4995529146641561529}
   m_Layer: 10
   m_Name: DoorOut
   m_TagString: Untagged
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorOpen: {fileID: 2560252041088074738}
   doorClose: {fileID: 4274599067941669981}
+  levelWinning: {fileID: 0}
 --- !u!82 &2560252041088074738
 AudioSource:
   m_ObjectHideFlags: 0
@@ -315,3 +317,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &4995529146641561529
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015198831932113851}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07515907, y: -0.59054756}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9, y: 6.4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.4259377, y: 4.703514}
+  m_EdgeRadius: 0

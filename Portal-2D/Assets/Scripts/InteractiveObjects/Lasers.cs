@@ -20,14 +20,6 @@ public class Lasers : MonoBehaviour
     /// </summary>
     [SerializeField] AudioSource laserOff;
     /// <summary>
-    /// Event called when laser hits receiver
-    /// </summary>
-    [SerializeField] UnityEvent onReceiverHit;
-    /// <summary>
-    /// Event called when laser is released from receiver
-    /// </summary>
-    [SerializeField] UnityEvent onReceiverReleased;
-    /// <summary>
     /// Layer mask for objects that can stop the laser
     /// </summary>
     [SerializeField] LayerMask layerMask;
@@ -165,9 +157,9 @@ public class Lasers : MonoBehaviour
                 }
             }
         }
-        else 
+        else
         {
-            GameObject.Find("Receiver").GetComponent<Receiver>().isHitByTransmitter = false;
+            GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByTransmitter = false;
             GameObject.Find("Mirror").GetComponent<MirrorCube>().isHitByTransmitter = false;
             PortalLaser.isBlueHitByTransmitter = false;
             PortalLaser.isOrangeHitByTransmitter = false;

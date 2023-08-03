@@ -27,6 +27,8 @@ public class PortalButton : MonoBehaviour
     /// </summary>
     [SerializeField] AudioSource buttonReleased;
 
+    int objectsCount = 0;
+
     /// <summary>
     /// Awake is called when the script instance is being loaded
     /// </summary>
@@ -40,6 +42,11 @@ public class PortalButton : MonoBehaviour
     /// <param name="collider">the object with which the collision occurred</param>
     void OnTriggerEnter2D(Collider2D collider)
     {
+        objectsCount++;
+        if (objectsCount > 1)
+        {
+            return;
+        }
         animator.SetTrigger("ButtonPressed");
         onButtonPressed.Invoke();
         buttonPressed.Play();
@@ -50,6 +57,11 @@ public class PortalButton : MonoBehaviour
     /// <param name="collider">the object with which the collision occurred</param>
     void OnTriggerExit2D(Collider2D collider)
     {
+        objectsCount--;
+        if (objectsCount != 0)
+        {
+            return;
+        }
         animator.SetTrigger("ButtonReleased");
         onButtonReleased.Invoke();
         buttonReleased.Play();

@@ -108,7 +108,7 @@ public class MirrorCube : PickableObject
             spriteRenderer.sprite = mirrorOffSprite;
             lineRenderer.enabled = false;  // Hiding the line
             // Turning off potentially turned on objects
-            GameObject.Find("Receiver").GetComponent<Receiver>().isHitByMirror = false;
+            GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByMirror = false;
             PortalLaser.isBlueHitByMirror = false;
             PortalLaser.isOrangeHitByMirror = false;
         }
