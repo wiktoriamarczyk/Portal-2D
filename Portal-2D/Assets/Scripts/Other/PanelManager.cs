@@ -46,7 +46,8 @@ public class PanelManager : MonoBehaviour
     /// </summary>
     float musicVolume = 0.2f;
     /// <summary>
-    ///  Awake is called when the script instance is being loaded
+    ///  Awake is called when the script instance is being loaded - responsible for setting singleton instance,
+    ///  setting music volume and hiding all panels
     /// </summary>
     void Awake()
     {
@@ -66,7 +67,7 @@ public class PanelManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled
+    /// Update is called every frame, if the MonoBehaviour is enabled - responsible for managing the behaviour of the player input
     /// </summary>
     void Update()
     {
@@ -128,7 +129,7 @@ public class PanelManager : MonoBehaviour
         Application.Quit();
     }
     /// <summary>
-    /// Method responsible for enabling or disabling the music
+    /// Method responsible for enabling and disabling the music
     /// </summary>
     public void TurnOnOffMusic()
     {

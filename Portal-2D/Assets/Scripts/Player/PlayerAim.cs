@@ -80,7 +80,7 @@ public class PlayerAim : MonoBehaviour
     const int NON_RAYCAST_LAYERS = (int)Common.eLayerType.PLAYER |  (int)Common.eLayerType.NON_COLLIDABLE_UNITS;
 
     /// <summary>
-    /// Awake is called when the script instance is being loaded
+    /// Start is called when the script instance is being loaded - responsible for initializing the variables
     /// </summary>
     void Start()
     {

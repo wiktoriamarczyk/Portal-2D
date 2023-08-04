@@ -97,7 +97,7 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         DoGenerate(gameObject, pathPrefab, pathList, true);
     }
     /// <summary>
-    ///  Method which generates the path
+    ///  Generates the path
     /// </summary>
     /// <param name="originObject">generator</param>
     /// <param name="pathPrefab">prefab of the path</param>
