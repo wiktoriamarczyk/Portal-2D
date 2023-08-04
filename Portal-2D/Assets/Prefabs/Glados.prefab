@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6458732645881015849}
   - component: {fileID: 6458732645881015848}
   - component: {fileID: 6458732645881016021}
-  - component: {fileID: 6458732645881015851}
   - component: {fileID: 5353246682620726616}
   - component: {fileID: 5353246682620726617}
   m_Layer: 10
@@ -233,19 +232,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6458732645881015851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4754885104422402232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956e757213f989a44bda66de89095ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cakeSound: {fileID: 6458732645881015848}
 --- !u!61 &5353246682620726616
 BoxCollider2D:
   m_ObjectHideFlags: 0

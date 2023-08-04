@@ -2,13 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalAdapter : MonoBehaviour
+public class PortalAdapter : MonoBehaviour, IPortalEventsListener
 {
     // max velocity of 50 is selected to avoid bugs when moving very fast through portals
     static float MAX_VELOCITY = 50;
 
     [SerializeField] GameObject clonePrefab;
     PortalCloneController cloneController;
+    bool isInPortalArea = false;
+
+    public bool IsInPortalArea()
+    {
+        return isInPortalArea;
+    }
+    public void SetIsInPortalArea(bool value)
+    {
+        isInPortalArea = value;
+    }
 
     void Awake()
     {
@@ -81,5 +91,14 @@ public class PortalAdapter : MonoBehaviour
         }
 
         transform.position = pos-Offset;
+    }
+
+    void IPortalEventsListener.OnTeleported( PortalLogic srcPortal , PortalLogic dstPortal )
+    {
+    }
+
+    void IPortalEventsListener.OnExitedPortalArea( PortalLogic portal )
+    {
+        SetIsInPortalArea(false);
     }
 }

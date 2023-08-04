@@ -13,7 +13,10 @@ public class PortalLogic : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] PortalLogic destination;
     [SerializeField] PortalBehaviour portalBehaviour;
+    List<GameObject> objectsInPortal = new List<GameObject>();
     bool isDying = false;
+
+
     public bool IsDying()
     {
         return isDying;
@@ -73,6 +76,10 @@ public class PortalLogic : MonoBehaviour
         if (portalAdapter == null || destination==null)
             return;
 
+        objectsInPortal.Add(collision.gameObject);
+
+        portalAdapter.SetIsInPortalArea(true);
+
         Vector3 worldClonePos = CommonFunctions.TransformPosBetweenPortals(collision.gameObject.transform.position, gameObject, GetDestinationPortal());
 
         portalAdapter.CreateClone(worldClonePos, collision.gameObject.transform.localRotation, this, destination);
@@ -116,10 +123,24 @@ public class PortalLogic : MonoBehaviour
 
     void OnTriggerExit2D( Collider2D collision )
     {
+        objectsInPortal.Remove(collision.gameObject);
+
         var Listerners = collision.GetComponents<IPortalEventsListener>();
         foreach (var listener in Listerners)
         {
             listener.OnExitedPortalArea(this);
+        }
+    }
+
+    void OnDestroy()
+    {
+        foreach (var obj in objectsInPortal)
+        {
+            var Listerners = obj.GetComponents<IPortalEventsListener>();
+            foreach (var listener in Listerners)
+            {
+                listener.OnExitedPortalArea(this);
+            }
         }
     }
 

@@ -42,6 +42,7 @@ public class PlayerAim : MonoBehaviour
     /// PlayerMovement component
     /// </summary>
     PlayerMovement player;
+    PortalAdapter portalAdapter;
     /// <summary>
     /// CursorMode of the cursor
     /// </summary>
@@ -87,6 +88,7 @@ public class PlayerAim : MonoBehaviour
         tilemap = PortalManager.Instance.TilemapProperty;
         ChangeCursor(eCursorType.BLUE);
         player = GetComponent<PlayerMovement>();
+        portalAdapter = GetComponent<PortalAdapter>();
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled. Responsible for managing the behaviour of the player input -
@@ -128,6 +130,8 @@ public class PlayerAim : MonoBehaviour
     /// </summary>
     void Fire()
     {
+        if (portalAdapter!=null && portalAdapter.IsInPortalArea())
+            return;
         // ostatnim parametrem są warstwy brane pod uwagę przez raycast za wyjątkiem warstwy, na której jest gracz
         RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 100f, ~((int)(NON_RAYCAST_LAYERS)));
         int hitLayer = -1;
