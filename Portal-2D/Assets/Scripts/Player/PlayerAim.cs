@@ -109,6 +109,20 @@ public class PlayerAim : MonoBehaviour
 
         RotateArm();
     }
+    public PickableObject FindPickCandidate()
+    {
+        var layerMask1 = LayerMask.GetMask("Units");
+        var layerMask2 = LayerMask.GetMask("Terrain");
+        var layerMask3 = LayerMask.GetMask("MirrorCube");
+        var layerMask4 = LayerMask.GetMask("Non-portal");
+
+        // ostatnim parametrem są warstwy brane pod uwagę przez raycast za wyjątkiem warstwy, na której jest gracz
+        RaycastHit2D hit = Physics2D.Raycast(arm.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.position, 4f, layerMask1 | layerMask2 | layerMask3 | layerMask4 );
+        if (hit != true || hit.collider == null)
+            return null;
+
+        return hit.collider.GetComponent<PickableObject>();
+    }
     /// <summary>
     /// Method responsible for firing the projectile after mouse button click
     /// </summary>

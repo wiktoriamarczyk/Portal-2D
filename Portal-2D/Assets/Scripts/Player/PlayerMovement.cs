@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     bool           isJumping = false;
     bool           isFacingRight = true;
     BoxCollider2D  boxCollider2D;
+    PlayerAim      playerAim;
 
     GameObject holdingGameObj = null;
 
@@ -84,6 +85,7 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        playerAim = GetComponent<PlayerAim>();
     }
     /// <summary>
     /// Update is called once per frame. Here mainly responsible for player input handling
@@ -176,20 +178,15 @@ public class PlayerMovement : MonoBehaviour , IPortalEventsListener
     #region ITEM
     void TryPickUpItem()
     {
+        if (playerAim==null || IsHoldingItem())
+            return;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, interactDistance);
+        var candidate = playerAim.FindPickCandidate();
+        if (candidate == null)
+            return;
 
-        if (colliders == null) return;
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.GetComponent<PickableObject>()!=null && !IsHoldingItem())
-            {
-                holdingGameObj = collider.gameObject;
-                holdingGameObj.GetComponent<PickableObject>().Take(holdPoint);
-                break;
-            }
-        }
+        holdingGameObj = candidate.gameObject;
+        holdingGameObj.GetComponent<PickableObject>().Take(holdPoint);
     }
 
     bool IsHoldingItem()
