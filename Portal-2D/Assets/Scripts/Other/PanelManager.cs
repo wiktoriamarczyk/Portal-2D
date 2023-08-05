@@ -130,6 +130,14 @@ public class PanelManager : MonoBehaviour
          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     /// <summary>
+    /// Returns current scene index
+    /// </summary>
+    /// <returns></returns>
+    public int GetSceneIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+    /// <summary>
     /// Method responsible for quitting the game
     /// </summary>
     public void QuitGame()

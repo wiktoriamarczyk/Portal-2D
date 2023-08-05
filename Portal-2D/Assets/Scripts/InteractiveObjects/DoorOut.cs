@@ -60,8 +60,9 @@ public class DoorOut : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && isActive)
         {
-            levelWinning.Play();
-            Invoke("LoadNextLevel", 2f);
+            levelWinning?.Play();
+            if (PanelManager.Instance.GetSceneIndex() < 2)
+                Invoke("LoadNextLevel", 2f);
 
         }
     }
