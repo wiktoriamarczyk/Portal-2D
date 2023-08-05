@@ -41,7 +41,7 @@ public class PickableObject : MonoBehaviour , IPortalEventsListener
         UnityEngine.Debug.Log("Podnosze kostke (kostka)");
 
     }
-    
+
     /// <summary>
     /// Drops the object, restoring its original properties, and detaches it from the attachment point.
     /// </summary>

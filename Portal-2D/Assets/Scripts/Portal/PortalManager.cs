@@ -67,7 +67,7 @@ public class PortalManager : MonoBehaviour
         get => impostorTilemap;
     }
     /// <summary>
-    /// Awake is called when the script instance is being loaded
+    /// Awake is called when the script instance is being loaded - singleton initialization
     /// </summary>
     void Awake()
     {

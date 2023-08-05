@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using System.Linq;
 
+/// <summary>
+/// Component responsible for the behaviour of the Glados boss.
+/// </summary>
 public class GladosBehaviour : MonoBehaviour
 {
     [SerializeField] List<AudioSource> neurotoxinDialogues;
@@ -29,6 +31,9 @@ public class GladosBehaviour : MonoBehaviour
     int soundIndex = -1;
     List<int> hitSoundIndices = new List<int>();
 
+    /// <summary>
+    /// Awake is called when the script instance is being loaded. Initialize all variables.
+    /// </summary>
     void Awake()
     {
         cake.SetActive(false);
@@ -39,7 +44,9 @@ public class GladosBehaviour : MonoBehaviour
         neurotoxinFillSpeed = 1f / neurotoxinFillTime;
         neurotoxinDistance = neurotoxinMaxLvl - neurotoxinMinLvl;
     }
-
+    /// <summary>
+    /// Initialize sounds and neurotoxin effect - boss is awaken.
+    /// </summary>
     public void Initialize()
     {
         isAwake = true;
@@ -47,7 +54,9 @@ public class GladosBehaviour : MonoBehaviour
         neurotoxinDialogues[0].Play();
         neurotoxinDialogues[1].PlayDelayed(neurotoxinDialogues[0].clip.length);
     }
-
+    /// <summary>
+    /// Update is called once per frame. Update neurotoxin level.
+    /// </summary>
     void Update()
     {
         if (!isAwake)
@@ -56,7 +65,10 @@ public class GladosBehaviour : MonoBehaviour
         }
         SetNeurotoxinLevel(neurotoxinLvl + neurotoxinFillSpeed * Time.deltaTime);
     }
-
+    /// <summary>
+    /// Smoothly disable neurotoxin effect.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator NeurotoxinDisable()
     {
         while (neurotoxinEffect.transform.position.y >= neurotoxinMinLvl)
@@ -66,7 +78,10 @@ public class GladosBehaviour : MonoBehaviour
         }
         neurotoxinEffect.SetActive(false);
     }
-
+    /// <summary>
+    /// Updates neurotoxin level
+    /// </summary>
+    /// <param name="value">new value of neurotoxin level</param>
     void SetNeurotoxinLevel(float value)
     {
         neurotoxinLvl = Mathf.Clamp(value, 0, 1);
@@ -78,7 +93,10 @@ public class GladosBehaviour : MonoBehaviour
         Vector3 neurotoxinPosition = neurotoxinEffect.transform.position;
         neurotoxinEffect.transform.position = new Vector3(neurotoxinPosition.x, neurotoxinMinLvl + neurotoxinDistance * neurotoxinLvl, neurotoxinPosition.z);
     }
-
+    /// <summary>
+    /// Returns sound index for hit sound.
+    /// </summary>
+    /// <returns>sound index from list</returns>
     int PickRandomHitIndex()
     {
         if (hitSoundIndices.Count == 0)
@@ -93,7 +111,10 @@ public class GladosBehaviour : MonoBehaviour
         hitSoundIndices.RemoveAt(0);
         return result;
     }
-
+    /// <summary>
+    /// Called when the object enters the trigger. If it is a cube, decrease health and play hit sound. Spawn particles in hit point.
+    /// </summary>
+    /// <param name="collision">object with thich the collision occured</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isAwake || !collision.gameObject.CompareTag("Cube"))

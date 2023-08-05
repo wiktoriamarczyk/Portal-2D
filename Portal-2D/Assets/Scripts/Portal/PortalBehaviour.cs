@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Class responsible for managing portal behaviour
+/// Class responsible for managing basic portal behaviour
 /// </summary>
 public class PortalBehaviour : MonoBehaviour
 {
@@ -10,12 +10,12 @@ public class PortalBehaviour : MonoBehaviour
     /// </summary>
     public PortalBehaviour otherEnd;
     /// <summary>
-    /// Start is called before the first frame update
+    /// Start is called before the first frame update - if angle is greater than 180, flip portal by its x-axis and rotate by 180 degrees
     /// </summary>
     void Start()
     {
-        int angle = ((int)(transform.rotation.eulerAngles.z+0.5f))%360;
-        if ( angle >= 180  )
+        int angle = ((int)(transform.rotation.eulerAngles.z + 0.5f)) % 360;
+        if (angle >= 180)
         {
             var interior = GetComponentInChildren<PortalLogic>().GetOwnInterior();
             interior.transform.Rotate(0, 0, 180);

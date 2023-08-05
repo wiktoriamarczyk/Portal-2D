@@ -1,67 +1,133 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Tilemaps;
-using static UnityEngine.GraphicsBuffer;
 
+/// <summary>
+/// Component responsible for the logic of the portal.
+/// </summary>
 public class PortalLogic : MonoBehaviour
 {
+    /// <summary>
+    /// Portal object that we reside in
+    /// </summary>
     [SerializeField] GameObject ownPortal;
+    /// <summary>
+    /// Object that contains graphics and inside of the portal
+    /// </summary>
     [SerializeField] GameObject ownInterior;
+    /// <summary>
+    /// Object that clones are placed in
+    /// </summary>
     [SerializeField] GameObject ownOutput;
+    /// <summary>
+    /// Animator component
+    /// </summary>
     [SerializeField] Animator animator;
+    /// <summary>
+    /// Destination portal
+    /// </summary>
     [SerializeField] PortalLogic destination;
+    /// <summary>
+    /// Portal behaviour component
+    /// </summary>
     [SerializeField] PortalBehaviour portalBehaviour;
+    /// <summary>
+    /// List of objects that are currently in the portal
+    /// </summary>
     List<GameObject> objectsInPortal = new List<GameObject>();
+    /// <summary>
+    /// Is Portal being destroyed?
+    /// </summary>
     bool isDying = false;
+    /// <summary>
+    /// Cells that are made non collidable by placing portal
+    /// </summary>
+    List<Vector3Int> portalModifiedCells = new List<Vector3Int>();
 
-
+    /// <summary>
+    /// Is Portal being destroyed?
+    /// </summary>
+    /// <returns>true if portal is being destroyed</returns>
     public bool IsDying()
     {
         return isDying;
     }
-
+    /// <summary>
+    /// Sets destination portal
+    /// </summary>
+    /// <param name="dest">destination portal</param>
     public void SetDestination(PortalLogic dest)
     {
         destination = dest;
         MakeTilesBehindPortalNonCollidable();
     }
+    /// <summary>
+    /// Get PortalBehaviour component
+    /// </summary>
+    /// <returns>portal behaviour</returns>
     public PortalBehaviour GetPortalBehaviour()
     {
         return portalBehaviour;
     }
-
+    /// <summary>
+    /// Get our portal object
+    /// </summary>
+    /// <returns>portal object</returns>
     public GameObject GetOwnPortal()
     {
         return ownPortal;
     }
+    /// <summary>
+    /// Get our output object
+    /// </summary>
+    /// <returns>portal output object</returns>
     public Transform GetOwnOutput()
     {
         return ownOutput.transform;
     }
+    /// <summary>
+    /// Get our interior object
+    /// </summary>
+    /// <returns>interior object</returns>
     public GameObject GetOwnInterior()
     {
         return ownInterior;
     }
+    /// <summary>
+    /// Get vector that points to portal in a world space
+    /// </summary>
+    /// <returns>vector that points to portal in a world space</returns>
     public Vector3 GetWorldVectorToPortal()
     {
         return CommonFunctions.VectorLocalToWorld(transform, Vector3.right);
     }
+    /// <summary>
+    /// Get vector that points to an outside of the portal in a world space
+    /// </summary>
+    /// <returns>outside of the portal</returns>
     public Vector3 GetWorldVectorOutsidePortal()
     {
         return CommonFunctions.VectorLocalToWorld(transform, Vector3.left);
     }
-
+    /// <summary>
+    /// Get destination portal object
+    /// </summary>
+    /// <returns>destination portal</returns>
     public GameObject GetDestinationPortal()
     {
         return destination?.GetOwnPortal();
     }
+    /// <summary>
+    /// Get destination output object
+    /// </summary>
+    /// <returns> destination output</returns>
     public Transform GetDestinationOutput()
     {
         return destination?.GetOwnOutput();
     }
-
+    /// <summary>
+    /// TODO
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetObjectXFlipFactor()
     {
         if (ownInterior == null || ownOutput == null)
@@ -69,7 +135,13 @@ public class PortalLogic : MonoBehaviour
 
         return new Vector3(ownInterior.transform.localScale.x * ownOutput.transform.localScale.x * -1, 1, 1);
     }
-
+    /// <summary>
+    /// This method performs 3 tasks:
+    /// - stores objects that touched portal
+    /// - informs objects that they touched portals
+    /// - creates clone of object that entered portal
+    /// </summary>
+    /// <param name="collision">object that entered portal area</param>
     void OnTriggerEnter2D( Collider2D collision )
     {
         var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();
@@ -84,6 +156,10 @@ public class PortalLogic : MonoBehaviour
 
         portalAdapter.CreateClone(worldClonePos, collision.gameObject.transform.localRotation, this, destination);
     }
+    /// <summary>
+    /// Checks if object passed point that indicates it should be teleported and perform the teleportation
+    /// </summary>
+    /// <param name="collision">object that is in portal area</param>
     void OnTriggerStay2D(Collider2D collision)
     {
         var clone = PortalCloneController.GetCloneFromObject(collision.gameObject);
@@ -120,7 +196,10 @@ public class PortalLogic : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Removes object that leaves portal area from list, informs all components of this object about this fact
+    /// </summary>
+    /// <param name="collision"></param>
     void OnTriggerExit2D( Collider2D collision )
     {
         objectsInPortal.Remove(collision.gameObject);
@@ -131,7 +210,9 @@ public class PortalLogic : MonoBehaviour
             listener.OnExitedPortalArea(this);
         }
     }
-
+    /// <summary>
+    /// Informs all objects that are inside portal area that they are leaving portal because portal is being destroyed
+    /// </summary>
     void OnDestroy()
     {
         foreach (var obj in objectsInPortal)
@@ -143,28 +224,34 @@ public class PortalLogic : MonoBehaviour
             }
         }
     }
-
-    List<Vector3Int> cells = new List<Vector3Int>();
-
-    private void Start()
+    /// <summary>
+    /// Makes cells under this portal non collidable and start animation
+    /// </summary>
+    void Start()
     {
         MakeTilesBehindPortalNonCollidable();
 
         if (animator!=null)
             animator.SetTrigger("OpenPortal");
     }
-
+    /// <summary>
+    /// Destroy portal
+    /// </summary>
     void Destroy()
     {
         Destroy(this.gameObject);
     }
-
+    /// <summary>
+    /// Method called on start of the destroyment process
+    /// </summary>
     public void OnDestroyBegin()
     {
         MakeTilesBehindPortalCollidable();
         isDying = true;
     }
-
+    /// <summary>
+    /// Make cells under this portal non collidable
+    /// </summary>
     public void MakeTilesBehindPortalNonCollidable()
     {
         var tilemap = PortalManager.Instance.TilemapProperty;
@@ -193,18 +280,20 @@ public class PortalLogic : MonoBehaviour
                 {
                     impostorTilemap.SetTile(tilemapPos, tile);
                     tilemap.SetTile(tilemapPos, null);
-                    cells.Add(tilemapPos);
+                    portalModifiedCells.Add(tilemapPos);
                 }
             }
         }
     }
-
+    /// <summary>
+    /// Make cells under this portal collidable again
+    /// </summary>
     public void MakeTilesBehindPortalCollidable()
     {
         var tilemap = PortalManager.Instance.TilemapProperty;
         var impostorTilemap = PortalManager.Instance.ImpostorTilemapProperty;
 
-        foreach (var cell in cells)
+        foreach (var cell in portalModifiedCells)
         {
             var tile = impostorTilemap.GetTile(cell);
             if (tile!=null)
@@ -213,7 +302,7 @@ public class PortalLogic : MonoBehaviour
                 impostorTilemap.SetTile(cell, null);
             }
         }
-        cells.Clear();
+        portalModifiedCells.Clear();
     }
 
 }
