@@ -90,9 +90,14 @@ public class Enemy : PickableObject
     float maxTiltAngle = 45f;
 
     /// <summary>
-    /// Auxiliary variable to count time
+    /// Auxiliary variable to count time (moving the laser vertically)
     /// </summary>
     float timeSine = 0f;
+
+    /// <summary>
+    /// Auxiliary variable to count time (until the next shot)
+    /// </summary>
+    int hitTimer = 0;
     
     /// <summary>
     /// Changes the status and sprite of the turret
@@ -119,7 +124,7 @@ public class Enemy : PickableObject
     /// <summary>
     /// Update is called once per frame
     /// </summary>
-    protected override  void Update()
+    protected override void Update()
     {
         base.Update();
 
@@ -147,8 +152,22 @@ public class Enemy : PickableObject
             if (hit2.collider != null && hit2.collider.gameObject.tag == "Player")
             {
                 if (!audioSource.isPlaying) audioSource.PlayOneShot(shoot);
+                if (hitTimer > 0)
+                {
+                    hitTimer--;
+                    PlayerHurt.isHurt = false;
+                }
+                else
+                {
+                    hitTimer = 500;
+                    PlayerHurt.isHurt = true;
+                }
             }
-            else wasPlayerDetected = false;
+            else
+            {
+                PlayerHurt.isHurt = false;
+                wasPlayerDetected = false;
+            }
         }
         if (!wasPlayerDetected)
         {
@@ -166,6 +185,7 @@ public class Enemy : PickableObject
                 // odtwórz dŸwiêk
                 if (!audioSource.isPlaying) audioSource.PlayOneShot(detected);
                 wasPlayerDetected = true;
+                hitTimer = 500;
             }
         }
     }
@@ -180,6 +200,7 @@ public class Enemy : PickableObject
         // wait x sec before callin
         yield return new WaitForSeconds(agonyTime);
         Die(); // no hurt feelings
+        PlayerHurt.isHurt = false;
     }
 
 
