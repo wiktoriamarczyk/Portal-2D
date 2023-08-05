@@ -65,6 +65,7 @@ public class PanelManager : MonoBehaviour
         {
             panel.SetActive(false);
         }
+
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled - responsible for managing the behaviour of the player input
@@ -120,6 +121,13 @@ public class PanelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    /// <summary>
+    /// Restarts current level
+    /// </summary>
+    public void RestartLevel()
+    {
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     /// <summary>
     /// Method responsible for quitting the game

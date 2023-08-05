@@ -31,7 +31,7 @@ public class Cake : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        UpdatePhysics();
+       // UpdatePhysics();
     }
 
     void Destroy()
