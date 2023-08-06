@@ -17,7 +17,7 @@ public class Dispenser : MonoBehaviour
     /// <summary>
     /// Offset of the cube from the dispenser
     /// </summary>
-    const float offset = 12f;
+    public float offset = 12f;
     /// <summary>
     /// Spawned cube
     /// </summary>
