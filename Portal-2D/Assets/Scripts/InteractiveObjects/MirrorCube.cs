@@ -54,14 +54,30 @@ public class MirrorCube : PickableObject
     /// Flag indicating if the mirror cube is currently hit by a laser from portal
     /// </summary>
     public bool isHitByPortal = false;
-
+    /// <summary>
+    /// LineRenderer component - to draw the laser
+    /// </summary>
     private LineRenderer lineRenderer;
+    /// <summary>
+    /// Counts time since the last time the player was hit
+    /// </summary>
     private int timeSinceLastHit = 0;
+    /// <summary>
+    /// Starting point of the laser.
+    /// </summary>
+    Vector3 start;
+    /// <summary>
+    /// Maximum endpoint of the laser (maximum range).
+    /// </summary>
+    Vector3 maxEnd;
+    /// <summary>
+    /// Real endpoint of the laser (determined by raycast).
+    /// </summary>
+    Vector3 realEnd;
 
-    Vector3 start;                      // Starting point of the laser.
-    Vector3 maxEnd;                     // Maximum endpoint of the laser (maximum range).
-    Vector3 realEnd;                    // Ending point of the laser.
-
+    /// <summary>
+    /// Called before the first frame update
+    /// </summary>
     override protected void Start()
     {
         base.Start();

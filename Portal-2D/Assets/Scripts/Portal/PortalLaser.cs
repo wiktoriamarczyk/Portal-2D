@@ -1,26 +1,67 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
-using Unity.VisualScripting;
 
+/// <summary>
+/// Class to controll the lasers emitted by the portals
+/// </summary>
 public class PortalLaser : MonoBehaviour
 {
+    /// <summary>
+    /// Indicates whether the blue portal was hit by a laser or not.
+    /// </summary>
     public static bool isBluePortalHit = false;
+    /// <summary>
+    /// Indicates whether the orange portal was hit by a laser or not.
+    /// </summary>
     public static bool isOrangePortalHit = false;
+    /// <summary>
+    /// Indicates whether the blue portal was hit by a laser from transmitter or not.
+    /// </summary>
     public static bool isBlueHitByTransmitter = false;
+    /// <summary>
+    /// Indicates whether the orange portal was hit by a laser from transmitter or not.
+    /// </summary>
     public static bool isOrangeHitByTransmitter = false;
+    /// <summary>
+    /// Indicates whether the blue portal was hit by a laser from mirror or not.
+    /// </summary>
     public static bool isBlueHitByMirror = false;
+    /// <summary>
+    /// Indicates whether the orange portal was hit by a laser from mirror or not.
+    /// </summary>
     public static bool isOrangeHitByMirror = false;
+    /// <summary>
+    /// LineRenderer component - to draw the laser
+    /// </summary>
     public LineRenderer lineRenderer;
+    /// <summary>
+    /// LayerMask component - to detect laser collisions 
+    /// </summary>
     public LayerMask layerMask;
+    /// <summary>
+    /// Position of the 2nd portal (which emits the laser)
+    /// </summary>
     private Vector3 outputPortalPosition;
+    /// <summary>
+    /// Rotation of the 2nd portal (which emits the laser)
+    /// </summary>
     private float outputPortalRotation;
+    /// <summary>
+    /// A far away placed point on the line of the laser
+    /// </summary>
     private Vector3 laserFarEnd;
+    /// <summary>
+    /// Real end of the laser indicated by the collision
+    /// </summary>
     private Vector3 laserEnd;
+    /// <summary>
+    /// Timer to count time from the last hit
+    /// </summary>
     private int timeSinceLastHit = 0;
 
-
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -28,7 +69,9 @@ public class PortalLaser : MonoBehaviour
         lineRenderer.positionCount = 2;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         // Check if blue portal is hit
@@ -89,8 +132,8 @@ public class PortalLaser : MonoBehaviour
         {
             laserEnd = hit.point;
         }
-        lineRenderer.SetPosition(0, outputPortalPosition); // Ustawienie pierwszego punktu linii
-        lineRenderer.SetPosition(1, laserEnd);   // Ustawienie drugiego punktu linii
+        lineRenderer.SetPosition(0, outputPortalPosition);
+        lineRenderer.SetPosition(1, laserEnd);
         if (hit.collider != null && hit.collider.gameObject.tag == "Player")
         {
             GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByMirror = false;
