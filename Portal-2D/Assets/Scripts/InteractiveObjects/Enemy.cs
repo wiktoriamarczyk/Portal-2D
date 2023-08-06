@@ -144,7 +144,7 @@ public class Enemy : PickableObject
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, transform.position);
             Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-            playerPosition.y += 2f;
+            playerPosition.y += 2.5f + (float)Math.Sin(timeSine);
             lineRenderer.SetPosition(1, playerPosition);
             lineRenderer.enabled = true;
             // check if the player is in the line of sight
@@ -155,7 +155,6 @@ public class Enemy : PickableObject
                 if (hitTimer > 0)
                 {
                     hitTimer--;
-                    PlayerHurt.isHurt = false;
                 }
                 else
                 {
@@ -165,7 +164,6 @@ public class Enemy : PickableObject
             }
             else
             {
-                PlayerHurt.isHurt = false;
                 wasPlayerDetected = false;
             }
         }
@@ -174,7 +172,6 @@ public class Enemy : PickableObject
             laserend = transform.position;
             laserend.x += 10f;
             laserend.y += 2 * Mathf.Sin(timeSine);
-            timeSine += 0.02f;
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, laserend);
@@ -188,6 +185,7 @@ public class Enemy : PickableObject
                 hitTimer = 500;
             }
         }
+        timeSine += 0.02f;
     }
 
     /// <summary>

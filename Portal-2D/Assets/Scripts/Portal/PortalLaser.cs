@@ -18,6 +18,7 @@ public class PortalLaser : MonoBehaviour
     private float outputPortalRotation;
     private Vector3 laserFarEnd;
     private Vector3 laserEnd;
+    private int timeSinceLastHit = 0;
 
 
     void Start()
@@ -90,7 +91,17 @@ public class PortalLaser : MonoBehaviour
         }
         lineRenderer.SetPosition(0, outputPortalPosition); // Ustawienie pierwszego punktu linii
         lineRenderer.SetPosition(1, laserEnd);   // Ustawienie drugiego punktu linii
-        if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
+        if (hit.collider != null && hit.collider.gameObject.tag == "Player")
+        {
+            GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByMirror = false;
+            if (timeSinceLastHit > 500)
+            {
+                timeSinceLastHit = 0;
+                PlayerHurt.isHurt = true;
+            }
+            else timeSinceLastHit++;
+        }
+        else if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
             hit.collider.gameObject.GetComponent<Receiver>().isHitByMirror = true;
         else
         {

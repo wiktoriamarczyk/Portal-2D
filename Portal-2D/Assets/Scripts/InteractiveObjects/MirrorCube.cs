@@ -56,6 +56,8 @@ public class MirrorCube : PickableObject
     public bool isHitByPortal = false;
 
     private LineRenderer lineRenderer;
+    private int timeSinceLastHit = 0;
+
     Vector3 start;                      // Starting point of the laser.
     Vector3 maxEnd;                     // Maximum endpoint of the laser (maximum range).
     Vector3 realEnd;                    // Ending point of the laser.
@@ -86,7 +88,18 @@ public class MirrorCube : PickableObject
             lineRenderer.SetPosition(0, start);     // Setting the first point of the line
             lineRenderer.SetPosition(1, realEnd);   // Setting the second point of the line
             lineRenderer.enabled = true;            // Displaying the line
-            if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
+
+            if (hit.collider != null && hit.collider.gameObject.tag == "Player")
+            {
+                GameObject.Find("LaserReceiver").GetComponent<Receiver>().isHitByMirror = false;
+                if (timeSinceLastHit > 500)
+                {
+                    timeSinceLastHit = 0;
+                    PlayerHurt.isHurt = true;
+                }
+                else timeSinceLastHit++;
+            }
+            else if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
                 hit.collider.gameObject.GetComponent<Receiver>().isHitByMirror = true;
             else
             {

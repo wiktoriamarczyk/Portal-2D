@@ -64,6 +64,7 @@ public class PlayerHurt : MonoBehaviour
                 item.color = red;
             }
             recolorTime = 100;
+            isHurt = false;
         }
         else timeSinceLastHurt++;
         if (lives == 0)

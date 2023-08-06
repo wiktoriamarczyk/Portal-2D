@@ -55,6 +55,10 @@ public class Lasers : MonoBehaviour
     /// True if the laser is on
     /// </summary>
     public static bool isActive = false;
+    /// <summary>
+    /// Counts time since the last time the player was hit
+    /// </summary>
+    private int timeSinceLastHit = 0;
 
 
     /// <summary>
@@ -128,12 +132,24 @@ public class Lasers : MonoBehaviour
             }
             lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
             lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
-            if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
+            if (hit.collider != null && hit.collider.gameObject.tag == "Player")
+            {
+                GameObject.Find("Mirror").GetComponent<MirrorCube>().isHitByTransmitter = false;
+                if (timeSinceLastHit > 500)
+                {
+                    timeSinceLastHit = 0;
+                    PlayerHurt.isHurt = true;
+                }
+                else timeSinceLastHit++;
+            }
+            else if (hit.collider != null && hit.collider.gameObject.tag == "Mirror")
             {
                 hit.collider.gameObject.GetComponent<MirrorCube>().isHitByTransmitter = true;
+                timeSinceLastHit = 0;
             }
             else
             {
+                timeSinceLastHit = 0;
                 GameObject.Find("Mirror").GetComponent<MirrorCube>().isHitByTransmitter = false;
                 if (hit.collider != null && hit.collider.gameObject.tag == "Receiver")
                 {
