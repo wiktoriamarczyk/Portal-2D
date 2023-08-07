@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class responsible for managing current scene behaviour
+/// </summary>
 public class PortalSceneManager : MonoBehaviour
 {
     /// <summary>
@@ -14,10 +17,22 @@ public class PortalSceneManager : MonoBehaviour
     /// Panel showed when player needs to pause the game
     /// </summary>
     [SerializeField] GameObject pausePanel;
+    /// <summary>
+    /// Player game object
+    /// </summary>
     [SerializeField] GameObject player;
+    /// <summary>
+    /// Music volume value saved in player prefs
+    /// </summary>
     const string musicVolumePlayerPrefsName = "MusicVolume";
+    /// <summary>
+    /// Name of the start scene
+    /// </summary>
     const string startSceneName = "StartScene";
-
+    /// <summary>
+    /// Awake is called when the script instance is being loaded - responsible for setting singleton instance,
+    /// and setting music volume
+    /// </summary>
     void Awake()
     {
         // singleton
@@ -33,7 +48,7 @@ public class PortalSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled - responsible for managing the behaviour of the player input
+    /// Update is called every frame if the MonoBehaviour is enabled - responsible for managing the behaviour of the player input
     /// </summary>
     void Update()
     {

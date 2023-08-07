@@ -32,7 +32,7 @@ public class GladosBehaviour : MonoBehaviour
     List<int> hitSoundIndices = new List<int>();
 
     /// <summary>
-    /// Awake is called when the script instance is being loaded. Initialize all variables.
+    /// Awake is called when the script instance is being loaded. Initialize all variables
     /// </summary>
     void Awake()
     {
@@ -45,7 +45,7 @@ public class GladosBehaviour : MonoBehaviour
         neurotoxinDistance = neurotoxinMaxLvl - neurotoxinMinLvl;
     }
     /// <summary>
-    /// Initialize sounds and neurotoxin effect - boss is awaken.
+    /// Initialize sounds and neurotoxin effect - boss is awaken
     /// </summary>
     public void Initialize()
     {
@@ -55,7 +55,7 @@ public class GladosBehaviour : MonoBehaviour
         neurotoxinDialogues[1].PlayDelayed(neurotoxinDialogues[0].clip.length);
     }
     /// <summary>
-    /// Update is called once per frame. Update neurotoxin level.
+    /// Update is called once per frame. Update neurotoxin level
     /// </summary>
     void Update()
     {
@@ -66,7 +66,7 @@ public class GladosBehaviour : MonoBehaviour
         SetNeurotoxinLevel(neurotoxinLvl + neurotoxinFillSpeed * Time.deltaTime);
     }
     /// <summary>
-    /// Smoothly disable neurotoxin effect.
+    /// Smoothly disable neurotoxin effect
     /// </summary>
     /// <returns></returns>
     IEnumerator NeurotoxinDisable()
@@ -94,7 +94,7 @@ public class GladosBehaviour : MonoBehaviour
         neurotoxinEffect.transform.position = new Vector3(neurotoxinPosition.x, neurotoxinMinLvl + neurotoxinDistance * neurotoxinLvl, neurotoxinPosition.z);
     }
     /// <summary>
-    /// Returns sound index for hit sound.
+    /// Returns sound index for hit sound
     /// </summary>
     /// <returns>sound index from list</returns>
     int PickRandomHitIndex()
@@ -112,7 +112,7 @@ public class GladosBehaviour : MonoBehaviour
         return result;
     }
     /// <summary>
-    /// Called when the object enters the trigger. If it is a cube, decrease health and play hit sound. Spawn particles in hit point.
+    /// Called when the object enters the trigger. If it is a cube, decrease health and play hit sound. Spawn particles in hit point
     /// </summary>
     /// <param name="collision">object with thich the collision occured</param>
     void OnCollisionEnter2D(Collision2D collision)
