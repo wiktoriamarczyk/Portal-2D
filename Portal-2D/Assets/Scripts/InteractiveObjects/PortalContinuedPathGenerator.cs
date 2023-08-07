@@ -41,6 +41,15 @@ public class PortalContinuedPathGenerator : MonoBehaviour
         if(isEnabledOnStart)
             Generate();
     }
+
+    /// <summary>
+    /// Deinitialize
+    /// </summary>
+    private void OnDestroy()
+    {
+        PortalManager.OnPortalChange -= Refresh;
+    }
+
     /// <summary>
     /// Method called when portal was spawned, regenerates the path
     /// </summary>
