@@ -147,4 +147,15 @@ public class PanelManager : MonoBehaviour
     {
         SetMusicVolume(musicVolume - 0.1f);
     }
+    /// <summary>
+    /// Clear singleton instance on destroy
+    /// </summary>
+    private void OnDestroy()
+    {
+        // singleton
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 }

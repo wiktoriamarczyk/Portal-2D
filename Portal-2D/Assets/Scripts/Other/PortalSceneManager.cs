@@ -116,4 +116,15 @@ public class PortalSceneManager : MonoBehaviour
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
+    /// <summary>
+    /// Clear singleton instance on destroy
+    /// </summary>
+    private void OnDestroy()
+    {
+        // singleton
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 }
