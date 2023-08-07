@@ -13,22 +13,6 @@ public class ExcursionFunnel : MonoBehaviour
     /// End of the funnel
     /// </summary>
     [SerializeField] GameObject end;
-
-    /// <summary>
-    /// Finds the nearest point on the line
-    /// </summary>
-    /// <param name="origin"></param>
-    /// <param name="direction"></param>
-    /// <param name="point"></param>
-    /// <returns></returns>
-    public static Vector3 FindNearestPointOnLine(Vector3 origin, Vector3 direction, Vector3 point)
-    {
-        direction.Normalize();
-        Vector3 lhs = point - origin;
-
-        float dotP = Vector3.Dot(lhs, direction);
-        return origin + direction * dotP;
-    }
     /// <summary>
     /// Attracts objects to the center of the funnel
     /// </summary>
@@ -51,7 +35,7 @@ public class ExcursionFunnel : MonoBehaviour
                 // calculate object position as center of its collider
                 var ObjectPos = objectInside.GetComponent<BoxCollider2D>().bounds.center;
                 // calculate closest point from object to line
-                var ClosestPoint = FindNearestPointOnLine( transform.position , right , ObjectPos );
+                var ClosestPoint = CommonFunctions.FindNearestPointOnLine( transform.position , right , ObjectPos );
                 // calculate vector from object to closest point
                 var VectorToCenter = ClosestPoint - ObjectPos;
 

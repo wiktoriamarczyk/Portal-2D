@@ -82,4 +82,20 @@ public class CommonFunctions
         var B = PointWorldToLocal(parent,Vector2.zero);
         return A-B;
     }
+
+    /// <summary>
+    /// Finds the nearest point on the line
+    /// </summary>
+    /// <param name="origin"></param>
+    /// <param name="direction"></param>
+    /// <param name="point"></param>
+    /// <returns></returns>
+    public static Vector3 FindNearestPointOnLine(Vector3 origin, Vector3 direction, Vector3 point)
+    {
+        direction.Normalize();
+        Vector3 lhs = point - origin;
+
+        float dotP = Vector3.Dot(lhs, direction);
+        return origin + direction * dotP;
+    }
 }

@@ -101,6 +101,14 @@ public class PortalLogic : MonoBehaviour
         return CommonFunctions.VectorLocalToWorld(transform, Vector3.right);
     }
     /// <summary>
+    /// Get vector that points up in portal in a world space
+    /// </summary>
+    /// <returns>vector that points up in portal in a world space</returns>
+    public Vector3 GetWorldPortalUpVector()
+    {
+        return CommonFunctions.VectorLocalToWorld(transform, Vector3.up);
+    }
+    /// <summary>
     /// Get vector that points to an outside of the portal in a world space
     /// </summary>
     /// <returns>outside of the portal</returns>
@@ -171,12 +179,22 @@ public class PortalLogic : MonoBehaviour
             return;
 
         var ownWorldvecToPortal = GetWorldVectorToPortal();
+        var ownWorldvecUpPortal = GetWorldPortalUpVector();
         var dstWorldvecToPortal = destination.GetWorldVectorToPortal();
-
-        var testpoint = transform.position + ownWorldvecToPortal*10;
         var objpos = portalAdapter.GetObjectCenter();
+
+        // threshold line - this line is parallel to portal and it is used to determine if object passed through portal.
+        // line is one unit behind portal so we don't need to consider side, just check if distance to line is less than 1
+        var portalThresholdLineA = transform.position - ownWorldvecUpPortal*5 + ownWorldvecToPortal;
+        var portalThresholdLineB = transform.position + ownWorldvecUpPortal*5 + ownWorldvecToPortal;
+
+        Debug.DrawLine(portalThresholdLineA, portalThresholdLineB, Color.magenta);
+
+        // calculate closest point from player to threshold line
+        var testpoint = CommonFunctions.FindNearestPointOnLine(portalThresholdLineA, (portalThresholdLineB-portalThresholdLineA).normalized, objpos);
+        // calculate distance from player to this point - this is essentially distance from player to threshold line
         float dist = Vector3.Distance(testpoint, objpos);
-        if (dist < 9.8)
+        if (dist < 0.8)
         {
             var newpos = clone.transform.position + destination.GetWorldVectorOutsidePortal() * 0.25f;
 
