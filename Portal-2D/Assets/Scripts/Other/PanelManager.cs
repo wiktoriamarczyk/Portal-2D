@@ -38,11 +38,13 @@ public class PanelManager : MonoBehaviour
     /// </summary>
     float musicVolume = 0.2f;
     /// <summary>
-    ///  Awake is called when the script instance is being loaded - responsible for setting singleton instance,
-    ///  setting music volume and hiding all panels
+    /// Music volume value saved in player prefs
     /// </summary>
-    ///
     const string musicVolumePlayerPrefsName = "MusicVolume";
+    /// <summary>
+    ///  Awake is called when the script instance is being loaded - responsible for setting singleton instance,
+    ///  setting music volume and hiding all panels except starting panel
+    /// </summary>
     void Awake()
     {
         // singleton
