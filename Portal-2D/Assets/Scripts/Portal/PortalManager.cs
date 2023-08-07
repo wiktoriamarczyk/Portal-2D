@@ -81,10 +81,18 @@ public class PortalManager : MonoBehaviour
             Instance = this;
     }
     /// <summary>
-    /// Tries to spawn portal
+    /// Clear singleton instance on destroy
     /// </summary>
-    /// <param name="portal">portal behaviour reference</param>
-    /// <param name="portalPrefab">portal prefab</param>
+    private void OnDestroy()
+    {
+        // singleton
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+    /// <summary>
+    /// Tries to spawn portal
     /// <param name="normal">normal vector</param>
     /// <param name="gridPosition">portal spawn position</param>
     /// <returns>true if portal was spawned</returns>
