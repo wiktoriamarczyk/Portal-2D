@@ -18,6 +18,10 @@ public class DoorOut : MonoBehaviour
     /// </summary>
     [SerializeField] AudioSource levelWinning;
     /// <summary>
+    /// Panel which is displayed when the player wins the game
+    /// </summary>
+    [SerializeField] GameObject winningPanel;
+    /// <summary>
     /// Is the door open?
     /// </summary>
     public static bool isActive = false;
@@ -31,6 +35,7 @@ public class DoorOut : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+        winningPanel?.SetActive(false);
     }
     /// <summary>
     /// Method called when the door is opened
@@ -61,8 +66,10 @@ public class DoorOut : MonoBehaviour
         if (collision.gameObject.tag == "Player" && isActive)
         {
             levelWinning?.Play();
-            if (PortalSceneManager.Instance.GetSceneIndex() < 2)
+            if (PortalSceneManager.Instance.GetSceneIndex() < 3)
                 Invoke("LoadNextLevel", 2f);
+            if (PortalSceneManager.Instance.GetSceneIndex() == 3)
+                winningPanel?.SetActive(true);
 
         }
     }
