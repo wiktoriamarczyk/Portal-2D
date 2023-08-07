@@ -93,21 +93,6 @@ public class PanelManager : MonoBehaviour
         startingPanel.SetActive(false);
     }
     /// <summary>
-    /// Method responsible for loading next level
-    /// </summary>
-    public void LoadNextLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-    /// <summary>
-    /// Returns current scene index
-    /// </summary>
-    /// <returns></returns>
-    public int GetSceneIndex()
-    {
-        return SceneManager.GetActiveScene().buildIndex;
-    }
-    /// <summary>
     /// Method responsible for quitting the game
     /// </summary>
     public void QuitGame()

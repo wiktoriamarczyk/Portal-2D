@@ -86,4 +86,19 @@ public class PortalSceneManager : MonoBehaviour
     {
         PanelManager.Instance.QuitGame();
     }
+    /// <summary>
+    /// Method responsible for loading next level
+    /// </summary>
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    /// <summary>
+    /// Returns current scene index
+    /// </summary>
+    /// <returns></returns>
+    public int GetSceneIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
 }
