@@ -1,0 +1,588 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.MirrorCube
+  commentId: T:Global.MirrorCube
+  id: MirrorCube
+  parent: Global
+  children:
+  - Global.MirrorCube.Start
+  - Global.MirrorCube.Update
+  - Global.MirrorCube.isHitByLaser
+  - Global.MirrorCube.isHitByPortal
+  - Global.MirrorCube.isHitByTransmitter
+  - Global.MirrorCube.mirrorOffSprite
+  - Global.MirrorCube.mirrorOnSprite
+  - Global.MirrorCube.spriteRenderer
+  langs:
+  - csharp
+  - vb
+  name: MirrorCube
+  nameWithType: MirrorCube
+  fullName: MirrorCube
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: MirrorCube
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 10
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class representing a mirror cube that can interact with lasers and angle them accordingly
+  example: []
+  syntax:
+    content: 'public class MirrorCube : PickableObject, IPortalEventsListener'
+    content.vb: Public Class MirrorCube Inherits PickableObject Implements IPortalEventsListener
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  - Global.PickableObject
+  implements:
+  - Global.IPortalEventsListener
+  inheritedMembers:
+  - Global.PickableObject.hittingTheGroundSound
+  - Global.PickableObject.detectionRadius
+  - Global.PickableObject.taken
+  - Global.PickableObject.rigidbody2D
+  - Global.PickableObject.Take(UnityEngine.Transform)
+  - Global.PickableObject.Drop
+  - Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  - Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  - Global.PickableObject.OnExitedPortalArea(PortalLogic)
+- uid: Global.MirrorCube.spriteRenderer
+  commentId: F:Global.MirrorCube.spriteRenderer
+  id: spriteRenderer
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: spriteRenderer
+  nameWithType: MirrorCube.spriteRenderer
+  fullName: MirrorCube.spriteRenderer
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: spriteRenderer
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Reference to the SpriteRenderer component.
+  example: []
+  syntax:
+    content: public SpriteRenderer spriteRenderer
+    return:
+      type: UnityEngine.SpriteRenderer
+    content.vb: Public spriteRenderer As SpriteRenderer
+- uid: Global.MirrorCube.mirrorOnSprite
+  commentId: F:Global.MirrorCube.mirrorOnSprite
+  id: mirrorOnSprite
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: mirrorOnSprite
+  nameWithType: MirrorCube.mirrorOnSprite
+  fullName: MirrorCube.mirrorOnSprite
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: mirrorOnSprite
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 35
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Sprite displayed when the mirror cube is active (hit by a laser) - glow
+  example: []
+  syntax:
+    content: public Sprite mirrorOnSprite
+    return:
+      type: UnityEngine.Sprite
+    content.vb: Public mirrorOnSprite As Sprite
+- uid: Global.MirrorCube.mirrorOffSprite
+  commentId: F:Global.MirrorCube.mirrorOffSprite
+  id: mirrorOffSprite
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: mirrorOffSprite
+  nameWithType: MirrorCube.mirrorOffSprite
+  fullName: MirrorCube.mirrorOffSprite
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: mirrorOffSprite
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 40
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Sprite displayed when the mirror cube is inactive (not hit by a laser).
+  example: []
+  syntax:
+    content: public Sprite mirrorOffSprite
+    return:
+      type: UnityEngine.Sprite
+    content.vb: Public mirrorOffSprite As Sprite
+- uid: Global.MirrorCube.isHitByLaser
+  commentId: F:Global.MirrorCube.isHitByLaser
+  id: isHitByLaser
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: isHitByLaser
+  nameWithType: MirrorCube.isHitByLaser
+  fullName: MirrorCube.isHitByLaser
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isHitByLaser
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 45
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Flag indicating if the mirror cube is currently hit by a laser
+  example: []
+  syntax:
+    content: public bool isHitByLaser
+    return:
+      type: System.Boolean
+    content.vb: Public isHitByLaser As Boolean
+- uid: Global.MirrorCube.isHitByTransmitter
+  commentId: F:Global.MirrorCube.isHitByTransmitter
+  id: isHitByTransmitter
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: isHitByTransmitter
+  nameWithType: MirrorCube.isHitByTransmitter
+  fullName: MirrorCube.isHitByTransmitter
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isHitByTransmitter
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 50
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Flag indicating if the mirror cube is currently hit by a laser from transmitter
+  example: []
+  syntax:
+    content: public bool isHitByTransmitter
+    return:
+      type: System.Boolean
+    content.vb: Public isHitByTransmitter As Boolean
+- uid: Global.MirrorCube.isHitByPortal
+  commentId: F:Global.MirrorCube.isHitByPortal
+  id: isHitByPortal
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: isHitByPortal
+  nameWithType: MirrorCube.isHitByPortal
+  fullName: MirrorCube.isHitByPortal
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isHitByPortal
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 55
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Flag indicating if the mirror cube is currently hit by a laser from portal
+  example: []
+  syntax:
+    content: public bool isHitByPortal
+    return:
+      type: System.Boolean
+    content.vb: Public isHitByPortal As Boolean
+- uid: Global.MirrorCube.Start
+  commentId: M:Global.MirrorCube.Start
+  id: Start
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: MirrorCube.Start()
+  fullName: MirrorCube.Start()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Start
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 80
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Called before the first frame update
+  example: []
+  syntax:
+    content: protected override void Start()
+    content.vb: Protected Overrides Sub Start()
+  overridden: Global.PickableObject.Start
+  overload: Global.MirrorCube.Start*
+- uid: Global.MirrorCube.Update
+  commentId: M:Global.MirrorCube.Update
+  id: Update
+  parent: Global.MirrorCube
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: MirrorCube.Update()
+  fullName: MirrorCube.Update()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/MirrorCube.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Update
+    path: ../Assets/Scripts/InteractiveObjects/MirrorCube.cs
+    startLine: 89
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  example: []
+  syntax:
+    content: protected override void Update()
+    content.vb: Protected Overrides Sub Update()
+  overridden: Global.PickableObject.Update
+  overload: Global.MirrorCube.Update*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Global.PickableObject
+  commentId: T:Global.PickableObject
+  href: PickableObject.html
+  name: PickableObject
+  nameWithType: PickableObject
+  fullName: PickableObject
+- uid: Global.IPortalEventsListener
+  commentId: T:Global.IPortalEventsListener
+  href: IPortalEventsListener.html
+  name: IPortalEventsListener
+  nameWithType: IPortalEventsListener
+  fullName: IPortalEventsListener
+- uid: Global.PickableObject.hittingTheGroundSound
+  commentId: F:Global.PickableObject.hittingTheGroundSound
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.hittingTheGroundSound
+  name: hittingTheGroundSound
+  nameWithType: PickableObject.hittingTheGroundSound
+  fullName: PickableObject.hittingTheGroundSound
+- uid: Global.PickableObject.detectionRadius
+  commentId: F:Global.PickableObject.detectionRadius
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.detectionRadius
+  name: detectionRadius
+  nameWithType: PickableObject.detectionRadius
+  fullName: PickableObject.detectionRadius
+- uid: Global.PickableObject.taken
+  commentId: F:Global.PickableObject.taken
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.taken
+  name: taken
+  nameWithType: PickableObject.taken
+  fullName: PickableObject.taken
+- uid: Global.PickableObject.rigidbody2D
+  commentId: F:Global.PickableObject.rigidbody2D
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.rigidbody2D
+  name: rigidbody2D
+  nameWithType: PickableObject.rigidbody2D
+  fullName: PickableObject.rigidbody2D
+- uid: Global.PickableObject.Take(UnityEngine.Transform)
+  commentId: M:Global.PickableObject.Take(UnityEngine.Transform)
+  parent: Global.PickableObject
+  isExternal: true
+  href: Global.PickableObject.html#PickableObject.Take(UnityEngine.Transform)
+  name: Take(Transform)
+  nameWithType: PickableObject.Take(Transform)
+  fullName: PickableObject.Take(UnityEngine.Transform)
+  spec.csharp:
+  - uid: Global.PickableObject.Take(UnityEngine.Transform)
+    name: Take
+    href: Global.PickableObject.html#PickableObject.Take(UnityEngine.Transform)
+  - name: (
+  - uid: UnityEngine.Transform
+    name: Transform
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.Take(UnityEngine.Transform)
+    name: Take
+    href: Global.PickableObject.html#PickableObject.Take(UnityEngine.Transform)
+  - name: (
+  - uid: UnityEngine.Transform
+    name: Transform
+    isExternal: true
+  - name: )
+- uid: Global.PickableObject.Drop
+  commentId: M:Global.PickableObject.Drop
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.Drop
+  name: Drop()
+  nameWithType: PickableObject.Drop()
+  fullName: PickableObject.Drop()
+  spec.csharp:
+  - uid: Global.PickableObject.Drop
+    name: Drop
+    href: Global.PickableObject.html#PickableObject.Drop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.Drop
+    name: Drop
+    href: Global.PickableObject.html#PickableObject.Drop
+  - name: (
+  - name: )
+- uid: Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  commentId: M:Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  parent: Global.PickableObject
+  isExternal: true
+  href: Global.PickableObject.html#PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  name: OnCollisionEnter2D(Collision2D)
+  nameWithType: PickableObject.OnCollisionEnter2D(Collision2D)
+  fullName: PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  spec.csharp:
+  - uid: Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+    name: OnCollisionEnter2D
+    href: Global.PickableObject.html#PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  - name: (
+  - uid: UnityEngine.Collision2D
+    name: Collision2D
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+    name: OnCollisionEnter2D
+    href: Global.PickableObject.html#PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  - name: (
+  - uid: UnityEngine.Collision2D
+    name: Collision2D
+    isExternal: true
+  - name: )
+- uid: Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  commentId: M:Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  name: OnTeleported(PortalLogic, PortalLogic)
+  nameWithType: PickableObject.OnTeleported(PortalLogic, PortalLogic)
+  fullName: PickableObject.OnTeleported(PortalLogic, PortalLogic)
+  spec.csharp:
+  - uid: Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+    name: OnTeleported
+    href: Global.PickableObject.html#PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: ','
+  - name: " "
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+    name: OnTeleported
+    href: Global.PickableObject.html#PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: ','
+  - name: " "
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+- uid: Global.PickableObject.OnExitedPortalArea(PortalLogic)
+  commentId: M:Global.PickableObject.OnExitedPortalArea(PortalLogic)
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.OnExitedPortalArea(PortalLogic)
+  name: OnExitedPortalArea(PortalLogic)
+  nameWithType: PickableObject.OnExitedPortalArea(PortalLogic)
+  fullName: PickableObject.OnExitedPortalArea(PortalLogic)
+  spec.csharp:
+  - uid: Global.PickableObject.OnExitedPortalArea(PortalLogic)
+    name: OnExitedPortalArea
+    href: Global.PickableObject.html#PickableObject.OnExitedPortalArea(PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.OnExitedPortalArea(PortalLogic)
+    name: OnExitedPortalArea
+    href: Global.PickableObject.html#PickableObject.OnExitedPortalArea(PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.SpriteRenderer
+  commentId: T:UnityEngine.SpriteRenderer
+  parent: UnityEngine
+  isExternal: true
+  name: SpriteRenderer
+  nameWithType: SpriteRenderer
+  fullName: UnityEngine.SpriteRenderer
+- uid: UnityEngine.Sprite
+  commentId: T:UnityEngine.Sprite
+  parent: UnityEngine
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: UnityEngine.Sprite
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.PickableObject.Start
+  commentId: M:Global.PickableObject.Start
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.Start
+  name: Start()
+  nameWithType: PickableObject.Start()
+  fullName: PickableObject.Start()
+  spec.csharp:
+  - uid: Global.PickableObject.Start
+    name: Start
+    href: Global.PickableObject.html#PickableObject.Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.Start
+    name: Start
+    href: Global.PickableObject.html#PickableObject.Start
+  - name: (
+  - name: )
+- uid: Global.MirrorCube.Start*
+  commentId: Overload:Global.MirrorCube.Start
+  href: Global.MirrorCube.html#MirrorCube.Start
+  name: Start
+  nameWithType: MirrorCube.Start
+  fullName: MirrorCube.Start
+- uid: Global.PickableObject.Update
+  commentId: M:Global.PickableObject.Update
+  parent: Global.PickableObject
+  href: Global.PickableObject.html#PickableObject.Update
+  name: Update()
+  nameWithType: PickableObject.Update()
+  fullName: PickableObject.Update()
+  spec.csharp:
+  - uid: Global.PickableObject.Update
+    name: Update
+    href: Global.PickableObject.html#PickableObject.Update
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.PickableObject.Update
+    name: Update
+    href: Global.PickableObject.html#PickableObject.Update
+  - name: (
+  - name: )
+- uid: Global.MirrorCube.Update*
+  commentId: Overload:Global.MirrorCube.Update
+  href: Global.MirrorCube.html#MirrorCube.Update
+  name: Update
+  nameWithType: MirrorCube.Update
+  fullName: MirrorCube.Update

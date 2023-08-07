@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalBehaviour
+  commentId: T:Global.PortalBehaviour
+  id: PortalBehaviour
+  parent: Global
+  children:
+  - Global.PortalBehaviour.Destroy
+  - Global.PortalBehaviour.InitDestroyment
+  - Global.PortalBehaviour.Link(PortalBehaviour,PortalBehaviour)
+  - Global.PortalBehaviour.otherEnd
+  langs:
+  - csharp
+  - vb
+  name: PortalBehaviour
+  nameWithType: PortalBehaviour
+  fullName: PortalBehaviour
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalBehaviour
+    path: ../Assets/Scripts/Portal/PortalBehaviour.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for managing basic portal behaviour
+  example: []
+  syntax:
+    content: 'public class PortalBehaviour : MonoBehaviour'
+    content.vb: Public Class PortalBehaviour Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PortalBehaviour.otherEnd
+  commentId: F:Global.PortalBehaviour.otherEnd
+  id: otherEnd
+  parent: Global.PortalBehaviour
+  langs:
+  - csharp
+  - vb
+  name: otherEnd
+  nameWithType: PortalBehaviour.otherEnd
+  fullName: PortalBehaviour.otherEnd
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: otherEnd
+    path: ../Assets/Scripts/Portal/PortalBehaviour.cs
+    startLine: 10
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Opposite portal
+  example: []
+  syntax:
+    content: public PortalBehaviour otherEnd
+    return:
+      type: Global.PortalBehaviour
+    content.vb: Public otherEnd As PortalBehaviour
+- uid: Global.PortalBehaviour.InitDestroyment
+  commentId: M:Global.PortalBehaviour.InitDestroyment
+  id: InitDestroyment
+  parent: Global.PortalBehaviour
+  langs:
+  - csharp
+  - vb
+  name: InitDestroyment()
+  nameWithType: PortalBehaviour.InitDestroyment()
+  fullName: PortalBehaviour.InitDestroyment()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: InitDestroyment
+    path: ../Assets/Scripts/Portal/PortalBehaviour.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for initialize portal destroyment
+  example: []
+  syntax:
+    content: public void InitDestroyment()
+    content.vb: Public Sub InitDestroyment()
+  overload: Global.PortalBehaviour.InitDestroyment*
+- uid: Global.PortalBehaviour.Destroy
+  commentId: M:Global.PortalBehaviour.Destroy
+  id: Destroy
+  parent: Global.PortalBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Destroy()
+  nameWithType: PortalBehaviour.Destroy()
+  fullName: PortalBehaviour.Destroy()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Destroy
+    path: ../Assets/Scripts/Portal/PortalBehaviour.cs
+    startLine: 42
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for destroying portal
+  example: []
+  syntax:
+    content: public void Destroy()
+    content.vb: Public Sub Destroy()
+  overload: Global.PortalBehaviour.Destroy*
+- uid: Global.PortalBehaviour.Link(PortalBehaviour,PortalBehaviour)
+  commentId: M:Global.PortalBehaviour.Link(PortalBehaviour,PortalBehaviour)
+  id: Link(PortalBehaviour,PortalBehaviour)
+  parent: Global.PortalBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Link(PortalBehaviour, PortalBehaviour)
+  nameWithType: PortalBehaviour.Link(PortalBehaviour, PortalBehaviour)
+  fullName: PortalBehaviour.Link(PortalBehaviour, PortalBehaviour)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Link
+    path: ../Assets/Scripts/Portal/PortalBehaviour.cs
+    startLine: 51
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for linking two portals
+  example: []
+  syntax:
+    content: public static void Link(PortalBehaviour a, PortalBehaviour b)
+    parameters:
+    - id: a
+      type: Global.PortalBehaviour
+      description: first portal
+    - id: b
+      type: Global.PortalBehaviour
+      description: second portal
+    content.vb: Public Shared Sub Link(a As PortalBehaviour, b As PortalBehaviour)
+  overload: Global.PortalBehaviour.Link*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalBehaviour
+  commentId: T:Global.PortalBehaviour
+  href: PortalBehaviour.html
+  name: PortalBehaviour
+  nameWithType: PortalBehaviour
+  fullName: PortalBehaviour
+- uid: Global.PortalBehaviour.InitDestroyment*
+  commentId: Overload:Global.PortalBehaviour.InitDestroyment
+  href: Global.PortalBehaviour.html#PortalBehaviour.InitDestroyment
+  name: InitDestroyment
+  nameWithType: PortalBehaviour.InitDestroyment
+  fullName: PortalBehaviour.InitDestroyment
+- uid: Global.PortalBehaviour.Destroy*
+  commentId: Overload:Global.PortalBehaviour.Destroy
+  href: Global.PortalBehaviour.html#PortalBehaviour.Destroy
+  name: Destroy
+  nameWithType: PortalBehaviour.Destroy
+  fullName: PortalBehaviour.Destroy
+- uid: Global.PortalBehaviour.Link*
+  commentId: Overload:Global.PortalBehaviour.Link
+  href: Global.PortalBehaviour.html#PortalBehaviour.Link(PortalBehaviour,PortalBehaviour)
+  name: Link
+  nameWithType: PortalBehaviour.Link
+  fullName: PortalBehaviour.Link

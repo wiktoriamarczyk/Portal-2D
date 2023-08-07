@@ -1,0 +1,166 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Dispenser
+  commentId: T:Global.Dispenser
+  id: Dispenser
+  parent: Global
+  children:
+  - Global.Dispenser.SpawnCube
+  - Global.Dispenser.offset
+  langs:
+  - csharp
+  - vb
+  name: Dispenser
+  nameWithType: Dispenser
+  fullName: Dispenser
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Dispenser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Dispenser
+    path: ../Assets/Scripts/InteractiveObjects/Dispenser.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for dispensing cubes
+  example: []
+  syntax:
+    content: 'public class Dispenser : MonoBehaviour'
+    content.vb: Public Class Dispenser Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.Dispenser.offset
+  commentId: F:Global.Dispenser.offset
+  id: offset
+  parent: Global.Dispenser
+  langs:
+  - csharp
+  - vb
+  name: offset
+  nameWithType: Dispenser.offset
+  fullName: Dispenser.offset
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Dispenser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: offset
+    path: ../Assets/Scripts/InteractiveObjects/Dispenser.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Offset of the cube from the dispenser
+  example: []
+  syntax:
+    content: public float offset
+    return:
+      type: System.Single
+    content.vb: Public offset As Single
+- uid: Global.Dispenser.SpawnCube
+  commentId: M:Global.Dispenser.SpawnCube
+  id: SpawnCube
+  parent: Global.Dispenser
+  langs:
+  - csharp
+  - vb
+  name: SpawnCube()
+  nameWithType: Dispenser.SpawnCube()
+  fullName: Dispenser.SpawnCube()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Dispenser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SpawnCube
+    path: ../Assets/Scripts/InteractiveObjects/Dispenser.cs
+    startLine: 35
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method called when the dispenser is activated
+  example: []
+  syntax:
+    content: public void SpawnCube()
+    content.vb: Public Sub SpawnCube()
+  overload: Global.Dispenser.SpawnCube*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.Dispenser.SpawnCube*
+  commentId: Overload:Global.Dispenser.SpawnCube
+  href: Global.Dispenser.html#Dispenser.SpawnCube
+  name: SpawnCube
+  nameWithType: Dispenser.SpawnCube
+  fullName: Dispenser.SpawnCube

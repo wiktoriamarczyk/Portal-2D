@@ -1,0 +1,344 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalAdapter
+  commentId: T:Global.PortalAdapter
+  id: PortalAdapter
+  parent: Global
+  children:
+  - Global.PortalAdapter.CreateClone(UnityEngine.Vector3,UnityEngine.Quaternion,PortalLogic,PortalLogic)
+  - Global.PortalAdapter.GetObjectCenter
+  - Global.PortalAdapter.IsInPortalArea
+  - Global.PortalAdapter.SetIsInPortalArea(System.Boolean)
+  - Global.PortalAdapter.SetPositionByCenter(UnityEngine.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: PortalAdapter
+  nameWithType: PortalAdapter
+  fullName: PortalAdapter
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalAdapter.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalAdapter
+    path: ../Assets/Scripts/Portal/PortalAdapter.cs
+    startLine: 7
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class for all objects that can interact with portals
+  example: []
+  syntax:
+    content: 'public class PortalAdapter : MonoBehaviour, IPortalEventsListener'
+    content.vb: Public Class PortalAdapter Inherits MonoBehaviour Implements IPortalEventsListener
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  implements:
+  - Global.IPortalEventsListener
+- uid: Global.PortalAdapter.IsInPortalArea
+  commentId: M:Global.PortalAdapter.IsInPortalArea
+  id: IsInPortalArea
+  parent: Global.PortalAdapter
+  langs:
+  - csharp
+  - vb
+  name: IsInPortalArea()
+  nameWithType: PortalAdapter.IsInPortalArea()
+  fullName: PortalAdapter.IsInPortalArea()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalAdapter.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: IsInPortalArea
+    path: ../Assets/Scripts/Portal/PortalAdapter.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Is the object currently in the portal area?
+  example: []
+  syntax:
+    content: public bool IsInPortalArea()
+    return:
+      type: System.Boolean
+      description: true if object is in portal
+    content.vb: Public Function IsInPortalArea() As Boolean
+  overload: Global.PortalAdapter.IsInPortalArea*
+- uid: Global.PortalAdapter.SetIsInPortalArea(System.Boolean)
+  commentId: M:Global.PortalAdapter.SetIsInPortalArea(System.Boolean)
+  id: SetIsInPortalArea(System.Boolean)
+  parent: Global.PortalAdapter
+  langs:
+  - csharp
+  - vb
+  name: SetIsInPortalArea(bool)
+  nameWithType: PortalAdapter.SetIsInPortalArea(bool)
+  fullName: PortalAdapter.SetIsInPortalArea(bool)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalAdapter.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SetIsInPortalArea
+    path: ../Assets/Scripts/Portal/PortalAdapter.cs
+    startLine: 38
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Set if the object is currently in the portal area
+  example: []
+  syntax:
+    content: public void SetIsInPortalArea(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: true if object is in the area
+    content.vb: Public Sub SetIsInPortalArea(value As Boolean)
+  overload: Global.PortalAdapter.SetIsInPortalArea*
+  nameWithType.vb: PortalAdapter.SetIsInPortalArea(Boolean)
+  fullName.vb: PortalAdapter.SetIsInPortalArea(Boolean)
+  name.vb: SetIsInPortalArea(Boolean)
+- uid: Global.PortalAdapter.CreateClone(UnityEngine.Vector3,UnityEngine.Quaternion,PortalLogic,PortalLogic)
+  commentId: M:Global.PortalAdapter.CreateClone(UnityEngine.Vector3,UnityEngine.Quaternion,PortalLogic,PortalLogic)
+  id: CreateClone(UnityEngine.Vector3,UnityEngine.Quaternion,PortalLogic,PortalLogic)
+  parent: Global.PortalAdapter
+  langs:
+  - csharp
+  - vb
+  name: CreateClone(Vector3, Quaternion, PortalLogic, PortalLogic)
+  nameWithType: PortalAdapter.CreateClone(Vector3, Quaternion, PortalLogic, PortalLogic)
+  fullName: PortalAdapter.CreateClone(UnityEngine.Vector3, UnityEngine.Quaternion, PortalLogic, PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalAdapter.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: CreateClone
+    path: ../Assets/Scripts/Portal/PortalAdapter.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Create a clone of the object
+  example: []
+  syntax:
+    content: public GameObject CreateClone(Vector3 worldPos, Quaternion localRotation, PortalLogic srcPortal, PortalLogic dstPortal)
+    parameters:
+    - id: worldPos
+      type: UnityEngine.Vector3
+      description: position of clone in world space
+    - id: localRotation
+      type: UnityEngine.Quaternion
+      description: local rotaion of clone object
+    - id: srcPortal
+      type: Global.PortalLogic
+      description: portal to which object is entering
+    - id: dstPortal
+      type: Global.PortalLogic
+      description: portal in which clone should be placed
+    return:
+      type: UnityEngine.GameObject
+      description: ''
+    content.vb: Public Function CreateClone(worldPos As Vector3, localRotation As Quaternion, srcPortal As PortalLogic, dstPortal As PortalLogic) As GameObject
+  overload: Global.PortalAdapter.CreateClone*
+- uid: Global.PortalAdapter.GetObjectCenter
+  commentId: M:Global.PortalAdapter.GetObjectCenter
+  id: GetObjectCenter
+  parent: Global.PortalAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetObjectCenter()
+  nameWithType: PortalAdapter.GetObjectCenter()
+  fullName: PortalAdapter.GetObjectCenter()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalAdapter.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetObjectCenter
+    path: ../Assets/Scripts/Portal/PortalAdapter.cs
+    startLine: 89
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get the center of the object
+  example: []
+  syntax:
+    content: public Vector3 GetObjectCenter()
+    return:
+      type: UnityEngine.Vector3
+      description: center of the object
+    content.vb: Public Function GetObjectCenter() As Vector3
+  overload: Global.PortalAdapter.GetObjectCenter*
+- uid: Global.PortalAdapter.SetPositionByCenter(UnityEngine.Vector3)
+  commentId: M:Global.PortalAdapter.SetPositionByCenter(UnityEngine.Vector3)
+  id: SetPositionByCenter(UnityEngine.Vector3)
+  parent: Global.PortalAdapter
+  langs:
+  - csharp
+  - vb
+  name: SetPositionByCenter(Vector3)
+  nameWithType: PortalAdapter.SetPositionByCenter(Vector3)
+  fullName: PortalAdapter.SetPositionByCenter(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalAdapter.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SetPositionByCenter
+    path: ../Assets/Scripts/Portal/PortalAdapter.cs
+    startLine: 120
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Set the position of the object by its center
+  example: []
+  syntax:
+    content: public void SetPositionByCenter(Vector3 pos)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector3
+      description: position that the center of the object should be after this call
+    content.vb: Public Sub SetPositionByCenter(pos As Vector3)
+  overload: Global.PortalAdapter.SetPositionByCenter*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Global.IPortalEventsListener
+  commentId: T:Global.IPortalEventsListener
+  href: IPortalEventsListener.html
+  name: IPortalEventsListener
+  nameWithType: IPortalEventsListener
+  fullName: IPortalEventsListener
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalAdapter.IsInPortalArea*
+  commentId: Overload:Global.PortalAdapter.IsInPortalArea
+  href: Global.PortalAdapter.html#PortalAdapter.IsInPortalArea
+  name: IsInPortalArea
+  nameWithType: PortalAdapter.IsInPortalArea
+  fullName: PortalAdapter.IsInPortalArea
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.PortalAdapter.SetIsInPortalArea*
+  commentId: Overload:Global.PortalAdapter.SetIsInPortalArea
+  href: Global.PortalAdapter.html#PortalAdapter.SetIsInPortalArea(System.Boolean)
+  name: SetIsInPortalArea
+  nameWithType: PortalAdapter.SetIsInPortalArea
+  fullName: PortalAdapter.SetIsInPortalArea
+- uid: Global.PortalAdapter.CreateClone*
+  commentId: Overload:Global.PortalAdapter.CreateClone
+  href: Global.PortalAdapter.html#PortalAdapter.CreateClone(UnityEngine.Vector3,UnityEngine.Quaternion,PortalLogic,PortalLogic)
+  name: CreateClone
+  nameWithType: PortalAdapter.CreateClone
+  fullName: PortalAdapter.CreateClone
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.Quaternion
+  commentId: T:UnityEngine.Quaternion
+  parent: UnityEngine
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  href: PortalLogic.html
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Global.PortalAdapter.GetObjectCenter*
+  commentId: Overload:Global.PortalAdapter.GetObjectCenter
+  href: Global.PortalAdapter.html#PortalAdapter.GetObjectCenter
+  name: GetObjectCenter
+  nameWithType: PortalAdapter.GetObjectCenter
+  fullName: PortalAdapter.GetObjectCenter
+- uid: Global.PortalAdapter.SetPositionByCenter*
+  commentId: Overload:Global.PortalAdapter.SetPositionByCenter
+  href: Global.PortalAdapter.html#PortalAdapter.SetPositionByCenter(UnityEngine.Vector3)
+  name: SetPositionByCenter
+  nameWithType: PortalAdapter.SetPositionByCenter
+  fullName: PortalAdapter.SetPositionByCenter

@@ -1,0 +1,696 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  id: PortalLogic
+  parent: Global
+  children:
+  - Global.PortalLogic.GetDestinationOutput
+  - Global.PortalLogic.GetDestinationPortal
+  - Global.PortalLogic.GetObjectXFlipFactor
+  - Global.PortalLogic.GetOwnInterior
+  - Global.PortalLogic.GetOwnOutput
+  - Global.PortalLogic.GetOwnPortal
+  - Global.PortalLogic.GetPortalBehaviour
+  - Global.PortalLogic.GetWorldPortalUpVector
+  - Global.PortalLogic.GetWorldVectorOutsidePortal
+  - Global.PortalLogic.GetWorldVectorToPortal
+  - Global.PortalLogic.IsDying
+  - Global.PortalLogic.MakeTilesBehindPortalCollidable
+  - Global.PortalLogic.MakeTilesBehindPortalNonCollidable
+  - Global.PortalLogic.OnDestroyBegin
+  - Global.PortalLogic.SetDestination(PortalLogic)
+  langs:
+  - csharp
+  - vb
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalLogic
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Component responsible for the logic of the portal.
+  example: []
+  syntax:
+    content: 'public class PortalLogic : MonoBehaviour'
+    content.vb: Public Class PortalLogic Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PortalLogic.IsDying
+  commentId: M:Global.PortalLogic.IsDying
+  id: IsDying
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: IsDying()
+  nameWithType: PortalLogic.IsDying()
+  fullName: PortalLogic.IsDying()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: IsDying
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 53
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Is Portal being destroyed?
+  example: []
+  syntax:
+    content: public bool IsDying()
+    return:
+      type: System.Boolean
+      description: true if portal is being destroyed
+    content.vb: Public Function IsDying() As Boolean
+  overload: Global.PortalLogic.IsDying*
+- uid: Global.PortalLogic.SetDestination(PortalLogic)
+  commentId: M:Global.PortalLogic.SetDestination(PortalLogic)
+  id: SetDestination(PortalLogic)
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: SetDestination(PortalLogic)
+  nameWithType: PortalLogic.SetDestination(PortalLogic)
+  fullName: PortalLogic.SetDestination(PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SetDestination
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 61
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Sets destination portal
+  example: []
+  syntax:
+    content: public void SetDestination(PortalLogic dest)
+    parameters:
+    - id: dest
+      type: Global.PortalLogic
+      description: destination portal
+    content.vb: Public Sub SetDestination(dest As PortalLogic)
+  overload: Global.PortalLogic.SetDestination*
+- uid: Global.PortalLogic.GetPortalBehaviour
+  commentId: M:Global.PortalLogic.GetPortalBehaviour
+  id: GetPortalBehaviour
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetPortalBehaviour()
+  nameWithType: PortalLogic.GetPortalBehaviour()
+  fullName: PortalLogic.GetPortalBehaviour()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetPortalBehaviour
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 70
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get PortalBehaviour component
+  example: []
+  syntax:
+    content: public PortalBehaviour GetPortalBehaviour()
+    return:
+      type: Global.PortalBehaviour
+      description: portal behaviour
+    content.vb: Public Function GetPortalBehaviour() As PortalBehaviour
+  overload: Global.PortalLogic.GetPortalBehaviour*
+- uid: Global.PortalLogic.GetOwnPortal
+  commentId: M:Global.PortalLogic.GetOwnPortal
+  id: GetOwnPortal
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetOwnPortal()
+  nameWithType: PortalLogic.GetOwnPortal()
+  fullName: PortalLogic.GetOwnPortal()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetOwnPortal
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 78
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get our portal object
+  example: []
+  syntax:
+    content: public GameObject GetOwnPortal()
+    return:
+      type: UnityEngine.GameObject
+      description: portal object
+    content.vb: Public Function GetOwnPortal() As GameObject
+  overload: Global.PortalLogic.GetOwnPortal*
+- uid: Global.PortalLogic.GetOwnOutput
+  commentId: M:Global.PortalLogic.GetOwnOutput
+  id: GetOwnOutput
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetOwnOutput()
+  nameWithType: PortalLogic.GetOwnOutput()
+  fullName: PortalLogic.GetOwnOutput()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetOwnOutput
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 86
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get our output object
+  example: []
+  syntax:
+    content: public Transform GetOwnOutput()
+    return:
+      type: UnityEngine.Transform
+      description: portal output object
+    content.vb: Public Function GetOwnOutput() As Transform
+  overload: Global.PortalLogic.GetOwnOutput*
+- uid: Global.PortalLogic.GetOwnInterior
+  commentId: M:Global.PortalLogic.GetOwnInterior
+  id: GetOwnInterior
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetOwnInterior()
+  nameWithType: PortalLogic.GetOwnInterior()
+  fullName: PortalLogic.GetOwnInterior()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetOwnInterior
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 94
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get our interior object
+  example: []
+  syntax:
+    content: public GameObject GetOwnInterior()
+    return:
+      type: UnityEngine.GameObject
+      description: interior object
+    content.vb: Public Function GetOwnInterior() As GameObject
+  overload: Global.PortalLogic.GetOwnInterior*
+- uid: Global.PortalLogic.GetWorldVectorToPortal
+  commentId: M:Global.PortalLogic.GetWorldVectorToPortal
+  id: GetWorldVectorToPortal
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetWorldVectorToPortal()
+  nameWithType: PortalLogic.GetWorldVectorToPortal()
+  fullName: PortalLogic.GetWorldVectorToPortal()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetWorldVectorToPortal
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 102
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get vector that points to portal in a world space
+  example: []
+  syntax:
+    content: public Vector3 GetWorldVectorToPortal()
+    return:
+      type: UnityEngine.Vector3
+      description: vector that points to portal in a world space
+    content.vb: Public Function GetWorldVectorToPortal() As Vector3
+  overload: Global.PortalLogic.GetWorldVectorToPortal*
+- uid: Global.PortalLogic.GetWorldPortalUpVector
+  commentId: M:Global.PortalLogic.GetWorldPortalUpVector
+  id: GetWorldPortalUpVector
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetWorldPortalUpVector()
+  nameWithType: PortalLogic.GetWorldPortalUpVector()
+  fullName: PortalLogic.GetWorldPortalUpVector()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetWorldPortalUpVector
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 110
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get vector that points up in portal in a world space
+  example: []
+  syntax:
+    content: public Vector3 GetWorldPortalUpVector()
+    return:
+      type: UnityEngine.Vector3
+      description: vector that points up in portal in a world space
+    content.vb: Public Function GetWorldPortalUpVector() As Vector3
+  overload: Global.PortalLogic.GetWorldPortalUpVector*
+- uid: Global.PortalLogic.GetWorldVectorOutsidePortal
+  commentId: M:Global.PortalLogic.GetWorldVectorOutsidePortal
+  id: GetWorldVectorOutsidePortal
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetWorldVectorOutsidePortal()
+  nameWithType: PortalLogic.GetWorldVectorOutsidePortal()
+  fullName: PortalLogic.GetWorldVectorOutsidePortal()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetWorldVectorOutsidePortal
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 118
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get vector that points to an outside of the portal in a world space
+  example: []
+  syntax:
+    content: public Vector3 GetWorldVectorOutsidePortal()
+    return:
+      type: UnityEngine.Vector3
+      description: outside of the portal
+    content.vb: Public Function GetWorldVectorOutsidePortal() As Vector3
+  overload: Global.PortalLogic.GetWorldVectorOutsidePortal*
+- uid: Global.PortalLogic.GetDestinationPortal
+  commentId: M:Global.PortalLogic.GetDestinationPortal
+  id: GetDestinationPortal
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetDestinationPortal()
+  nameWithType: PortalLogic.GetDestinationPortal()
+  fullName: PortalLogic.GetDestinationPortal()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetDestinationPortal
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 126
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get destination portal object
+  example: []
+  syntax:
+    content: public GameObject GetDestinationPortal()
+    return:
+      type: UnityEngine.GameObject
+      description: destination portal
+    content.vb: Public Function GetDestinationPortal() As GameObject
+  overload: Global.PortalLogic.GetDestinationPortal*
+- uid: Global.PortalLogic.GetDestinationOutput
+  commentId: M:Global.PortalLogic.GetDestinationOutput
+  id: GetDestinationOutput
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetDestinationOutput()
+  nameWithType: PortalLogic.GetDestinationOutput()
+  fullName: PortalLogic.GetDestinationOutput()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetDestinationOutput
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 134
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Get destination output object
+  example: []
+  syntax:
+    content: public Transform GetDestinationOutput()
+    return:
+      type: UnityEngine.Transform
+      description: destination output
+    content.vb: Public Function GetDestinationOutput() As Transform
+  overload: Global.PortalLogic.GetDestinationOutput*
+- uid: Global.PortalLogic.GetObjectXFlipFactor
+  commentId: M:Global.PortalLogic.GetObjectXFlipFactor
+  id: GetObjectXFlipFactor
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetObjectXFlipFactor()
+  nameWithType: PortalLogic.GetObjectXFlipFactor()
+  fullName: PortalLogic.GetObjectXFlipFactor()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetObjectXFlipFactor
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 142
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: TODO
+  example: []
+  syntax:
+    content: public Vector3 GetObjectXFlipFactor()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Function GetObjectXFlipFactor() As Vector3
+  overload: Global.PortalLogic.GetObjectXFlipFactor*
+- uid: Global.PortalLogic.OnDestroyBegin
+  commentId: M:Global.PortalLogic.OnDestroyBegin
+  id: OnDestroyBegin
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: OnDestroyBegin()
+  nameWithType: PortalLogic.OnDestroyBegin()
+  fullName: PortalLogic.OnDestroyBegin()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnDestroyBegin
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 295
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method called on start of the destroyment process
+  example: []
+  syntax:
+    content: public void OnDestroyBegin()
+    content.vb: Public Sub OnDestroyBegin()
+  overload: Global.PortalLogic.OnDestroyBegin*
+- uid: Global.PortalLogic.MakeTilesBehindPortalNonCollidable
+  commentId: M:Global.PortalLogic.MakeTilesBehindPortalNonCollidable
+  id: MakeTilesBehindPortalNonCollidable
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: MakeTilesBehindPortalNonCollidable()
+  nameWithType: PortalLogic.MakeTilesBehindPortalNonCollidable()
+  fullName: PortalLogic.MakeTilesBehindPortalNonCollidable()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: MakeTilesBehindPortalNonCollidable
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 303
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Make cells under this portal non collidable
+  example: []
+  syntax:
+    content: public void MakeTilesBehindPortalNonCollidable()
+    content.vb: Public Sub MakeTilesBehindPortalNonCollidable()
+  overload: Global.PortalLogic.MakeTilesBehindPortalNonCollidable*
+- uid: Global.PortalLogic.MakeTilesBehindPortalCollidable
+  commentId: M:Global.PortalLogic.MakeTilesBehindPortalCollidable
+  id: MakeTilesBehindPortalCollidable
+  parent: Global.PortalLogic
+  langs:
+  - csharp
+  - vb
+  name: MakeTilesBehindPortalCollidable()
+  nameWithType: PortalLogic.MakeTilesBehindPortalCollidable()
+  fullName: PortalLogic.MakeTilesBehindPortalCollidable()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLogic.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: MakeTilesBehindPortalCollidable
+    path: ../Assets/Scripts/Portal/PortalLogic.cs
+    startLine: 339
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Make cells under this portal collidable again
+  example: []
+  syntax:
+    content: public void MakeTilesBehindPortalCollidable()
+    content.vb: Public Sub MakeTilesBehindPortalCollidable()
+  overload: Global.PortalLogic.MakeTilesBehindPortalCollidable*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalLogic.IsDying*
+  commentId: Overload:Global.PortalLogic.IsDying
+  href: Global.PortalLogic.html#PortalLogic.IsDying
+  name: IsDying
+  nameWithType: PortalLogic.IsDying
+  fullName: PortalLogic.IsDying
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.PortalLogic.SetDestination*
+  commentId: Overload:Global.PortalLogic.SetDestination
+  href: Global.PortalLogic.html#PortalLogic.SetDestination(PortalLogic)
+  name: SetDestination
+  nameWithType: PortalLogic.SetDestination
+  fullName: PortalLogic.SetDestination
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  href: PortalLogic.html
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic
+- uid: Global.PortalLogic.GetPortalBehaviour*
+  commentId: Overload:Global.PortalLogic.GetPortalBehaviour
+  href: Global.PortalLogic.html#PortalLogic.GetPortalBehaviour
+  name: GetPortalBehaviour
+  nameWithType: PortalLogic.GetPortalBehaviour
+  fullName: PortalLogic.GetPortalBehaviour
+- uid: Global.PortalBehaviour
+  commentId: T:Global.PortalBehaviour
+  href: PortalBehaviour.html
+  name: PortalBehaviour
+  nameWithType: PortalBehaviour
+  fullName: PortalBehaviour
+- uid: Global.PortalLogic.GetOwnPortal*
+  commentId: Overload:Global.PortalLogic.GetOwnPortal
+  href: Global.PortalLogic.html#PortalLogic.GetOwnPortal
+  name: GetOwnPortal
+  nameWithType: PortalLogic.GetOwnPortal
+  fullName: PortalLogic.GetOwnPortal
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Global.PortalLogic.GetOwnOutput*
+  commentId: Overload:Global.PortalLogic.GetOwnOutput
+  href: Global.PortalLogic.html#PortalLogic.GetOwnOutput
+  name: GetOwnOutput
+  nameWithType: PortalLogic.GetOwnOutput
+  fullName: PortalLogic.GetOwnOutput
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: Global.PortalLogic.GetOwnInterior*
+  commentId: Overload:Global.PortalLogic.GetOwnInterior
+  href: Global.PortalLogic.html#PortalLogic.GetOwnInterior
+  name: GetOwnInterior
+  nameWithType: PortalLogic.GetOwnInterior
+  fullName: PortalLogic.GetOwnInterior
+- uid: Global.PortalLogic.GetWorldVectorToPortal*
+  commentId: Overload:Global.PortalLogic.GetWorldVectorToPortal
+  href: Global.PortalLogic.html#PortalLogic.GetWorldVectorToPortal
+  name: GetWorldVectorToPortal
+  nameWithType: PortalLogic.GetWorldVectorToPortal
+  fullName: PortalLogic.GetWorldVectorToPortal
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: Global.PortalLogic.GetWorldPortalUpVector*
+  commentId: Overload:Global.PortalLogic.GetWorldPortalUpVector
+  href: Global.PortalLogic.html#PortalLogic.GetWorldPortalUpVector
+  name: GetWorldPortalUpVector
+  nameWithType: PortalLogic.GetWorldPortalUpVector
+  fullName: PortalLogic.GetWorldPortalUpVector
+- uid: Global.PortalLogic.GetWorldVectorOutsidePortal*
+  commentId: Overload:Global.PortalLogic.GetWorldVectorOutsidePortal
+  href: Global.PortalLogic.html#PortalLogic.GetWorldVectorOutsidePortal
+  name: GetWorldVectorOutsidePortal
+  nameWithType: PortalLogic.GetWorldVectorOutsidePortal
+  fullName: PortalLogic.GetWorldVectorOutsidePortal
+- uid: Global.PortalLogic.GetDestinationPortal*
+  commentId: Overload:Global.PortalLogic.GetDestinationPortal
+  href: Global.PortalLogic.html#PortalLogic.GetDestinationPortal
+  name: GetDestinationPortal
+  nameWithType: PortalLogic.GetDestinationPortal
+  fullName: PortalLogic.GetDestinationPortal
+- uid: Global.PortalLogic.GetDestinationOutput*
+  commentId: Overload:Global.PortalLogic.GetDestinationOutput
+  href: Global.PortalLogic.html#PortalLogic.GetDestinationOutput
+  name: GetDestinationOutput
+  nameWithType: PortalLogic.GetDestinationOutput
+  fullName: PortalLogic.GetDestinationOutput
+- uid: Global.PortalLogic.GetObjectXFlipFactor*
+  commentId: Overload:Global.PortalLogic.GetObjectXFlipFactor
+  href: Global.PortalLogic.html#PortalLogic.GetObjectXFlipFactor
+  name: GetObjectXFlipFactor
+  nameWithType: PortalLogic.GetObjectXFlipFactor
+  fullName: PortalLogic.GetObjectXFlipFactor
+- uid: Global.PortalLogic.OnDestroyBegin*
+  commentId: Overload:Global.PortalLogic.OnDestroyBegin
+  href: Global.PortalLogic.html#PortalLogic.OnDestroyBegin
+  name: OnDestroyBegin
+  nameWithType: PortalLogic.OnDestroyBegin
+  fullName: PortalLogic.OnDestroyBegin
+- uid: Global.PortalLogic.MakeTilesBehindPortalNonCollidable*
+  commentId: Overload:Global.PortalLogic.MakeTilesBehindPortalNonCollidable
+  href: Global.PortalLogic.html#PortalLogic.MakeTilesBehindPortalNonCollidable
+  name: MakeTilesBehindPortalNonCollidable
+  nameWithType: PortalLogic.MakeTilesBehindPortalNonCollidable
+  fullName: PortalLogic.MakeTilesBehindPortalNonCollidable
+- uid: Global.PortalLogic.MakeTilesBehindPortalCollidable*
+  commentId: Overload:Global.PortalLogic.MakeTilesBehindPortalCollidable
+  href: Global.PortalLogic.html#PortalLogic.MakeTilesBehindPortalCollidable
+  name: MakeTilesBehindPortalCollidable
+  nameWithType: PortalLogic.MakeTilesBehindPortalCollidable
+  fullName: PortalLogic.MakeTilesBehindPortalCollidable

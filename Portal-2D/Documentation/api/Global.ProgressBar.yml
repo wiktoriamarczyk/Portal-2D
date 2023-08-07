@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.ProgressBar
+  commentId: T:Global.ProgressBar
+  id: ProgressBar
+  parent: Global
+  children:
+  - Global.ProgressBar.SetProgressBarValue(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: ProgressBar
+  nameWithType: ProgressBar
+  fullName: ProgressBar
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/ProgressBar.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: ProgressBar
+    path: ../Assets/Scripts/Other/ProgressBar.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: 'public class ProgressBar : MonoBehaviour'
+    content.vb: Public Class ProgressBar Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.ProgressBar.SetProgressBarValue(System.Single)
+  commentId: M:Global.ProgressBar.SetProgressBarValue(System.Single)
+  id: SetProgressBarValue(System.Single)
+  parent: Global.ProgressBar
+  langs:
+  - csharp
+  - vb
+  name: SetProgressBarValue(float)
+  nameWithType: ProgressBar.SetProgressBarValue(float)
+  fullName: ProgressBar.SetProgressBarValue(float)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/ProgressBar.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SetProgressBarValue
+    path: ../Assets/Scripts/Other/ProgressBar.cs
+    startLine: 13
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public void SetProgressBarValue(float value)
+    parameters:
+    - id: value
+      type: System.Single
+    content.vb: Public Sub SetProgressBarValue(value As Single)
+  overload: Global.ProgressBar.SetProgressBarValue*
+  nameWithType.vb: ProgressBar.SetProgressBarValue(Single)
+  fullName.vb: ProgressBar.SetProgressBarValue(Single)
+  name.vb: SetProgressBarValue(Single)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.ProgressBar.SetProgressBarValue*
+  commentId: Overload:Global.ProgressBar.SetProgressBarValue
+  href: Global.ProgressBar.html#ProgressBar.SetProgressBarValue(System.Single)
+  name: SetProgressBarValue
+  nameWithType: ProgressBar.SetProgressBarValue
+  fullName: ProgressBar.SetProgressBarValue
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

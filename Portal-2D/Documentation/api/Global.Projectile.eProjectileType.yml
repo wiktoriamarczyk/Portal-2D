@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Projectile.eProjectileType
+  commentId: T:Global.Projectile.eProjectileType
+  id: Projectile.eProjectileType
+  parent: Global
+  children:
+  - Global.Projectile.eProjectileType.BLUE
+  - Global.Projectile.eProjectileType.ORANGE
+  langs:
+  - csharp
+  - vb
+  name: Projectile.eProjectileType
+  nameWithType: Projectile.eProjectileType
+  fullName: Projectile.eProjectileType
+  type: Enum
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/Projectile.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: eProjectileType
+    path: ../Assets/Scripts/Portal/Projectile.cs
+    startLine: 58
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Projectile types
+  example: []
+  syntax:
+    content: public enum Projectile.eProjectileType
+    content.vb: Public Enum Projectile.eProjectileType
+- uid: Global.Projectile.eProjectileType.BLUE
+  commentId: F:Global.Projectile.eProjectileType.BLUE
+  id: BLUE
+  parent: Global.Projectile.eProjectileType
+  langs:
+  - csharp
+  - vb
+  name: BLUE
+  nameWithType: Projectile.eProjectileType.BLUE
+  fullName: Projectile.eProjectileType.BLUE
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/Projectile.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: BLUE
+    path: ../Assets/Scripts/Portal/Projectile.cs
+    startLine: 60
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: BLUE = 0
+    return:
+      type: Global.Projectile.eProjectileType
+- uid: Global.Projectile.eProjectileType.ORANGE
+  commentId: F:Global.Projectile.eProjectileType.ORANGE
+  id: ORANGE
+  parent: Global.Projectile.eProjectileType
+  langs:
+  - csharp
+  - vb
+  name: ORANGE
+  nameWithType: Projectile.eProjectileType.ORANGE
+  fullName: Projectile.eProjectileType.ORANGE
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/Projectile.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: ORANGE
+    path: ../Assets/Scripts/Portal/Projectile.cs
+    startLine: 61
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: ORANGE = 1
+    return:
+      type: Global.Projectile.eProjectileType
+references:
+- uid: Global
+- uid: Global.Projectile.eProjectileType
+  commentId: T:Global.Projectile.eProjectileType
+  href: Projectile.html
+  name: Projectile.eProjectileType
+  nameWithType: Projectile.eProjectileType
+  fullName: Projectile.eProjectileType
+  spec.csharp:
+  - uid: Global.Projectile
+    name: Projectile
+    href: Projectile.html
+  - name: .
+  - uid: Global.Projectile.eProjectileType
+    name: eProjectileType
+    href: Projectile.eProjectileType.html
+  spec.vb:
+  - uid: Global.Projectile
+    name: Projectile
+    href: Projectile.html
+  - name: .
+  - uid: Global.Projectile.eProjectileType
+    name: eProjectileType
+    href: Projectile.eProjectileType.html

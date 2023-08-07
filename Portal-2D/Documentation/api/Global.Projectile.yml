@@ -1,0 +1,217 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Projectile
+  commentId: T:Global.Projectile
+  id: Projectile
+  parent: Global
+  children:
+  - Global.Projectile.InitializePortalProperties(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  - Global.Projectile.InitializeProjectile(UnityEngine.Vector3,Projectile.eProjectileType)
+  langs:
+  - csharp
+  - vb
+  name: Projectile
+  nameWithType: Projectile
+  fullName: Projectile
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/Projectile.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Projectile
+    path: ../Assets/Scripts/Portal/Projectile.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class representing a projectile
+  example: []
+  syntax:
+    content: 'public class Projectile : MonoBehaviour'
+    content.vb: Public Class Projectile Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.Projectile.InitializeProjectile(UnityEngine.Vector3,Projectile.eProjectileType)
+  commentId: M:Global.Projectile.InitializeProjectile(UnityEngine.Vector3,Projectile.eProjectileType)
+  id: InitializeProjectile(UnityEngine.Vector3,Projectile.eProjectileType)
+  parent: Global.Projectile
+  langs:
+  - csharp
+  - vb
+  name: InitializeProjectile(Vector3, eProjectileType)
+  nameWithType: Projectile.InitializeProjectile(Vector3, Projectile.eProjectileType)
+  fullName: Projectile.InitializeProjectile(UnityEngine.Vector3, Projectile.eProjectileType)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/Projectile.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: InitializeProjectile
+    path: ../Assets/Scripts/Portal/Projectile.cs
+    startLine: 109
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Initializes projectile
+  example: []
+  syntax:
+    content: public void InitializeProjectile(Vector3 endPos, Projectile.eProjectileType type)
+    parameters:
+    - id: endPos
+      type: UnityEngine.Vector3
+      description: target position
+    - id: type
+      type: Global.Projectile.eProjectileType
+      description: type of the projectile
+    content.vb: Public Sub InitializeProjectile(endPos As Vector3, type As Projectile.eProjectileType)
+  overload: Global.Projectile.InitializeProjectile*
+- uid: Global.Projectile.InitializePortalProperties(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  commentId: M:Global.Projectile.InitializePortalProperties(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  id: InitializePortalProperties(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  parent: Global.Projectile
+  langs:
+  - csharp
+  - vb
+  name: InitializePortalProperties(Vector2, Vector3Int)
+  nameWithType: Projectile.InitializePortalProperties(Vector2, Vector3Int)
+  fullName: Projectile.InitializePortalProperties(UnityEngine.Vector2, UnityEngine.Vector3Int)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/Projectile.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: InitializePortalProperties
+    path: ../Assets/Scripts/Portal/Projectile.cs
+    startLine: 126
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Initializes portal properties
+  example: []
+  syntax:
+    content: public void InitializePortalProperties(Vector2 normal, Vector3Int gridPosition)
+    parameters:
+    - id: normal
+      type: UnityEngine.Vector2
+      description: normal vector
+    - id: gridPosition
+      type: UnityEngine.Vector3Int
+      description: position on grid on which portal will be spawned
+    content.vb: Public Sub InitializePortalProperties(normal As Vector2, gridPosition As Vector3Int)
+  overload: Global.Projectile.InitializePortalProperties*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.Projectile.InitializeProjectile*
+  commentId: Overload:Global.Projectile.InitializeProjectile
+  href: Global.Projectile.html#Projectile.InitializeProjectile(UnityEngine.Vector3,Projectile.eProjectileType)
+  name: InitializeProjectile
+  nameWithType: Projectile.InitializeProjectile
+  fullName: Projectile.InitializeProjectile
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: Global.Projectile.eProjectileType
+  commentId: T:Global.Projectile.eProjectileType
+  href: Projectile.html
+  name: Projectile.eProjectileType
+  nameWithType: Projectile.eProjectileType
+  fullName: Projectile.eProjectileType
+  spec.csharp:
+  - uid: Global.Projectile
+    name: Projectile
+    href: Projectile.html
+  - name: .
+  - uid: Global.Projectile.eProjectileType
+    name: eProjectileType
+    href: Projectile.eProjectileType.html
+  spec.vb:
+  - uid: Global.Projectile
+    name: Projectile
+    href: Projectile.html
+  - name: .
+  - uid: Global.Projectile.eProjectileType
+    name: eProjectileType
+    href: Projectile.eProjectileType.html
+- uid: Global.Projectile.InitializePortalProperties*
+  commentId: Overload:Global.Projectile.InitializePortalProperties
+  href: Global.Projectile.html#Projectile.InitializePortalProperties(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  name: InitializePortalProperties
+  nameWithType: Projectile.InitializePortalProperties
+  fullName: Projectile.InitializePortalProperties
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: UnityEngine.Vector3Int
+  commentId: T:UnityEngine.Vector3Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3Int
+  nameWithType: Vector3Int
+  fullName: UnityEngine.Vector3Int

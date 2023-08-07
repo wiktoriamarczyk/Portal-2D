@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalContinuedPathGenerator
+  commentId: T:Global.PortalContinuedPathGenerator
+  id: PortalContinuedPathGenerator
+  parent: Global
+  children:
+  - Global.PortalContinuedPathGenerator.DisableGenerator
+  - Global.PortalContinuedPathGenerator.DoGenerate
+  - Global.PortalContinuedPathGenerator.EnableGenerator
+  - Global.PortalContinuedPathGenerator.Generate
+  - Global.PortalContinuedPathGenerator.ToggleEnable
+  langs:
+  - csharp
+  - vb
+  name: PortalContinuedPathGenerator
+  nameWithType: PortalContinuedPathGenerator
+  fullName: PortalContinuedPathGenerator
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalContinuedPathGenerator
+    path: ../Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for generating the path which can be continued by the portal
+  example: []
+  syntax:
+    content: 'public class PortalContinuedPathGenerator : MonoBehaviour'
+    content.vb: Public Class PortalContinuedPathGenerator Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PortalContinuedPathGenerator.EnableGenerator
+  commentId: M:Global.PortalContinuedPathGenerator.EnableGenerator
+  id: EnableGenerator
+  parent: Global.PortalContinuedPathGenerator
+  langs:
+  - csharp
+  - vb
+  name: EnableGenerator()
+  nameWithType: PortalContinuedPathGenerator.EnableGenerator()
+  fullName: PortalContinuedPathGenerator.EnableGenerator()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: EnableGenerator
+    path: ../Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+    startLine: 55
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method which activates the generator
+  example: []
+  syntax:
+    content: public void EnableGenerator()
+    content.vb: Public Sub EnableGenerator()
+  overload: Global.PortalContinuedPathGenerator.EnableGenerator*
+- uid: Global.PortalContinuedPathGenerator.DisableGenerator
+  commentId: M:Global.PortalContinuedPathGenerator.DisableGenerator
+  id: DisableGenerator
+  parent: Global.PortalContinuedPathGenerator
+  langs:
+  - csharp
+  - vb
+  name: DisableGenerator()
+  nameWithType: PortalContinuedPathGenerator.DisableGenerator()
+  fullName: PortalContinuedPathGenerator.DisableGenerator()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: DisableGenerator
+    path: ../Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+    startLine: 66
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method which deactivates the generator
+  example: []
+  syntax:
+    content: public void DisableGenerator()
+    content.vb: Public Sub DisableGenerator()
+  overload: Global.PortalContinuedPathGenerator.DisableGenerator*
+- uid: Global.PortalContinuedPathGenerator.Generate
+  commentId: M:Global.PortalContinuedPathGenerator.Generate
+  id: Generate
+  parent: Global.PortalContinuedPathGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate()
+  nameWithType: PortalContinuedPathGenerator.Generate()
+  fullName: PortalContinuedPathGenerator.Generate()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Generate
+    path: ../Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+    startLine: 86
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method which invokes generatation of the path
+  example: []
+  syntax:
+    content: public void Generate()
+    content.vb: Public Sub Generate()
+  overload: Global.PortalContinuedPathGenerator.Generate*
+- uid: Global.PortalContinuedPathGenerator.DoGenerate
+  commentId: M:Global.PortalContinuedPathGenerator.DoGenerate
+  id: DoGenerate
+  parent: Global.PortalContinuedPathGenerator
+  langs:
+  - csharp
+  - vb
+  name: DoGenerate()
+  nameWithType: PortalContinuedPathGenerator.DoGenerate()
+  fullName: PortalContinuedPathGenerator.DoGenerate()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: DoGenerate
+    path: ../Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+    startLine: 93
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method which regenerates the path
+  example: []
+  syntax:
+    content: public void DoGenerate()
+    content.vb: Public Sub DoGenerate()
+  overload: Global.PortalContinuedPathGenerator.DoGenerate*
+- uid: Global.PortalContinuedPathGenerator.ToggleEnable
+  commentId: M:Global.PortalContinuedPathGenerator.ToggleEnable
+  id: ToggleEnable
+  parent: Global.PortalContinuedPathGenerator
+  langs:
+  - csharp
+  - vb
+  name: ToggleEnable()
+  nameWithType: PortalContinuedPathGenerator.ToggleEnable()
+  fullName: PortalContinuedPathGenerator.ToggleEnable()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: ToggleEnable
+    path: ../Assets/Scripts/InteractiveObjects/PortalContinuedPathGenerator.cs
+    startLine: 174
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Toggles funnel accordingly with user interactions
+  example: []
+  syntax:
+    content: public void ToggleEnable()
+    content.vb: Public Sub ToggleEnable()
+  overload: Global.PortalContinuedPathGenerator.ToggleEnable*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalContinuedPathGenerator.EnableGenerator*
+  commentId: Overload:Global.PortalContinuedPathGenerator.EnableGenerator
+  href: Global.PortalContinuedPathGenerator.html#PortalContinuedPathGenerator.EnableGenerator
+  name: EnableGenerator
+  nameWithType: PortalContinuedPathGenerator.EnableGenerator
+  fullName: PortalContinuedPathGenerator.EnableGenerator
+- uid: Global.PortalContinuedPathGenerator.DisableGenerator*
+  commentId: Overload:Global.PortalContinuedPathGenerator.DisableGenerator
+  href: Global.PortalContinuedPathGenerator.html#PortalContinuedPathGenerator.DisableGenerator
+  name: DisableGenerator
+  nameWithType: PortalContinuedPathGenerator.DisableGenerator
+  fullName: PortalContinuedPathGenerator.DisableGenerator
+- uid: Global.PortalContinuedPathGenerator.Generate*
+  commentId: Overload:Global.PortalContinuedPathGenerator.Generate
+  href: Global.PortalContinuedPathGenerator.html#PortalContinuedPathGenerator.Generate
+  name: Generate
+  nameWithType: PortalContinuedPathGenerator.Generate
+  fullName: PortalContinuedPathGenerator.Generate
+- uid: Global.PortalContinuedPathGenerator.DoGenerate*
+  commentId: Overload:Global.PortalContinuedPathGenerator.DoGenerate
+  href: Global.PortalContinuedPathGenerator.html#PortalContinuedPathGenerator.DoGenerate
+  name: DoGenerate
+  nameWithType: PortalContinuedPathGenerator.DoGenerate
+  fullName: PortalContinuedPathGenerator.DoGenerate
+- uid: Global.PortalContinuedPathGenerator.ToggleEnable*
+  commentId: Overload:Global.PortalContinuedPathGenerator.ToggleEnable
+  href: Global.PortalContinuedPathGenerator.html#PortalContinuedPathGenerator.ToggleEnable
+  name: ToggleEnable
+  nameWithType: PortalContinuedPathGenerator.ToggleEnable
+  fullName: PortalContinuedPathGenerator.ToggleEnable

@@ -1,0 +1,243 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.BoxTrigger
+  commentId: T:Global.BoxTrigger
+  id: BoxTrigger
+  parent: Global
+  children:
+  - Global.BoxTrigger.OnTriggerEnter
+  - Global.BoxTrigger.OnTriggerLeave
+  langs:
+  - csharp
+  - vb
+  name: BoxTrigger
+  nameWithType: BoxTrigger
+  fullName: BoxTrigger
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/BoxTrigger.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: BoxTrigger
+    path: ../Assets/Scripts/Other/BoxTrigger.cs
+    startLine: 9
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Simple helper class that forwards OnTriggerEnter/Leave events
+  example: []
+  syntax:
+    content: 'public class BoxTrigger : MonoBehaviour'
+    content.vb: Public Class BoxTrigger Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.BoxTrigger.OnTriggerEnter
+  commentId: F:Global.BoxTrigger.OnTriggerEnter
+  id: OnTriggerEnter
+  parent: Global.BoxTrigger
+  langs:
+  - csharp
+  - vb
+  name: OnTriggerEnter
+  nameWithType: BoxTrigger.OnTriggerEnter
+  fullName: BoxTrigger.OnTriggerEnter
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/BoxTrigger.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnTriggerEnter
+    path: ../Assets/Scripts/Other/BoxTrigger.cs
+    startLine: 11
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: >-
+      [SerializeField]
+
+      public UnityEvent<Collider2D> OnTriggerEnter
+    return:
+      type: UnityEngine.Events.UnityEvent{UnityEngine.Collider2D}
+    content.vb: >-
+      <SerializeField>
+
+      Public OnTriggerEnter As UnityEvent(Of Collider2D)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: Global.BoxTrigger.OnTriggerLeave
+  commentId: F:Global.BoxTrigger.OnTriggerLeave
+  id: OnTriggerLeave
+  parent: Global.BoxTrigger
+  langs:
+  - csharp
+  - vb
+  name: OnTriggerLeave
+  nameWithType: BoxTrigger.OnTriggerLeave
+  fullName: BoxTrigger.OnTriggerLeave
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/BoxTrigger.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnTriggerLeave
+    path: ../Assets/Scripts/Other/BoxTrigger.cs
+    startLine: 12
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: >-
+      [SerializeField]
+
+      public UnityEvent<Collider2D> OnTriggerLeave
+    return:
+      type: UnityEngine.Events.UnityEvent{UnityEngine.Collider2D}
+    content.vb: >-
+      <SerializeField>
+
+      Public OnTriggerLeave As UnityEvent(Of Collider2D)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Events.UnityEvent{UnityEngine.Collider2D}
+  commentId: T:UnityEngine.Events.UnityEvent{UnityEngine.Collider2D}
+  parent: UnityEngine.Events
+  definition: UnityEngine.Events.UnityEvent`1
+  name: UnityEvent<Collider2D>
+  nameWithType: UnityEvent<Collider2D>
+  fullName: UnityEngine.Events.UnityEvent<UnityEngine.Collider2D>
+  nameWithType.vb: UnityEvent(Of Collider2D)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of UnityEngine.Collider2D)
+  name.vb: UnityEvent(Of Collider2D)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    isExternal: true
+  - name: <
+  - uid: UnityEngine.Collider2D
+    name: Collider2D
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Collider2D
+    name: Collider2D
+    isExternal: true
+  - name: )
+- uid: UnityEngine.Events.UnityEvent`1
+  commentId: T:UnityEngine.Events.UnityEvent`1
+  isExternal: true
+  name: UnityEvent<T0>
+  nameWithType: UnityEvent<T0>
+  fullName: UnityEngine.Events.UnityEvent<T0>
+  nameWithType.vb: UnityEvent(Of T0)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of T0)
+  name.vb: UnityEvent(Of T0)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    isExternal: true
+  - name: <
+  - name: T0
+  - name: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T0
+  - name: )
+- uid: UnityEngine.Events
+  commentId: N:UnityEngine.Events
+  isExternal: true
+  name: UnityEngine.Events
+  nameWithType: UnityEngine.Events
+  fullName: UnityEngine.Events
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.Events
+    name: Events
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.Events
+    name: Events
+    isExternal: true

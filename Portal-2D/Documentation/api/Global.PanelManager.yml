@@ -1,0 +1,461 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PanelManager
+  commentId: T:Global.PanelManager
+  id: PanelManager
+  parent: Global
+  children:
+  - Global.PanelManager.HideCurrentPanel
+  - Global.PanelManager.Instance
+  - Global.PanelManager.LoadLevel(System.String)
+  - Global.PanelManager.QuitGame
+  - Global.PanelManager.SetMusicVolume(System.Single)
+  - Global.PanelManager.ShowPanel(UnityEngine.GameObject)
+  - Global.PanelManager.TurnMusicDown
+  - Global.PanelManager.TurnMusicUp
+  - Global.PanelManager.TurnOnOffMusic
+  langs:
+  - csharp
+  - vb
+  name: PanelManager
+  nameWithType: PanelManager
+  fullName: PanelManager
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PanelManager
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 9
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class managing UI panels
+  example: []
+  syntax:
+    content: 'public class PanelManager : MonoBehaviour'
+    content.vb: Public Class PanelManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PanelManager.Instance
+  commentId: P:Global.PanelManager.Instance
+  id: Instance
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: PanelManager.Instance
+  fullName: PanelManager.Instance
+  type: Property
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Instance
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Singleton instance
+  example: []
+  syntax:
+    content: public static PanelManager Instance { get; }
+    parameters: []
+    return:
+      type: Global.PanelManager
+    content.vb: Public Shared Property Instance As PanelManager
+  overload: Global.PanelManager.Instance*
+- uid: Global.PanelManager.ShowPanel(UnityEngine.GameObject)
+  commentId: M:Global.PanelManager.ShowPanel(UnityEngine.GameObject)
+  id: ShowPanel(UnityEngine.GameObject)
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: ShowPanel(GameObject)
+  nameWithType: PanelManager.ShowPanel(GameObject)
+  fullName: PanelManager.ShowPanel(UnityEngine.GameObject)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: ShowPanel
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 69
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method showing panel
+  example: []
+  syntax:
+    content: public void ShowPanel(GameObject panel)
+    parameters:
+    - id: panel
+      type: UnityEngine.GameObject
+      description: panel to be showed
+    content.vb: Public Sub ShowPanel(panel As GameObject)
+  overload: Global.PanelManager.ShowPanel*
+- uid: Global.PanelManager.HideCurrentPanel
+  commentId: M:Global.PanelManager.HideCurrentPanel
+  id: HideCurrentPanel
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: HideCurrentPanel()
+  nameWithType: PanelManager.HideCurrentPanel()
+  fullName: PanelManager.HideCurrentPanel()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: HideCurrentPanel
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 78
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method hiding current panel
+  example: []
+  syntax:
+    content: public void HideCurrentPanel()
+    content.vb: Public Sub HideCurrentPanel()
+  overload: Global.PanelManager.HideCurrentPanel*
+- uid: Global.PanelManager.LoadLevel(System.String)
+  commentId: M:Global.PanelManager.LoadLevel(System.String)
+  id: LoadLevel(System.String)
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: LoadLevel(string)
+  nameWithType: PanelManager.LoadLevel(string)
+  fullName: PanelManager.LoadLevel(string)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: LoadLevel
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 89
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for loading level
+  example: []
+  syntax:
+    content: public void LoadLevel(string sceneName)
+    parameters:
+    - id: sceneName
+      type: System.String
+      description: level to be loaded
+    content.vb: Public Sub LoadLevel(sceneName As String)
+  overload: Global.PanelManager.LoadLevel*
+  nameWithType.vb: PanelManager.LoadLevel(String)
+  fullName.vb: PanelManager.LoadLevel(String)
+  name.vb: LoadLevel(String)
+- uid: Global.PanelManager.QuitGame
+  commentId: M:Global.PanelManager.QuitGame
+  id: QuitGame
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: QuitGame()
+  nameWithType: PanelManager.QuitGame()
+  fullName: PanelManager.QuitGame()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: QuitGame
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 97
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for quitting the game
+  example: []
+  syntax:
+    content: public void QuitGame()
+    content.vb: Public Sub QuitGame()
+  overload: Global.PanelManager.QuitGame*
+- uid: Global.PanelManager.TurnOnOffMusic
+  commentId: M:Global.PanelManager.TurnOnOffMusic
+  id: TurnOnOffMusic
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: TurnOnOffMusic()
+  nameWithType: PanelManager.TurnOnOffMusic()
+  fullName: PanelManager.TurnOnOffMusic()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TurnOnOffMusic
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 104
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for enabling and disabling the music
+  example: []
+  syntax:
+    content: public void TurnOnOffMusic()
+    content.vb: Public Sub TurnOnOffMusic()
+  overload: Global.PanelManager.TurnOnOffMusic*
+- uid: Global.PanelManager.SetMusicVolume(System.Single)
+  commentId: M:Global.PanelManager.SetMusicVolume(System.Single)
+  id: SetMusicVolume(System.Single)
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: SetMusicVolume(float)
+  nameWithType: PanelManager.SetMusicVolume(float)
+  fullName: PanelManager.SetMusicVolume(float)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SetMusicVolume
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 126
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for setting music volume
+  example: []
+  syntax:
+    content: public void SetMusicVolume(float volume)
+    parameters:
+    - id: volume
+      type: System.Single
+      description: music volume
+    content.vb: Public Sub SetMusicVolume(volume As Single)
+  overload: Global.PanelManager.SetMusicVolume*
+  nameWithType.vb: PanelManager.SetMusicVolume(Single)
+  fullName.vb: PanelManager.SetMusicVolume(Single)
+  name.vb: SetMusicVolume(Single)
+- uid: Global.PanelManager.TurnMusicUp
+  commentId: M:Global.PanelManager.TurnMusicUp
+  id: TurnMusicUp
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: TurnMusicUp()
+  nameWithType: PanelManager.TurnMusicUp()
+  fullName: PanelManager.TurnMusicUp()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TurnMusicUp
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 136
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for turning music volume up
+  example: []
+  syntax:
+    content: public void TurnMusicUp()
+    content.vb: Public Sub TurnMusicUp()
+  overload: Global.PanelManager.TurnMusicUp*
+- uid: Global.PanelManager.TurnMusicDown
+  commentId: M:Global.PanelManager.TurnMusicDown
+  id: TurnMusicDown
+  parent: Global.PanelManager
+  langs:
+  - csharp
+  - vb
+  name: TurnMusicDown()
+  nameWithType: PanelManager.TurnMusicDown()
+  fullName: PanelManager.TurnMusicDown()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PanelManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TurnMusicDown
+    path: ../Assets/Scripts/Other/PanelManager.cs
+    startLine: 143
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for turning music volume down
+  example: []
+  syntax:
+    content: public void TurnMusicDown()
+    content.vb: Public Sub TurnMusicDown()
+  overload: Global.PanelManager.TurnMusicDown*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PanelManager.Instance*
+  commentId: Overload:Global.PanelManager.Instance
+  href: Global.PanelManager.html#PanelManager.Instance
+  name: Instance
+  nameWithType: PanelManager.Instance
+  fullName: PanelManager.Instance
+- uid: Global.PanelManager
+  commentId: T:Global.PanelManager
+  href: PanelManager.html
+  name: PanelManager
+  nameWithType: PanelManager
+  fullName: PanelManager
+- uid: Global.PanelManager.ShowPanel*
+  commentId: Overload:Global.PanelManager.ShowPanel
+  href: Global.PanelManager.html#PanelManager.ShowPanel(UnityEngine.GameObject)
+  name: ShowPanel
+  nameWithType: PanelManager.ShowPanel
+  fullName: PanelManager.ShowPanel
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Global.PanelManager.HideCurrentPanel*
+  commentId: Overload:Global.PanelManager.HideCurrentPanel
+  href: Global.PanelManager.html#PanelManager.HideCurrentPanel
+  name: HideCurrentPanel
+  nameWithType: PanelManager.HideCurrentPanel
+  fullName: PanelManager.HideCurrentPanel
+- uid: Global.PanelManager.LoadLevel*
+  commentId: Overload:Global.PanelManager.LoadLevel
+  href: Global.PanelManager.html#PanelManager.LoadLevel(System.String)
+  name: LoadLevel
+  nameWithType: PanelManager.LoadLevel
+  fullName: PanelManager.LoadLevel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.PanelManager.QuitGame*
+  commentId: Overload:Global.PanelManager.QuitGame
+  href: Global.PanelManager.html#PanelManager.QuitGame
+  name: QuitGame
+  nameWithType: PanelManager.QuitGame
+  fullName: PanelManager.QuitGame
+- uid: Global.PanelManager.TurnOnOffMusic*
+  commentId: Overload:Global.PanelManager.TurnOnOffMusic
+  href: Global.PanelManager.html#PanelManager.TurnOnOffMusic
+  name: TurnOnOffMusic
+  nameWithType: PanelManager.TurnOnOffMusic
+  fullName: PanelManager.TurnOnOffMusic
+- uid: Global.PanelManager.SetMusicVolume*
+  commentId: Overload:Global.PanelManager.SetMusicVolume
+  href: Global.PanelManager.html#PanelManager.SetMusicVolume(System.Single)
+  name: SetMusicVolume
+  nameWithType: PanelManager.SetMusicVolume
+  fullName: PanelManager.SetMusicVolume
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.PanelManager.TurnMusicUp*
+  commentId: Overload:Global.PanelManager.TurnMusicUp
+  href: Global.PanelManager.html#PanelManager.TurnMusicUp
+  name: TurnMusicUp
+  nameWithType: PanelManager.TurnMusicUp
+  fullName: PanelManager.TurnMusicUp
+- uid: Global.PanelManager.TurnMusicDown*
+  commentId: Overload:Global.PanelManager.TurnMusicDown
+  href: Global.PanelManager.html#PanelManager.TurnMusicDown
+  name: TurnMusicDown
+  nameWithType: PanelManager.TurnMusicDown
+  fullName: PanelManager.TurnMusicDown

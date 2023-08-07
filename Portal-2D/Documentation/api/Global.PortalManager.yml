@@ -1,0 +1,392 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalManager
+  commentId: T:Global.PortalManager
+  id: PortalManager
+  parent: Global
+  children:
+  - Global.PortalManager.ImpostorTilemapProperty
+  - Global.PortalManager.Instance
+  - Global.PortalManager.OnPortalChange
+  - Global.PortalManager.TilemapProperty
+  - Global.PortalManager.TrySpawnBluePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  - Global.PortalManager.TrySpawnOrangePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  langs:
+  - csharp
+  - vb
+  name: PortalManager
+  nameWithType: PortalManager
+  fullName: PortalManager
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalManager
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 8
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class that manages portals and their spawning.
+  example: []
+  syntax:
+    content: 'public class PortalManager : MonoBehaviour'
+    content.vb: Public Class PortalManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PortalManager.Instance
+  commentId: P:Global.PortalManager.Instance
+  id: Instance
+  parent: Global.PortalManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: PortalManager.Instance
+  fullName: PortalManager.Instance
+  type: Property
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Instance
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 13
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Singleton instance
+  example: []
+  syntax:
+    content: public static PortalManager Instance { get; }
+    parameters: []
+    return:
+      type: Global.PortalManager
+    content.vb: Public Shared Property Instance As PortalManager
+  overload: Global.PortalManager.Instance*
+- uid: Global.PortalManager.OnPortalChange
+  commentId: E:Global.PortalManager.OnPortalChange
+  id: OnPortalChange
+  parent: Global.PortalManager
+  langs:
+  - csharp
+  - vb
+  name: OnPortalChange
+  nameWithType: PortalManager.OnPortalChange
+  fullName: PortalManager.OnPortalChange
+  type: Event
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnPortalChange
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 53
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Event invoked when portal changes
+  example: []
+  syntax:
+    content: public static event Action OnPortalChange
+    return:
+      type: System.Action
+    content.vb: Public Shared Event OnPortalChange As Action
+- uid: Global.PortalManager.TilemapProperty
+  commentId: P:Global.PortalManager.TilemapProperty
+  id: TilemapProperty
+  parent: Global.PortalManager
+  langs:
+  - csharp
+  - vb
+  name: TilemapProperty
+  nameWithType: PortalManager.TilemapProperty
+  fullName: PortalManager.TilemapProperty
+  type: Property
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TilemapProperty
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Tilemap property
+  example: []
+  syntax:
+    content: public Tilemap TilemapProperty { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Tilemaps.Tilemap
+    content.vb: Public ReadOnly Property TilemapProperty As Tilemap
+  overload: Global.PortalManager.TilemapProperty*
+- uid: Global.PortalManager.ImpostorTilemapProperty
+  commentId: P:Global.PortalManager.ImpostorTilemapProperty
+  id: ImpostorTilemapProperty
+  parent: Global.PortalManager
+  langs:
+  - csharp
+  - vb
+  name: ImpostorTilemapProperty
+  nameWithType: PortalManager.ImpostorTilemapProperty
+  fullName: PortalManager.ImpostorTilemapProperty
+  type: Property
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: ImpostorTilemapProperty
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 64
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Impostor tilemap property
+  example: []
+  syntax:
+    content: public Tilemap ImpostorTilemapProperty { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Tilemaps.Tilemap
+    content.vb: Public ReadOnly Property ImpostorTilemapProperty As Tilemap
+  overload: Global.PortalManager.ImpostorTilemapProperty*
+- uid: Global.PortalManager.TrySpawnBluePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  commentId: M:Global.PortalManager.TrySpawnBluePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  id: TrySpawnBluePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  parent: Global.PortalManager
+  langs:
+  - csharp
+  - vb
+  name: TrySpawnBluePortal(Vector2, Vector3Int)
+  nameWithType: PortalManager.TrySpawnBluePortal(Vector2, Vector3Int)
+  fullName: PortalManager.TrySpawnBluePortal(UnityEngine.Vector2, UnityEngine.Vector3Int)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TrySpawnBluePortal
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 128
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Tries to spawn blue portal
+  example: []
+  syntax:
+    content: public bool TrySpawnBluePortal(Vector2 normal, Vector3Int gridPosition)
+    parameters:
+    - id: normal
+      type: UnityEngine.Vector2
+      description: normal vector
+    - id: gridPosition
+      type: UnityEngine.Vector3Int
+      description: portal spawn position
+    return:
+      type: System.Boolean
+      description: true if portal was spawned
+    content.vb: Public Function TrySpawnBluePortal(normal As Vector2, gridPosition As Vector3Int) As Boolean
+  overload: Global.PortalManager.TrySpawnBluePortal*
+- uid: Global.PortalManager.TrySpawnOrangePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  commentId: M:Global.PortalManager.TrySpawnOrangePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  id: TrySpawnOrangePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  parent: Global.PortalManager
+  langs:
+  - csharp
+  - vb
+  name: TrySpawnOrangePortal(Vector2, Vector3Int)
+  nameWithType: PortalManager.TrySpawnOrangePortal(Vector2, Vector3Int)
+  fullName: PortalManager.TrySpawnOrangePortal(UnityEngine.Vector2, UnityEngine.Vector3Int)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TrySpawnOrangePortal
+    path: ../Assets/Scripts/Portal/PortalManager.cs
+    startLine: 138
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Tries to spawn orange portal
+  example: []
+  syntax:
+    content: public bool TrySpawnOrangePortal(Vector2 normal, Vector3Int gridPosition)
+    parameters:
+    - id: normal
+      type: UnityEngine.Vector2
+      description: normal vector
+    - id: gridPosition
+      type: UnityEngine.Vector3Int
+      description: portal spawn position
+    return:
+      type: System.Boolean
+      description: true if portal was spawned
+    content.vb: Public Function TrySpawnOrangePortal(normal As Vector2, gridPosition As Vector3Int) As Boolean
+  overload: Global.PortalManager.TrySpawnOrangePortal*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalManager.Instance*
+  commentId: Overload:Global.PortalManager.Instance
+  href: Global.PortalManager.html#PortalManager.Instance
+  name: Instance
+  nameWithType: PortalManager.Instance
+  fullName: PortalManager.Instance
+- uid: Global.PortalManager
+  commentId: T:Global.PortalManager
+  href: PortalManager.html
+  name: PortalManager
+  nameWithType: PortalManager
+  fullName: PortalManager
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: Global.PortalManager.TilemapProperty*
+  commentId: Overload:Global.PortalManager.TilemapProperty
+  href: Global.PortalManager.html#PortalManager.TilemapProperty
+  name: TilemapProperty
+  nameWithType: PortalManager.TilemapProperty
+  fullName: PortalManager.TilemapProperty
+- uid: UnityEngine.Tilemaps.Tilemap
+  commentId: T:UnityEngine.Tilemaps.Tilemap
+  parent: UnityEngine.Tilemaps
+  isExternal: true
+  name: Tilemap
+  nameWithType: Tilemap
+  fullName: UnityEngine.Tilemaps.Tilemap
+- uid: UnityEngine.Tilemaps
+  commentId: N:UnityEngine.Tilemaps
+  isExternal: true
+  name: UnityEngine.Tilemaps
+  nameWithType: UnityEngine.Tilemaps
+  fullName: UnityEngine.Tilemaps
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.Tilemaps
+    name: Tilemaps
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.Tilemaps
+    name: Tilemaps
+    isExternal: true
+- uid: Global.PortalManager.ImpostorTilemapProperty*
+  commentId: Overload:Global.PortalManager.ImpostorTilemapProperty
+  href: Global.PortalManager.html#PortalManager.ImpostorTilemapProperty
+  name: ImpostorTilemapProperty
+  nameWithType: PortalManager.ImpostorTilemapProperty
+  fullName: PortalManager.ImpostorTilemapProperty
+- uid: Global.PortalManager.TrySpawnBluePortal*
+  commentId: Overload:Global.PortalManager.TrySpawnBluePortal
+  href: Global.PortalManager.html#PortalManager.TrySpawnBluePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  name: TrySpawnBluePortal
+  nameWithType: PortalManager.TrySpawnBluePortal
+  fullName: PortalManager.TrySpawnBluePortal
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: UnityEngine.Vector3Int
+  commentId: T:UnityEngine.Vector3Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3Int
+  nameWithType: Vector3Int
+  fullName: UnityEngine.Vector3Int
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.PortalManager.TrySpawnOrangePortal*
+  commentId: Overload:Global.PortalManager.TrySpawnOrangePortal
+  href: Global.PortalManager.html#PortalManager.TrySpawnOrangePortal(UnityEngine.Vector2,UnityEngine.Vector3Int)
+  name: TrySpawnOrangePortal
+  nameWithType: PortalManager.TrySpawnOrangePortal
+  fullName: PortalManager.TrySpawnOrangePortal

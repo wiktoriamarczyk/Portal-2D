@@ -1,0 +1,355 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalLaser
+  commentId: T:Global.PortalLaser
+  id: PortalLaser
+  parent: Global
+  children:
+  - Global.PortalLaser.isBlueHitByMirror
+  - Global.PortalLaser.isBlueHitByTransmitter
+  - Global.PortalLaser.isBluePortalHit
+  - Global.PortalLaser.isOrangeHitByMirror
+  - Global.PortalLaser.isOrangeHitByTransmitter
+  - Global.PortalLaser.isOrangePortalHit
+  - Global.PortalLaser.layerMask
+  - Global.PortalLaser.lineRenderer
+  langs:
+  - csharp
+  - vb
+  name: PortalLaser
+  nameWithType: PortalLaser
+  fullName: PortalLaser
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalLaser
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class to controll the lasers emitted by the portals
+  example: []
+  syntax:
+    content: 'public class PortalLaser : MonoBehaviour'
+    content.vb: Public Class PortalLaser Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PortalLaser.isBluePortalHit
+  commentId: F:Global.PortalLaser.isBluePortalHit
+  id: isBluePortalHit
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: isBluePortalHit
+  nameWithType: PortalLaser.isBluePortalHit
+  fullName: PortalLaser.isBluePortalHit
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isBluePortalHit
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 11
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Indicates whether the blue portal was hit by a laser or not.
+  example: []
+  syntax:
+    content: public static bool isBluePortalHit
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isBluePortalHit As Boolean
+- uid: Global.PortalLaser.isOrangePortalHit
+  commentId: F:Global.PortalLaser.isOrangePortalHit
+  id: isOrangePortalHit
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: isOrangePortalHit
+  nameWithType: PortalLaser.isOrangePortalHit
+  fullName: PortalLaser.isOrangePortalHit
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isOrangePortalHit
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 15
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Indicates whether the orange portal was hit by a laser or not.
+  example: []
+  syntax:
+    content: public static bool isOrangePortalHit
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isOrangePortalHit As Boolean
+- uid: Global.PortalLaser.isBlueHitByTransmitter
+  commentId: F:Global.PortalLaser.isBlueHitByTransmitter
+  id: isBlueHitByTransmitter
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: isBlueHitByTransmitter
+  nameWithType: PortalLaser.isBlueHitByTransmitter
+  fullName: PortalLaser.isBlueHitByTransmitter
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isBlueHitByTransmitter
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Indicates whether the blue portal was hit by a laser from transmitter or not.
+  example: []
+  syntax:
+    content: public static bool isBlueHitByTransmitter
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isBlueHitByTransmitter As Boolean
+- uid: Global.PortalLaser.isOrangeHitByTransmitter
+  commentId: F:Global.PortalLaser.isOrangeHitByTransmitter
+  id: isOrangeHitByTransmitter
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: isOrangeHitByTransmitter
+  nameWithType: PortalLaser.isOrangeHitByTransmitter
+  fullName: PortalLaser.isOrangeHitByTransmitter
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isOrangeHitByTransmitter
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 23
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Indicates whether the orange portal was hit by a laser from transmitter or not.
+  example: []
+  syntax:
+    content: public static bool isOrangeHitByTransmitter
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isOrangeHitByTransmitter As Boolean
+- uid: Global.PortalLaser.isBlueHitByMirror
+  commentId: F:Global.PortalLaser.isBlueHitByMirror
+  id: isBlueHitByMirror
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: isBlueHitByMirror
+  nameWithType: PortalLaser.isBlueHitByMirror
+  fullName: PortalLaser.isBlueHitByMirror
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isBlueHitByMirror
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 27
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Indicates whether the blue portal was hit by a laser from mirror or not.
+  example: []
+  syntax:
+    content: public static bool isBlueHitByMirror
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isBlueHitByMirror As Boolean
+- uid: Global.PortalLaser.isOrangeHitByMirror
+  commentId: F:Global.PortalLaser.isOrangeHitByMirror
+  id: isOrangeHitByMirror
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: isOrangeHitByMirror
+  nameWithType: PortalLaser.isOrangeHitByMirror
+  fullName: PortalLaser.isOrangeHitByMirror
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isOrangeHitByMirror
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 31
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Indicates whether the orange portal was hit by a laser from mirror or not.
+  example: []
+  syntax:
+    content: public static bool isOrangeHitByMirror
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isOrangeHitByMirror As Boolean
+- uid: Global.PortalLaser.lineRenderer
+  commentId: F:Global.PortalLaser.lineRenderer
+  id: lineRenderer
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: lineRenderer
+  nameWithType: PortalLaser.lineRenderer
+  fullName: PortalLaser.lineRenderer
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: lineRenderer
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 35
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: LineRenderer component - to draw the laser
+  example: []
+  syntax:
+    content: public LineRenderer lineRenderer
+    return:
+      type: UnityEngine.LineRenderer
+    content.vb: Public lineRenderer As LineRenderer
+- uid: Global.PortalLaser.layerMask
+  commentId: F:Global.PortalLaser.layerMask
+  id: layerMask
+  parent: Global.PortalLaser
+  langs:
+  - csharp
+  - vb
+  name: layerMask
+  nameWithType: PortalLaser.layerMask
+  fullName: PortalLaser.layerMask
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalLaser.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: layerMask
+    path: ../Assets/Scripts/Portal/PortalLaser.cs
+    startLine: 39
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: LayerMask component - to detect laser collisions
+  example: []
+  syntax:
+    content: public LayerMask layerMask
+    return:
+      type: UnityEngine.LayerMask
+    content.vb: Public layerMask As LayerMask
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.LineRenderer
+  commentId: T:UnityEngine.LineRenderer
+  parent: UnityEngine
+  isExternal: true
+  name: LineRenderer
+  nameWithType: LineRenderer
+  fullName: UnityEngine.LineRenderer
+- uid: UnityEngine.LayerMask
+  commentId: T:UnityEngine.LayerMask
+  parent: UnityEngine
+  isExternal: true
+  name: LayerMask
+  nameWithType: LayerMask
+  fullName: UnityEngine.LayerMask

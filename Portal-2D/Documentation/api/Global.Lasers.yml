@@ -1,0 +1,365 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Lasers
+  commentId: T:Global.Lasers
+  id: Lasers
+  parent: Global
+  children:
+  - Global.Lasers.activatedSprite
+  - Global.Lasers.defaultSprite
+  - Global.Lasers.isActive
+  - Global.Lasers.maxEnd
+  - Global.Lasers.realEnd
+  - Global.Lasers.start
+  - Global.Lasers.startLaser
+  - Global.Lasers.stopLaser
+  langs:
+  - csharp
+  - vb
+  name: Lasers
+  nameWithType: Lasers
+  fullName: Lasers
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Lasers
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 7
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Laser class - controls laser behaviour
+  example: []
+  syntax:
+    content: 'public class Lasers : MonoBehaviour'
+    content.vb: Public Class Lasers Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.Lasers.defaultSprite
+  commentId: F:Global.Lasers.defaultSprite
+  id: defaultSprite
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: defaultSprite
+  nameWithType: Lasers.defaultSprite
+  fullName: Lasers.defaultSprite
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: defaultSprite
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Default sprite
+  example: []
+  syntax:
+    content: public Sprite defaultSprite
+    return:
+      type: UnityEngine.Sprite
+    content.vb: Public defaultSprite As Sprite
+- uid: Global.Lasers.activatedSprite
+  commentId: F:Global.Lasers.activatedSprite
+  id: activatedSprite
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: activatedSprite
+  nameWithType: Lasers.activatedSprite
+  fullName: Lasers.activatedSprite
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: activatedSprite
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Activated sprite (after laser is turned on or the receiver is hit)
+  example: []
+  syntax:
+    content: public Sprite activatedSprite
+    return:
+      type: UnityEngine.Sprite
+    content.vb: Public activatedSprite As Sprite
+- uid: Global.Lasers.start
+  commentId: F:Global.Lasers.start
+  id: start
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: start
+  nameWithType: Lasers.start
+  fullName: Lasers.start
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: start
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 36
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Start point of the laser
+  example: []
+  syntax:
+    content: public Vector3 start
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public start As Vector3
+- uid: Global.Lasers.maxEnd
+  commentId: F:Global.Lasers.maxEnd
+  id: maxEnd
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: maxEnd
+  nameWithType: Lasers.maxEnd
+  fullName: Lasers.maxEnd
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: maxEnd
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 40
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: End point of the laser (far away)
+  example: []
+  syntax:
+    content: public Vector3 maxEnd
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public maxEnd As Vector3
+- uid: Global.Lasers.realEnd
+  commentId: F:Global.Lasers.realEnd
+  id: realEnd
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: realEnd
+  nameWithType: Lasers.realEnd
+  fullName: Lasers.realEnd
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: realEnd
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 44
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: End point of the laser (real - determined by raycast)
+  example: []
+  syntax:
+    content: public Vector3 realEnd
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public realEnd As Vector3
+- uid: Global.Lasers.isActive
+  commentId: F:Global.Lasers.isActive
+  id: isActive
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: isActive
+  nameWithType: Lasers.isActive
+  fullName: Lasers.isActive
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isActive
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 56
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: True if the laser is on
+  example: []
+  syntax:
+    content: public static bool isActive
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isActive As Boolean
+- uid: Global.Lasers.startLaser
+  commentId: M:Global.Lasers.startLaser
+  id: startLaser
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: startLaser()
+  nameWithType: Lasers.startLaser()
+  fullName: Lasers.startLaser()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: startLaser
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 95
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method to start the laser
+  example: []
+  syntax:
+    content: public void startLaser()
+    content.vb: Public Sub startLaser()
+  overload: Global.Lasers.startLaser*
+- uid: Global.Lasers.stopLaser
+  commentId: M:Global.Lasers.stopLaser
+  id: stopLaser
+  parent: Global.Lasers
+  langs:
+  - csharp
+  - vb
+  name: stopLaser()
+  nameWithType: Lasers.stopLaser()
+  fullName: Lasers.stopLaser()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/Lasers.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: stopLaser
+    path: ../Assets/Scripts/InteractiveObjects/Lasers.cs
+    startLine: 109
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method to stop the laser
+  example: []
+  syntax:
+    content: public void stopLaser()
+    content.vb: Public Sub stopLaser()
+  overload: Global.Lasers.stopLaser*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Sprite
+  commentId: T:UnityEngine.Sprite
+  parent: UnityEngine
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: UnityEngine.Sprite
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Lasers.startLaser*
+  commentId: Overload:Global.Lasers.startLaser
+  href: Global.Lasers.html#Lasers.startLaser
+  name: startLaser
+  nameWithType: Lasers.startLaser
+  fullName: Lasers.startLaser
+- uid: Global.Lasers.stopLaser*
+  commentId: Overload:Global.Lasers.stopLaser
+  href: Global.Lasers.html#Lasers.stopLaser
+  name: stopLaser
+  nameWithType: Lasers.stopLaser
+  fullName: Lasers.stopLaser

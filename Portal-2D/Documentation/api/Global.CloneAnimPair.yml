@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.CloneAnimPair
+  commentId: T:Global.CloneAnimPair
+  id: CloneAnimPair
+  parent: Global
+  children:
+  - Global.CloneAnimPair.#ctor(UnityEngine.GameObject,UnityEngine.GameObject)
+  - Global.CloneAnimPair.clone
+  - Global.CloneAnimPair.source
+  langs:
+  - csharp
+  - vb
+  name: CloneAnimPair
+  nameWithType: CloneAnimPair
+  fullName: CloneAnimPair
+  type: Struct
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/CloneAnimSync.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: CloneAnimPair
+    path: ../Assets/Scripts/Player/CloneAnimSync.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Helper struct for connecting the source and clone of the animation
+  example: []
+  syntax:
+    content: public struct CloneAnimPair
+    content.vb: Public Structure CloneAnimPair
+- uid: Global.CloneAnimPair.#ctor(UnityEngine.GameObject,UnityEngine.GameObject)
+  commentId: M:Global.CloneAnimPair.#ctor(UnityEngine.GameObject,UnityEngine.GameObject)
+  id: '#ctor(UnityEngine.GameObject,UnityEngine.GameObject)'
+  parent: Global.CloneAnimPair
+  langs:
+  - csharp
+  - vb
+  name: CloneAnimPair(GameObject, GameObject)
+  nameWithType: CloneAnimPair.CloneAnimPair(GameObject, GameObject)
+  fullName: CloneAnimPair.CloneAnimPair(UnityEngine.GameObject, UnityEngine.GameObject)
+  type: Constructor
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/CloneAnimSync.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: .ctor
+    path: ../Assets/Scripts/Player/CloneAnimSync.cs
+    startLine: 13
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Constructor of the struct
+  example: []
+  syntax:
+    content: public CloneAnimPair(GameObject s, GameObject c)
+    parameters:
+    - id: s
+      type: UnityEngine.GameObject
+      description: ''
+    - id: c
+      type: UnityEngine.GameObject
+      description: ''
+    content.vb: Public Sub New(s As GameObject, c As GameObject)
+  overload: Global.CloneAnimPair.#ctor*
+  nameWithType.vb: CloneAnimPair.New(GameObject, GameObject)
+  fullName.vb: CloneAnimPair.New(UnityEngine.GameObject, UnityEngine.GameObject)
+  name.vb: New(GameObject, GameObject)
+- uid: Global.CloneAnimPair.source
+  commentId: F:Global.CloneAnimPair.source
+  id: source
+  parent: Global.CloneAnimPair
+  langs:
+  - csharp
+  - vb
+  name: source
+  nameWithType: CloneAnimPair.source
+  fullName: CloneAnimPair.source
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/CloneAnimSync.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: source
+    path: ../Assets/Scripts/Player/CloneAnimSync.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public GameObject source
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public source As GameObject
+- uid: Global.CloneAnimPair.clone
+  commentId: F:Global.CloneAnimPair.clone
+  id: clone
+  parent: Global.CloneAnimPair
+  langs:
+  - csharp
+  - vb
+  name: clone
+  nameWithType: CloneAnimPair.clone
+  fullName: CloneAnimPair.clone
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/CloneAnimSync.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: clone
+    path: ../Assets/Scripts/Player/CloneAnimSync.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public GameObject clone
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public clone As GameObject
+references:
+- uid: Global
+- uid: Global.CloneAnimPair.#ctor*
+  commentId: Overload:Global.CloneAnimPair.#ctor
+  href: Global.CloneAnimPair.html#CloneAnimPair.#ctor(UnityEngine.GameObject,UnityEngine.GameObject)
+  name: CloneAnimPair
+  nameWithType: CloneAnimPair.CloneAnimPair
+  fullName: CloneAnimPair.CloneAnimPair
+  nameWithType.vb: CloneAnimPair.New
+  fullName.vb: CloneAnimPair.New
+  name.vb: New
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine

@@ -1,0 +1,439 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PlayerMovement
+  commentId: T:Global.PlayerMovement
+  id: PlayerMovement
+  parent: Global
+  children:
+  - Global.PlayerMovement.Flip
+  - Global.PlayerMovement.InverseXMovementAxis
+  - Global.PlayerMovement.IsFacingRight
+  - Global.PlayerMovement.IsMoving
+  - Global.PlayerMovement.IsTouchingGround
+  - Global.PlayerMovement.OnExitedPortalArea(PortalLogic)
+  - Global.PlayerMovement.OnTeleported(PortalLogic,PortalLogic)
+  langs:
+  - csharp
+  - vb
+  name: PlayerMovement
+  nameWithType: PlayerMovement
+  fullName: PlayerMovement
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PlayerMovement
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for managing player movement
+  example: []
+  syntax:
+    content: 'public class PlayerMovement : MonoBehaviour, IPortalEventsListener'
+    content.vb: Public Class PlayerMovement Inherits MonoBehaviour Implements IPortalEventsListener
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  implements:
+  - Global.IPortalEventsListener
+- uid: Global.PlayerMovement.IsFacingRight
+  commentId: P:Global.PlayerMovement.IsFacingRight
+  id: IsFacingRight
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: IsFacingRight
+  nameWithType: PlayerMovement.IsFacingRight
+  fullName: PlayerMovement.IsFacingRight
+  type: Property
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: IsFacingRight
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 39
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Property which indicates whether the player is facing right
+  example: []
+  syntax:
+    content: public bool IsFacingRight { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsFacingRight As Boolean
+  overload: Global.PlayerMovement.IsFacingRight*
+- uid: Global.PlayerMovement.Flip
+  commentId: M:Global.PlayerMovement.Flip
+  id: Flip
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: Flip()
+  nameWithType: PlayerMovement.Flip()
+  fullName: PlayerMovement.Flip()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Flip
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for flipping the direction of the player
+  example: []
+  syntax:
+    content: public void Flip()
+    content.vb: Public Sub Flip()
+  overload: Global.PlayerMovement.Flip*
+- uid: Global.PlayerMovement.IsMoving
+  commentId: M:Global.PlayerMovement.IsMoving
+  id: IsMoving
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: IsMoving()
+  nameWithType: PlayerMovement.IsMoving()
+  fullName: PlayerMovement.IsMoving()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: IsMoving
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 68
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Returns the information about player movement state
+  example: []
+  syntax:
+    content: public bool IsMoving()
+    return:
+      type: System.Boolean
+      description: true if player is moving
+    content.vb: Public Function IsMoving() As Boolean
+  overload: Global.PlayerMovement.IsMoving*
+- uid: Global.PlayerMovement.InverseXMovementAxis
+  commentId: M:Global.PlayerMovement.InverseXMovementAxis
+  id: InverseXMovementAxis
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: InverseXMovementAxis()
+  nameWithType: PlayerMovement.InverseXMovementAxis()
+  fullName: PlayerMovement.InverseXMovementAxis()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: InverseXMovementAxis
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 75
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for inversing player movement
+  example: []
+  syntax:
+    content: public void InverseXMovementAxis()
+    content.vb: Public Sub InverseXMovementAxis()
+  overload: Global.PlayerMovement.InverseXMovementAxis*
+- uid: Global.PlayerMovement.IsTouchingGround
+  commentId: M:Global.PlayerMovement.IsTouchingGround
+  id: IsTouchingGround
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: IsTouchingGround()
+  nameWithType: PlayerMovement.IsTouchingGround()
+  fullName: PlayerMovement.IsTouchingGround()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: IsTouchingGround
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 119
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Return the information about player touching the ground
+  example: []
+  syntax:
+    content: public bool IsTouchingGround()
+    return:
+      type: System.Boolean
+      description: true if player is touching the ground
+    content.vb: Public Function IsTouchingGround() As Boolean
+  overload: Global.PlayerMovement.IsTouchingGround*
+- uid: Global.PlayerMovement.OnTeleported(PortalLogic,PortalLogic)
+  commentId: M:Global.PlayerMovement.OnTeleported(PortalLogic,PortalLogic)
+  id: OnTeleported(PortalLogic,PortalLogic)
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: OnTeleported(PortalLogic, PortalLogic)
+  nameWithType: PlayerMovement.OnTeleported(PortalLogic, PortalLogic)
+  fullName: PlayerMovement.OnTeleported(PortalLogic, PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnTeleported
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 196
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  example: []
+  syntax:
+    content: public void OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
+    parameters:
+    - id: srcPortal
+      type: Global.PortalLogic
+    - id: dstPortal
+      type: Global.PortalLogic
+    content.vb: Public Sub OnTeleported(srcPortal As PortalLogic, dstPortal As PortalLogic)
+  overload: Global.PlayerMovement.OnTeleported*
+  implements:
+  - Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+- uid: Global.PlayerMovement.OnExitedPortalArea(PortalLogic)
+  commentId: M:Global.PlayerMovement.OnExitedPortalArea(PortalLogic)
+  id: OnExitedPortalArea(PortalLogic)
+  parent: Global.PlayerMovement
+  langs:
+  - csharp
+  - vb
+  name: OnExitedPortalArea(PortalLogic)
+  nameWithType: PlayerMovement.OnExitedPortalArea(PortalLogic)
+  fullName: PlayerMovement.OnExitedPortalArea(PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/PlayerMovement.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnExitedPortalArea
+    path: ../Assets/Scripts/Player/PlayerMovement.cs
+    startLine: 204
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  example: []
+  syntax:
+    content: public void OnExitedPortalArea(PortalLogic portal)
+    parameters:
+    - id: portal
+      type: Global.PortalLogic
+    content.vb: Public Sub OnExitedPortalArea(portal As PortalLogic)
+  overload: Global.PlayerMovement.OnExitedPortalArea*
+  implements:
+  - Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Global.IPortalEventsListener
+  commentId: T:Global.IPortalEventsListener
+  href: IPortalEventsListener.html
+  name: IPortalEventsListener
+  nameWithType: IPortalEventsListener
+  fullName: IPortalEventsListener
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PlayerMovement.IsFacingRight*
+  commentId: Overload:Global.PlayerMovement.IsFacingRight
+  href: Global.PlayerMovement.html#PlayerMovement.IsFacingRight
+  name: IsFacingRight
+  nameWithType: PlayerMovement.IsFacingRight
+  fullName: PlayerMovement.IsFacingRight
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.PlayerMovement.Flip*
+  commentId: Overload:Global.PlayerMovement.Flip
+  href: Global.PlayerMovement.html#PlayerMovement.Flip
+  name: Flip
+  nameWithType: PlayerMovement.Flip
+  fullName: PlayerMovement.Flip
+- uid: Global.PlayerMovement.IsMoving*
+  commentId: Overload:Global.PlayerMovement.IsMoving
+  href: Global.PlayerMovement.html#PlayerMovement.IsMoving
+  name: IsMoving
+  nameWithType: PlayerMovement.IsMoving
+  fullName: PlayerMovement.IsMoving
+- uid: Global.PlayerMovement.InverseXMovementAxis*
+  commentId: Overload:Global.PlayerMovement.InverseXMovementAxis
+  href: Global.PlayerMovement.html#PlayerMovement.InverseXMovementAxis
+  name: InverseXMovementAxis
+  nameWithType: PlayerMovement.InverseXMovementAxis
+  fullName: PlayerMovement.InverseXMovementAxis
+- uid: Global.PlayerMovement.IsTouchingGround*
+  commentId: Overload:Global.PlayerMovement.IsTouchingGround
+  href: Global.PlayerMovement.html#PlayerMovement.IsTouchingGround
+  name: IsTouchingGround
+  nameWithType: PlayerMovement.IsTouchingGround
+  fullName: PlayerMovement.IsTouchingGround
+- uid: Global.PlayerMovement.OnTeleported*
+  commentId: Overload:Global.PlayerMovement.OnTeleported
+  href: Global.PlayerMovement.html#PlayerMovement.OnTeleported(PortalLogic,PortalLogic)
+  name: OnTeleported
+  nameWithType: PlayerMovement.OnTeleported
+  fullName: PlayerMovement.OnTeleported
+- uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  commentId: M:Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  parent: Global.IPortalEventsListener
+  href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  name: OnTeleported(PortalLogic, PortalLogic)
+  nameWithType: IPortalEventsListener.OnTeleported(PortalLogic, PortalLogic)
+  fullName: IPortalEventsListener.OnTeleported(PortalLogic, PortalLogic)
+  spec.csharp:
+  - uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+    name: OnTeleported
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: ','
+  - name: " "
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+  spec.vb:
+  - uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+    name: OnTeleported
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: ','
+  - name: " "
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  href: PortalLogic.html
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic
+- uid: Global.PlayerMovement.OnExitedPortalArea*
+  commentId: Overload:Global.PlayerMovement.OnExitedPortalArea
+  href: Global.PlayerMovement.html#PlayerMovement.OnExitedPortalArea(PortalLogic)
+  name: OnExitedPortalArea
+  nameWithType: PlayerMovement.OnExitedPortalArea
+  fullName: PlayerMovement.OnExitedPortalArea
+- uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  commentId: M:Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  parent: Global.IPortalEventsListener
+  href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  name: OnExitedPortalArea(PortalLogic)
+  nameWithType: IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  fullName: IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  spec.csharp:
+  - uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+    name: OnExitedPortalArea
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+  spec.vb:
+  - uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+    name: OnExitedPortalArea
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )

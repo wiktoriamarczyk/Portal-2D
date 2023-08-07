@@ -1,0 +1,236 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalCloneController
+  commentId: T:Global.PortalCloneController
+  id: PortalCloneController
+  parent: Global
+  children:
+  - Global.PortalCloneController.GetClone
+  - Global.PortalCloneController.GetCloneFromObject(UnityEngine.GameObject)
+  - Global.PortalCloneController.ResetClone(UnityEngine.GameObject,PortalLogic,PortalLogic)
+  langs:
+  - csharp
+  - vb
+  name: PortalCloneController
+  nameWithType: PortalCloneController
+  fullName: PortalCloneController
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalCloneController.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalCloneController
+    path: ../Assets/Scripts/Portal/PortalCloneController.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Helper class for managing position and rotation of cloned object
+  example: []
+  syntax:
+    content: 'public class PortalCloneController : MonoBehaviour, IPortalEventsListener'
+    content.vb: Public Class PortalCloneController Inherits MonoBehaviour Implements IPortalEventsListener
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  implements:
+  - Global.IPortalEventsListener
+- uid: Global.PortalCloneController.GetClone
+  commentId: M:Global.PortalCloneController.GetClone
+  id: GetClone
+  parent: Global.PortalCloneController
+  langs:
+  - csharp
+  - vb
+  name: GetClone()
+  nameWithType: PortalCloneController.GetClone()
+  fullName: PortalCloneController.GetClone()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalCloneController.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetClone
+    path: ../Assets/Scripts/Portal/PortalCloneController.cs
+    startLine: 23
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Returns cloned object
+  example: []
+  syntax:
+    content: public GameObject GetClone()
+    return:
+      type: UnityEngine.GameObject
+      description: cloned object
+    content.vb: Public Function GetClone() As GameObject
+  overload: Global.PortalCloneController.GetClone*
+- uid: Global.PortalCloneController.GetCloneFromObject(UnityEngine.GameObject)
+  commentId: M:Global.PortalCloneController.GetCloneFromObject(UnityEngine.GameObject)
+  id: GetCloneFromObject(UnityEngine.GameObject)
+  parent: Global.PortalCloneController
+  langs:
+  - csharp
+  - vb
+  name: GetCloneFromObject(GameObject)
+  nameWithType: PortalCloneController.GetCloneFromObject(GameObject)
+  fullName: PortalCloneController.GetCloneFromObject(UnityEngine.GameObject)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalCloneController.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetCloneFromObject
+    path: ../Assets/Scripts/Portal/PortalCloneController.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Returns cloned object from given object
+  example: []
+  syntax:
+    content: public static GameObject GetCloneFromObject(GameObject obj)
+    parameters:
+    - id: obj
+      type: UnityEngine.GameObject
+      description: object from which we try to obtain clone
+    return:
+      type: UnityEngine.GameObject
+      description: clone from the given object
+    content.vb: Public Shared Function GetCloneFromObject(obj As GameObject) As GameObject
+  overload: Global.PortalCloneController.GetCloneFromObject*
+- uid: Global.PortalCloneController.ResetClone(UnityEngine.GameObject,PortalLogic,PortalLogic)
+  commentId: M:Global.PortalCloneController.ResetClone(UnityEngine.GameObject,PortalLogic,PortalLogic)
+  id: ResetClone(UnityEngine.GameObject,PortalLogic,PortalLogic)
+  parent: Global.PortalCloneController
+  langs:
+  - csharp
+  - vb
+  name: ResetClone(GameObject, PortalLogic, PortalLogic)
+  nameWithType: PortalCloneController.ResetClone(GameObject, PortalLogic, PortalLogic)
+  fullName: PortalCloneController.ResetClone(UnityEngine.GameObject, PortalLogic, PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalCloneController.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: ResetClone
+    path: ../Assets/Scripts/Portal/PortalCloneController.cs
+    startLine: 61
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Resets clone object to which we copy our position, rotation and scale
+  example: []
+  syntax:
+    content: public void ResetClone(GameObject newClone, PortalLogic srcInPortal, PortalLogic dstInPortal)
+    parameters:
+    - id: newClone
+      type: UnityEngine.GameObject
+      description: new target clone
+    - id: srcInPortal
+      type: Global.PortalLogic
+      description: source portal logic
+    - id: dstInPortal
+      type: Global.PortalLogic
+      description: destination portal logic
+    content.vb: Public Sub ResetClone(newClone As GameObject, srcInPortal As PortalLogic, dstInPortal As PortalLogic)
+  overload: Global.PortalCloneController.ResetClone*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Global.IPortalEventsListener
+  commentId: T:Global.IPortalEventsListener
+  href: IPortalEventsListener.html
+  name: IPortalEventsListener
+  nameWithType: IPortalEventsListener
+  fullName: IPortalEventsListener
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalCloneController.GetClone*
+  commentId: Overload:Global.PortalCloneController.GetClone
+  href: Global.PortalCloneController.html#PortalCloneController.GetClone
+  name: GetClone
+  nameWithType: PortalCloneController.GetClone
+  fullName: PortalCloneController.GetClone
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Global.PortalCloneController.GetCloneFromObject*
+  commentId: Overload:Global.PortalCloneController.GetCloneFromObject
+  href: Global.PortalCloneController.html#PortalCloneController.GetCloneFromObject(UnityEngine.GameObject)
+  name: GetCloneFromObject
+  nameWithType: PortalCloneController.GetCloneFromObject
+  fullName: PortalCloneController.GetCloneFromObject
+- uid: Global.PortalCloneController.ResetClone*
+  commentId: Overload:Global.PortalCloneController.ResetClone
+  href: Global.PortalCloneController.html#PortalCloneController.ResetClone(UnityEngine.GameObject,PortalLogic,PortalLogic)
+  name: ResetClone
+  nameWithType: PortalCloneController.ResetClone
+  fullName: PortalCloneController.ResetClone
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  href: PortalLogic.html
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic

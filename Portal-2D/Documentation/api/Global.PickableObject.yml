@@ -1,0 +1,615 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PickableObject
+  commentId: T:Global.PickableObject
+  id: PickableObject
+  parent: Global
+  children:
+  - Global.PickableObject.Drop
+  - Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  - Global.PickableObject.OnExitedPortalArea(PortalLogic)
+  - Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  - Global.PickableObject.Start
+  - Global.PickableObject.Take(UnityEngine.Transform)
+  - Global.PickableObject.Update
+  - Global.PickableObject.detectionRadius
+  - Global.PickableObject.hittingTheGroundSound
+  - Global.PickableObject.rigidbody2D
+  - Global.PickableObject.taken
+  langs:
+  - csharp
+  - vb
+  name: PickableObject
+  nameWithType: PickableObject
+  fullName: PickableObject
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PickableObject
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for behaviour of pickable objects. It implements the IPortalEventsListener interface.
+  example: []
+  syntax:
+    content: 'public class PickableObject : MonoBehaviour, IPortalEventsListener'
+    content.vb: Public Class PickableObject Inherits MonoBehaviour Implements IPortalEventsListener
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  derivedClasses:
+  - Global.Enemy
+  - Global.MirrorCube
+  implements:
+  - Global.IPortalEventsListener
+- uid: Global.PickableObject.hittingTheGroundSound
+  commentId: F:Global.PickableObject.hittingTheGroundSound
+  id: hittingTheGroundSound
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: hittingTheGroundSound
+  nameWithType: PickableObject.hittingTheGroundSound
+  fullName: PickableObject.hittingTheGroundSound
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: hittingTheGroundSound
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 11
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Sound of object hitting the ground
+  example: []
+  syntax:
+    content: >-
+      [SerializeField]
+
+      protected AudioSource hittingTheGroundSound
+    return:
+      type: UnityEngine.AudioSource
+    content.vb: >-
+      <SerializeField>
+
+      Protected hittingTheGroundSound As AudioSource
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: Global.PickableObject.detectionRadius
+  commentId: F:Global.PickableObject.detectionRadius
+  id: detectionRadius
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: detectionRadius
+  nameWithType: PickableObject.detectionRadius
+  fullName: PickableObject.detectionRadius
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: detectionRadius
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 16
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Detection radius for interaction with the player.
+  example: []
+  syntax:
+    content: >-
+      [SerializeField]
+
+      protected float detectionRadius
+    return:
+      type: System.Single
+    content.vb: >-
+      <SerializeField>
+
+      Protected detectionRadius As Single
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: Global.PickableObject.taken
+  commentId: F:Global.PickableObject.taken
+  id: taken
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: taken
+  nameWithType: PickableObject.taken
+  fullName: PickableObject.taken
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: taken
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: protected bool taken
+    return:
+      type: System.Boolean
+    content.vb: Protected taken As Boolean
+- uid: Global.PickableObject.rigidbody2D
+  commentId: F:Global.PickableObject.rigidbody2D
+  id: rigidbody2D
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: rigidbody2D
+  nameWithType: PickableObject.rigidbody2D
+  fullName: PickableObject.rigidbody2D
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: rigidbody2D
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: protected Rigidbody2D rigidbody2D
+    return:
+      type: UnityEngine.Rigidbody2D
+    content.vb: Protected rigidbody2D As Rigidbody2D
+- uid: Global.PickableObject.Take(UnityEngine.Transform)
+  commentId: M:Global.PickableObject.Take(UnityEngine.Transform)
+  id: Take(UnityEngine.Transform)
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: Take(Transform)
+  nameWithType: PickableObject.Take(Transform)
+  fullName: PickableObject.Take(UnityEngine.Transform)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Take
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Allows the object to be picked up and attached to a specific point.
+  example: []
+  syntax:
+    content: public void Take(Transform attach)
+    parameters:
+    - id: attach
+      type: UnityEngine.Transform
+      description: The attachment 'point' (coordinates) to which the object will be sticked.
+    content.vb: Public Sub Take(attach As Transform)
+  overload: Global.PickableObject.Take*
+- uid: Global.PickableObject.Drop
+  commentId: M:Global.PickableObject.Drop
+  id: Drop
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: Drop()
+  nameWithType: PickableObject.Drop()
+  fullName: PickableObject.Drop()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Drop
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 47
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Drops the object, restoring its original properties, and detaches it from the attachment point.
+  example: []
+  syntax:
+    content: public void Drop()
+    content.vb: Public Sub Drop()
+  overload: Global.PickableObject.Drop*
+- uid: Global.PickableObject.Start
+  commentId: M:Global.PickableObject.Start
+  id: Start
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: PickableObject.Start()
+  fullName: PickableObject.Start()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Start
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: protected virtual void Start()
+    content.vb: Protected Overridable Sub Start()
+  overload: Global.PickableObject.Start*
+- uid: Global.PickableObject.Update
+  commentId: M:Global.PickableObject.Update
+  id: Update
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: PickableObject.Update()
+  fullName: PickableObject.Update()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Update
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 67
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: protected virtual void Update()
+    content.vb: Protected Overridable Sub Update()
+  overload: Global.PickableObject.Update*
+- uid: Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  commentId: M:Global.PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  id: OnCollisionEnter2D(UnityEngine.Collision2D)
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: OnCollisionEnter2D(Collision2D)
+  nameWithType: PickableObject.OnCollisionEnter2D(Collision2D)
+  fullName: PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnCollisionEnter2D
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 103
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method called when the collision occured
+  example: []
+  syntax:
+    content: protected virtual void OnCollisionEnter2D(Collision2D collision)
+    parameters:
+    - id: collision
+      type: UnityEngine.Collision2D
+      description: the object with which the collision occurred
+    content.vb: Protected Overridable Sub OnCollisionEnter2D(collision As Collision2D)
+  overload: Global.PickableObject.OnCollisionEnter2D*
+- uid: Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  commentId: M:Global.PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  id: OnTeleported(PortalLogic,PortalLogic)
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: OnTeleported(PortalLogic, PortalLogic)
+  nameWithType: PickableObject.OnTeleported(PortalLogic, PortalLogic)
+  fullName: PickableObject.OnTeleported(PortalLogic, PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnTeleported
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 113
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method called when the object was teleported by portal
+  example: []
+  syntax:
+    content: public virtual void OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
+    parameters:
+    - id: srcPortal
+      type: Global.PortalLogic
+      description: source portal
+    - id: dstPortal
+      type: Global.PortalLogic
+      description: destination portal
+    content.vb: Public Overridable Sub OnTeleported(srcPortal As PortalLogic, dstPortal As PortalLogic)
+  overload: Global.PickableObject.OnTeleported*
+  implements:
+  - Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+- uid: Global.PickableObject.OnExitedPortalArea(PortalLogic)
+  commentId: M:Global.PickableObject.OnExitedPortalArea(PortalLogic)
+  id: OnExitedPortalArea(PortalLogic)
+  parent: Global.PickableObject
+  langs:
+  - csharp
+  - vb
+  name: OnExitedPortalArea(PortalLogic)
+  nameWithType: PickableObject.OnExitedPortalArea(PortalLogic)
+  fullName: PickableObject.OnExitedPortalArea(PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/PickableObject.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnExitedPortalArea
+    path: ../Assets/Scripts/InteractiveObjects/PickableObject.cs
+    startLine: 117
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  example: []
+  syntax:
+    content: public virtual void OnExitedPortalArea(PortalLogic portal)
+    parameters:
+    - id: portal
+      type: Global.PortalLogic
+    content.vb: Public Overridable Sub OnExitedPortalArea(portal As PortalLogic)
+  overload: Global.PickableObject.OnExitedPortalArea*
+  implements:
+  - Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Global.IPortalEventsListener
+  commentId: T:Global.IPortalEventsListener
+  href: IPortalEventsListener.html
+  name: IPortalEventsListener
+  nameWithType: IPortalEventsListener
+  fullName: IPortalEventsListener
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.AudioSource
+  commentId: T:UnityEngine.AudioSource
+  parent: UnityEngine
+  isExternal: true
+  name: AudioSource
+  nameWithType: AudioSource
+  fullName: UnityEngine.AudioSource
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Rigidbody2D
+  commentId: T:UnityEngine.Rigidbody2D
+  parent: UnityEngine
+  isExternal: true
+  name: Rigidbody2D
+  nameWithType: Rigidbody2D
+  fullName: UnityEngine.Rigidbody2D
+- uid: Global.PickableObject.Take*
+  commentId: Overload:Global.PickableObject.Take
+  href: Global.PickableObject.html#PickableObject.Take(UnityEngine.Transform)
+  name: Take
+  nameWithType: PickableObject.Take
+  fullName: PickableObject.Take
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: Global.PickableObject.Drop*
+  commentId: Overload:Global.PickableObject.Drop
+  href: Global.PickableObject.html#PickableObject.Drop
+  name: Drop
+  nameWithType: PickableObject.Drop
+  fullName: PickableObject.Drop
+- uid: Global.PickableObject.Start*
+  commentId: Overload:Global.PickableObject.Start
+  href: Global.PickableObject.html#PickableObject.Start
+  name: Start
+  nameWithType: PickableObject.Start
+  fullName: PickableObject.Start
+- uid: Global.PickableObject.Update*
+  commentId: Overload:Global.PickableObject.Update
+  href: Global.PickableObject.html#PickableObject.Update
+  name: Update
+  nameWithType: PickableObject.Update
+  fullName: PickableObject.Update
+- uid: Global.PickableObject.OnCollisionEnter2D*
+  commentId: Overload:Global.PickableObject.OnCollisionEnter2D
+  href: Global.PickableObject.html#PickableObject.OnCollisionEnter2D(UnityEngine.Collision2D)
+  name: OnCollisionEnter2D
+  nameWithType: PickableObject.OnCollisionEnter2D
+  fullName: PickableObject.OnCollisionEnter2D
+- uid: UnityEngine.Collision2D
+  commentId: T:UnityEngine.Collision2D
+  parent: UnityEngine
+  isExternal: true
+  name: Collision2D
+  nameWithType: Collision2D
+  fullName: UnityEngine.Collision2D
+- uid: Global.PickableObject.OnTeleported*
+  commentId: Overload:Global.PickableObject.OnTeleported
+  href: Global.PickableObject.html#PickableObject.OnTeleported(PortalLogic,PortalLogic)
+  name: OnTeleported
+  nameWithType: PickableObject.OnTeleported
+  fullName: PickableObject.OnTeleported
+- uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  commentId: M:Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  parent: Global.IPortalEventsListener
+  href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  name: OnTeleported(PortalLogic, PortalLogic)
+  nameWithType: IPortalEventsListener.OnTeleported(PortalLogic, PortalLogic)
+  fullName: IPortalEventsListener.OnTeleported(PortalLogic, PortalLogic)
+  spec.csharp:
+  - uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+    name: OnTeleported
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: ','
+  - name: " "
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+  spec.vb:
+  - uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+    name: OnTeleported
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: ','
+  - name: " "
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  href: PortalLogic.html
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic
+- uid: Global.PickableObject.OnExitedPortalArea*
+  commentId: Overload:Global.PickableObject.OnExitedPortalArea
+  href: Global.PickableObject.html#PickableObject.OnExitedPortalArea(PortalLogic)
+  name: OnExitedPortalArea
+  nameWithType: PickableObject.OnExitedPortalArea
+  fullName: PickableObject.OnExitedPortalArea
+- uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  commentId: M:Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  parent: Global.IPortalEventsListener
+  href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  name: OnExitedPortalArea(PortalLogic)
+  nameWithType: IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  fullName: IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  spec.csharp:
+  - uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+    name: OnExitedPortalArea
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )
+  spec.vb:
+  - uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+    name: OnExitedPortalArea
+    href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  - name: (
+  - uid: Global.PortalLogic
+    name: PortalLogic
+    href: PortalLogic.html
+  - name: )

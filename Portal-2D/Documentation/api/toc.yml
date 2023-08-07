@@ -1,0 +1,76 @@
+### YamlMime:TableOfContent
+items:
+- uid: Global
+  name: ''
+  items:
+  - uid: Global.BossFightTrigger
+    name: BossFightTrigger
+  - uid: Global.BoxTrigger
+    name: BoxTrigger
+  - uid: Global.Cake
+    name: Cake
+  - uid: Global.CameraFollow
+    name: CameraFollow
+  - uid: Global.CloneAnimPair
+    name: CloneAnimPair
+  - uid: Global.CloneAnimSync
+    name: CloneAnimSync
+  - uid: Global.CommonFunctions
+    name: CommonFunctions
+  - uid: Global.Dispenser
+    name: Dispenser
+  - uid: Global.DoorIn
+    name: DoorIn
+  - uid: Global.DoorOut
+    name: DoorOut
+  - uid: Global.Enemy
+    name: Enemy
+  - uid: Global.ExcursionFunnel
+    name: ExcursionFunnel
+  - uid: Global.GladosBehaviour
+    name: GladosBehaviour
+  - uid: Global.IPortalEventsListener
+    name: IPortalEventsListener
+  - uid: Global.Lasers
+    name: Lasers
+  - uid: Global.MirrorCube
+    name: MirrorCube
+  - uid: Global.PanelManager
+    name: PanelManager
+  - uid: Global.PickableObject
+    name: PickableObject
+  - uid: Global.PlayerAim
+    name: PlayerAim
+  - uid: Global.PlayerHurt
+    name: PlayerHurt
+  - uid: Global.PlayerMovement
+    name: PlayerMovement
+  - uid: Global.PortalAdapter
+    name: PortalAdapter
+  - uid: Global.PortalBehaviour
+    name: PortalBehaviour
+  - uid: Global.PortalButton
+    name: PortalButton
+  - uid: Global.PortalCloneController
+    name: PortalCloneController
+  - uid: Global.PortalContinuedPathGenerator
+    name: PortalContinuedPathGenerator
+  - uid: Global.PortalLaser
+    name: PortalLaser
+  - uid: Global.PortalLogic
+    name: PortalLogic
+  - uid: Global.PortalManager
+    name: PortalManager
+  - uid: Global.PortalSceneManager
+    name: PortalSceneManager
+  - uid: Global.PortalSpriteController
+    name: PortalSpriteController
+  - uid: Global.ProgressBar
+    name: ProgressBar
+  - uid: Global.Projectile
+    name: Projectile
+  - uid: Global.Projectile.eProjectileType
+    name: Projectile.eProjectileType
+  - uid: Global.Receiver
+    name: Receiver
+memberLayout: SamePage

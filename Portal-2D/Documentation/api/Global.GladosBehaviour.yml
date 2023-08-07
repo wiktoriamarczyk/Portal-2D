@@ -1,0 +1,125 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.GladosBehaviour
+  commentId: T:Global.GladosBehaviour
+  id: GladosBehaviour
+  parent: Global
+  children:
+  - Global.GladosBehaviour.Initialize
+  langs:
+  - csharp
+  - vb
+  name: GladosBehaviour
+  nameWithType: GladosBehaviour
+  fullName: GladosBehaviour
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/GladosBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GladosBehaviour
+    path: ../Assets/Scripts/InteractiveObjects/GladosBehaviour.cs
+    startLine: 8
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Component responsible for the behaviour of the Glados boss.
+  example: []
+  syntax:
+    content: 'public class GladosBehaviour : MonoBehaviour'
+    content.vb: Public Class GladosBehaviour Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.GladosBehaviour.Initialize
+  commentId: M:Global.GladosBehaviour.Initialize
+  id: Initialize
+  parent: Global.GladosBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: GladosBehaviour.Initialize()
+  fullName: GladosBehaviour.Initialize()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/GladosBehaviour.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Initialize
+    path: ../Assets/Scripts/InteractiveObjects/GladosBehaviour.cs
+    startLine: 49
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Initialize sounds and neurotoxin effect - boss is awaken.
+  example: []
+  syntax:
+    content: public void Initialize()
+    content.vb: Public Sub Initialize()
+  overload: Global.GladosBehaviour.Initialize*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.GladosBehaviour.Initialize*
+  commentId: Overload:Global.GladosBehaviour.Initialize
+  href: Global.GladosBehaviour.html#GladosBehaviour.Initialize
+  name: Initialize
+  nameWithType: GladosBehaviour.Initialize
+  fullName: GladosBehaviour.Initialize

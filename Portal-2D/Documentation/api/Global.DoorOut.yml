@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.DoorOut
+  commentId: T:Global.DoorOut
+  id: DoorOut
+  parent: Global
+  children:
+  - Global.DoorOut.CloseDoor
+  - Global.DoorOut.OpenDoor
+  - Global.DoorOut.isActive
+  langs:
+  - csharp
+  - vb
+  name: DoorOut
+  nameWithType: DoorOut
+  fullName: DoorOut
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/DoorOut.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: DoorOut
+    path: ../Assets/Scripts/InteractiveObjects/DoorOut.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for the behaviour of the door leading out of the level
+  example: []
+  syntax:
+    content: 'public class DoorOut : MonoBehaviour'
+    content.vb: Public Class DoorOut Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.DoorOut.isActive
+  commentId: F:Global.DoorOut.isActive
+  id: isActive
+  parent: Global.DoorOut
+  langs:
+  - csharp
+  - vb
+  name: isActive
+  nameWithType: DoorOut.isActive
+  fullName: DoorOut.isActive
+  type: Field
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/DoorOut.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: isActive
+    path: ../Assets/Scripts/InteractiveObjects/DoorOut.cs
+    startLine: 22
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Is the door open?
+  example: []
+  syntax:
+    content: public static bool isActive
+    return:
+      type: System.Boolean
+    content.vb: Public Shared isActive As Boolean
+- uid: Global.DoorOut.OpenDoor
+  commentId: M:Global.DoorOut.OpenDoor
+  id: OpenDoor
+  parent: Global.DoorOut
+  langs:
+  - csharp
+  - vb
+  name: OpenDoor()
+  nameWithType: DoorOut.OpenDoor()
+  fullName: DoorOut.OpenDoor()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/DoorOut.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OpenDoor
+    path: ../Assets/Scripts/InteractiveObjects/DoorOut.cs
+    startLine: 37
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method called when the door is opened
+  example: []
+  syntax:
+    content: public void OpenDoor()
+    content.vb: Public Sub OpenDoor()
+  overload: Global.DoorOut.OpenDoor*
+- uid: Global.DoorOut.CloseDoor
+  commentId: M:Global.DoorOut.CloseDoor
+  id: CloseDoor
+  parent: Global.DoorOut
+  langs:
+  - csharp
+  - vb
+  name: CloseDoor()
+  nameWithType: DoorOut.CloseDoor()
+  fullName: DoorOut.CloseDoor()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/InteractiveObjects/DoorOut.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: CloseDoor
+    path: ../Assets/Scripts/InteractiveObjects/DoorOut.cs
+    startLine: 47
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method called when the door is closed
+  example: []
+  syntax:
+    content: public void CloseDoor()
+    content.vb: Public Sub CloseDoor()
+  overload: Global.DoorOut.CloseDoor*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.DoorOut.OpenDoor*
+  commentId: Overload:Global.DoorOut.OpenDoor
+  href: Global.DoorOut.html#DoorOut.OpenDoor
+  name: OpenDoor
+  nameWithType: DoorOut.OpenDoor
+  fullName: DoorOut.OpenDoor
+- uid: Global.DoorOut.CloseDoor*
+  commentId: Overload:Global.DoorOut.CloseDoor
+  href: Global.DoorOut.html#DoorOut.CloseDoor
+  name: CloseDoor
+  nameWithType: DoorOut.CloseDoor
+  fullName: DoorOut.CloseDoor

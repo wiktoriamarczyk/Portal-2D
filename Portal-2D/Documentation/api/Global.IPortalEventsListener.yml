@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.IPortalEventsListener
+  commentId: T:Global.IPortalEventsListener
+  id: IPortalEventsListener
+  parent: Global
+  children:
+  - Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  - Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  langs:
+  - csharp
+  - vb
+  name: IPortalEventsListener
+  nameWithType: IPortalEventsListener
+  fullName: IPortalEventsListener
+  type: Interface
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalEventsListener.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: IPortalEventsListener
+    path: ../Assets/Scripts/Portal/PortalEventsListener.cs
+    startLine: 3
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Interface for objects which can interact with portals
+  example: []
+  syntax:
+    content: public interface IPortalEventsListener
+    content.vb: Public Interface IPortalEventsListener
+- uid: Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  commentId: M:Global.IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  id: OnTeleported(PortalLogic,PortalLogic)
+  parent: Global.IPortalEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnTeleported(PortalLogic, PortalLogic)
+  nameWithType: IPortalEventsListener.OnTeleported(PortalLogic, PortalLogic)
+  fullName: IPortalEventsListener.OnTeleported(PortalLogic, PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalEventsListener.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnTeleported
+    path: ../Assets/Scripts/Portal/PortalEventsListener.cs
+    startLine: 5
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: void OnTeleported(PortalLogic srcPortal, PortalLogic dstPortal)
+    parameters:
+    - id: srcPortal
+      type: Global.PortalLogic
+    - id: dstPortal
+      type: Global.PortalLogic
+    content.vb: Sub OnTeleported(srcPortal As PortalLogic, dstPortal As PortalLogic)
+  overload: Global.IPortalEventsListener.OnTeleported*
+- uid: Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  commentId: M:Global.IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  id: OnExitedPortalArea(PortalLogic)
+  parent: Global.IPortalEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnExitedPortalArea(PortalLogic)
+  nameWithType: IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  fullName: IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Portal/PortalEventsListener.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: OnExitedPortalArea
+    path: ../Assets/Scripts/Portal/PortalEventsListener.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: void OnExitedPortalArea(PortalLogic portal)
+    parameters:
+    - id: portal
+      type: Global.PortalLogic
+    content.vb: Sub OnExitedPortalArea(portal As PortalLogic)
+  overload: Global.IPortalEventsListener.OnExitedPortalArea*
+references:
+- uid: Global
+- uid: Global.IPortalEventsListener.OnTeleported*
+  commentId: Overload:Global.IPortalEventsListener.OnTeleported
+  href: Global.IPortalEventsListener.html#IPortalEventsListener.OnTeleported(PortalLogic,PortalLogic)
+  name: OnTeleported
+  nameWithType: IPortalEventsListener.OnTeleported
+  fullName: IPortalEventsListener.OnTeleported
+- uid: Global.PortalLogic
+  commentId: T:Global.PortalLogic
+  href: PortalLogic.html
+  name: PortalLogic
+  nameWithType: PortalLogic
+  fullName: PortalLogic
+- uid: Global.IPortalEventsListener.OnExitedPortalArea*
+  commentId: Overload:Global.IPortalEventsListener.OnExitedPortalArea
+  href: Global.IPortalEventsListener.html#IPortalEventsListener.OnExitedPortalArea(PortalLogic)
+  name: OnExitedPortalArea
+  nameWithType: IPortalEventsListener.OnExitedPortalArea
+  fullName: IPortalEventsListener.OnExitedPortalArea

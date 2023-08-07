@@ -1,0 +1,472 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.CommonFunctions
+  commentId: T:Global.CommonFunctions
+  id: CommonFunctions
+  parent: Global
+  children:
+  - Global.CommonFunctions.FindNearestPointOnLine(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)
+  - Global.CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  - Global.CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  - Global.CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  - Global.CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  - Global.CommonFunctions.TransformPosBetweenPortals(UnityEngine.Vector3,UnityEngine.GameObject,UnityEngine.GameObject)
+  - Global.CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  - Global.CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  - Global.CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  - Global.CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: CommonFunctions
+  nameWithType: CommonFunctions
+  fullName: CommonFunctions
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: CommonFunctions
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class containing common functions
+  example: []
+  syntax:
+    content: public class CommonFunctions
+    content.vb: Public Class CommonFunctions
+  inheritance:
+  - System.Object
+- uid: Global.CommonFunctions.TransformPosBetweenPortals(UnityEngine.Vector3,UnityEngine.GameObject,UnityEngine.GameObject)
+  commentId: M:Global.CommonFunctions.TransformPosBetweenPortals(UnityEngine.Vector3,UnityEngine.GameObject,UnityEngine.GameObject)
+  id: TransformPosBetweenPortals(UnityEngine.Vector3,UnityEngine.GameObject,UnityEngine.GameObject)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: TransformPosBetweenPortals(Vector3, GameObject, GameObject)
+  nameWithType: CommonFunctions.TransformPosBetweenPortals(Vector3, GameObject, GameObject)
+  fullName: CommonFunctions.TransformPosBetweenPortals(UnityEngine.Vector3, UnityEngine.GameObject, UnityEngine.GameObject)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: TransformPosBetweenPortals
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector3 TransformPosBetweenPortals(Vector3 absPos, GameObject srcPortal, GameObject dstPortal)
+    parameters:
+    - id: absPos
+      type: UnityEngine.Vector3
+    - id: srcPortal
+      type: UnityEngine.GameObject
+    - id: dstPortal
+      type: UnityEngine.GameObject
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function TransformPosBetweenPortals(absPos As Vector3, srcPortal As GameObject, dstPortal As GameObject) As Vector3
+  overload: Global.CommonFunctions.TransformPosBetweenPortals*
+- uid: Global.CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  commentId: M:Global.CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  id: PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: PointLocalToWorld(Transform, Vector3)
+  nameWithType: CommonFunctions.PointLocalToWorld(Transform, Vector3)
+  fullName: CommonFunctions.PointLocalToWorld(UnityEngine.Transform, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PointLocalToWorld
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 40
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector3 PointLocalToWorld(Transform parent, Vector3 pos)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: pos
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function PointLocalToWorld(parent As Transform, pos As Vector3) As Vector3
+  overload: Global.CommonFunctions.PointLocalToWorld*
+- uid: Global.CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  commentId: M:Global.CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  id: PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: PointLocalToWorld(Transform, Vector2)
+  nameWithType: CommonFunctions.PointLocalToWorld(Transform, Vector2)
+  fullName: CommonFunctions.PointLocalToWorld(UnityEngine.Transform, UnityEngine.Vector2)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PointLocalToWorld
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 44
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector2 PointLocalToWorld(Transform parent, Vector2 pos)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: pos
+      type: UnityEngine.Vector2
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function PointLocalToWorld(parent As Transform, pos As Vector2) As Vector2
+  overload: Global.CommonFunctions.PointLocalToWorld*
+- uid: Global.CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  commentId: M:Global.CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  id: PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: PointWorldToLocal(Transform, Vector3)
+  nameWithType: CommonFunctions.PointWorldToLocal(Transform, Vector3)
+  fullName: CommonFunctions.PointWorldToLocal(UnityEngine.Transform, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PointWorldToLocal
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 49
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector3 PointWorldToLocal(Transform parent, Vector3 pos)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: pos
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function PointWorldToLocal(parent As Transform, pos As Vector3) As Vector3
+  overload: Global.CommonFunctions.PointWorldToLocal*
+- uid: Global.CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  commentId: M:Global.CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  id: PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: PointWorldToLocal(Transform, Vector2)
+  nameWithType: CommonFunctions.PointWorldToLocal(Transform, Vector2)
+  fullName: CommonFunctions.PointWorldToLocal(UnityEngine.Transform, UnityEngine.Vector2)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PointWorldToLocal
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 54
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector2 PointWorldToLocal(Transform parent, Vector2 pos)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: pos
+      type: UnityEngine.Vector2
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function PointWorldToLocal(parent As Transform, pos As Vector2) As Vector2
+  overload: Global.CommonFunctions.PointWorldToLocal*
+- uid: Global.CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  commentId: M:Global.CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  id: VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: VectorLocalToWorld(Transform, Vector3)
+  nameWithType: CommonFunctions.VectorLocalToWorld(Transform, Vector3)
+  fullName: CommonFunctions.VectorLocalToWorld(UnityEngine.Transform, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: VectorLocalToWorld
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 60
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector3 VectorLocalToWorld(Transform parent, Vector3 vec)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: vec
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function VectorLocalToWorld(parent As Transform, vec As Vector3) As Vector3
+  overload: Global.CommonFunctions.VectorLocalToWorld*
+- uid: Global.CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  commentId: M:Global.CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  id: VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector2)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: VectorLocalToWorld(Transform, Vector2)
+  nameWithType: CommonFunctions.VectorLocalToWorld(Transform, Vector2)
+  fullName: CommonFunctions.VectorLocalToWorld(UnityEngine.Transform, UnityEngine.Vector2)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: VectorLocalToWorld
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 66
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector2 VectorLocalToWorld(Transform parent, Vector2 vec)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: vec
+      type: UnityEngine.Vector2
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function VectorLocalToWorld(parent As Transform, vec As Vector2) As Vector2
+  overload: Global.CommonFunctions.VectorLocalToWorld*
+- uid: Global.CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  commentId: M:Global.CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  id: VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: VectorWorldToLocal(Transform, Vector3)
+  nameWithType: CommonFunctions.VectorWorldToLocal(Transform, Vector3)
+  fullName: CommonFunctions.VectorWorldToLocal(UnityEngine.Transform, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: VectorWorldToLocal
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 72
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector3 VectorWorldToLocal(Transform parent, Vector3 vec)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: vec
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function VectorWorldToLocal(parent As Transform, vec As Vector3) As Vector3
+  overload: Global.CommonFunctions.VectorWorldToLocal*
+- uid: Global.CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  commentId: M:Global.CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  id: VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector2)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: VectorWorldToLocal(Transform, Vector2)
+  nameWithType: CommonFunctions.VectorWorldToLocal(Transform, Vector2)
+  fullName: CommonFunctions.VectorWorldToLocal(UnityEngine.Transform, UnityEngine.Vector2)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: VectorWorldToLocal
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 78
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: public static Vector2 VectorWorldToLocal(Transform parent, Vector2 vec)
+    parameters:
+    - id: parent
+      type: UnityEngine.Transform
+    - id: vec
+      type: UnityEngine.Vector2
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function VectorWorldToLocal(parent As Transform, vec As Vector2) As Vector2
+  overload: Global.CommonFunctions.VectorWorldToLocal*
+- uid: Global.CommonFunctions.FindNearestPointOnLine(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:Global.CommonFunctions.FindNearestPointOnLine(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)
+  id: FindNearestPointOnLine(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: Global.CommonFunctions
+  langs:
+  - csharp
+  - vb
+  name: FindNearestPointOnLine(Vector3, Vector3, Vector3)
+  nameWithType: CommonFunctions.FindNearestPointOnLine(Vector3, Vector3, Vector3)
+  fullName: CommonFunctions.FindNearestPointOnLine(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/Common.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: FindNearestPointOnLine
+    path: ../Assets/Scripts/Other/Common.cs
+    startLine: 92
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Finds the nearest point on the line
+  example: []
+  syntax:
+    content: public static Vector3 FindNearestPointOnLine(Vector3 origin, Vector3 direction, Vector3 point)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: ''
+    - id: direction
+      type: UnityEngine.Vector3
+      description: ''
+    - id: point
+      type: UnityEngine.Vector3
+      description: ''
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Shared Function FindNearestPointOnLine(origin As Vector3, direction As Vector3, point As Vector3) As Vector3
+  overload: Global.CommonFunctions.FindNearestPointOnLine*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.CommonFunctions.TransformPosBetweenPortals*
+  commentId: Overload:Global.CommonFunctions.TransformPosBetweenPortals
+  href: Global.CommonFunctions.html#CommonFunctions.TransformPosBetweenPortals(UnityEngine.Vector3,UnityEngine.GameObject,UnityEngine.GameObject)
+  name: TransformPosBetweenPortals
+  nameWithType: CommonFunctions.TransformPosBetweenPortals
+  fullName: CommonFunctions.TransformPosBetweenPortals
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.CommonFunctions.PointLocalToWorld*
+  commentId: Overload:Global.CommonFunctions.PointLocalToWorld
+  href: Global.CommonFunctions.html#CommonFunctions.PointLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  name: PointLocalToWorld
+  nameWithType: CommonFunctions.PointLocalToWorld
+  fullName: CommonFunctions.PointLocalToWorld
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: Global.CommonFunctions.PointWorldToLocal*
+  commentId: Overload:Global.CommonFunctions.PointWorldToLocal
+  href: Global.CommonFunctions.html#CommonFunctions.PointWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  name: PointWorldToLocal
+  nameWithType: CommonFunctions.PointWorldToLocal
+  fullName: CommonFunctions.PointWorldToLocal
+- uid: Global.CommonFunctions.VectorLocalToWorld*
+  commentId: Overload:Global.CommonFunctions.VectorLocalToWorld
+  href: Global.CommonFunctions.html#CommonFunctions.VectorLocalToWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  name: VectorLocalToWorld
+  nameWithType: CommonFunctions.VectorLocalToWorld
+  fullName: CommonFunctions.VectorLocalToWorld
+- uid: Global.CommonFunctions.VectorWorldToLocal*
+  commentId: Overload:Global.CommonFunctions.VectorWorldToLocal
+  href: Global.CommonFunctions.html#CommonFunctions.VectorWorldToLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  name: VectorWorldToLocal
+  nameWithType: CommonFunctions.VectorWorldToLocal
+  fullName: CommonFunctions.VectorWorldToLocal
+- uid: Global.CommonFunctions.FindNearestPointOnLine*
+  commentId: Overload:Global.CommonFunctions.FindNearestPointOnLine
+  href: Global.CommonFunctions.html#CommonFunctions.FindNearestPointOnLine(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)
+  name: FindNearestPointOnLine
+  nameWithType: CommonFunctions.FindNearestPointOnLine
+  fullName: CommonFunctions.FindNearestPointOnLine

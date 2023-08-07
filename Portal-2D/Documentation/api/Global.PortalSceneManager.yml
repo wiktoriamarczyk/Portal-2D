@@ -1,0 +1,409 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.PortalSceneManager
+  commentId: T:Global.PortalSceneManager
+  id: PortalSceneManager
+  parent: Global
+  children:
+  - Global.PortalSceneManager.DeactivatePausePanel
+  - Global.PortalSceneManager.GetSceneIndex
+  - Global.PortalSceneManager.Instance
+  - Global.PortalSceneManager.LoadNextLevel
+  - Global.PortalSceneManager.LoadStartScene
+  - Global.PortalSceneManager.QuitGame
+  - Global.PortalSceneManager.RestartLevel
+  - Global.PortalSceneManager.SetMusicVolume(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: PortalSceneManager
+  nameWithType: PortalSceneManager
+  fullName: PortalSceneManager
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: PortalSceneManager
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 6
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  syntax:
+    content: 'public class PortalSceneManager : MonoBehaviour'
+    content.vb: Public Class PortalSceneManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.PortalSceneManager.Instance
+  commentId: P:Global.PortalSceneManager.Instance
+  id: Instance
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: PortalSceneManager.Instance
+  fullName: PortalSceneManager.Instance
+  type: Property
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: Instance
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 11
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Singleton instance
+  example: []
+  syntax:
+    content: public static PortalSceneManager Instance { get; }
+    parameters: []
+    return:
+      type: Global.PortalSceneManager
+    content.vb: Public Shared Property Instance As PortalSceneManager
+  overload: Global.PortalSceneManager.Instance*
+- uid: Global.PortalSceneManager.SetMusicVolume(System.Single)
+  commentId: M:Global.PortalSceneManager.SetMusicVolume(System.Single)
+  id: SetMusicVolume(System.Single)
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: SetMusicVolume(float)
+  nameWithType: PortalSceneManager.SetMusicVolume(float)
+  fullName: PortalSceneManager.SetMusicVolume(float)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: SetMusicVolume
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 54
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for setting music volume
+  example: []
+  syntax:
+    content: public void SetMusicVolume(float volume)
+    parameters:
+    - id: volume
+      type: System.Single
+      description: music volume
+    content.vb: Public Sub SetMusicVolume(volume As Single)
+  overload: Global.PortalSceneManager.SetMusicVolume*
+  nameWithType.vb: PortalSceneManager.SetMusicVolume(Single)
+  fullName.vb: PortalSceneManager.SetMusicVolume(Single)
+  name.vb: SetMusicVolume(Single)
+- uid: Global.PortalSceneManager.DeactivatePausePanel
+  commentId: M:Global.PortalSceneManager.DeactivatePausePanel
+  id: DeactivatePausePanel
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: DeactivatePausePanel()
+  nameWithType: PortalSceneManager.DeactivatePausePanel()
+  fullName: PortalSceneManager.DeactivatePausePanel()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: DeactivatePausePanel
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 62
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Deactivates pause panel
+  example: []
+  syntax:
+    content: public void DeactivatePausePanel()
+    content.vb: Public Sub DeactivatePausePanel()
+  overload: Global.PortalSceneManager.DeactivatePausePanel*
+- uid: Global.PortalSceneManager.RestartLevel
+  commentId: M:Global.PortalSceneManager.RestartLevel
+  id: RestartLevel
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: RestartLevel()
+  nameWithType: PortalSceneManager.RestartLevel()
+  fullName: PortalSceneManager.RestartLevel()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: RestartLevel
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 70
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Restarts current level
+  example: []
+  syntax:
+    content: public void RestartLevel()
+    content.vb: Public Sub RestartLevel()
+  overload: Global.PortalSceneManager.RestartLevel*
+- uid: Global.PortalSceneManager.LoadStartScene
+  commentId: M:Global.PortalSceneManager.LoadStartScene
+  id: LoadStartScene
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: LoadStartScene()
+  nameWithType: PortalSceneManager.LoadStartScene()
+  fullName: PortalSceneManager.LoadStartScene()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: LoadStartScene
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 77
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for loading starting scene
+  example: []
+  syntax:
+    content: public void LoadStartScene()
+    content.vb: Public Sub LoadStartScene()
+  overload: Global.PortalSceneManager.LoadStartScene*
+- uid: Global.PortalSceneManager.QuitGame
+  commentId: M:Global.PortalSceneManager.QuitGame
+  id: QuitGame
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: QuitGame()
+  nameWithType: PortalSceneManager.QuitGame()
+  fullName: PortalSceneManager.QuitGame()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: QuitGame
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 84
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for quitting the game
+  example: []
+  syntax:
+    content: public void QuitGame()
+    content.vb: Public Sub QuitGame()
+  overload: Global.PortalSceneManager.QuitGame*
+- uid: Global.PortalSceneManager.LoadNextLevel
+  commentId: M:Global.PortalSceneManager.LoadNextLevel
+  id: LoadNextLevel
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: LoadNextLevel()
+  nameWithType: PortalSceneManager.LoadNextLevel()
+  fullName: PortalSceneManager.LoadNextLevel()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: LoadNextLevel
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 91
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method responsible for loading next level
+  example: []
+  syntax:
+    content: public void LoadNextLevel()
+    content.vb: Public Sub LoadNextLevel()
+  overload: Global.PortalSceneManager.LoadNextLevel*
+- uid: Global.PortalSceneManager.GetSceneIndex
+  commentId: M:Global.PortalSceneManager.GetSceneIndex
+  id: GetSceneIndex
+  parent: Global.PortalSceneManager
+  langs:
+  - csharp
+  - vb
+  name: GetSceneIndex()
+  nameWithType: PortalSceneManager.GetSceneIndex()
+  fullName: PortalSceneManager.GetSceneIndex()
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Other/PortalSceneManager.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: GetSceneIndex
+    path: ../Assets/Scripts/Other/PortalSceneManager.cs
+    startLine: 99
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Returns current scene index
+  example: []
+  syntax:
+    content: public int GetSceneIndex()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function GetSceneIndex() As Integer
+  overload: Global.PortalSceneManager.GetSceneIndex*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.PortalSceneManager.Instance*
+  commentId: Overload:Global.PortalSceneManager.Instance
+  href: Global.PortalSceneManager.html#PortalSceneManager.Instance
+  name: Instance
+  nameWithType: PortalSceneManager.Instance
+  fullName: PortalSceneManager.Instance
+- uid: Global.PortalSceneManager
+  commentId: T:Global.PortalSceneManager
+  href: PortalSceneManager.html
+  name: PortalSceneManager
+  nameWithType: PortalSceneManager
+  fullName: PortalSceneManager
+- uid: Global.PortalSceneManager.SetMusicVolume*
+  commentId: Overload:Global.PortalSceneManager.SetMusicVolume
+  href: Global.PortalSceneManager.html#PortalSceneManager.SetMusicVolume(System.Single)
+  name: SetMusicVolume
+  nameWithType: PortalSceneManager.SetMusicVolume
+  fullName: PortalSceneManager.SetMusicVolume
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.PortalSceneManager.DeactivatePausePanel*
+  commentId: Overload:Global.PortalSceneManager.DeactivatePausePanel
+  href: Global.PortalSceneManager.html#PortalSceneManager.DeactivatePausePanel
+  name: DeactivatePausePanel
+  nameWithType: PortalSceneManager.DeactivatePausePanel
+  fullName: PortalSceneManager.DeactivatePausePanel
+- uid: Global.PortalSceneManager.RestartLevel*
+  commentId: Overload:Global.PortalSceneManager.RestartLevel
+  href: Global.PortalSceneManager.html#PortalSceneManager.RestartLevel
+  name: RestartLevel
+  nameWithType: PortalSceneManager.RestartLevel
+  fullName: PortalSceneManager.RestartLevel
+- uid: Global.PortalSceneManager.LoadStartScene*
+  commentId: Overload:Global.PortalSceneManager.LoadStartScene
+  href: Global.PortalSceneManager.html#PortalSceneManager.LoadStartScene
+  name: LoadStartScene
+  nameWithType: PortalSceneManager.LoadStartScene
+  fullName: PortalSceneManager.LoadStartScene
+- uid: Global.PortalSceneManager.QuitGame*
+  commentId: Overload:Global.PortalSceneManager.QuitGame
+  href: Global.PortalSceneManager.html#PortalSceneManager.QuitGame
+  name: QuitGame
+  nameWithType: PortalSceneManager.QuitGame
+  fullName: PortalSceneManager.QuitGame
+- uid: Global.PortalSceneManager.LoadNextLevel*
+  commentId: Overload:Global.PortalSceneManager.LoadNextLevel
+  href: Global.PortalSceneManager.html#PortalSceneManager.LoadNextLevel
+  name: LoadNextLevel
+  nameWithType: PortalSceneManager.LoadNextLevel
+  fullName: PortalSceneManager.LoadNextLevel
+- uid: Global.PortalSceneManager.GetSceneIndex*
+  commentId: Overload:Global.PortalSceneManager.GetSceneIndex
+  href: Global.PortalSceneManager.html#PortalSceneManager.GetSceneIndex
+  name: GetSceneIndex
+  nameWithType: PortalSceneManager.GetSceneIndex
+  fullName: PortalSceneManager.GetSceneIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.CloneAnimSync
+  commentId: T:Global.CloneAnimSync
+  id: CloneAnimSync
+  parent: Global
+  children:
+  - Global.CloneAnimSync.StartAnim(UnityEngine.GameObject)
+  langs:
+  - csharp
+  - vb
+  name: CloneAnimSync
+  nameWithType: CloneAnimSync
+  fullName: CloneAnimSync
+  type: Class
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/CloneAnimSync.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: CloneAnimSync
+    path: ../Assets/Scripts/Player/CloneAnimSync.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Class responsible for synchronizing the animation of the source object to the destination object
+  example: []
+  syntax:
+    content: 'public class CloneAnimSync : MonoBehaviour'
+    content.vb: Public Class CloneAnimSync Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+- uid: Global.CloneAnimSync.StartAnim(UnityEngine.GameObject)
+  commentId: M:Global.CloneAnimSync.StartAnim(UnityEngine.GameObject)
+  id: StartAnim(UnityEngine.GameObject)
+  parent: Global.CloneAnimSync
+  langs:
+  - csharp
+  - vb
+  name: StartAnim(GameObject)
+  nameWithType: CloneAnimSync.StartAnim(GameObject)
+  fullName: CloneAnimSync.StartAnim(UnityEngine.GameObject)
+  type: Method
+  source:
+    remote:
+      path: Portal-2D/Assets/Scripts/Player/CloneAnimSync.cs
+      branch: main
+      repo: https://github.com/mkirschniok/Portal-2D.git
+    id: StartAnim
+    path: ../Assets/Scripts/Player/CloneAnimSync.cs
+    startLine: 46
+  assemblies:
+  - Assembly-CSharp
+  namespace: Global
+  summary: Method which starts the animation
+  example: []
+  syntax:
+    content: public void StartAnim(GameObject source)
+    parameters:
+    - id: source
+      type: UnityEngine.GameObject
+      description: animation source
+    content.vb: Public Sub StartAnim(source As GameObject)
+  overload: Global.CloneAnimSync.StartAnim*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Global.CloneAnimSync.StartAnim*
+  commentId: Overload:Global.CloneAnimSync.StartAnim
+  href: Global.CloneAnimSync.html#CloneAnimSync.StartAnim(UnityEngine.GameObject)
+  name: StartAnim
+  nameWithType: CloneAnimSync.StartAnim
+  fullName: CloneAnimSync.StartAnim
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
