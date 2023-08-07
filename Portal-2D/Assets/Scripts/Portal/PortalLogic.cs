@@ -31,6 +31,10 @@ public class PortalLogic : MonoBehaviour
     /// </summary>
     [SerializeField] PortalBehaviour portalBehaviour;
     /// <summary>
+    /// Trigger that detects objects that are inside of the portal
+    /// </summary>
+    [SerializeField] BoxTrigger insidePortalTrigger;
+    /// <summary>
     /// List of objects that are currently in the portal
     /// </summary>
     List<GameObject> objectsInPortal = new List<GameObject>();
@@ -158,12 +162,33 @@ public class PortalLogic : MonoBehaviour
 
         objectsInPortal.Add(collision.gameObject);
 
-        portalAdapter.SetIsInPortalArea(true);
-
         Vector3 worldClonePos = CommonFunctions.TransformPosBetweenPortals(collision.gameObject.transform.position, gameObject, GetDestinationPortal());
 
         portalAdapter.CreateClone(worldClonePos, collision.gameObject.transform.localRotation, this, destination);
     }
+
+    /// <summary>
+    /// Method called when object enters portal inside
+    /// </summary>
+    /// <param name="collision">object that entered portal inside</param>
+    void OnEnterInside( Collider2D collision )
+    {
+        var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();
+        if (portalAdapter != null)
+            portalAdapter.SetIsInPortalArea(true);
+    }
+
+    /// <summary>
+    /// Method called when object leaves portal inside
+    /// </summary>
+    /// <param name="collision">object that leaves portal inside</param>
+    void OnLeaveInside( Collider2D collision )
+    {
+        var portalAdapter = collision.gameObject.GetComponent<PortalAdapter>();
+        if (portalAdapter != null)
+            portalAdapter.SetIsInPortalArea(false);
+    }
+
     /// <summary>
     /// Checks if object passed point that indicates it should be teleported and perform the teleportation
     /// </summary>
@@ -251,6 +276,12 @@ public class PortalLogic : MonoBehaviour
 
         if (animator!=null)
             animator.SetTrigger("OpenPortal");
+
+        if (insidePortalTrigger)
+        {
+            insidePortalTrigger.OnTriggerEnter.AddListener( OnEnterInside );
+            insidePortalTrigger.OnTriggerLeave.AddListener( OnLeaveInside );
+        }
     }
     /// <summary>
     /// Destroy portal
