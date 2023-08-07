@@ -69,7 +69,7 @@ public class PlayerHurt : MonoBehaviour
         if (lives == 0)
         {
             lives = 5;
-            PanelManager.Instance.RestartLevel();
+            PortalSceneManager.Instance.RestartLevel();
             isHurt = false;
         }
         if (recolorTime > 0)

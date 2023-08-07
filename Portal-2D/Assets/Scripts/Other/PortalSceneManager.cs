@@ -1,0 +1,89 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
+
+public class PortalSceneManager : MonoBehaviour
+{
+    /// <summary>
+    /// Singleton instance
+    /// </summary>
+    public static PortalSceneManager Instance { get; private set; }
+    /// <summary>
+    /// Panel showed when player needs to pause the game
+    /// </summary>
+    [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject player;
+    const string musicVolumePlayerPrefsName = "MusicVolume";
+    const string startSceneName = "StartScene";
+
+    void Awake()
+    {
+        // singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        else
+            Instance = this;
+
+        SetMusicVolume(PlayerPrefs.GetFloat(musicVolumePlayerPrefsName));
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled - responsible for managing the behaviour of the player input
+    /// </summary>
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pausePanel.SetActive(true);
+            Camera.main.GetComponent<PostProcessLayer>().enabled = true;
+            player.SetActive(false);
+        }
+        if (!pausePanel.activeSelf)
+        {
+            player.SetActive(true);
+        }
+    }
+    /// <summary>
+    /// Method responsible for setting music volume
+    /// </summary>
+    /// <param name="volume">music volume</param>
+    public void SetMusicVolume(float volume)
+    {
+        var musicVolume = Mathf.Clamp(volume, 0, 1.01f);
+        AudioListener.volume = musicVolume;
+    }
+    /// <summary>
+    /// Deactivates pause panel
+    /// </summary>
+    public void DeactivatePausePanel()
+    {
+        pausePanel.SetActive(false);
+        player.SetActive(true);
+    }
+    /// <summary>
+    /// Restarts current level
+    /// </summary>
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    /// <summary>
+    /// Method responsible for loading starting scene
+    /// </summary>
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene(startSceneName);
+    }
+    /// <summary>
+    /// Method responsible for quitting the game
+    /// </summary>
+    public void QuitGame()
+    {
+        PanelManager.Instance.QuitGame();
+    }
+}

@@ -22,10 +22,6 @@ public class PanelManager : MonoBehaviour
     /// </summary>
     [SerializeField] GameObject startingPanel;
     /// <summary>
-    /// Panel showed when player needs to pause the game
-    /// </summary>
-    [SerializeField] GameObject pausePanel;
-    /// <summary>
     /// Text containing music volume
     /// </summary>
     [SerializeField] TextMeshProUGUI musicVolumeValue;
@@ -33,10 +29,6 @@ public class PanelManager : MonoBehaviour
     /// Text containing info about music being on or off
     /// </summary>
     [SerializeField] TextMeshProUGUI musicSound;
-    /// <summary>
-    /// Player object
-    /// </summary>
-    [SerializeField] GameObject player;
     /// <summary>
     /// Currently showed panel
     /// </summary>
@@ -49,6 +41,8 @@ public class PanelManager : MonoBehaviour
     ///  Awake is called when the script instance is being loaded - responsible for setting singleton instance,
     ///  setting music volume and hiding all panels
     /// </summary>
+    ///
+    const string musicVolumePlayerPrefsName = "MusicVolume";
     void Awake()
     {
         // singleton
@@ -60,33 +54,15 @@ public class PanelManager : MonoBehaviour
         else
             Instance = this;
 
-        SetMusicVolume(musicVolume);
+        SetMusicVolume(PlayerPrefs.GetFloat(musicVolumePlayerPrefsName));
+
         foreach (var panel in panels)
         {
             panel.SetActive(false);
         }
+        startingPanel.SetActive(true);
+    }
 
-    }
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled - responsible for managing the behaviour of the player input
-    /// </summary>
-    void Update()
-    {
-        if (currentPanel == null && Input.GetKeyDown(KeyCode.Escape))
-        {
-            ShowPanel(pausePanel);
-            Camera.main.GetComponent<PostProcessLayer>().enabled = true;
-            player.SetActive(false);
-        }
-        else if (currentPanel != null)
-        {
-            player.SetActive(false);
-        }
-        else
-        {
-            player.SetActive(true);
-        }
-    }
     /// <summary>
     /// Method showing panel
     /// </summary>
@@ -114,6 +90,7 @@ public class PanelManager : MonoBehaviour
     public void LoadLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        startingPanel.SetActive(false);
     }
     /// <summary>
     /// Method responsible for loading next level
@@ -121,13 +98,6 @@ public class PanelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-    /// <summary>
-    /// Restarts current level
-    /// </summary>
-    public void RestartLevel()
-    {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     /// <summary>
     /// Returns current scene index
@@ -163,16 +133,18 @@ public class PanelManager : MonoBehaviour
             musicSound.text = "SOUND: OFF";
         }
         musicVolumeValue.text = (int)(currentVolume * 100) + "%";
+        PlayerPrefs.SetFloat(musicVolumePlayerPrefsName, currentVolume);
     }
     /// <summary>
     /// Method responsible for setting music volume
     /// </summary>
     /// <param name="volume">music volume</param>
-    void SetMusicVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
         musicVolume = Mathf.Clamp(volume, 0, 1.01f);
         AudioListener.volume = musicVolume;
         musicVolumeValue.text = (int)(musicVolume * 100) + "%";
+        PlayerPrefs.SetFloat(musicVolumePlayerPrefsName, musicVolume);
     }
     /// <summary>
     /// Method responsible for turning music volume up

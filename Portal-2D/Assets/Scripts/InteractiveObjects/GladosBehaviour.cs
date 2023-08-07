@@ -87,7 +87,7 @@ public class GladosBehaviour : MonoBehaviour
         neurotoxinLvl = Mathf.Clamp(value, 0, 1);
         if (neurotoxinLvl == 1)
         {
-            PanelManager.Instance.RestartLevel();
+            PortalSceneManager.Instance.RestartLevel();
         }
         neurotoxinProgressBar.SetProgressBarValue(neurotoxinLvl);
         Vector3 neurotoxinPosition = neurotoxinEffect.transform.position;
