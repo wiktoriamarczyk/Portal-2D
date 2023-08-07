@@ -66,12 +66,12 @@ public class Lasers : MonoBehaviour
     /// </summary>
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();    // Pobranie komponentu SpriteRenderer
-        lineRenderer = GetComponent<LineRenderer>();        // Pobranie komponentu LineRenderer
-        lineRenderer.positionCount = 2;                     // Ustawienie liczby punktów na 2
-        start = transform.position;                         // Pierwszy punkt to pozycja transmitera
-        stopLaser();                                        // Wy³¹czenie lasera na pocz¹tku gry
-        // Ustawienie w³aœciwego kierunku i zwrotu lasera w zale¿noœci od rotacji transmitera
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        lineRenderer = GetComponent<LineRenderer>();     
+        lineRenderer.positionCount = 2;                  
+        start = transform.position;                      
+        stopLaser();                                     
+        // Setting the correct end point of the laser (depending on the rotation of the transmitter)
         if (Math.Round(transform.rotation.z, 1) == -0.7)
         {
             maxEnd = new Vector3(transform.position.x, transform.position.y - 100, transform.position.z);
@@ -97,7 +97,7 @@ public class Lasers : MonoBehaviour
     {
         isActive = true;
         spriteRenderer.sprite = activatedSprite;
-        lineRenderer.enabled = true;    // W³¹czenie linii
+        lineRenderer.enabled = true;
         laserOn.Play();
         laserSound.mute = false;
         laserSound.PlayDelayed(laserOn.clip.length);
@@ -109,10 +109,9 @@ public class Lasers : MonoBehaviour
     /// </summary>
     public void stopLaser()
     {
-        // Zmiana sprite'a na domyœlny
         isActive = false;
         spriteRenderer.sprite = defaultSprite;
-        lineRenderer.enabled = false;   // Wy³¹czenie linii
+        lineRenderer.enabled = false;
         laserSound.mute = true;
         laserSound.loop = false;
         laserOff.Play();
@@ -130,8 +129,8 @@ public class Lasers : MonoBehaviour
             {
                 realEnd = hit.point;
             }
-            lineRenderer.SetPosition(0, start);     // Ustawienie pierwszego punktu linii
-            lineRenderer.SetPosition(1, realEnd);   // Ustawienie drugiego punktu linii
+            lineRenderer.SetPosition(0, start);
+            lineRenderer.SetPosition(1, realEnd);   
             if (hit.collider != null && hit.collider.gameObject.tag == "Player")
             {
                 GameObject.Find("Mirror").GetComponent<MirrorCube>().isHitByTransmitter = false;
