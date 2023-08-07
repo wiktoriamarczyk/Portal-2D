@@ -35,7 +35,7 @@ public class PortalLaser : MonoBehaviour
     /// </summary>
     public LineRenderer lineRenderer;
     /// <summary>
-    /// LayerMask component - to detect laser collisions 
+    /// LayerMask component - to detect laser collisions
     /// </summary>
     public LayerMask layerMask;
     /// <summary>
@@ -67,6 +67,16 @@ public class PortalLaser : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
         lineRenderer.positionCount = 2;
+    }
+
+    static public void ResetState()
+    {
+        isBluePortalHit = false;
+        isOrangePortalHit = false;
+        isBlueHitByTransmitter = false;
+        isOrangeHitByTransmitter = false;
+        isBlueHitByMirror = false;
+        isOrangeHitByMirror = false;
     }
 
     /// <summary>
