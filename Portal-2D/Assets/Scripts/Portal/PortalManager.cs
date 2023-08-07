@@ -71,6 +71,8 @@ public class PortalManager : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        PortalLaser.ResetState();
+
         // singleton
         if (Instance != null && Instance != this)
         {
