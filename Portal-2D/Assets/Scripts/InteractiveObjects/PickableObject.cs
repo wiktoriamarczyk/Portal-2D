@@ -17,8 +17,18 @@ public class PickableObject : MonoBehaviour , IPortalEventsListener
     [SerializeField] protected float detectionRadius = 4f;
 
     TMP_Text promptText;
+    /// <summary>
+    /// Indicates whether the object is currently taken by the player
+    /// </summary>
     protected bool taken = false;
+    /// <summary>
+    /// Rigidbody2D component of the object
+    /// </summary>
     protected Rigidbody2D rigidbody2D;
+
+    /// <summary>
+    /// Indicates whether the prompt was displayed
+    /// </summary>
     static bool promptWasDisplayed = false;
 
     float backupMass = 0;

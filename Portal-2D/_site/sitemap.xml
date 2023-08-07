@@ -2,229 +2,229 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.BossFightTrigger.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.BoxTrigger.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Cake.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.CameraFollow.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.CloneAnimPair.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.CloneAnimSync.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.CommonFunctions.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Dispenser.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.DoorIn.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.DoorOut.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Enemy.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.ExcursionFunnel.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.GladosBehaviour.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.IPortalEventsListener.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Lasers.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.MirrorCube.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PanelManager.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PickableObject.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PlayerAim.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PlayerHurt.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PlayerMovement.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalAdapter.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalBehaviour.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalButton.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalCloneController.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalContinuedPathGenerator.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalLaser.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalLogic.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalManager.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalSceneManager.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.PortalSpriteController.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.ProgressBar.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Projectile.eProjectileType.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Projectile.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.Receiver.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/api/Global.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/manual/coniunctis.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://normanderwan.github.io/DocFxForUnity/manual/etiam.html</loc>
-    <lastmod>2023-08-07T03:23:32+02:00</lastmod>
+    <lastmod>2023-08-07T03:30:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
