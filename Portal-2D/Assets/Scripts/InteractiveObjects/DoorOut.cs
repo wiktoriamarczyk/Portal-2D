@@ -35,7 +35,8 @@ public class DoorOut : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        winningPanel?.SetActive(false);
+        if (winningPanel != null)
+            winningPanel.SetActive(false);
     }
     /// <summary>
     /// Method called when the door is opened
@@ -68,8 +69,8 @@ public class DoorOut : MonoBehaviour
             levelWinning?.Play();
             if (PortalSceneManager.Instance.GetSceneIndex() < 3)
                 Invoke("LoadNextLevel", 2f);
-            if (PortalSceneManager.Instance.GetSceneIndex() == 3)
-                winningPanel?.SetActive(true);
+            if (PortalSceneManager.Instance.GetSceneIndex() == 3 && winningPanel != null)
+                winningPanel.SetActive(true);
 
         }
     }
